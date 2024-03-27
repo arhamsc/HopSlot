@@ -1,0 +1,1001 @@
+Patient_Name,Patient_ID,Age,Cause_of_Visit,No_of_Previous_Visits,Cause_Matches_Previous_Visit,Doctor_Availability,Work_Shift_Time,Schedule_date_time,Delayed_by,Severity_of_Ailment
+Arjun Patel,P0001,45,"['change in bowel habits', 'raised', 'physical dependence on alcohol']",4,No,Available,Evening,2024-11-28T07:20:38,0,Severe
+Avani Kumar,P0002,48,"['pain in the lower right abdomen', 'runny nose', 'chest pain']",5,No,Unavailable,Evening,2024-04-25T16:54:40,10,Mild
+Dhruv Gupta,P0003,65,"['pain in the upper right abdomen', 'increased thirst', 'hyperthyroidism']",0,Yes,Available,Evening,2024-01-21T16:49:33,0,Severe
+Aditi Singh,P0004,68,"['pain in the lower back or side', 'itchy', 'fatigue']",3,Yes,Unavailable,Evening,2024-06-08T06:27:27,0,Severe
+Advik Sharma,P0005,68,"['condition that affects the lungs', 'raisedsexually transmitted infection that can cause burning during urination']",2,No,Unavailable,Afternoon,2024-09-21T09:33:23,5,Moderate
+Aishwarya Shah,P0006,10,"['difficulty getting', 'painful rash that follows nerve pathpain in the upper right abdomen']",8,Yes,Unavailable,Evening,2024-05-02T00:18:49,0,Moderate
+Avani Verma,P0007,84,"['cough that does not go away', 'tremors', 'sadness']",8,No,Available,Afternoon,2024-01-09T20:09:05,15,Mild
+Ishaan Kumar,P0008,22,"['fever', 'physical dependence on alcohol', 'elevated body temperature ']",3,Yes,Unavailable,Morning,2024-11-17T08:18:39,15,Mild
+Ishaan Verma,P0009,37,"['excessive worry', 'cough that does not go away', 'seizures']",1,Yes,Unavailable,Afternoon,2024-06-23T20:09:36,5,Moderate
+Aarav Shah,P0010,88,"['runny nose', 'feversexually transmitted infection that can cause burning during urination']",2,No,Unavailable,Afternoon,2024-04-14T09:46:26,10,Severe
+Ishaan Shah,P0011,71,"['difficulty getting', 'inflammation of the liver', 'memory loss']",2,No,Unavailable,Morning,2024-11-27T17:27:41,5,Severe
+Ananya Sharma,P0012,89,"['cough that does not go away', 'difficulty gettingchronic autoimmune disease that can affect any part of the body']",0,No,Unavailable,Afternoon,2024-11-02T08:09:00,5,Moderate
+Arjun Shah,P0013,89,"['cough', 'nausea', 'wheezing']",3,Yes,Unavailable,Evening,2024-12-10T12:35:05,0,Severe
+Arjun Reddy,P0014,13,"['painful urination', 'memory lossdisturbance in eating behavior that can lead to serious health problems']",9,No,Unavailable,Morning,2024-02-10T14:27:43,10,Mild
+Ananya Malhotra,P0015,59,"['decreased kidney function', 'abdominal pain', 'fatigue']",9,No,Unavailable,Morning,2024-01-07T05:47:12,0,Moderate
+Avani Verma,P0016,66,"['hypothyroidism', 'painful urination', 'seizures']",8,Yes,Unavailable,Evening,2024-02-05T05:58:39,0,Moderate
+Arjun Patel,P0017,40,"['difficulty urinating', 'painful urination', 'pain in the upper abdomen']",3,Yes,Unavailable,Evening,2024-06-25T22:04:11,0,Moderate
+Aishwarya Shah,P0018,88,"['sexually transmitted infection that can cause blisters on the genitalsnausea', 'hypothyroidism']",8,Yes,Unavailable,Afternoon,2024-07-13T18:18:04,0,Severe
+Advik Malhotra,P0019,47,"['red', 'elevated body temperature sexually transmitted infection that can cause blisters on the genitals']",5,Yes,Unavailable,Afternoon,2024-03-26T22:39:22,5,Moderate
+Arjun Shah,P0020,89,"['damage to the kidneys that can lead to kidney failuredecreased kidney function', 'condition that affects the lungs']",9,No,Available,Morning,2024-03-11T17:47:28,0,Moderate
+Dhruv Kumar,P0021,82,"['condition that affects the lungs', 'hypothyroidism', 'pain']",7,No,Available,Evening,2024-05-25T23:56:43,5,Severe
+Ishaan Reddy,P0022,38,"['raised', 'damage to the kidneys that can lead to kidney failure', 'lump']",1,Yes,Available,Afternoon,2024-06-25T03:15:24,0,Severe
+Aishwarya Verma,P0023,26,"['loose', 'swollen', 'blood in the urine']",1,Yes,Available,Afternoon,2024-12-06T14:05:39,15,Moderate
+Aarav Reddy,P0024,78,"['chest pain', 'itchy', 'pain in the upper abdomen']",4,Yes,Available,Afternoon,2024-04-14T14:55:43,5,Severe
+Ananya Singh,P0025,73,"['lump', 'change in bowel habits', 'sadness']",9,No,Unavailable,Morning,2024-01-04T08:39:04,0,Severe
+Aditi Singh,P0026,10,"['high levels of cholesterol in the blood', 'sadnesschange in bowel habits']",5,No,Unavailable,Morning,2024-09-08T04:36:23,0,Moderate
+Aditi Verma,P0027,21,"['change in bowel habits', 'pain in the upper right abdomen', 'memory loss']",9,No,Available,Evening,2024-01-26T11:46:17,0,Severe
+Aarav Chauhan,P0028,81,"['sudden weakness', 'rash', 'extreme mood swings']",6,No,Unavailable,Evening,2024-01-26T09:46:02,0,Moderate
+Arjun Gupta,P0029,70,"['lump', 'pain', 'pain in the upper right abdomen']",5,No,Available,Evening,2024-08-31T06:19:23,0,Moderate
+Aarav Reddy,P0030,80,"['change in bowel habits', 'extreme mood swingscondition that affects the lungs']",5,Yes,Unavailable,Morning,2024-08-31T16:19:24,0,Moderate
+Aarav Shah,P0031,48,"['cough that does not go away', 'blood in the urine', 'abdominal pain']",4,Yes,Available,Morning,2024-06-20T01:26:44,0,Severe
+Diya Reddy,P0032,65,"['pain in the upper abdomen', 'raised', 'widespread pain']",3,Yes,Available,Morning,2024-05-24T14:16:49,5,Severe
+Aditi Singh,P0033,83,"['sadness', 'pain in the lower back or sidedifficulty with social interaction']",8,Yes,Available,Afternoon,2024-10-12T11:47:41,0,Mild
+Diya Shah,P0034,89,"['itching', 'abdominal pain', 'chest pain']",7,No,Available,Afternoon,2024-09-18T18:34:18,0,Severe
+Aarav Gupta,P0035,50,"['rash', 'nausea', 'cough that does not go away']",7,Yes,Available,Morning,2024-02-16T16:31:31,5,Moderate
+Dhruv Verma,P0036,30,"['pain in the lower back or side', 'pain in the lower right abdomenpainful urination']",5,No,Unavailable,Afternoon,2024-09-18T21:33:50,0,Severe
+Ananya Reddy,P0037,20,"['decreased kidney function', 'abdominal pain', 'painful urination']",9,No,Available,Afternoon,2024-05-04T08:59:52,0,Severe
+Arjun Reddy,P0038,20,"['increased pressure in the eye that can damage the optic nervepainful urination', 'widespread pain']",6,Yes,Unavailable,Afternoon,2024-03-02T20:11:58,0,Mild
+Dhruv Chauhan,P0039,15,"['condition that affects the lungs', 'extreme mood swingschronic bronchitis']",8,No,Available,Morning,2024-08-20T15:23:54,0,Moderate
+Arjun Verma,P0040,40,"['difficulty getting', 'sadness', 'wheezing']",9,No,Unavailable,Afternoon,2024-03-14T02:09:46,0,Mild
+Aishwarya Verma,P0041,33,"['condition that affects the lungs', 'sudden weakness', 'runny nose']",4,Yes,Unavailable,Morning,2024-04-05T15:57:22,0,Mild
+Aditi Patel,P0042,66,"['change in bowel habits', 'rash', 'pain in the lower back or side']",1,No,Unavailable,Evening,2024-03-19T10:23:54,10,Mild
+Ananya Gupta,P0043,10,['pain in the upper right abdomenincreased pressure in the eye that can damage the optic nerveelevated body temperature '],7,Yes,Available,Afternoon,2024-01-01T23:13:41,0,Moderate
+Diya Reddy,P0044,58,"['seizures', 'chest pain', 'raised']",7,Yes,Available,Morning,2024-09-30T22:14:04,0,Moderate
+Ananya Reddy,P0045,33,"['physical dependence on alcohol', 'seizurespain in the upper right abdomen']",7,Yes,Available,Afternoon,2024-04-15T03:28:18,10,Mild
+Diya Kumar,P0046,32,"['abdominal pain', 'hypothyroidismsexually transmitted infection that can cause blisters on the genitals']",0,No,Available,Evening,2024-11-05T07:05:19,0,Moderate
+Aarav Patel,P0047,75,"['lump in the neck', 'difficulty urinating', 'elevated body temperature ']",2,No,Available,Afternoon,2024-05-05T03:43:32,5,Severe
+Aditi Chauhan,P0048,24,['wheezingsexually transmitted infection that can cause burning during urinationrash'],7,No,Available,Afternoon,2024-10-11T12:59:39,0,Severe
+Aarav Reddy,P0049,36,"['chronic bronchitis', 'hypothyroidism', 'sudden weakness']",0,Yes,Unavailable,Afternoon,2024-08-25T15:09:37,5,Severe
+Aditi Malhotra,P0050,76,"['lump in the neck', 'condition that affects the lungs', 'excessive worry']",8,No,Unavailable,Evening,2024-05-08T15:21:39,5,Moderate
+Ananya Verma,P0051,56,"['disturbance in eating behavior that can lead to serious health problemssudden weakness', 'loose']",2,No,Unavailable,Afternoon,2024-10-16T13:21:01,10,Severe
+Aarav Singh,P0052,29,['condition in which the heart cannot pump blood as well as it shouldsadnesschronic autoimmune disease that can affect any part of the body'],3,No,Unavailable,Evening,2024-07-04T15:19:22,0,Severe
+Avani Patel,P0053,35,"['difficulty urinating', 'inflammation of the liver', 'widespread pain']",1,Yes,Unavailable,Afternoon,2024-09-21T09:06:54,5,Severe
+Aarav Singh,P0054,1,['pain in the lower back or sidechronic autoimmune disease that can affect any part of the bodylump in the neck'],3,No,Unavailable,Afternoon,2024-06-29T01:41:45,0,Moderate
+Dhruv Malhotra,P0055,1,"['pain', 'bulge in the wall of the aorta', 'vomiting']",6,No,Unavailable,Morning,2024-05-21T10:06:14,0,Mild
+Aditi Chauhan,P0056,37,"['loose', 'painful urination', 'physical dependence on alcohol']",1,Yes,Available,Afternoon,2024-06-03T01:11:23,0,Severe
+Diya Sharma,P0057,54,"['sexually transmitted infection that can cause blisters on the genitalsdifficulty getting', 'hypothyroidism']",8,No,Available,Afternoon,2024-10-04T02:53:31,0,Severe
+Dhruv Chauhan,P0058,6,"['sexually transmitted infection that can cause blisters on the genitalsdiarrhea', 'pain in the lower right abdomen']",1,No,Available,Evening,2024-11-05T22:26:51,15,Mild
+Ishaan Verma,P0059,39,"['extreme mood swings', 'raisedsexually transmitted infection that can cause burning during urination']",9,No,Available,Afternoon,2024-04-12T23:47:05,0,Moderate
+Arjun Gupta,P0060,18,"['rash', 'raised', 'high levels of cholesterol in the blood']",7,Yes,Unavailable,Evening,2024-08-07T05:25:28,0,Moderate
+Ananya Sharma,P0061,80,"['physical dependence on alcohol', 'painful rash that follows nerve pathcondition in which the heart cannot pump blood as well as it should']",9,No,Available,Evening,2024-08-03T18:19:59,5,Moderate
+Advik Sharma,P0062,5,"['high levels of cholesterol in the blood', 'sadness', 'extreme mood swings']",8,Yes,Unavailable,Afternoon,2024-03-18T17:05:21,0,Moderate
+Advik Singh,P0063,43,"['abnormal pap test results', 'physical dependence on alcohol', 'nausea']",1,Yes,Available,Evening,2024-04-02T03:43:41,0,Severe
+Aarav Sharma,P0064,59,"['widespread pain', 'chronic bronchitis', 'pain in the lower right abdomen']",1,No,Unavailable,Morning,2024-04-06T05:39:07,0,Moderate
+Aarav Patel,P0065,32,"['diarrhea', 'fever', 'lump']",9,No,Unavailable,Morning,2024-12-29T09:03:51,0,Severe
+Aishwarya Malhotra,P0066,2,"['pain in the upper abdomen', 'lump', 'condition that affects the lungs']",6,Yes,Available,Afternoon,2024-03-16T15:03:20,5,Severe
+Ananya Chauhan,P0067,66,"['runny nose', 'change in bowel habits', 'tremors']",7,Yes,Unavailable,Morning,2024-03-05T00:31:47,0,Mild
+Aarav Sharma,P0068,42,"['itchy', 'seizures', 'fatigue']",9,Yes,Unavailable,Morning,2024-05-19T11:52:28,5,Severe
+Ishaan Singh,P0069,58,"['chronic bronchitis', 'lump', 'change in bowel habits']",1,Yes,Unavailable,Evening,2024-09-16T10:13:16,0,Mild
+Ananya Kumar,P0070,36,"['loose', 'chronic bronchitis', 'extreme mood swings']",6,No,Available,Evening,2024-07-01T23:09:34,15,Moderate
+Avani Kumar,P0071,12,"['itching', 'difficulty getting', 'hypothyroidism']",0,No,Unavailable,Evening,2024-04-04T16:00:53,0,Severe
+Aishwarya Verma,P0072,47,"['cough', 'itching', 'rash']",8,Yes,Available,Evening,2024-12-16T04:27:33,0,Moderate
+Avani Chauhan,P0073,83,['disturbance in eating behavior that can lead to serious health problemssexually transmitted infection that can cause burning during urinationincreased thirst'],1,No,Unavailable,Afternoon,2024-07-04T11:32:55,0,Severe
+Arjun Shah,P0074,92,"['cough that does not go away', 'change in bowel habits', 'fever']",7,No,Available,Morning,2024-03-14T18:54:32,0,Mild
+Avani Chauhan,P0075,1,"['itchy', 'bulge in the wall of the aorta', 'cough']",8,No,Unavailable,Morning,2024-12-24T18:41:25,0,Moderate
+Ananya Chauhan,P0076,15,"['sudden weakness', 'chest pain', 'fever']",1,No,Unavailable,Morning,2024-12-14T00:02:24,0,Moderate
+Ishaan Singh,P0077,54,"['loose', 'rash', 'condition that affects the lungs']",0,No,Unavailable,Evening,2024-02-07T09:18:30,0,Mild
+Ananya Reddy,P0078,13,"['runny nose', 'bulge in the wall of the aorta', 'swollen']",8,Yes,Available,Afternoon,2024-01-14T23:39:38,0,Moderate
+Dhruv Patel,P0079,43,['increased pressure in the eye that can damage the optic nervedamage to the kidneys that can lead to kidney failurecondition that affects the lungs'],4,No,Unavailable,Afternoon,2024-09-15T17:36:01,0,Moderate
+Diya Verma,P0080,85,"['lump in the neck', 'itchy', 'swollen']",2,No,Available,Evening,2024-04-26T06:20:11,5,Moderate
+Advik Gupta,P0081,76,"['itching', 'raised', 'pain in the lower right abdomen']",7,No,Unavailable,Morning,2024-12-25T16:35:55,0,Moderate
+Aishwarya Verma,P0082,69,"['extreme mood swings', 'fever', 'sudden weakness']",7,Yes,Unavailable,Evening,2024-12-29T22:44:43,0,Mild
+Advik Chauhan,P0083,7,"['fever', 'tremors', 'bulge in the wall of the aorta']",2,No,Available,Evening,2024-10-04T16:08:50,10,Mild
+Ishaan Chauhan,P0084,69,"['raised', 'difficulty with social interaction', 'widespread pain']",8,Yes,Unavailable,Morning,2024-06-23T17:38:26,0,Mild
+Arjun Kumar,P0085,48,"['wheezing', 'pain in the lower right abdomen', 'seizures']",6,Yes,Available,Afternoon,2024-06-03T11:26:57,0,Moderate
+Aditi Sharma,P0086,4,"['pain in the lower right abdomenincreased pressure in the eye that can damage the optic nerve', 'pain']",6,Yes,Available,Afternoon,2024-12-16T03:15:58,10,Severe
+Advik Chauhan,P0087,77,"['increased thirst', 'sadness', 'rash']",3,Yes,Available,Morning,2024-12-15T13:55:59,0,Severe
+Arjun Malhotra,P0088,53,"['wheezing', 'swollen', 'extreme mood swings']",6,No,Available,Evening,2024-07-22T11:58:57,15,Severe
+Dhruv Patel,P0089,79,"['difficulty urinating', 'cough that does not go awaydisturbance in eating behavior that can lead to serious health problems']",8,Yes,Available,Afternoon,2024-11-21T18:31:09,0,Moderate
+Avani Gupta,P0090,16,"['pain in the lower right abdomen', 'difficulty getting', 'itching']",2,No,Unavailable,Afternoon,2024-02-01T07:25:04,10,Mild
+Dhruv Kumar,P0091,21,"['increased pressure in the eye that can damage the optic nerveincreased thirst', 'sudden weakness']",1,Yes,Unavailable,Morning,2024-07-01T14:03:41,0,Moderate
+Aditi Malhotra,P0092,59,"['difficulty getting', 'widespread pain', 'painful urination']",0,Yes,Unavailable,Evening,2024-11-25T22:39:44,5,Severe
+Advik Singh,P0093,24,"['decreased kidney function', 'painful urination', 'fatigue']",2,No,Unavailable,Afternoon,2024-03-11T22:58:31,5,Moderate
+Aarav Reddy,P0094,80,"['inflammation of the liver', 'blood in the urinepain in the upper abdomen']",0,Yes,Available,Afternoon,2024-12-10T11:04:10,0,Moderate
+Dhruv Patel,P0095,14,"['runny nose', 'decreased kidney functionpain in the lower right abdomen']",1,Yes,Available,Evening,2024-09-21T20:06:40,0,Mild
+Ananya Reddy,P0096,86,"['itching', 'inflammation of the liverpainful rash that follows nerve path']",2,No,Available,Morning,2024-08-15T04:46:06,5,Severe
+Arjun Gupta,P0097,49,"['bulge in the wall of the aorta', 'coughdamage to the kidneys that can lead to kidney failure']",4,No,Unavailable,Morning,2024-03-16T04:52:40,5,Mild
+Ananya Patel,P0098,50,"['pain', 'hypothyroidism', 'difficulty getting']",2,Yes,Unavailable,Evening,2024-04-06T10:14:50,0,Mild
+Advik Reddy,P0099,70,"['vomiting', 'loose', 'increased thirst']",8,No,Unavailable,Evening,2024-03-27T12:00:17,0,Mild
+Aishwarya Malhotra,P0100,42,"['diarrhea', 'chronic bronchitis', 'decreased kidney function']",0,Yes,Available,Afternoon,2024-04-06T10:37:10,15,Moderate
+Advik Gupta,P0101,36,"['seizures', 'swollen', 'abdominal pain']",4,No,Available,Afternoon,2024-09-19T21:00:46,0,Severe
+Ananya Verma,P0102,65,"['cough', 'raisedchronic autoimmune disease that can affect any part of the body']",6,No,Unavailable,Evening,2024-12-09T08:50:09,5,Moderate
+Diya Reddy,P0103,96,"['itching', 'decreased kidney function', 'lump in the neck']",1,Yes,Available,Evening,2024-08-23T06:49:54,0,Severe
+Advik Chauhan,P0104,70,"['itching', 'sadness', 'change in bowel habits']",9,Yes,Available,Evening,2024-02-19T00:49:06,0,Severe
+Dhruv Reddy,P0105,95,"['pain in the lower right abdomen', 'difficulty gettingdifficulty urinating']",9,Yes,Unavailable,Evening,2024-10-22T01:10:51,0,Severe
+Aarav Chauhan,P0106,1,"['itchy', 'rash', 'vomiting']",5,Yes,Unavailable,Morning,2024-04-29T08:31:18,0,Mild
+Aarav Reddy,P0107,51,"['chronic bronchitis', 'bulge in the wall of the aortacondition that affects the lungs']",0,Yes,Available,Morning,2024-10-30T23:08:39,0,Mild
+Avani Shah,P0108,37,"['inflammation of the liver', 'itchysexually transmitted infection that can cause blisters on the genitals']",4,Yes,Available,Evening,2024-08-05T09:47:30,0,Severe
+Ananya Singh,P0109,35,"['raised', 'bulge in the wall of the aortahigh levels of cholesterol in the blood']",7,No,Available,Afternoon,2024-07-29T10:09:33,0,Severe
+Advik Reddy,P0110,49,"['painful urination', 'memory loss', 'sadness']",9,No,Available,Morning,2024-08-01T09:45:15,5,Severe
+Arjun Patel,P0111,94,"['disturbance in eating behavior that can lead to serious health problemshyperthyroidism', 'painful rash that follows nerve path']",0,No,Available,Morning,2024-11-13T21:40:04,0,Severe
+Arjun Chauhan,P0112,4,"['painful rash that follows nerve path', 'extreme mood swingsmemory loss']",9,No,Available,Afternoon,2024-01-05T13:33:48,5,Severe
+Arjun Reddy,P0113,99,"['painful rash that follows nerve path', 'seizures', 'hyperthyroidism']",6,Yes,Available,Morning,2024-02-01T22:09:50,15,Severe
+Advik Gupta,P0114,43,"['sudden weakness', 'raised', 'swollen']",9,Yes,Available,Evening,2024-03-15T22:13:04,10,Severe
+Avani Sharma,P0115,78,"['memory loss', 'extreme mood swings', 'inflammation of the liver']",7,Yes,Available,Afternoon,2024-02-20T08:45:00,15,Severe
+Aditi Reddy,P0116,22,"['tremors', 'bulge in the wall of the aorta', 'difficulty urinating']",2,Yes,Unavailable,Afternoon,2024-12-25T19:37:41,0,Severe
+Avani Patel,P0117,74,['condition in which the heart cannot pump blood as well as it shoulddisturbance in eating behavior that can lead to serious health problemsswollen'],0,Yes,Available,Morning,2024-05-11T10:55:13,0,Moderate
+Dhruv Gupta,P0118,1,"['difficulty urinating', 'decreased kidney function', 'itching']",2,No,Available,Morning,2024-02-23T17:25:43,5,Severe
+Aishwarya Kumar,P0119,11,"['disturbance in eating behavior that can lead to serious health problemsfever', 'excessive worry']",7,Yes,Available,Morning,2024-08-29T00:21:21,5,Moderate
+Ananya Gupta,P0120,44,"['sexually transmitted infection that can cause burning during urinationsadness', 'nausea']",3,No,Unavailable,Morning,2024-12-17T08:55:49,0,Moderate
+Aarav Shah,P0121,59,"['widespread pain', 'fever', 'difficulty with social interaction']",4,Yes,Available,Morning,2024-04-10T22:14:24,0,Moderate
+Aditi Singh,P0122,24,"['runny nose', 'chronic bronchitis', 'memory loss']",9,No,Available,Afternoon,2024-12-11T04:38:48,0,Mild
+Dhruv Patel,P0123,60,['tremorssexually transmitted infection that can cause burning during urinationcondition that affects the lungs'],0,Yes,Available,Evening,2024-05-14T17:50:49,0,Moderate
+Advik Chauhan,P0124,3,"['rash', 'itchycondition in which the heart cannot pump blood as well as it should']",1,No,Available,Afternoon,2024-06-01T11:34:16,10,Mild
+Ishaan Verma,P0125,99,"['seizures', 'itchy', 'hyperthyroidism']",7,Yes,Unavailable,Evening,2024-01-10T06:22:50,15,Severe
+Aditi Gupta,P0126,63,"['difficulty urinating', 'vomiting', 'raised']",8,Yes,Available,Morning,2024-03-31T16:32:11,15,Mild
+Ishaan Sharma,P0127,36,['itchysexually transmitted infection that can cause blisters on the genitalssudden weakness'],7,Yes,Available,Morning,2024-08-07T17:28:11,0,Mild
+Ishaan Patel,P0128,95,"['cough', 'loose', 'pain in the upper right abdomen']",8,No,Available,Afternoon,2024-06-10T11:54:20,10,Mild
+Aishwarya Patel,P0129,68,['rashsexually transmitted infection that can cause burning during urinationdiarrhea'],0,No,Available,Morning,2024-12-10T19:29:19,0,Mild
+Aishwarya Malhotra,P0130,83,"['excessive worry', 'decreased kidney function', 'hypothyroidism']",6,Yes,Available,Evening,2024-01-10T22:22:02,0,Moderate
+Aishwarya Singh,P0131,47,"['difficulty getting', 'difficulty urinating', 'diarrhea']",1,Yes,Unavailable,Evening,2024-06-24T10:40:25,0,Mild
+Ishaan Kumar,P0132,21,"['sexually transmitted infection that can cause burning during urinationdecreased kidney function', 'diarrhea']",3,Yes,Unavailable,Afternoon,2024-12-07T19:05:45,0,Severe
+Dhruv Gupta,P0133,82,['disturbance in eating behavior that can lead to serious health problemssexually transmitted infection that can cause burning during urinationrash'],1,Yes,Available,Evening,2024-07-20T02:10:15,15,Severe
+Arjun Sharma,P0134,51,"['high levels of cholesterol in the blood', 'chronic bronchitis', 'lump']",2,Yes,Unavailable,Evening,2024-04-01T05:03:05,0,Severe
+Aditi Singh,P0135,28,"['increased thirst', 'pain', 'painful urination']",2,Yes,Unavailable,Morning,2024-06-03T13:12:10,5,Moderate
+Arjun Patel,P0136,15,"['sexually transmitted infection that can cause blisters on the genitalscondition that affects the lungs', 'runny nose']",3,No,Available,Evening,2024-01-20T23:34:21,0,Moderate
+Ishaan Singh,P0137,42,['lump in the neckcondition in which the heart cannot pump blood as well as it shouldrunny nose'],9,No,Unavailable,Evening,2024-12-24T12:01:33,0,Moderate
+Ananya Verma,P0138,59,"['itching', 'cough', 'excessive worry']",2,No,Available,Evening,2024-09-11T23:53:58,0,Mild
+Arjun Shah,P0139,66,"['hypothyroidism', 'seizures', 'lump in the neck']",5,Yes,Available,Morning,2024-12-05T17:54:52,0,Mild
+Aditi Sharma,P0140,37,['increased pressure in the eye that can damage the optic nervedisturbance in eating behavior that can lead to serious health problemscondition in which the heart cannot pump blood as well as it should'],8,No,Available,Morning,2024-02-21T11:13:29,0,Moderate
+Diya Chauhan,P0141,11,"['sexually transmitted infection that can cause burning during urinationextreme mood swings', 'change in bowel habits']",3,Yes,Unavailable,Evening,2024-04-16T22:59:01,0,Severe
+Ananya Sharma,P0142,87,"['vomiting', 'nausea', 'high levels of cholesterol in the blood']",0,No,Available,Afternoon,2024-07-03T17:52:05,0,Moderate
+Ishaan Kumar,P0143,44,"['condition in which the heart cannot pump blood as well as it shouldrunny nose', 'pain in the lower back or side']",4,Yes,Available,Afternoon,2024-09-02T08:15:02,0,Severe
+Avani Verma,P0144,12,"['elevated body temperature ', 'nausea', 'painful urination']",1,Yes,Available,Evening,2024-03-08T13:31:43,5,Moderate
+Ananya Kumar,P0145,3,"['sudden weakness', 'decreased kidney function', 'raised']",9,No,Available,Afternoon,2024-06-12T05:18:13,0,Severe
+Advik Chauhan,P0146,52,"['diarrhea', 'condition that affects the lungs', 'red']",1,No,Unavailable,Morning,2024-04-16T14:35:49,0,Severe
+Dhruv Chauhan,P0147,81,"['difficulty with social interaction', 'cough that does not go awayabnormal pap test results']",0,Yes,Available,Morning,2024-01-22T09:56:52,5,Moderate
+Dhruv Patel,P0148,33,"['extreme mood swings', 'blood in the urine', 'abnormal pap test results']",4,No,Available,Afternoon,2024-07-02T11:50:26,5,Moderate
+Aditi Reddy,P0149,55,"['painful rash that follows nerve path', 'extreme mood swingspain in the lower back or side']",7,No,Unavailable,Afternoon,2024-07-17T23:18:19,0,Mild
+Avani Gupta,P0150,1,"['painful urination', 'difficulty with social interactiondisturbance in eating behavior that can lead to serious health problems']",4,No,Unavailable,Morning,2024-12-06T12:35:23,15,Severe
+Aishwarya Sharma,P0151,39,"['sudden weakness', 'hyperthyroidismsexually transmitted infection that can cause burning during urination']",6,No,Unavailable,Morning,2024-11-13T07:05:15,0,Severe
+Avani Chauhan,P0152,20,"['pain', 'vomiting', 'memory loss']",1,Yes,Unavailable,Evening,2024-11-15T06:05:58,5,Mild
+Aarav Patel,P0153,47,"['red', 'hyperthyroidism', 'itching']",5,No,Available,Morning,2024-04-22T09:18:25,5,Mild
+Diya Kumar,P0154,43,"['abnormal pap test results', 'sudden weakness', 'itchy']",7,Yes,Unavailable,Morning,2024-06-14T21:17:23,5,Severe
+Aishwarya Chauhan,P0155,57,"['itching', 'bulge in the wall of the aorta', 'runny nose']",7,No,Available,Morning,2024-02-16T08:02:22,15,Severe
+Advik Sharma,P0156,61,"['high levels of cholesterol in the blood', 'vomitingchronic autoimmune disease that can affect any part of the body']",4,No,Unavailable,Evening,2024-10-12T21:41:39,15,Moderate
+Aditi Chauhan,P0157,78,"['abnormal pap test results', 'raised', 'loose']",2,Yes,Unavailable,Evening,2024-06-22T09:20:35,0,Moderate
+Ananya Sharma,P0158,31,"['damage to the kidneys that can lead to kidney failure', 'sadness', 'loose']",7,No,Unavailable,Evening,2024-07-10T17:44:51,5,Moderate
+Advik Gupta,P0159,25,"['lump', 'fever', 'seizures']",0,Yes,Unavailable,Evening,2024-05-15T13:07:14,0,Moderate
+Dhruv Sharma,P0160,3,"['pain in the lower back or side', 'cough that does not go away', 'itchy']",9,No,Unavailable,Morning,2024-11-29T00:54:16,10,Mild
+Diya Malhotra,P0161,4,"['hypothyroidism', 'pain in the upper abdomen', 'change in bowel habits']",4,No,Available,Evening,2024-12-08T20:33:25,0,Severe
+Advik Chauhan,P0162,95,"['pain in the upper right abdomen', 'sadnessdamage to the kidneys that can lead to kidney failure']",3,No,Available,Morning,2024-01-16T03:08:24,5,Severe
+Aarav Reddy,P0163,99,"['sudden weakness', 'bulge in the wall of the aortachange in bowel habits']",4,No,Available,Morning,2024-09-17T00:28:53,10,Mild
+Aarav Chauhan,P0164,14,"['seizures', 'change in bowel habits', 'diarrhea']",8,No,Available,Afternoon,2024-04-27T09:02:57,0,Mild
+Dhruv Verma,P0165,41,"['pain in the upper abdomen', 'tremors', 'abdominal pain']",5,Yes,Unavailable,Afternoon,2024-04-16T12:03:46,15,Moderate
+Ananya Sharma,P0166,73,"['bulge in the wall of the aorta', 'fever', 'extreme mood swings']",3,No,Unavailable,Morning,2024-12-29T07:42:31,15,Moderate
+Dhruv Verma,P0167,20,"['sudden weakness', 'diarrhea', 'extreme mood swings']",3,No,Available,Evening,2024-10-30T12:13:49,0,Severe
+Dhruv Kumar,P0168,96,"['seizures', 'inflammation of the liver', 'physical dependence on alcohol']",7,Yes,Available,Morning,2024-09-23T00:58:36,15,Moderate
+Advik Shah,P0169,73,"['pain', 'abnormal pap test results', 'painful rash that follows nerve path']",0,No,Unavailable,Morning,2024-08-03T22:03:33,5,Severe
+Aarav Gupta,P0170,27,"['diarrhea', 'extreme mood swingsdamage to the kidneys that can lead to kidney failure']",5,No,Available,Morning,2024-12-25T01:37:25,5,Mild
+Arjun Reddy,P0171,67,"['lump in the neck', 'excessive worrydisturbance in eating behavior that can lead to serious health problems']",6,Yes,Available,Evening,2024-12-24T19:44:44,0,Mild
+Ishaan Reddy,P0172,53,"['chronic autoimmune disease that can affect any part of the bodyrunny nose', 'raised']",1,No,Available,Evening,2024-03-31T20:43:00,10,Moderate
+Aishwarya Kumar,P0173,68,"['excessive worry', 'raised', 'tremors']",4,Yes,Available,Morning,2024-04-26T18:34:06,15,Mild
+Ishaan Kumar,P0174,62,"['swollen', 'painful urination', 'widespread pain']",8,Yes,Unavailable,Afternoon,2024-07-03T15:18:59,0,Mild
+Ishaan Reddy,P0175,15,"['pain in the upper right abdomen', 'lump', 'runny nose']",9,Yes,Available,Morning,2024-04-20T21:53:28,0,Moderate
+Ananya Patel,P0176,97,"['abdominal pain', 'memory loss', 'loose']",9,Yes,Unavailable,Morning,2024-05-15T03:35:41,0,Moderate
+Aditi Chauhan,P0177,5,"['inflammation of the liver', 'change in bowel habits', 'sudden weakness']",9,No,Available,Evening,2024-10-24T23:28:52,5,Severe
+Ishaan Chauhan,P0178,68,"['tremors', 'rash', 'lump']",0,Yes,Unavailable,Morning,2024-05-01T00:39:26,0,Severe
+Diya Singh,P0179,12,"['difficulty urinating', 'high levels of cholesterol in the bloodabdominal pain']",0,Yes,Available,Afternoon,2024-11-20T01:15:41,10,Moderate
+Arjun Gupta,P0180,87,"['difficulty urinating', 'cough that does not go away', 'fever']",9,Yes,Unavailable,Evening,2024-07-31T21:56:21,0,Moderate
+Advik Malhotra,P0181,78,"['pain in the lower back or side', 'cough that does not go away', 'rash']",7,Yes,Available,Morning,2024-02-04T14:46:20,0,Mild
+Arjun Gupta,P0182,76,"['sadness', 'difficulty urinating', 'painful urination']",8,No,Available,Evening,2024-03-18T08:58:03,0,Moderate
+Dhruv Gupta,P0183,57,"['loose', 'red', 'cough']",5,Yes,Available,Morning,2024-09-18T15:08:51,5,Moderate
+Avani Kumar,P0184,17,"['tremors', 'cough that does not go away', 'wheezing']",0,No,Unavailable,Evening,2024-04-16T05:46:16,0,Severe
+Dhruv Shah,P0185,25,"['painful rash that follows nerve path', 'bulge in the wall of the aortafever']",9,No,Unavailable,Evening,2024-04-23T07:21:39,0,Severe
+Ananya Kumar,P0186,30,"['elevated body temperature ', 'pain in the upper abdomen', 'hypothyroidism']",7,Yes,Available,Evening,2024-08-27T13:53:33,10,Mild
+Ananya Malhotra,P0187,22,"['rash', 'excessive worry', 'itching']",7,Yes,Available,Evening,2024-02-06T07:24:11,15,Severe
+Aditi Gupta,P0188,26,"['difficulty getting', 'inflammation of the liver', 'increased thirst']",2,Yes,Available,Morning,2024-10-31T09:53:58,15,Mild
+Advik Verma,P0189,81,"['difficulty urinating', 'painful rash that follows nerve path', 'red']",3,Yes,Available,Morning,2024-06-27T22:22:04,0,Severe
+Ananya Singh,P0190,61,"['runny nose', 'decreased kidney function', 'hyperthyroidism']",7,Yes,Unavailable,Afternoon,2024-02-06T03:26:13,15,Moderate
+Diya Patel,P0191,62,"['vomiting', 'red', 'pain in the upper abdomen']",2,Yes,Available,Morning,2024-12-22T10:21:09,5,Mild
+Dhruv Gupta,P0192,84,"['difficulty urinating', 'rash', 'fever']",9,No,Unavailable,Evening,2024-11-26T19:37:10,0,Moderate
+Aarav Malhotra,P0193,34,"['increased thirst', 'loose', 'difficulty getting']",0,No,Unavailable,Afternoon,2024-04-04T01:51:31,5,Moderate
+Aditi Chauhan,P0194,33,"['increased thirst', 'inflammation of the liverincreased pressure in the eye that can damage the optic nerve']",2,Yes,Available,Evening,2024-03-19T17:34:09,5,Moderate
+Dhruv Chauhan,P0195,71,['pain in the lower back or sidecondition in which the heart cannot pump blood as well as it shouldsexually transmitted infection that can cause burning during urination'],7,Yes,Available,Morning,2024-12-10T20:04:14,5,Severe
+Arjun Gupta,P0196,86,['condition that affects the lungsdisturbance in eating behavior that can lead to serious health problemsfever'],0,Yes,Unavailable,Evening,2024-03-12T15:35:56,0,Mild
+Advik Patel,P0197,32,"['fatigue', 'seizures', 'abdominal pain']",0,No,Available,Morning,2024-02-09T23:08:24,15,Severe
+Aishwarya Sharma,P0198,14,"['red', 'change in bowel habits', 'pain']",9,No,Unavailable,Afternoon,2024-07-22T10:19:09,0,Mild
+Advik Verma,P0199,72,"['lump', 'increased thirst', 'excessive worry']",3,Yes,Available,Evening,2024-08-24T17:24:23,0,Mild
+Avani Shah,P0200,57,"['sexually transmitted infection that can cause blisters on the genitalshypothyroidism', 'hyperthyroidism']",9,No,Unavailable,Morning,2024-01-18T10:46:22,0,Moderate
+Advik Verma,P0201,25,"['disturbance in eating behavior that can lead to serious health problemslump', 'physical dependence on alcohol']",3,No,Available,Morning,2024-10-06T17:28:03,0,Mild
+Diya Kumar,P0202,80,"['painful rash that follows nerve path', 'abdominal pain', 'raised']",1,No,Available,Evening,2024-03-24T01:26:18,0,Severe
+Aditi Sharma,P0203,42,"['itching', 'painful rash that follows nerve path', 'seizures']",0,Yes,Available,Morning,2024-12-06T09:25:25,10,Moderate
+Dhruv Chauhan,P0204,19,"['difficulty urinating', 'wheezing', 'rash']",0,No,Unavailable,Afternoon,2024-12-02T01:33:03,0,Moderate
+Aishwarya Verma,P0205,41,"['difficulty getting', 'inflammation of the liverpain in the upper right abdomen']",7,No,Unavailable,Evening,2024-04-28T11:39:57,15,Mild
+Diya Verma,P0206,55,"['fever', 'tremors', 'wheezing']",3,Yes,Unavailable,Evening,2024-10-10T18:34:05,15,Mild
+Diya Verma,P0207,80,"['pain in the upper right abdomen', 'runny nose', 'extreme mood swings']",1,No,Available,Afternoon,2024-04-25T06:01:14,0,Severe
+Aditi Kumar,P0208,12,"['abnormal pap test results', 'pain in the upper abdomendifficulty urinating']",6,Yes,Available,Afternoon,2024-04-02T15:38:59,0,Moderate
+Dhruv Gupta,P0209,39,"['condition in which the heart cannot pump blood as well as it shouldpainful rash that follows nerve path', 'wheezing']",6,No,Unavailable,Morning,2024-06-10T00:16:25,5,Severe
+Advik Singh,P0210,94,"['change in bowel habits', 'pain', 'rash']",6,No,Unavailable,Afternoon,2024-03-30T01:58:32,0,Moderate
+Avani Chauhan,P0211,2,"['damage to the kidneys that can lead to kidney failurecough that does not go away', 'widespread pain']",1,No,Unavailable,Evening,2024-10-02T17:02:25,10,Severe
+Ishaan Malhotra,P0212,96,"['hyperthyroidism', 'lump in the neck', 'cough that does not go away']",1,No,Unavailable,Morning,2024-03-15T14:39:25,15,Severe
+Aarav Gupta,P0213,45,"['chronic bronchitis', 'seizures', 'painful urination']",5,No,Unavailable,Evening,2024-11-06T18:53:15,0,Mild
+Aarav Verma,P0214,89,"['sexually transmitted infection that can cause burning during urinationpain in the upper right abdomen', 'sadness']",2,Yes,Unavailable,Afternoon,2024-06-12T05:01:34,0,Severe
+Diya Malhotra,P0215,25,"['decreased kidney functionincreased pressure in the eye that can damage the optic nerve', 'red']",0,Yes,Available,Evening,2024-10-04T06:49:52,0,Severe
+Dhruv Singh,P0216,68,"['diarrhea', 'damage to the kidneys that can lead to kidney failurehypothyroidism']",8,Yes,Available,Morning,2024-08-29T03:13:12,0,Severe
+Arjun Malhotra,P0217,83,"['fatigue', 'loosecondition in which the heart cannot pump blood as well as it should']",3,Yes,Unavailable,Afternoon,2024-03-22T10:50:41,0,Moderate
+Diya Malhotra,P0218,4,"['difficulty getting', 'memory loss', 'tremors']",5,Yes,Available,Afternoon,2024-06-20T13:26:36,5,Mild
+Arjun Shah,P0219,77,"['elevated body temperature damage to the kidneys that can lead to kidney failure', 'raised']",6,No,Available,Morning,2024-09-11T22:14:29,0,Severe
+Advik Sharma,P0220,36,"['damage to the kidneys that can lead to kidney failure', 'vomitingitching']",9,No,Unavailable,Morning,2024-10-06T00:27:59,0,Moderate
+Aarav Patel,P0221,87,"['condition that affects the lungs', 'pain in the lower back or sidesudden weakness']",6,No,Available,Afternoon,2024-09-12T12:50:18,0,Severe
+Avani Chauhan,P0222,62,['feversexually transmitted infection that can cause blisters on the genitalschest pain'],9,Yes,Available,Morning,2024-04-06T07:23:55,0,Severe
+Diya Reddy,P0223,70,"['tremors', 'sadness', 'wheezing']",1,Yes,Available,Evening,2024-04-14T15:08:05,5,Severe
+Diya Patel,P0224,88,"['swollen', 'diarrhea', 'painful urination']",8,Yes,Available,Morning,2024-12-07T07:43:30,0,Mild
+Aarav Kumar,P0225,44,"['condition that affects the lungs', 'tremorsdamage to the kidneys that can lead to kidney failure']",6,Yes,Available,Morning,2024-03-10T20:30:51,0,Mild
+Avani Shah,P0226,33,"['red', 'pain in the lower back or side', 'nausea']",7,Yes,Unavailable,Evening,2024-01-22T15:46:53,0,Moderate
+Ananya Shah,P0227,12,"['increased pressure in the eye that can damage the optic nerve', 'redcondition in which the heart cannot pump blood as well as it should']",2,No,Available,Evening,2024-11-23T02:59:53,15,Mild
+Aishwarya Reddy,P0228,85,"['widespread pain', 'increased thirst', 'loose']",7,Yes,Unavailable,Afternoon,2024-01-29T17:20:36,15,Moderate
+Advik Reddy,P0229,11,"['sudden weakness', 'widespread pain', 'chronic bronchitis']",1,No,Available,Afternoon,2024-04-27T21:50:32,10,Mild
+Aarav Kumar,P0230,55,"['sudden weakness', 'raised', 'difficulty getting']",0,No,Unavailable,Morning,2024-06-07T22:54:51,0,Severe
+Aarav Chauhan,P0231,38,"['physical dependence on alcohol', 'extreme mood swings', 'cough']",3,No,Unavailable,Afternoon,2024-04-15T05:54:13,15,Severe
+Ananya Shah,P0232,29,"['painful urination', 'raised', 'sudden weakness']",4,No,Unavailable,Evening,2024-10-20T05:22:42,0,Severe
+Arjun Gupta,P0233,3,"['tremors', 'nausea', 'change in bowel habits']",9,Yes,Available,Morning,2024-08-21T19:12:35,10,Mild
+Arjun Shah,P0234,28,"['lump in the neck', 'chronic bronchitis', 'change in bowel habits']",8,No,Unavailable,Afternoon,2024-10-28T03:18:57,0,Mild
+Dhruv Chauhan,P0235,84,"['disturbance in eating behavior that can lead to serious health problemssadness', 'cough']",7,Yes,Unavailable,Evening,2024-02-14T15:18:53,0,Moderate
+Arjun Verma,P0236,90,"['fever', 'itching', 'lump in the neck']",8,Yes,Unavailable,Afternoon,2024-08-07T07:01:09,0,Mild
+Ishaan Gupta,P0237,24,"['extreme mood swings', 'chest paindamage to the kidneys that can lead to kidney failure']",7,Yes,Available,Afternoon,2024-11-24T12:08:40,5,Mild
+Ishaan Sharma,P0238,54,"['difficulty with social interaction', 'physical dependence on alcoholwidespread pain']",5,No,Unavailable,Morning,2024-04-22T17:04:00,5,Mild
+Diya Malhotra,P0239,52,"['sexually transmitted infection that can cause burning during urinationred', 'nausea']",4,Yes,Unavailable,Afternoon,2024-01-13T18:19:00,10,Mild
+Arjun Chauhan,P0240,47,"['tremors', 'rash', 'wheezing']",5,No,Unavailable,Afternoon,2024-07-31T20:04:54,0,Moderate
+Avani Gupta,P0241,21,"['increased pressure in the eye that can damage the optic nervehyperthyroidism', 'change in bowel habits']",2,No,Unavailable,Evening,2024-06-12T12:17:56,0,Severe
+Aishwarya Chauhan,P0242,54,"['sudden weakness', 'raised', 'runny nose']",4,No,Unavailable,Evening,2024-07-19T07:22:38,15,Moderate
+Advik Sharma,P0243,30,"['blood in the urine', 'fatigue', 'extreme mood swings']",6,Yes,Available,Evening,2024-02-01T20:50:45,0,Severe
+Avani Malhotra,P0244,68,"['abnormal pap test results', 'chronic bronchitispain in the lower right abdomen']",4,Yes,Available,Morning,2024-04-10T03:59:22,0,Mild
+Advik Sharma,P0245,36,"['pain in the upper right abdomen', 'runny nose', 'swollen']",3,No,Available,Afternoon,2024-07-13T02:40:35,0,Severe
+Ananya Reddy,P0246,40,"['fever', 'difficulty urinating', 'painful urination']",2,No,Available,Evening,2024-09-22T09:05:49,0,Moderate
+Ishaan Shah,P0247,10,"['raised', 'cough that does not go away', 'painful urination']",5,No,Unavailable,Evening,2024-04-17T15:29:01,5,Moderate
+Dhruv Patel,P0248,74,"['decreased kidney function', 'cough that does not go awaypainful urination']",2,Yes,Unavailable,Morning,2024-08-01T19:30:22,0,Severe
+Avani Shah,P0249,42,"['chest pain', 'difficulty with social interactiondamage to the kidneys that can lead to kidney failure']",1,No,Unavailable,Morning,2024-11-27T11:01:04,10,Mild
+Aditi Reddy,P0250,24,"['fever', 'hyperthyroidism', 'widespread pain']",8,No,Unavailable,Evening,2024-05-28T05:52:04,0,Mild
+Diya Malhotra,P0251,4,"['vomiting', 'abdominal pain', 'red']",5,Yes,Available,Evening,2024-10-29T10:16:40,15,Moderate
+Aditi Patel,P0252,47,"['difficulty with social interaction', 'hyperthyroidism', 'swollen']",1,Yes,Unavailable,Afternoon,2024-06-30T02:24:32,5,Mild
+Avani Verma,P0253,91,"['abdominal pain', 'change in bowel habits', 'nausea']",7,No,Available,Evening,2024-10-29T13:33:05,0,Moderate
+Arjun Verma,P0254,51,"['fever', 'pain in the lower right abdomenchronic autoimmune disease that can affect any part of the body']",7,Yes,Available,Afternoon,2024-08-14T21:51:07,0,Moderate
+Aditi Patel,P0255,4,"['diarrhea', 'red', 'wheezing']",7,Yes,Unavailable,Afternoon,2024-03-12T08:57:10,5,Mild
+Avani Singh,P0256,32,"['painful urination', 'condition that affects the lungspainful rash that follows nerve path']",8,No,Available,Morning,2024-07-02T00:17:04,0,Mild
+Aarav Verma,P0257,10,"['widespread pain', 'runny nose', 'decreased kidney function']",2,No,Available,Afternoon,2024-10-17T13:28:06,0,Mild
+Aditi Gupta,P0258,11,"['wheezing', 'difficulty urinating', 'chronic bronchitis']",1,Yes,Available,Afternoon,2024-07-09T09:10:58,0,Severe
+Ishaan Singh,P0259,28,"['difficulty with social interaction', 'runny nose', 'seizures']",8,Yes,Available,Morning,2024-06-19T03:00:21,0,Mild
+Ananya Chauhan,P0260,46,"['fever', 'itching', 'condition that affects the lungs']",0,Yes,Unavailable,Evening,2024-11-04T06:22:16,5,Severe
+Diya Malhotra,P0261,72,"['physical dependence on alcohol', 'itchychronic autoimmune disease that can affect any part of the body']",4,No,Unavailable,Afternoon,2024-01-31T20:41:33,0,Severe
+Aishwarya Sharma,P0262,40,"['decreased kidney function', 'red', 'difficulty with social interaction']",1,No,Available,Evening,2024-02-27T14:17:46,10,Severe
+Arjun Sharma,P0263,62,['extreme mood swingsdisturbance in eating behavior that can lead to serious health problemsbulge in the wall of the aorta'],8,Yes,Available,Evening,2024-02-10T00:10:57,0,Moderate
+Diya Patel,P0264,86,"['pain in the upper abdomen', 'vomiting', 'nausea']",5,No,Available,Evening,2024-01-10T14:53:41,10,Moderate
+Avani Chauhan,P0265,98,"['sexually transmitted infection that can cause burning during urinationdecreased kidney function', 'increased thirst']",5,Yes,Unavailable,Morning,2024-10-14T04:28:23,0,Mild
+Arjun Malhotra,P0266,45,"['condition that affects the lungs', 'abnormal pap test resultswidespread pain']",5,No,Available,Afternoon,2024-11-21T14:52:54,0,Moderate
+Ishaan Chauhan,P0267,35,"['red', 'change in bowel habits', 'pain in the upper right abdomen']",6,Yes,Available,Afternoon,2024-01-28T06:53:59,0,Moderate
+Arjun Sharma,P0268,35,"['abdominal pain', 'extreme mood swings', 'fatigue']",9,Yes,Unavailable,Evening,2024-02-22T07:16:25,10,Severe
+Ishaan Chauhan,P0269,89,"['sexually transmitted infection that can cause blisters on the genitalspainful urination', 'rash']",7,No,Unavailable,Afternoon,2024-10-16T07:18:58,0,Severe
+Ishaan Patel,P0270,34,"['red', 'abdominal pain', 'wheezing']",0,No,Available,Morning,2024-07-14T16:03:22,0,Moderate
+Dhruv Shah,P0271,6,"['blood in the urine', 'nausea', 'chronic bronchitis']",6,Yes,Unavailable,Evening,2024-05-03T07:21:28,0,Moderate
+Advik Reddy,P0272,37,"['raised', 'decreased kidney function', 'tremors']",2,No,Unavailable,Afternoon,2024-11-29T16:36:50,0,Severe
+Aarav Shah,P0273,1,"['physical dependence on alcohol', 'elevated body temperature chronic bronchitis']",5,Yes,Available,Evening,2024-10-23T15:40:40,0,Moderate
+Diya Singh,P0274,76,"['chronic autoimmune disease that can affect any part of the bodylump in the neck', 'elevated body temperature ']",8,Yes,Unavailable,Afternoon,2024-06-28T20:35:26,0,Moderate
+Avani Malhotra,P0275,35,"['wheezing', 'runny nose', 'lump']",4,Yes,Available,Morning,2024-02-01T08:05:02,5,Moderate
+Dhruv Malhotra,P0276,70,"['itching', 'pain in the lower right abdomen', 'decreased kidney function']",4,Yes,Unavailable,Morning,2024-06-18T04:37:37,0,Moderate
+Ananya Gupta,P0277,54,"['extreme mood swings', 'excessive worry', 'cough']",6,Yes,Unavailable,Afternoon,2024-01-18T00:41:09,5,Moderate
+Ishaan Chauhan,P0278,81,"['raised', 'vomiting', 'difficulty getting']",3,Yes,Available,Evening,2024-04-15T20:30:27,5,Mild
+Arjun Malhotra,P0279,63,"['inflammation of the liver', 'nausea', 'chronic bronchitis']",5,No,Available,Morning,2024-03-13T13:04:52,0,Moderate
+Advik Shah,P0280,9,"['itching', 'swollendisturbance in eating behavior that can lead to serious health problems']",6,No,Unavailable,Morning,2024-07-04T19:27:23,0,Moderate
+Aditi Kumar,P0281,62,"['sexually transmitted infection that can cause burning during urinationhigh levels of cholesterol in the blood', 'painful urination']",2,Yes,Available,Evening,2024-06-19T12:38:16,0,Severe
+Advik Patel,P0282,2,"['hyperthyroidism', 'abnormal pap test resultsdisturbance in eating behavior that can lead to serious health problems']",7,No,Available,Evening,2024-11-09T14:10:11,0,Severe
+Aishwarya Sharma,P0283,82,"['diarrhea', 'lump', 'decreased kidney function']",8,Yes,Unavailable,Morning,2024-04-13T21:08:09,5,Moderate
+Advik Singh,P0284,36,"['pain in the upper right abdomen', 'sudden weakness', 'abdominal pain']",3,No,Available,Afternoon,2024-03-20T05:02:09,0,Mild
+Advik Kumar,P0285,92,"['fever', 'nausea', 'pain in the lower right abdomen']",6,No,Available,Evening,2024-05-09T18:44:05,0,Severe
+Advik Patel,P0286,41,['damage to the kidneys that can lead to kidney failurepainful urinationsexually transmitted infection that can cause burning during urination'],8,Yes,Available,Evening,2024-09-21T14:55:12,0,Mild
+Diya Singh,P0287,37,"['tremors', 'lump in the neck', 'widespread pain']",8,No,Unavailable,Afternoon,2024-03-08T01:26:07,15,Moderate
+Advik Patel,P0288,49,"['red', 'sudden weakness', 'inflammation of the liver']",5,Yes,Unavailable,Afternoon,2024-03-08T00:41:03,0,Severe
+Diya Singh,P0289,26,"['rash', 'elevated body temperature ', 'decreased kidney function']",9,No,Available,Morning,2024-07-03T18:27:41,0,Severe
+Avani Kumar,P0290,68,"['difficulty urinating', 'hyperthyroidism', 'raised']",0,Yes,Unavailable,Evening,2024-03-23T06:47:20,0,Mild
+Aishwarya Malhotra,P0291,36,"['loose', 'swollen', 'itching']",9,Yes,Available,Afternoon,2024-10-30T20:11:32,5,Mild
+Ananya Singh,P0292,31,"['lump', 'chronic autoimmune disease that can affect any part of the bodycondition that affects the lungs']",5,Yes,Unavailable,Afternoon,2024-10-04T22:44:59,0,Moderate
+Ishaan Verma,P0293,30,"['chronic bronchitis', 'difficulty getting', 'chest pain']",3,Yes,Available,Evening,2024-07-31T13:03:47,0,Moderate
+Ishaan Malhotra,P0294,34,"['sadness', 'increased thirst', 'chest pain']",7,No,Unavailable,Morning,2024-08-31T10:23:59,0,Moderate
+Aarav Chauhan,P0295,19,['condition that affects the lungsdisturbance in eating behavior that can lead to serious health problemsabdominal pain'],9,No,Available,Morning,2024-09-05T20:37:04,0,Mild
+Aarav Kumar,P0296,18,"['difficulty with social interaction', 'runny nosepain in the lower right abdomen']",5,No,Unavailable,Evening,2024-01-31T02:24:59,0,Mild
+Diya Malhotra,P0297,94,['damage to the kidneys that can lead to kidney failurehigh levels of cholesterol in the bloodphysical dependence on alcohol'],6,Yes,Unavailable,Morning,2024-11-01T07:44:12,0,Moderate
+Advik Shah,P0298,85,"['chest pain', 'fever', 'pain in the lower back or side']",0,No,Available,Morning,2024-05-09T18:55:53,15,Moderate
+Avani Verma,P0299,3,['difficulty urinatingsexually transmitted infection that can cause burning during urinationraised'],0,No,Available,Evening,2024-11-10T23:16:45,0,Mild
+Advik Kumar,P0300,70,"['sudden weakness', 'wheezingincreased pressure in the eye that can damage the optic nerve']",9,No,Unavailable,Afternoon,2024-01-01T13:02:02,15,Mild
+Ananya Sharma,P0301,13,['memory losscondition in which the heart cannot pump blood as well as it shouldpain in the lower right abdomen'],3,Yes,Unavailable,Morning,2024-08-01T05:39:43,0,Mild
+Diya Singh,P0302,45,"['pain', 'raised', 'hyperthyroidism']",0,No,Unavailable,Evening,2024-10-06T01:02:38,0,Moderate
+Avani Verma,P0303,67,"['inflammation of the liver', 'elevated body temperature change in bowel habits']",4,No,Unavailable,Evening,2024-05-31T10:14:44,5,Moderate
+Dhruv Verma,P0304,92,"['pain in the upper abdomen', 'sudden weakness', 'widespread pain']",1,Yes,Unavailable,Morning,2024-08-29T18:39:37,5,Moderate
+Arjun Gupta,P0305,86,"['pain in the upper abdomen', 'tremorsincreased pressure in the eye that can damage the optic nerve']",8,Yes,Available,Afternoon,2024-09-13T17:17:47,0,Mild
+Avani Verma,P0306,40,"['cough that does not go away', 'abdominal pain', 'chest pain']",9,No,Available,Evening,2024-07-29T17:47:01,0,Moderate
+Aditi Gupta,P0307,40,"['cough that does not go away', 'diarrhea', 'lump']",7,No,Unavailable,Afternoon,2024-05-05T20:41:10,5,Severe
+Aarav Shah,P0308,76,"['physical dependence on alcohol', 'pain in the lower right abdomenchronic autoimmune disease that can affect any part of the body']",6,Yes,Available,Afternoon,2024-06-23T17:36:54,5,Severe
+Avani Malhotra,P0309,23,"['extreme mood swings', 'blood in the urine', 'itchy']",8,No,Unavailable,Evening,2024-11-24T05:50:54,5,Severe
+Ananya Patel,P0310,31,"['decreased kidney function', 'lump', 'fever']",0,Yes,Unavailable,Morning,2024-11-01T11:42:10,0,Moderate
+Aditi Chauhan,P0311,18,"['sexually transmitted infection that can cause burning during urinationabnormal pap test results', 'swollen']",2,Yes,Unavailable,Afternoon,2024-07-21T16:29:14,0,Moderate
+Avani Singh,P0312,71,"['pain in the lower back or side', 'swollenchronic autoimmune disease that can affect any part of the body']",4,Yes,Available,Morning,2024-09-23T01:38:26,0,Moderate
+Advik Verma,P0313,72,['itchingchronic autoimmune disease that can affect any part of the bodypainful urination'],6,Yes,Unavailable,Morning,2024-08-05T07:35:58,0,Severe
+Dhruv Gupta,P0314,19,"['damage to the kidneys that can lead to kidney failureinflammation of the liver', 'pain in the upper abdomen']",2,Yes,Available,Evening,2024-07-29T15:46:30,0,Moderate
+Avani Gupta,P0315,93,"['sudden weakness', 'itching', 'abnormal pap test results']",1,No,Unavailable,Evening,2024-08-22T20:29:48,0,Mild
+Ananya Gupta,P0316,44,"['sexually transmitted infection that can cause blisters on the genitalshypothyroidism', 'memory loss']",0,Yes,Available,Morning,2024-02-04T15:57:45,5,Mild
+Aishwarya Patel,P0317,84,['condition that affects the lungsdisturbance in eating behavior that can lead to serious health problemsdifficulty getting'],0,No,Available,Morning,2024-08-11T00:00:09,5,Severe
+Advik Chauhan,P0318,50,"['sexually transmitted infection that can cause burning during urinationpain in the upper abdomen', 'diarrhea']",3,Yes,Available,Afternoon,2024-01-05T08:20:32,0,Severe
+Dhruv Gupta,P0319,42,"['bulge in the wall of the aorta', 'pain in the upper abdomen', 'tremors']",4,Yes,Unavailable,Afternoon,2024-01-12T05:01:54,15,Moderate
+Ananya Kumar,P0320,94,"['cough', 'extreme mood swings', 'swollen']",0,Yes,Unavailable,Evening,2024-05-13T00:55:57,10,Mild
+Aishwarya Verma,P0321,47,"['rash', 'swollen', 'pain']",7,Yes,Available,Afternoon,2024-11-13T22:54:34,0,Moderate
+Advik Patel,P0322,22,"['abdominal pain', 'itching', 'abnormal pap test results']",5,No,Available,Morning,2024-05-27T16:20:37,0,Moderate
+Aishwarya Singh,P0323,74,"['fever', 'pain in the lower back or side', 'physical dependence on alcohol']",3,No,Available,Afternoon,2024-10-09T05:51:25,0,Severe
+Aishwarya Verma,P0324,90,"['condition in which the heart cannot pump blood as well as it shoulddifficulty urinating', 'sudden weakness']",6,Yes,Available,Afternoon,2024-08-08T09:40:52,0,Mild
+Aishwarya Kumar,P0325,97,"['sadness', 'difficulty with social interaction', 'swollen']",3,No,Available,Morning,2024-03-27T04:34:27,0,Severe
+Aishwarya Singh,P0326,92,"['painful urination', 'decreased kidney functionpainful rash that follows nerve path']",5,Yes,Available,Afternoon,2024-09-03T13:43:45,0,Severe
+Arjun Reddy,P0327,74,"['cough', 'inflammation of the liver', 'loose']",5,No,Available,Morning,2024-06-07T22:40:04,0,Moderate
+Ananya Patel,P0328,29,"['increased pressure in the eye that can damage the optic nervedifficulty urinating', 'chronic bronchitis']",1,Yes,Unavailable,Afternoon,2024-05-28T02:49:40,0,Severe
+Avani Gupta,P0329,82,['nauseachronic autoimmune disease that can affect any part of the bodyphysical dependence on alcohol'],9,No,Unavailable,Morning,2024-03-14T17:43:35,10,Severe
+Dhruv Shah,P0330,59,"['lump in the neck', 'high levels of cholesterol in the bloodchronic bronchitis']",5,Yes,Unavailable,Morning,2024-07-10T03:49:23,0,Severe
+Avani Verma,P0331,1,"['cough', 'pain in the lower back or side', 'cough that does not go away']",6,Yes,Unavailable,Evening,2024-12-05T11:13:28,5,Moderate
+Dhruv Chauhan,P0332,87,"['increased pressure in the eye that can damage the optic nerve', 'nauseadifficulty urinating']",4,No,Unavailable,Afternoon,2024-12-11T18:57:40,0,Severe
+Aditi Patel,P0333,64,"['change in bowel habits', 'fever', 'itching']",0,Yes,Unavailable,Evening,2024-04-27T05:34:30,0,Moderate
+Aditi Singh,P0334,17,"['fatigue', 'sudden weakness', 'runny nose']",7,Yes,Unavailable,Evening,2024-04-15T12:17:14,5,Mild
+Aishwarya Gupta,P0335,37,"['painful urination', 'blood in the urinechronic autoimmune disease that can affect any part of the body']",0,Yes,Unavailable,Evening,2024-03-15T21:16:36,0,Moderate
+Diya Malhotra,P0336,95,"['rash', 'lump in the neckdisturbance in eating behavior that can lead to serious health problems']",9,No,Available,Afternoon,2024-03-06T07:21:51,0,Severe
+Arjun Malhotra,P0337,25,"['widespread pain', 'change in bowel habitsdisturbance in eating behavior that can lead to serious health problems']",6,Yes,Unavailable,Afternoon,2024-07-13T03:14:58,10,Mild
+Diya Singh,P0338,64,"['abdominal pain', 'painful rash that follows nerve pathpain in the upper right abdomen']",2,No,Unavailable,Morning,2024-07-10T16:46:04,10,Moderate
+Aditi Reddy,P0339,68,"['high levels of cholesterol in the blood', 'runny nose', 'sadness']",3,Yes,Unavailable,Evening,2024-12-21T04:09:39,5,Moderate
+Aditi Reddy,P0340,52,"['cough that does not go away', 'runny nose', 'sadness']",8,No,Unavailable,Afternoon,2024-01-19T01:02:59,5,Severe
+Arjun Patel,P0341,9,"['increased pressure in the eye that can damage the optic nerve', 'rashblood in the urine']",6,Yes,Available,Morning,2024-01-30T21:25:09,15,Severe
+Arjun Reddy,P0342,57,"['abnormal pap test results', 'seizures', 'fatigue']",8,No,Available,Evening,2024-09-06T22:44:07,0,Moderate
+Avani Kumar,P0343,92,"['itching', 'diarrhea', 'decreased kidney function']",5,No,Unavailable,Morning,2024-07-12T18:41:37,5,Severe
+Aishwarya Singh,P0344,94,"['chest pain', 'inflammation of the liver', 'sudden weakness']",7,Yes,Available,Afternoon,2024-11-30T17:31:02,5,Moderate
+Avani Patel,P0345,88,"['increased pressure in the eye that can damage the optic nerveabnormal pap test results', 'elevated body temperature ']",6,No,Available,Morning,2024-06-12T07:49:00,5,Severe
+Dhruv Kumar,P0346,33,['high levels of cholesterol in the bloodcondition in which the heart cannot pump blood as well as it shouldinflammation of the liver'],5,No,Available,Afternoon,2024-08-18T15:36:18,0,Moderate
+Dhruv Chauhan,P0347,20,"['lump in the neck', 'pain', 'chronic bronchitis']",6,No,Unavailable,Morning,2024-12-16T10:42:12,0,Moderate
+Ananya Gupta,P0348,73,['diarrheasexually transmitted infection that can cause burning during urinationvomiting'],6,Yes,Available,Evening,2024-12-15T07:14:32,0,Mild
+Ishaan Kumar,P0349,72,"['decreased kidney function', 'memory loss', 'red']",6,No,Available,Afternoon,2024-11-19T14:37:16,5,Moderate
+Advik Gupta,P0350,88,"['abdominal pain', 'fever', 'widespread pain']",0,Yes,Unavailable,Morning,2024-04-08T16:17:27,0,Severe
+Avani Chauhan,P0351,14,"['red', 'cough that does not go away', 'runny nose']",4,No,Available,Afternoon,2024-11-25T21:43:02,0,Moderate
+Aishwarya Patel,P0352,59,"['red', 'chronic bronchitis', 'pain in the lower right abdomen']",9,Yes,Available,Morning,2024-01-19T05:56:54,0,Severe
+Ishaan Shah,P0353,82,"['itching', 'itchy', 'condition that affects the lungs']",8,Yes,Unavailable,Evening,2024-05-17T13:20:26,0,Moderate
+Dhruv Kumar,P0354,56,"['vomiting', 'blood in the urine', 'extreme mood swings']",9,Yes,Unavailable,Morning,2024-11-25T06:34:28,5,Severe
+Avani Gupta,P0355,65,"['sadness', 'lump in the neckincreased pressure in the eye that can damage the optic nerve']",0,Yes,Available,Afternoon,2024-02-12T18:34:08,15,Moderate
+Arjun Chauhan,P0356,76,"['widespread pain', 'vomiting', 'cough that does not go away']",5,No,Available,Evening,2024-10-18T09:35:02,0,Severe
+Ananya Reddy,P0357,93,"['pain in the lower back or side', 'abdominal pain', 'painful urination']",5,Yes,Available,Morning,2024-05-19T23:23:33,0,Mild
+Aarav Verma,P0358,37,"['hyperthyroidism', 'red', 'sadness']",3,Yes,Available,Afternoon,2024-12-14T03:32:41,0,Moderate
+Arjun Malhotra,P0359,26,"['diarrhea', 'abnormal pap test results', 'raised']",9,Yes,Unavailable,Evening,2024-06-30T01:03:15,0,Severe
+Arjun Reddy,P0360,33,"['physical dependence on alcohol', 'tremorspain in the lower right abdomen']",5,No,Unavailable,Afternoon,2024-05-30T16:12:50,0,Severe
+Ishaan Gupta,P0361,43,"['blood in the urine', 'runny nose', 'bulge in the wall of the aorta']",0,Yes,Available,Afternoon,2024-04-22T18:59:44,5,Mild
+Advik Patel,P0362,15,"['nausea', 'lump in the neck', 'pain in the upper abdomen']",1,No,Unavailable,Morning,2024-05-13T12:43:23,0,Moderate
+Advik Chauhan,P0363,87,"['bulge in the wall of the aorta', 'difficulty gettinginflammation of the liver']",9,No,Unavailable,Morning,2024-02-13T17:41:06,0,Moderate
+Avani Kumar,P0364,29,"['increased pressure in the eye that can damage the optic nerve', 'itchydamage to the kidneys that can lead to kidney failure']",1,No,Unavailable,Morning,2024-09-01T11:03:02,15,Mild
+Dhruv Verma,P0365,21,"['fatigue', 'vomiting', 'seizures']",0,Yes,Available,Evening,2024-03-08T05:11:27,0,Severe
+Aishwarya Gupta,P0366,83,"['runny nose', 'cough', 'itchy']",4,No,Unavailable,Afternoon,2024-03-28T08:37:42,0,Moderate
+Arjun Singh,P0367,69,"['condition that affects the lungs', 'nauseachronic autoimmune disease that can affect any part of the body']",9,Yes,Unavailable,Afternoon,2024-10-30T07:55:13,5,Severe
+Ishaan Kumar,P0368,23,"['cough that does not go away', 'fatigue', 'physical dependence on alcohol']",1,Yes,Unavailable,Afternoon,2024-04-25T10:41:55,0,Severe
+Advik Sharma,P0369,84,"['tremors', 'fatigue', 'decreased kidney function']",2,No,Unavailable,Evening,2024-07-24T02:08:48,10,Mild
+Aishwarya Reddy,P0370,8,"['increased pressure in the eye that can damage the optic nervepainful urination', 'diarrhea']",5,Yes,Available,Evening,2024-02-07T11:16:16,5,Severe
+Ananya Chauhan,P0371,73,"['increased pressure in the eye that can damage the optic nerve', 'lumpwheezing']",9,Yes,Available,Morning,2024-01-09T06:09:51,10,Severe
+Diya Malhotra,P0372,62,"['chronic bronchitis', 'bulge in the wall of the aortaextreme mood swings']",0,No,Available,Evening,2024-07-21T01:43:39,0,Moderate
+Aditi Gupta,P0373,14,"['inflammation of the liver', 'bulge in the wall of the aortachronic autoimmune disease that can affect any part of the body']",2,No,Available,Morning,2024-10-25T21:04:50,15,Severe
+Aarav Patel,P0374,6,"['red', 'hyperthyroidismdisturbance in eating behavior that can lead to serious health problems']",2,No,Available,Evening,2024-09-22T21:16:39,0,Mild
+Ishaan Sharma,P0375,1,"['itching', 'painful urination', 'seizures']",6,No,Unavailable,Evening,2024-10-22T05:21:43,0,Mild
+Dhruv Reddy,P0376,9,"['memory loss', 'lump', 'sadness']",2,Yes,Unavailable,Morning,2024-01-28T08:03:43,0,Mild
+Aarav Verma,P0377,80,"['chest pain', 'widespread painsexually transmitted infection that can cause burning during urination']",0,No,Unavailable,Evening,2024-04-14T19:29:07,5,Moderate
+Ananya Malhotra,P0378,80,['nauseasexually transmitted infection that can cause blisters on the genitalssexually transmitted infection that can cause burning during urination'],1,No,Available,Morning,2024-06-20T09:00:56,10,Mild
+Aishwarya Shah,P0379,54,"['difficulty with social interaction', 'diarrhea', 'abdominal pain']",2,Yes,Unavailable,Afternoon,2024-04-12T11:37:53,5,Severe
+Aarav Singh,P0380,12,"['sadness', 'painful urinationdamage to the kidneys that can lead to kidney failure']",6,Yes,Unavailable,Evening,2024-12-21T17:26:45,10,Moderate
+Aarav Reddy,P0381,5,"['cough', 'pain in the lower back or sideincreased pressure in the eye that can damage the optic nerve']",8,No,Available,Morning,2024-05-29T03:01:29,0,Severe
+Ishaan Malhotra,P0382,40,"['condition in which the heart cannot pump blood as well as it shouldabdominal pain', 'lump']",8,No,Available,Afternoon,2024-12-04T11:31:14,0,Mild
+Aarav Gupta,P0383,93,"['fatigue', 'lump', 'condition that affects the lungs']",0,No,Available,Evening,2024-11-11T06:18:22,0,Moderate
+Arjun Shah,P0384,46,"['itchy', 'tremors', 'condition that affects the lungs']",2,Yes,Available,Afternoon,2024-04-18T19:52:39,0,Mild
+Dhruv Malhotra,P0385,27,"['elevated body temperature ', 'diarrhea', 'sadness']",1,Yes,Available,Morning,2024-05-02T10:22:13,0,Severe
+Aditi Chauhan,P0386,75,"['condition that affects the lungs', 'swollen', 'difficulty getting']",4,Yes,Available,Afternoon,2024-08-20T10:25:59,0,Mild
+Diya Patel,P0387,53,"['sexually transmitted infection that can cause blisters on the genitalsabnormal pap test results', 'high levels of cholesterol in the blood']",1,Yes,Unavailable,Afternoon,2024-04-07T14:02:56,0,Moderate
+Dhruv Patel,P0388,50,"['widespread pain', 'condition that affects the lungs', 'chest pain']",7,No,Unavailable,Afternoon,2024-04-10T15:31:30,15,Severe
+Aarav Kumar,P0389,92,"['abdominal pain', 'swollen', 'extreme mood swings']",6,Yes,Available,Evening,2024-03-20T06:00:46,0,Moderate
+Aishwarya Gupta,P0390,52,"['pain in the upper abdomen', 'runny nose', 'itching']",4,Yes,Available,Morning,2024-02-01T01:52:04,5,Mild
+Aishwarya Gupta,P0391,19,"['chest pain', 'change in bowel habits', 'fever']",1,No,Available,Evening,2024-05-31T15:42:14,5,Moderate
+Advik Shah,P0392,35,"['nausea', 'raised', 'sudden weakness']",0,No,Unavailable,Morning,2024-02-27T02:41:47,0,Moderate
+Avani Sharma,P0393,52,"['fever', 'pain in the upper abdomen', 'increased thirst']",4,Yes,Available,Afternoon,2024-03-05T15:25:03,5,Mild
+Aarav Kumar,P0394,31,"['nausea', 'memory losscondition in which the heart cannot pump blood as well as it should']",3,No,Unavailable,Morning,2024-02-16T11:28:28,5,Mild
+Advik Malhotra,P0395,54,"['fatigue', 'excessive worry', 'pain in the lower back or side']",3,Yes,Unavailable,Afternoon,2024-03-08T02:45:11,10,Moderate
+Aditi Gupta,P0396,59,"['itching', 'lump in the neck', 'loose']",8,No,Available,Morning,2024-07-26T08:21:45,0,Severe
+Aditi Sharma,P0397,44,"['difficulty urinating', 'fatigue', 'seizures']",8,Yes,Available,Morning,2024-08-15T14:03:09,0,Moderate
+Aishwarya Verma,P0398,56,['sadnesssexually transmitted infection that can cause blisters on the genitalsdifficulty urinating'],8,No,Unavailable,Morning,2024-02-22T15:36:11,0,Moderate
+Ishaan Verma,P0399,19,['disturbance in eating behavior that can lead to serious health problemshigh levels of cholesterol in the blooddamage to the kidneys that can lead to kidney failure'],8,No,Available,Afternoon,2024-06-06T17:58:47,0,Severe
+Arjun Shah,P0400,46,"['high levels of cholesterol in the blood', 'change in bowel habitsdiarrhea']",4,Yes,Available,Afternoon,2024-04-06T04:00:32,10,Mild
+Aishwarya Sharma,P0401,88,"['painful rash that follows nerve path', 'fatigue', 'nausea']",5,Yes,Available,Morning,2024-10-11T22:12:58,15,Severe
+Aarav Gupta,P0402,66,"['extreme mood swings', 'pain in the upper right abdomen', 'abdominal pain']",4,Yes,Available,Evening,2024-06-28T22:05:18,15,Severe
+Arjun Chauhan,P0403,71,"['fatigue', 'painful urination', 'hyperthyroidism']",3,Yes,Available,Morning,2024-07-21T01:01:51,0,Severe
+Ananya Verma,P0404,54,"['chest pain', 'vomiting', 'extreme mood swings']",7,Yes,Unavailable,Evening,2024-02-29T02:40:38,0,Severe
+Avani Chauhan,P0405,49,"['hyperthyroidism', 'chest pain', 'rash']",4,Yes,Unavailable,Morning,2024-01-19T15:50:21,0,Severe
+Diya Verma,P0406,95,"['wheezing', 'widespread pain', 'sadness']",1,No,Available,Evening,2024-12-02T23:42:32,0,Severe
+Aarav Sharma,P0407,60,"['physical dependence on alcohol', 'change in bowel habitsblood in the urine']",8,No,Available,Afternoon,2024-05-21T13:01:57,0,Mild
+Ishaan Singh,P0408,81,"['raised', 'increased pressure in the eye that can damage the optic nervesadness']",8,No,Unavailable,Morning,2024-05-25T06:09:36,0,Moderate
+Advik Patel,P0409,27,['condition that affects the lungscondition in which the heart cannot pump blood as well as it shouldsadness'],4,No,Available,Morning,2024-04-26T15:47:33,0,Mild
+Arjun Chauhan,P0410,36,['widespread painincreased pressure in the eye that can damage the optic nerveabnormal pap test results'],1,Yes,Unavailable,Morning,2024-10-19T17:19:42,0,Mild
+Diya Verma,P0411,59,['sexually transmitted infection that can cause blisters on the genitalsdisturbance in eating behavior that can lead to serious health problemspain'],0,Yes,Available,Afternoon,2024-10-31T09:41:21,0,Moderate
+Diya Gupta,P0412,50,"['hypothyroidism', 'memory loss', 'abdominal pain']",2,Yes,Unavailable,Evening,2024-12-12T21:47:05,0,Mild
+Arjun Gupta,P0413,74,"['seizures', 'sudden weakness', 'elevated body temperature ']",2,Yes,Unavailable,Morning,2024-08-06T10:32:47,0,Moderate
+Dhruv Malhotra,P0414,45,['feversexually transmitted infection that can cause blisters on the genitalsphysical dependence on alcohol'],6,No,Available,Evening,2024-12-14T16:58:20,5,Mild
+Aditi Malhotra,P0415,14,"['rash', 'blood in the urine', 'difficulty urinating']",0,Yes,Unavailable,Evening,2024-05-05T16:11:24,15,Moderate
+Aishwarya Shah,P0416,71,"['runny nose', 'decreased kidney function', 'memory loss']",7,No,Unavailable,Evening,2024-10-01T23:06:14,5,Moderate
+Ishaan Sharma,P0417,39,"['physical dependence on alcohol', 'change in bowel habits', 'loose']",0,No,Unavailable,Evening,2024-05-11T03:06:48,5,Moderate
+Ishaan Patel,P0418,40,"['chest pain', 'fever', 'difficulty getting']",9,Yes,Unavailable,Evening,2024-01-13T07:47:02,5,Moderate
+Aishwarya Kumar,P0419,9,"['vomiting', 'cough that does not go away', 'pain in the upper abdomen']",6,Yes,Unavailable,Morning,2024-04-09T16:41:23,10,Mild
+Aarav Shah,P0420,14,"['lump in the neck', 'pain in the upper right abdomen', 'fever']",1,Yes,Available,Evening,2024-02-19T00:21:40,0,Moderate
+Advik Sharma,P0421,8,"['painful rash that follows nerve path', 'diarrheadifficulty with social interaction']",4,Yes,Unavailable,Afternoon,2024-10-06T12:20:05,5,Severe
+Arjun Singh,P0422,81,"['sudden weakness', 'damage to the kidneys that can lead to kidney failurevomiting']",5,No,Unavailable,Evening,2024-12-13T18:45:43,0,Moderate
+Dhruv Sharma,P0423,23,"['change in bowel habits', 'pain in the lower back or sidepainful rash that follows nerve path']",5,No,Unavailable,Evening,2024-03-02T10:04:20,10,Severe
+Diya Verma,P0424,80,"['itchy', 'painful rash that follows nerve path', 'swollen']",1,No,Unavailable,Afternoon,2024-03-22T18:29:55,0,Moderate
+Aishwarya Verma,P0425,90,"['runny nose', 'memory loss', 'loose']",1,No,Unavailable,Evening,2024-10-30T11:31:34,0,Mild
+Aishwarya Singh,P0426,9,"['elevated body temperature ', 'abnormal pap test results', 'abdominal pain']",1,Yes,Available,Morning,2024-11-29T00:56:33,15,Mild
+Diya Shah,P0427,7,"['blood in the urine', 'tremors', 'pain']",1,No,Unavailable,Evening,2024-08-27T06:34:03,15,Mild
+Ishaan Patel,P0428,82,"['cough that does not go away', 'itchy', 'hyperthyroidism']",0,Yes,Unavailable,Morning,2024-12-10T10:45:24,0,Moderate
+Aishwarya Kumar,P0429,72,['high levels of cholesterol in the bloodincreased pressure in the eye that can damage the optic nervedifficulty urinating'],3,Yes,Unavailable,Afternoon,2024-07-17T06:11:11,5,Mild
+Aishwarya Kumar,P0430,85,"['chest pain', 'diarrhea', 'cough']",9,Yes,Unavailable,Afternoon,2024-07-11T04:08:44,5,Severe
+Aarav Chauhan,P0431,90,"['increased thirst', 'widespread pain', 'elevated body temperature ']",5,Yes,Available,Morning,2024-06-19T19:31:38,0,Moderate
+Aarav Verma,P0432,67,"['inflammation of the liver', 'widespread pain', 'fatigue']",8,No,Unavailable,Morning,2024-10-13T10:22:21,0,Moderate
+Dhruv Singh,P0433,61,['hypothyroidismchronic autoimmune disease that can affect any part of the bodyitching'],5,Yes,Available,Morning,2024-11-03T06:15:09,0,Severe
+Arjun Kumar,P0434,17,"['loose', 'high levels of cholesterol in the blood', 'tremors']",9,No,Unavailable,Evening,2024-12-22T04:43:58,0,Severe
+Diya Sharma,P0435,57,"['painful urination', 'wheezingsexually transmitted infection that can cause burning during urination']",5,No,Available,Morning,2024-03-03T08:57:59,0,Moderate
+Aditi Reddy,P0436,24,"['high levels of cholesterol in the blood', 'itchy', 'diarrhea']",1,Yes,Available,Evening,2024-06-01T12:16:27,0,Mild
+Diya Malhotra,P0437,25,"['seizures', 'cough', 'extreme mood swings']",6,Yes,Available,Morning,2024-08-09T22:53:14,5,Moderate
+Ishaan Reddy,P0438,5,"['sexually transmitted infection that can cause blisters on the genitalselevated body temperature ', 'difficulty getting']",1,Yes,Available,Morning,2024-05-31T21:05:00,15,Mild
+Advik Verma,P0439,50,"['excessive worry', 'painful urinationsexually transmitted infection that can cause blisters on the genitals']",7,Yes,Available,Morning,2024-02-03T16:20:20,0,Moderate
+Aarav Verma,P0440,88,['sexually transmitted infection that can cause burning during urinationsexually transmitted infection that can cause blisters on the genitalsblood in the urine'],1,No,Available,Afternoon,2024-07-30T19:24:48,5,Severe
+Dhruv Shah,P0441,31,"['pain in the lower right abdomen', 'feverbulge in the wall of the aorta']",9,No,Available,Morning,2024-12-02T05:29:29,0,Severe
+Aarav Sharma,P0442,55,"['chronic bronchitis', 'abnormal pap test results', 'itching']",9,No,Unavailable,Evening,2024-09-29T18:28:04,0,Severe
+Dhruv Gupta,P0443,26,"['pain', 'increased thirst', 'physical dependence on alcohol']",7,No,Available,Afternoon,2024-07-09T02:48:45,0,Moderate
+Advik Verma,P0444,21,"['fever', 'vomiting', 'change in bowel habits']",7,Yes,Unavailable,Morning,2024-05-18T23:21:51,0,Severe
+Aishwarya Verma,P0445,98,"['difficulty urinating', 'wheezingdisturbance in eating behavior that can lead to serious health problems']",8,No,Available,Evening,2024-03-29T20:09:10,5,Mild
+Aishwarya Kumar,P0446,58,"['disturbance in eating behavior that can lead to serious health problemslump in the neck', 'hypothyroidism']",3,No,Available,Morning,2024-04-02T10:25:04,5,Severe
+Dhruv Sharma,P0447,24,"['seizures', 'extreme mood swings', 'vomiting']",8,Yes,Unavailable,Evening,2024-11-04T18:19:43,0,Severe
+Avani Verma,P0448,28,"['diarrhea', 'loose', 'decreased kidney function']",5,Yes,Unavailable,Afternoon,2024-03-22T15:25:29,10,Severe
+Dhruv Shah,P0449,30,"['pain', 'widespread pain', 'hypothyroidism']",7,Yes,Unavailable,Morning,2024-06-11T07:58:38,0,Moderate
+Advik Chauhan,P0450,34,"['pain in the lower right abdomen', 'fatiguesexually transmitted infection that can cause burning during urination']",8,No,Unavailable,Morning,2024-12-07T18:18:31,0,Moderate
+Advik Chauhan,P0451,54,"['seizures', 'inflammation of the liver', 'fever']",6,No,Unavailable,Afternoon,2024-12-21T02:21:14,0,Moderate
+Arjun Patel,P0452,52,"['sexually transmitted infection that can cause burning during urinationchest pain', 'itching']",4,No,Available,Afternoon,2024-12-29T23:49:32,5,Moderate
+Avani Kumar,P0453,87,"['chronic autoimmune disease that can affect any part of the bodyhypothyroidism', 'excessive worry']",7,Yes,Unavailable,Evening,2024-01-04T14:08:29,0,Mild
+Diya Kumar,P0454,8,"['cough that does not go awaydamage to the kidneys that can lead to kidney failure', 'hypothyroidism']",4,Yes,Available,Evening,2024-01-03T01:22:30,10,Severe
+Aarav Chauhan,P0455,10,"['extreme mood swings', 'bulge in the wall of the aortaabnormal pap test results']",6,No,Available,Evening,2024-08-16T01:20:46,0,Moderate
+Advik Malhotra,P0456,55,"['chronic bronchitis', 'diarrhea', 'elevated body temperature ']",7,Yes,Available,Afternoon,2024-03-14T23:19:27,5,Moderate
+Advik Shah,P0457,1,"['swollen', 'red', 'sudden weakness']",3,Yes,Unavailable,Morning,2024-06-09T07:25:45,10,Moderate
+Aishwarya Kumar,P0458,84,"['condition in which the heart cannot pump blood as well as it shouldchronic bronchitis', 'extreme mood swings']",2,No,Unavailable,Evening,2024-04-29T13:02:28,5,Mild
+Diya Kumar,P0459,37,"['condition in which the heart cannot pump blood as well as it shouldblood in the urine', 'swollen']",1,No,Unavailable,Evening,2024-01-18T13:07:06,10,Severe
+Aarav Gupta,P0460,82,"['memory loss', 'runny noseincreased pressure in the eye that can damage the optic nerve']",2,No,Unavailable,Evening,2024-03-29T13:07:18,0,Moderate
+Aarav Kumar,P0461,21,"['physical dependence on alcohol', 'loose', 'tremors']",3,No,Available,Evening,2024-12-12T01:29:00,0,Severe
+Diya Sharma,P0462,4,"['sexually transmitted infection that can cause blisters on the genitalssadness', 'pain in the lower right abdomen']",9,Yes,Available,Evening,2024-05-19T12:27:48,0,Mild
+Advik Gupta,P0463,43,"['blood in the urine', 'lumpincreased pressure in the eye that can damage the optic nerve']",6,No,Unavailable,Morning,2024-09-16T17:12:59,0,Mild
+Diya Shah,P0464,66,['runny nosecondition in which the heart cannot pump blood as well as it shouldincreased pressure in the eye that can damage the optic nerve'],2,No,Unavailable,Evening,2024-10-31T15:28:24,10,Moderate
+Avani Sharma,P0465,21,"['sudden weakness', 'tremors', 'abdominal pain']",2,Yes,Available,Afternoon,2024-12-01T20:17:12,15,Moderate
+Diya Patel,P0466,37,"['decreased kidney function', 'pain in the lower right abdomenincreased pressure in the eye that can damage the optic nerve']",7,Yes,Unavailable,Afternoon,2024-03-02T21:41:25,0,Mild
+Aarav Kumar,P0467,69,"['painful urination', 'lump', 'vomiting']",7,No,Unavailable,Morning,2024-12-11T03:57:31,10,Moderate
+Advik Chauhan,P0468,81,"['lump', 'decreased kidney function', 'hyperthyroidism']",0,Yes,Available,Afternoon,2024-04-23T21:52:30,0,Severe
+Ananya Shah,P0469,48,['abnormal pap test resultssexually transmitted infection that can cause burning during urinationsexually transmitted infection that can cause blisters on the genitals'],6,Yes,Unavailable,Morning,2024-10-20T00:54:41,0,Moderate
+Aditi Reddy,P0470,11,"['difficulty getting', 'sudden weakness', 'cough']",9,No,Unavailable,Morning,2024-08-22T21:35:42,0,Mild
+Diya Kumar,P0471,95,"['pain', 'blood in the urine', 'pain in the upper abdomen']",4,No,Unavailable,Morning,2024-08-25T17:13:35,0,Severe
+Diya Reddy,P0472,92,"['raised', 'pain in the lower right abdomenhigh levels of cholesterol in the blood']",6,Yes,Available,Morning,2024-01-23T12:20:24,10,Severe
+Arjun Gupta,P0473,44,"['itchy', 'hyperthyroidism', 'excessive worry']",2,Yes,Unavailable,Afternoon,2024-04-23T12:24:16,5,Mild
+Advik Sharma,P0474,64,"['elevated body temperature ', 'pain in the upper right abdomen', 'fatigue']",2,No,Unavailable,Morning,2024-01-19T03:50:43,10,Moderate
+Ananya Kumar,P0475,32,['painful urinationcondition in which the heart cannot pump blood as well as it shouldraised'],8,No,Unavailable,Evening,2024-11-10T19:08:36,0,Severe
+Avani Malhotra,P0476,21,"['condition that affects the lungs', 'abdominal painbulge in the wall of the aorta']",8,No,Unavailable,Morning,2024-04-05T10:44:03,0,Mild
+Avani Gupta,P0477,71,"['loose', 'cough', 'abdominal pain']",5,Yes,Unavailable,Afternoon,2024-07-24T05:35:14,0,Moderate
+Aarav Gupta,P0478,10,"['sadness', 'damage to the kidneys that can lead to kidney failuredisturbance in eating behavior that can lead to serious health problems']",1,No,Unavailable,Evening,2024-05-15T15:51:26,10,Mild
+Ananya Singh,P0479,61,"['pain', 'lump in the neck', 'widespread pain']",1,Yes,Unavailable,Evening,2024-11-22T05:04:08,15,Mild
+Arjun Patel,P0480,92,"['painful rash that follows nerve path', 'bulge in the wall of the aortared']",9,No,Available,Afternoon,2024-08-30T19:06:53,10,Mild
+Ananya Reddy,P0481,36,"['pain in the lower back or side', 'runny nose', 'fever']",8,Yes,Unavailable,Afternoon,2024-09-08T20:35:20,0,Severe
+Aditi Patel,P0482,84,"['seizures', 'elevated body temperature disturbance in eating behavior that can lead to serious health problems']",1,No,Unavailable,Morning,2024-01-02T20:33:54,0,Severe
+Diya Kumar,P0483,77,"['rash', 'nausea', 'blood in the urine']",0,No,Unavailable,Afternoon,2024-04-02T13:54:55,0,Severe
+Arjun Sharma,P0484,19,"['cough that does not go away', 'pain in the upper right abdomenhyperthyroidism']",7,No,Available,Afternoon,2024-01-18T02:22:52,15,Mild
+Avani Chauhan,P0485,75,['runny noseincreased pressure in the eye that can damage the optic nervehypothyroidism'],3,No,Unavailable,Morning,2024-05-31T03:23:29,0,Moderate
+Ishaan Patel,P0486,99,"['fever', 'wheezing', 'sadness']",9,No,Unavailable,Afternoon,2024-01-15T21:03:26,15,Severe
+Arjun Sharma,P0487,98,"['abdominal pain', 'swollen', 'chronic bronchitis']",9,Yes,Available,Evening,2024-10-24T10:48:51,0,Mild
+Diya Shah,P0488,44,"['swollen', 'pain', 'extreme mood swings']",7,Yes,Available,Afternoon,2024-04-06T19:29:47,5,Severe
+Dhruv Singh,P0489,4,"['difficulty getting', 'condition that affects the lungs', 'vomiting']",5,No,Unavailable,Afternoon,2024-05-22T01:39:45,0,Severe
+Aarav Shah,P0490,13,"['vomiting', 'excessive worrycondition in which the heart cannot pump blood as well as it should']",0,Yes,Unavailable,Afternoon,2024-11-27T18:38:21,5,Moderate
+Aishwarya Verma,P0491,59,['bulge in the wall of the aortaincreased pressure in the eye that can damage the optic nerveincreased thirst'],6,Yes,Available,Afternoon,2024-09-01T16:31:46,5,Moderate
+Arjun Verma,P0492,2,"['bulge in the wall of the aorta', 'painful urinationelevated body temperature ']",0,No,Available,Morning,2024-11-30T09:53:46,0,Severe
+Aarav Reddy,P0493,1,"['extreme mood swings', 'chest pain', 'rash']",3,Yes,Available,Evening,2024-05-09T13:30:59,0,Mild
+Aditi Reddy,P0494,40,"['pain', 'tremors', 'elevated body temperature ']",7,No,Unavailable,Evening,2024-11-04T15:21:31,0,Mild
+Dhruv Kumar,P0495,25,"['swollen', 'increased thirst', 'difficulty urinating']",2,Yes,Unavailable,Morning,2024-10-06T01:45:16,5,Mild
+Diya Shah,P0496,59,"['sudden weakness', 'blood in the urine', 'difficulty getting']",7,No,Unavailable,Afternoon,2024-01-23T00:41:34,5,Moderate
+Dhruv Patel,P0497,37,"['increased thirst', 'difficulty with social interactionblood in the urine']",6,Yes,Available,Afternoon,2024-07-30T09:22:34,0,Moderate
+Ishaan Singh,P0498,70,"['fever', 'hypothyroidism', 'bulge in the wall of the aorta']",1,No,Available,Afternoon,2024-12-30T18:29:19,10,Mild
+Aditi Chauhan,P0499,7,"['elevated body temperature ', 'pain in the lower back or side', 'fatigue']",7,Yes,Available,Afternoon,2024-01-24T05:26:02,0,Severe
+Dhruv Chauhan,P0500,4,"['damage to the kidneys that can lead to kidney failureelevated body temperature ', 'chronic bronchitis']",6,Yes,Unavailable,Evening,2024-05-28T10:14:15,0,Moderate
+Aarav Verma,P0501,99,"['abdominal pain', 'lumpdamage to the kidneys that can lead to kidney failure']",3,No,Unavailable,Morning,2024-03-21T19:00:34,5,Mild
+Aditi Singh,P0502,41,"['abnormal pap test results', 'loose', 'difficulty with social interaction']",0,No,Available,Evening,2024-03-14T20:43:23,5,Moderate
+Dhruv Patel,P0503,61,"['chronic autoimmune disease that can affect any part of the bodypainful rash that follows nerve path', 'red']",0,Yes,Available,Morning,2024-06-18T10:34:46,0,Mild
+Ishaan Shah,P0504,34,"['high levels of cholesterol in the blood', 'hyperthyroidism', 'vomiting']",2,No,Available,Evening,2024-12-23T23:56:27,5,Severe
+Advik Singh,P0505,29,"['elevated body temperature ', 'change in bowel habits', 'red']",9,Yes,Available,Afternoon,2024-09-12T16:14:48,0,Moderate
+Diya Chauhan,P0506,69,"['pain in the upper abdomen', 'swollen', 'abnormal pap test results']",2,Yes,Available,Morning,2024-04-16T17:11:49,0,Mild
+Diya Singh,P0507,27,['pain in the upper right abdomenincreased pressure in the eye that can damage the optic nerveabdominal pain'],8,Yes,Unavailable,Evening,2024-07-02T12:26:49,0,Severe
+Aarav Singh,P0508,97,['extreme mood swingsincreased pressure in the eye that can damage the optic nerveblood in the urine'],1,Yes,Available,Morning,2024-11-17T10:27:51,5,Mild
+Ishaan Gupta,P0509,52,"['vomiting', 'rash', 'pain in the upper right abdomen']",3,No,Available,Afternoon,2024-02-05T11:01:21,0,Mild
+Diya Malhotra,P0510,74,"['condition in which the heart cannot pump blood as well as it shouldlump', 'itchy']",4,Yes,Unavailable,Afternoon,2024-03-07T12:30:06,0,Severe
+Ananya Chauhan,P0511,54,"['memory loss', 'lumpdisturbance in eating behavior that can lead to serious health problems']",0,Yes,Unavailable,Morning,2024-05-01T03:08:03,0,Mild
+Avani Patel,P0512,70,"['lump', 'decreased kidney function', 'difficulty with social interaction']",5,Yes,Unavailable,Evening,2024-03-10T23:08:02,10,Moderate
+Advik Sharma,P0513,34,"['sexually transmitted infection that can cause burning during urinationchest pain', 'hyperthyroidism']",6,Yes,Unavailable,Morning,2024-07-25T20:09:58,10,Moderate
+Avani Chauhan,P0514,8,"['pain in the upper right abdomen', 'tremors', 'swollen']",3,Yes,Available,Evening,2024-03-06T18:33:10,5,Severe
+Arjun Shah,P0515,95,"['seizures', 'sudden weakness', 'tremors']",4,No,Unavailable,Morning,2024-12-06T10:30:19,0,Severe
+Aarav Reddy,P0516,73,"['painful urination', 'nausea', 'physical dependence on alcohol']",0,Yes,Unavailable,Morning,2024-02-09T08:27:20,10,Severe
+Ishaan Chauhan,P0517,85,"['red', 'change in bowel habits', 'inflammation of the liver']",5,No,Available,Morning,2024-02-04T22:00:44,5,Mild
+Avani Patel,P0518,8,"['tremors', 'difficulty urinating', 'difficulty with social interaction']",2,Yes,Available,Afternoon,2024-05-25T10:45:48,15,Severe
+Aarav Verma,P0519,68,"['condition that affects the lungs', 'cough that does not go awaychronic autoimmune disease that can affect any part of the body']",1,No,Available,Afternoon,2024-11-30T04:48:19,0,Moderate
+Avani Reddy,P0520,86,"['vomiting', 'high levels of cholesterol in the bloodpainful rash that follows nerve path']",0,No,Available,Afternoon,2024-09-28T03:58:17,5,Moderate
+Aishwarya Singh,P0521,92,"['runny nose', 'painful urination', 'vomiting']",3,Yes,Unavailable,Evening,2024-02-10T06:14:07,15,Severe
+Aarav Reddy,P0522,68,"['lump', 'pain in the upper abdomen', 'blood in the urine']",0,Yes,Available,Evening,2024-11-12T15:51:47,0,Mild
+Aishwarya Patel,P0523,85,"['hyperthyroidism', 'cough that does not go awaydecreased kidney function']",2,No,Available,Afternoon,2024-05-19T20:16:07,15,Severe
+Aditi Verma,P0524,72,['pain in the lower right abdomensexually transmitted infection that can cause burning during urinationpain'],3,Yes,Unavailable,Afternoon,2024-09-01T04:32:43,0,Severe
+Diya Patel,P0525,84,"['raised', 'blood in the urine', 'painful urination']",0,Yes,Unavailable,Evening,2024-02-18T06:59:31,5,Mild
+Avani Patel,P0526,96,"['disturbance in eating behavior that can lead to serious health problemsdifficulty urinating', 'inflammation of the liver']",2,Yes,Available,Afternoon,2024-03-31T09:52:20,10,Moderate
+Ishaan Singh,P0527,1,"['sexually transmitted infection that can cause blisters on the genitalspainful rash that follows nerve path', 'itching']",1,No,Unavailable,Evening,2024-07-07T13:39:35,15,Moderate
+Aditi Patel,P0528,6,"['tremors', 'physical dependence on alcoholsexually transmitted infection that can cause burning during urination']",7,Yes,Available,Morning,2024-02-22T09:12:29,0,Moderate
+Diya Sharma,P0529,92,"['nausea', 'runny nose', 'hyperthyroidism']",8,Yes,Available,Afternoon,2024-05-06T01:40:14,0,Mild
+Ishaan Patel,P0530,31,"['pain', 'pain in the lower right abdomendamage to the kidneys that can lead to kidney failure']",3,No,Available,Afternoon,2024-05-07T08:30:03,10,Mild
+Dhruv Kumar,P0531,74,"['increased pressure in the eye that can damage the optic nervepain in the lower right abdomen', 'raised']",3,Yes,Available,Afternoon,2024-03-23T05:01:14,0,Mild
+Ananya Kumar,P0532,84,"['pain in the lower back or side', 'itchy', 'seizures']",0,Yes,Unavailable,Evening,2024-04-21T13:39:50,0,Mild
+Advik Verma,P0533,8,"['tremors', 'feverincreased pressure in the eye that can damage the optic nerve']",4,Yes,Available,Morning,2024-08-08T11:27:31,15,Severe
+Advik Gupta,P0534,22,"['runny nose', 'pain in the lower back or side', 'chest pain']",6,No,Available,Morning,2024-12-07T12:30:19,15,Severe
+Aarav Sharma,P0535,93,"['itchy', 'chronic autoimmune disease that can affect any part of the bodydiarrhea']",7,Yes,Available,Morning,2024-08-08T18:36:00,15,Severe
+Aditi Shah,P0536,9,"['abdominal pain', 'change in bowel habits', 'widespread pain']",2,Yes,Available,Evening,2024-02-25T11:34:06,0,Severe
+Aarav Malhotra,P0537,44,"['difficulty getting', 'sudden weakness', 'nausea']",8,No,Unavailable,Evening,2024-08-07T05:50:42,10,Moderate
+Aarav Verma,P0538,47,"['chronic bronchitis', 'tremors', 'difficulty with social interaction']",4,Yes,Available,Evening,2024-07-13T23:26:15,0,Moderate
+Advik Patel,P0539,1,"['tremors', 'memory loss', 'physical dependence on alcohol']",2,No,Available,Morning,2024-11-04T21:20:53,0,Mild
+Advik Patel,P0540,52,"['pain in the upper right abdomen', 'nausea', 'inflammation of the liver']",0,Yes,Unavailable,Evening,2024-11-13T19:33:24,10,Moderate
+Aditi Reddy,P0541,39,"['swollen', 'pain in the lower right abdomen', 'extreme mood swings']",3,Yes,Unavailable,Afternoon,2024-11-29T09:09:35,0,Severe
+Aishwarya Patel,P0542,90,['difficulty gettingdamage to the kidneys that can lead to kidney failurechange in bowel habits'],5,No,Unavailable,Afternoon,2024-12-11T16:24:43,0,Severe
+Avani Singh,P0543,75,"['painful rash that follows nerve path', 'fever', 'lump']",3,No,Available,Morning,2024-08-16T21:13:05,0,Mild
+Aditi Singh,P0544,99,"['extreme mood swings', 'nausea', 'physical dependence on alcohol']",6,No,Available,Afternoon,2024-04-18T03:54:52,0,Mild
+Ishaan Gupta,P0545,88,"['inflammation of the liver', 'hyperthyroidism', 'sudden weakness']",9,No,Unavailable,Evening,2024-10-08T13:45:29,0,Severe
+Advik Reddy,P0546,97,['raisedsexually transmitted infection that can cause blisters on the genitalsabdominal pain'],5,No,Available,Morning,2024-01-22T23:27:28,0,Moderate
+Diya Reddy,P0547,84,"['sexually transmitted infection that can cause blisters on the genitalsraised', 'painful rash that follows nerve path']",4,Yes,Available,Evening,2024-01-14T03:13:28,0,Mild
+Avani Malhotra,P0548,27,"['pain in the upper abdomen', 'paincondition in which the heart cannot pump blood as well as it should']",7,No,Available,Evening,2024-06-07T16:51:30,10,Mild
+Advik Kumar,P0549,79,"['increased thirst', 'excessive worry', 'abnormal pap test results']",6,Yes,Available,Evening,2024-03-28T08:22:49,15,Moderate
+Advik Singh,P0550,33,"['high levels of cholesterol in the blood', 'nausea', 'diarrhea']",8,No,Available,Afternoon,2024-01-16T15:23:10,5,Severe
+Aditi Reddy,P0551,71,"['fever', 'painful urination', 'cough that does not go away']",2,No,Unavailable,Evening,2024-05-23T18:46:39,0,Mild
+Avani Chauhan,P0552,98,"['sexually transmitted infection that can cause blisters on the genitalsabdominal pain', 'seizures']",5,No,Available,Morning,2024-03-22T03:19:08,0,Severe
+Dhruv Verma,P0553,45,"['runny nose', 'cough', 'memory loss']",1,Yes,Available,Morning,2024-10-06T03:12:55,0,Moderate
+Avani Gupta,P0554,60,"['difficulty urinating', 'cough that does not go awaypain in the lower back or side']",7,Yes,Unavailable,Morning,2024-05-29T08:42:04,15,Severe
+Ananya Gupta,P0555,58,"['difficulty with social interaction', 'tremorspain in the upper right abdomen']",3,No,Available,Afternoon,2024-12-02T01:15:43,5,Severe
+Advik Malhotra,P0556,51,"['decreased kidney function', 'condition that affects the lungs', 'sadness']",5,Yes,Available,Evening,2024-11-28T09:34:40,0,Mild
+Aarav Malhotra,P0557,46,"['wheezing', 'fatigue', 'memory loss']",4,No,Unavailable,Afternoon,2024-10-24T14:20:01,0,Moderate
+Dhruv Chauhan,P0558,5,"['fatigue', 'change in bowel habits', 'condition that affects the lungs']",1,Yes,Unavailable,Afternoon,2024-07-30T19:49:47,10,Moderate
+Dhruv Shah,P0559,58,"['loose', 'painincreased pressure in the eye that can damage the optic nerve']",1,No,Unavailable,Morning,2024-11-12T21:06:33,0,Mild
+Aishwarya Chauhan,P0560,94,"['sudden weakness', 'runny nose', 'painful urination']",6,Yes,Available,Evening,2024-10-13T18:20:01,0,Moderate
+Avani Reddy,P0561,92,"['itchy', 'lumpsexually transmitted infection that can cause burning during urination']",7,No,Available,Afternoon,2024-03-10T21:22:27,0,Severe
+Ishaan Chauhan,P0562,18,"['change in bowel habits', 'increased thirst', 'hyperthyroidism']",4,No,Available,Morning,2024-08-04T01:35:49,0,Moderate
+Arjun Verma,P0563,36,"['widespread pain', 'rash', 'decreased kidney function']",1,Yes,Available,Morning,2024-03-05T09:34:21,5,Moderate
+Ishaan Chauhan,P0564,67,"['blood in the urine', 'diarrhea', 'itchy']",5,No,Unavailable,Morning,2024-08-07T07:57:31,0,Severe
+Dhruv Verma,P0565,21,"['vomiting', 'pain in the upper abdomendamage to the kidneys that can lead to kidney failure']",4,No,Available,Morning,2024-07-25T05:39:43,0,Mild
+Ananya Patel,P0566,46,"['runny nose', 'inflammation of the liver', 'cough']",7,Yes,Available,Evening,2024-11-28T11:16:29,0,Severe
+Ishaan Sharma,P0567,58,['diarrheasexually transmitted infection that can cause burning during urinationrash'],1,No,Available,Evening,2024-09-03T11:22:08,0,Severe
+Aishwarya Singh,P0568,80,"['extreme mood swings', 'loose', 'memory loss']",9,Yes,Unavailable,Afternoon,2024-04-13T01:13:31,0,Mild
+Arjun Verma,P0569,37,['abdominal paincondition in which the heart cannot pump blood as well as it shoulditchy'],8,No,Unavailable,Evening,2024-06-19T01:28:48,5,Moderate
+Arjun Gupta,P0570,63,['itchysexually transmitted infection that can cause burning during urinationitching'],2,Yes,Available,Afternoon,2024-08-09T06:49:20,0,Severe
+Avani Malhotra,P0571,5,"['cough', 'extreme mood swings', 'pain in the lower right abdomen']",1,No,Available,Afternoon,2024-09-27T04:10:13,0,Severe
+Aishwarya Verma,P0572,78,"['painful urination', 'seizures', 'loose']",8,No,Unavailable,Afternoon,2024-06-29T10:38:44,10,Moderate
+Advik Gupta,P0573,31,"['disturbance in eating behavior that can lead to serious health problemschest pain', 'vomiting']",2,No,Unavailable,Evening,2024-03-18T15:09:19,15,Moderate
+Arjun Verma,P0574,88,"['sexually transmitted infection that can cause burning during urinationpain in the upper abdomen', 'cough that does not go away']",6,No,Available,Evening,2024-02-12T18:26:37,0,Mild
+Dhruv Kumar,P0575,99,"['seizures', 'hypothyroidism', 'cough']",5,Yes,Unavailable,Morning,2024-04-06T15:09:36,0,Moderate
+Diya Chauhan,P0576,36,"['pain in the upper right abdomen', 'difficulty urinatingelevated body temperature ']",1,Yes,Available,Afternoon,2024-12-01T21:20:17,5,Mild
+Dhruv Singh,P0577,74,['lump in the neckcondition in which the heart cannot pump blood as well as it shouldtremors'],9,Yes,Unavailable,Morning,2024-05-17T00:00:27,5,Mild
+Advik Singh,P0578,91,"['lump', 'diarrhea', 'bulge in the wall of the aorta']",2,No,Available,Evening,2024-03-10T00:50:42,10,Severe
+Ananya Malhotra,P0579,56,"['pain in the upper abdomen', 'chronic bronchitis', 'itching']",4,No,Unavailable,Morning,2024-05-30T21:28:42,0,Mild
+Ananya Singh,P0580,27,"['nausea', 'change in bowel habits', 'pain in the lower right abdomen']",6,Yes,Available,Afternoon,2024-09-17T22:06:08,15,Severe
+Aarav Verma,P0581,23,"['pain', 'cough that does not go away', 'pain in the upper abdomen']",1,No,Unavailable,Afternoon,2024-06-09T01:10:03,0,Moderate
+Ishaan Kumar,P0582,77,['nauseacondition in which the heart cannot pump blood as well as it shouldbulge in the wall of the aorta'],6,Yes,Unavailable,Morning,2024-01-06T08:52:11,0,Moderate
+Avani Patel,P0583,80,"['sadness', 'wheezing', 'cough that does not go away']",2,No,Available,Afternoon,2024-01-22T19:12:18,15,Severe
+Aishwarya Singh,P0584,99,"['extreme mood swings', 'cough that does not go awayphysical dependence on alcohol']",7,No,Unavailable,Morning,2024-12-16T22:00:35,10,Moderate
+Ananya Reddy,P0585,91,"['disturbance in eating behavior that can lead to serious health problemswidespread pain', 'cough that does not go away']",3,Yes,Available,Afternoon,2024-06-05T13:49:47,10,Severe
+Advik Kumar,P0586,52,"['lump in the neck', 'pain in the upper right abdomencondition that affects the lungs']",8,Yes,Unavailable,Morning,2024-08-13T06:05:22,5,Severe
+Ishaan Malhotra,P0587,47,"['widespread pain', 'lumpdisturbance in eating behavior that can lead to serious health problems']",0,No,Unavailable,Evening,2024-01-21T14:50:01,0,Mild
+Avani Chauhan,P0588,81,"['blood in the urine', 'tremors', 'difficulty with social interaction']",3,No,Available,Morning,2024-11-03T10:12:39,0,Moderate
+Advik Gupta,P0589,62,"['condition in which the heart cannot pump blood as well as it shouldlump in the neck', 'raised']",9,No,Available,Morning,2024-11-21T19:01:25,0,Moderate
+Advik Malhotra,P0590,61,"['lump in the neck', 'painful rash that follows nerve path', 'diarrhea']",4,No,Available,Morning,2024-04-18T22:32:17,0,Moderate
+Avani Singh,P0591,48,"['physical dependence on alcohol', 'lump in the neck', 'fatigue']",3,No,Available,Afternoon,2024-02-01T03:12:37,10,Severe
+Arjun Gupta,P0592,1,"['tremors', 'rash', 'swollen']",7,No,Available,Afternoon,2024-09-13T00:57:12,0,Severe
+Dhruv Singh,P0593,11,"['vomiting', 'decreased kidney function', 'fever']",8,No,Unavailable,Morning,2024-08-05T18:41:01,0,Mild
+Arjun Patel,P0594,76,"['runny nose', 'nausea', 'painful urination']",9,Yes,Unavailable,Afternoon,2024-07-15T09:32:57,5,Mild
+Arjun Gupta,P0595,14,"['difficulty getting', 'swollen', 'itching']",4,No,Unavailable,Afternoon,2024-04-07T13:05:52,0,Moderate
+Avani Kumar,P0596,72,"['chest pain', 'difficulty urinatingsexually transmitted infection that can cause blisters on the genitals']",9,No,Unavailable,Evening,2024-03-18T07:53:24,5,Severe
+Aishwarya Gupta,P0597,95,"['swollen', 'lumpsexually transmitted infection that can cause blisters on the genitals']",6,No,Unavailable,Afternoon,2024-05-22T19:22:19,10,Mild
+Diya Chauhan,P0598,7,"['excessive worry', 'tremors', 'vomiting']",2,Yes,Unavailable,Morning,2024-03-15T14:00:52,0,Severe
+Aditi Malhotra,P0599,46,"['rash', 'extreme mood swings', 'fever']",7,Yes,Unavailable,Morning,2024-05-04T01:03:46,10,Moderate
+Avani Verma,P0600,31,"['difficulty getting', 'chronic bronchitis', 'loose']",6,Yes,Unavailable,Morning,2024-01-08T02:14:35,0,Mild
+Aditi Verma,P0601,16,"['sexually transmitted infection that can cause burning during urinationincreased pressure in the eye that can damage the optic nerve', 'nausea']",5,Yes,Available,Afternoon,2024-10-01T10:32:31,15,Moderate
+Aarav Shah,P0602,42,"['itching', 'decreased kidney function', 'elevated body temperature ']",8,Yes,Unavailable,Morning,2024-10-28T12:08:26,5,Severe
+Aditi Verma,P0603,39,"['nausea', 'lumpchronic autoimmune disease that can affect any part of the body']",4,Yes,Unavailable,Evening,2024-04-25T18:54:01,0,Severe
+Advik Gupta,P0604,54,['diarrheaincreased pressure in the eye that can damage the optic nerveexcessive worry'],4,No,Unavailable,Morning,2024-09-06T14:07:04,10,Severe
+Advik Gupta,P0605,44,"['pain in the upper right abdomen', 'lump', 'vomiting']",1,Yes,Available,Afternoon,2024-08-27T06:03:30,5,Severe
+Ananya Sharma,P0606,83,"['sudden weakness', 'feverdisturbance in eating behavior that can lead to serious health problems']",7,Yes,Unavailable,Evening,2024-01-09T12:29:49,10,Severe
+Aditi Singh,P0607,8,"['rash', 'extreme mood swings', 'red']",0,No,Available,Afternoon,2024-01-22T23:29:18,0,Mild
+Avani Shah,P0608,93,"['runny nose', 'memory loss', 'hypothyroidism']",8,Yes,Unavailable,Evening,2024-08-23T18:00:12,5,Mild
+Aishwarya Chauhan,P0609,66,"['itchy', 'painful urination', 'itching']",6,Yes,Available,Evening,2024-01-26T03:16:18,0,Mild
+Dhruv Chauhan,P0610,42,"['chronic bronchitis', 'itchysexually transmitted infection that can cause blisters on the genitals']",3,Yes,Available,Morning,2024-06-13T01:48:37,10,Moderate
+Advik Reddy,P0611,67,"['pain', 'swollen', 'loose']",5,No,Available,Morning,2024-10-23T16:11:53,0,Mild
+Ishaan Sharma,P0612,93,"['itchy', 'sadnesschronic autoimmune disease that can affect any part of the body']",4,No,Available,Afternoon,2024-07-09T09:30:55,0,Moderate
+Aarav Verma,P0613,79,"['diarrhea', 'bulge in the wall of the aorta', 'difficulty getting']",4,Yes,Unavailable,Morning,2024-03-26T23:55:09,5,Severe
+Arjun Chauhan,P0614,92,"['loose', 'excessive worry', 'hyperthyroidism']",6,No,Available,Afternoon,2024-02-29T04:54:46,0,Moderate
+Ananya Patel,P0615,32,"['high levels of cholesterol in the blood', 'painful urinationpain in the upper right abdomen']",7,No,Available,Morning,2024-10-01T20:15:00,10,Severe
+Dhruv Patel,P0616,94,"['painful rash that follows nerve path', 'swollen', 'blood in the urine']",5,No,Unavailable,Evening,2024-11-30T22:38:52,5,Mild
+Dhruv Kumar,P0617,51,"['pain', 'pain in the lower right abdomen', 'cough']",3,No,Available,Evening,2024-10-29T20:06:33,0,Mild
+Ishaan Gupta,P0618,47,"['itching', 'chronic bronchitischronic autoimmune disease that can affect any part of the body']",5,No,Available,Evening,2024-06-03T12:48:37,0,Moderate
+Dhruv Shah,P0619,94,"['vomiting', 'painful rash that follows nerve path', 'itchy']",5,Yes,Available,Morning,2024-11-13T07:55:46,5,Mild
+Advik Reddy,P0620,34,['pain in the lower back or sideincreased pressure in the eye that can damage the optic nervepainful urination'],0,No,Available,Evening,2024-08-24T04:18:20,0,Mild
+Avani Singh,P0621,13,"['pain', 'raised', 'seizures']",7,Yes,Unavailable,Morning,2024-07-12T03:44:26,0,Mild
+Ananya Malhotra,P0622,97,"['extreme mood swings', 'pain in the upper right abdomenabnormal pap test results']",4,No,Unavailable,Afternoon,2024-11-08T10:52:25,5,Severe
+Aishwarya Verma,P0623,81,"['lump', 'seizures', 'hyperthyroidism']",5,Yes,Available,Afternoon,2024-05-11T16:32:28,5,Mild
+Aarav Kumar,P0624,67,"['hyperthyroidism', 'sudden weaknesssexually transmitted infection that can cause burning during urination']",2,Yes,Unavailable,Evening,2024-09-13T19:44:20,0,Mild
+Aishwarya Gupta,P0625,73,"['sexually transmitted infection that can cause blisters on the genitalsinflammation of the liver', 'abdominal pain']",3,Yes,Available,Morning,2024-01-01T13:15:57,10,Moderate
+Dhruv Kumar,P0626,11,"['sexually transmitted infection that can cause blisters on the genitalsincreased thirst', 'diarrhea']",6,No,Available,Evening,2024-07-24T11:09:33,5,Severe
+Advik Patel,P0627,91,"['nausea', 'red', 'sudden weakness']",9,Yes,Available,Evening,2024-06-02T05:51:13,10,Moderate
+Advik Shah,P0628,28,"['blood in the urinedamage to the kidneys that can lead to kidney failure', 'swollen']",1,Yes,Available,Morning,2024-11-27T10:21:45,0,Moderate
+Aarav Singh,P0629,57,"['abdominal pain', 'change in bowel habits', 'blood in the urine']",3,Yes,Unavailable,Morning,2024-09-05T15:42:35,0,Moderate
+Avani Sharma,P0630,66,"['high levels of cholesterol in the blood', 'abdominal painabnormal pap test results']",9,No,Available,Afternoon,2024-09-27T11:00:14,5,Severe
+Dhruv Verma,P0631,65,"['seizures', 'tremorsdisturbance in eating behavior that can lead to serious health problems']",6,Yes,Available,Evening,2024-05-17T00:06:54,15,Severe
+Aditi Kumar,P0632,70,"['difficulty getting', 'pain in the lower right abdomendifficulty urinating']",6,No,Available,Afternoon,2024-03-12T22:49:14,10,Mild
+Avani Kumar,P0633,89,"['pain', 'cough that does not go away', 'diarrhea']",5,No,Unavailable,Afternoon,2024-08-05T19:46:20,0,Mild
+Advik Singh,P0634,35,"['seizures', 'physical dependence on alcoholbulge in the wall of the aorta']",7,Yes,Available,Morning,2024-07-12T10:46:05,0,Moderate
+Avani Gupta,P0635,80,"['painful rash that follows nerve path', 'itchy', 'lump']",3,No,Available,Morning,2024-03-28T07:41:27,0,Mild
+Ishaan Kumar,P0636,4,"['high levels of cholesterol in the blood', 'red', 'itchy']",8,Yes,Available,Afternoon,2024-01-15T04:20:22,0,Moderate
+Ananya Kumar,P0637,61,"['widespread pain', 'memory loss', 'chest pain']",7,No,Unavailable,Afternoon,2024-01-04T14:55:22,5,Moderate
+Avani Kumar,P0638,38,"['painful rash that follows nerve path', 'diarrhea', 'raised']",3,Yes,Available,Afternoon,2024-03-01T17:05:23,0,Moderate
+Advik Gupta,P0639,44,"['painful rash that follows nerve pathhigh levels of cholesterol in the blood', 'chest pain']",8,Yes,Available,Evening,2024-08-03T00:40:33,5,Moderate
+Avani Gupta,P0640,84,"['raised', 'abdominal pain', 'itching']",4,No,Unavailable,Evening,2024-03-11T22:29:49,5,Moderate
+Ananya Singh,P0641,89,"['decreased kidney functionincreased pressure in the eye that can damage the optic nerve', 'cough']",6,Yes,Unavailable,Morning,2024-10-18T15:15:04,0,Severe
+Ananya Gupta,P0642,71,"['chest pain', 'cough that does not go away', 'loose']",8,Yes,Available,Morning,2024-02-19T12:46:40,5,Mild
+Aishwarya Patel,P0643,21,"['sexually transmitted infection that can cause burning during urinationfever', 'sudden weakness']",3,Yes,Unavailable,Evening,2024-10-11T23:58:34,0,Moderate
+Arjun Chauhan,P0644,7,"['rash', 'raised', 'damage to the kidneys that can lead to kidney failure']",9,No,Available,Morning,2024-03-19T19:00:50,0,Mild
+Aishwarya Malhotra,P0645,29,"['chest pain', 'difficulty urinating', 'cough']",5,Yes,Available,Morning,2024-01-15T20:34:26,5,Moderate
+Aishwarya Singh,P0646,7,"['itchy', 'red', 'extreme mood swings']",2,No,Available,Morning,2024-05-03T05:40:48,0,Severe
+Ishaan Reddy,P0647,67,"['tremors', 'nauseaincreased pressure in the eye that can damage the optic nerve']",8,No,Available,Evening,2024-10-03T21:50:03,15,Severe
+Aishwarya Reddy,P0648,93,"['sexually transmitted infection that can cause burning during urinationpainful rash that follows nerve path', 'pain in the lower back or side']",9,Yes,Available,Afternoon,2024-11-22T11:45:14,0,Moderate
+Avani Patel,P0649,93,"['fatigue', 'chronic bronchitissexually transmitted infection that can cause blisters on the genitals']",5,No,Available,Afternoon,2024-03-10T18:25:24,0,Mild
+Dhruv Reddy,P0650,70,"['inflammation of the liver', 'hyperthyroidism', 'fatigue']",0,Yes,Available,Afternoon,2024-11-14T02:04:58,10,Moderate
+Aishwarya Chauhan,P0651,74,"['pain in the lower back or side', 'pain', 'lump']",4,Yes,Unavailable,Afternoon,2024-01-05T02:21:05,0,Mild
+Advik Patel,P0652,55,"['lump in the neck', 'cough that does not go away', 'rash']",3,Yes,Unavailable,Morning,2024-11-22T19:39:42,10,Mild
+Ishaan Kumar,P0653,78,"['itchy', 'extreme mood swings', 'diarrhea']",0,No,Unavailable,Evening,2024-09-17T06:45:39,10,Mild
+Aishwarya Kumar,P0654,22,"['elevated body temperature ', 'lump', 'itching']",8,Yes,Available,Evening,2024-01-17T19:51:33,5,Moderate
+Aarav Verma,P0655,32,"['wheezing', 'painful urination', 'sudden weakness']",6,No,Available,Evening,2024-03-03T08:32:11,0,Severe
+Ishaan Verma,P0656,82,"['chest pain', 'fever', 'lump']",3,No,Available,Morning,2024-06-21T20:53:55,10,Severe
+Ananya Singh,P0657,36,"['abnormal pap test results', 'blood in the urine', 'change in bowel habits']",5,Yes,Unavailable,Morning,2024-02-28T06:37:03,0,Mild
+Ananya Kumar,P0658,9,"['chronic autoimmune disease that can affect any part of the bodywidespread pain', 'abdominal pain']",2,Yes,Unavailable,Afternoon,2024-04-13T09:14:27,0,Severe
+Avani Singh,P0659,26,"['increased thirst', 'difficulty getting', 'pain in the lower back or side']",9,No,Unavailable,Evening,2024-03-27T09:01:26,0,Mild
+Avani Verma,P0660,22,['runny nosecondition in which the heart cannot pump blood as well as it shouldchange in bowel habits'],9,Yes,Available,Afternoon,2024-05-07T04:08:53,5,Mild
+Aarav Chauhan,P0661,46,"['pain in the lower right abdomen', 'lump in the neck', 'blood in the urine']",9,Yes,Available,Evening,2024-05-30T00:27:46,0,Severe
+Aditi Kumar,P0662,87,"['pain in the lower right abdomen', 'raised', 'cough that does not go away']",0,No,Available,Evening,2024-01-23T20:48:26,0,Moderate
+Aditi Reddy,P0663,17,"['blood in the urine', 'loose', 'red']",0,Yes,Unavailable,Evening,2024-12-29T00:49:06,0,Moderate
+Arjun Patel,P0664,26,"['inflammation of the liver', 'extreme mood swings', 'loose']",7,No,Unavailable,Afternoon,2024-09-16T11:49:03,5,Mild
+Ananya Chauhan,P0665,38,"['sudden weakness', 'loose', 'itching']",4,Yes,Available,Evening,2024-03-20T15:03:29,5,Moderate
+Aditi Kumar,P0666,2,"['pain in the lower back or side', 'painful rash that follows nerve pathincreased pressure in the eye that can damage the optic nerve']",2,Yes,Available,Evening,2024-01-18T13:04:25,0,Moderate
+Dhruv Kumar,P0667,6,['itchysexually transmitted infection that can cause blisters on the genitalshigh levels of cholesterol in the blood'],7,Yes,Available,Afternoon,2024-03-14T23:41:47,5,Severe
+Arjun Verma,P0668,71,"['seizures', 'extreme mood swings', 'hyperthyroidism']",2,No,Available,Evening,2024-12-13T22:49:10,5,Mild
+Dhruv Reddy,P0669,13,"['tremors', 'lump', 'condition that affects the lungs']",0,Yes,Unavailable,Afternoon,2024-11-11T05:23:57,0,Mild
+Dhruv Sharma,P0670,91,"['increased thirst', 'pain in the upper right abdomen', 'itching']",8,Yes,Unavailable,Morning,2024-03-10T03:31:40,0,Moderate
+Ananya Shah,P0671,75,"['difficulty getting', 'vomiting', 'painful urination']",6,No,Available,Evening,2024-03-28T00:04:43,0,Moderate
+Aarav Chauhan,P0672,55,"['difficulty with social interaction', 'wheezingincreased pressure in the eye that can damage the optic nerve']",5,Yes,Available,Afternoon,2024-03-11T00:10:21,10,Moderate
+Ananya Singh,P0673,79,"['increased pressure in the eye that can damage the optic nervepain in the upper abdomen', 'abdominal pain']",4,Yes,Unavailable,Evening,2024-04-01T10:05:00,0,Severe
+Advik Sharma,P0674,63,"['physical dependence on alcohol', 'elevated body temperature pain in the lower back or side']",4,Yes,Unavailable,Morning,2024-12-17T00:55:14,0,Moderate
+Advik Chauhan,P0675,73,"['elevated body temperature ', 'condition that affects the lungsblood in the urine']",8,No,Available,Afternoon,2024-06-25T03:13:40,0,Moderate
+Aditi Kumar,P0676,72,"['swollen', 'redcondition in which the heart cannot pump blood as well as it should']",5,No,Available,Afternoon,2024-12-03T05:45:06,0,Severe
+Diya Verma,P0677,46,['nauseasexually transmitted infection that can cause blisters on the genitalspain in the upper abdomen'],9,No,Unavailable,Afternoon,2024-12-01T16:24:24,5,Moderate
+Aishwarya Reddy,P0678,6,['change in bowel habitsincreased pressure in the eye that can damage the optic nerveinflammation of the liver'],5,Yes,Available,Morning,2024-02-10T09:01:49,0,Severe
+Ishaan Kumar,P0679,48,"['abdominal pain', 'itchy', 'hyperthyroidism']",7,No,Available,Afternoon,2024-11-27T04:55:37,0,Moderate
+Diya Singh,P0680,60,"['swollen', 'increased pressure in the eye that can damage the optic nervepain in the upper abdomen']",0,No,Unavailable,Afternoon,2024-07-18T20:49:35,10,Severe
+Diya Malhotra,P0681,43,"['disturbance in eating behavior that can lead to serious health problemspainful rash that follows nerve path', 'increased thirst']",6,Yes,Unavailable,Evening,2024-11-17T14:46:33,0,Severe
+Aarav Singh,P0682,68,"['increased pressure in the eye that can damage the optic nerveseizures', 'sadness']",1,Yes,Unavailable,Morning,2024-08-25T08:16:29,0,Moderate
+Avani Gupta,P0683,11,"['difficulty with social interaction', 'painful urination', 'chest pain']",9,No,Unavailable,Evening,2024-03-29T10:39:50,5,Moderate
+Avani Reddy,P0684,58,"['abnormal pap test results', 'blood in the urine', 'painful urination']",0,No,Unavailable,Evening,2024-04-03T09:24:26,0,Moderate
+Diya Verma,P0685,92,['painful urinationdisturbance in eating behavior that can lead to serious health problemspain in the lower back or side'],7,No,Unavailable,Evening,2024-11-26T15:48:03,0,Moderate
+Ananya Verma,P0686,90,"['decreased kidney function', 'itchycondition in which the heart cannot pump blood as well as it should']",4,Yes,Available,Morning,2024-03-17T20:59:21,10,Severe
+Advik Shah,P0687,4,"['pain in the lower right abdomen', 'abdominal painsexually transmitted infection that can cause burning during urination']",5,No,Unavailable,Evening,2024-09-26T03:39:35,0,Mild
+Ananya Singh,P0688,79,"['chronic autoimmune disease that can affect any part of the bodychange in bowel habits', 'elevated body temperature ']",9,No,Available,Morning,2024-09-21T16:18:27,5,Mild
+Avani Shah,P0689,83,"['swollen', 'hypothyroidism', 'raised']",6,Yes,Unavailable,Evening,2024-11-19T01:34:21,0,Severe
+Ananya Sharma,P0690,70,"['cough that does not go away', 'wheezing', 'inflammation of the liver']",3,Yes,Unavailable,Morning,2024-02-10T18:26:08,0,Moderate
+Avani Singh,P0691,59,"['raised', 'damage to the kidneys that can lead to kidney failurepainful rash that follows nerve path']",1,Yes,Available,Evening,2024-03-19T19:06:41,0,Moderate
+Arjun Reddy,P0692,5,['wheezingincreased pressure in the eye that can damage the optic nervehyperthyroidism'],9,No,Available,Afternoon,2024-05-15T19:18:21,0,Moderate
+Ananya Kumar,P0693,18,"['seizures', 'difficulty urinating', 'cough that does not go away']",5,Yes,Unavailable,Morning,2024-10-13T10:09:06,0,Severe
+Aarav Patel,P0694,70,"['change in bowel habits', 'tremors', 'bulge in the wall of the aorta']",7,No,Unavailable,Evening,2024-03-30T15:53:59,10,Mild
+Diya Sharma,P0695,64,"['condition that affects the lungs', 'pain in the lower back or sideelevated body temperature ']",6,Yes,Available,Evening,2024-06-13T22:41:29,0,Severe
+Ananya Kumar,P0696,95,"['hypothyroidism', 'swollensexually transmitted infection that can cause burning during urination']",6,Yes,Available,Morning,2024-08-29T07:05:55,5,Severe
+Avani Chauhan,P0697,25,"['cough that does not go away', 'itchingdisturbance in eating behavior that can lead to serious health problems']",5,Yes,Unavailable,Afternoon,2024-06-28T04:15:33,15,Mild
+Ishaan Singh,P0698,4,"['rash', 'abnormal pap test results', 'pain in the upper right abdomen']",4,Yes,Unavailable,Morning,2024-12-07T14:41:59,0,Severe
+Aarav Kumar,P0699,70,"['raised', 'vomiting', 'excessive worry']",4,No,Available,Evening,2024-10-12T03:27:56,5,Mild
+Aditi Patel,P0700,41,"['swollen', 'lump', 'chronic bronchitis']",2,No,Unavailable,Evening,2024-04-27T23:03:06,0,Severe
+Avani Kumar,P0701,37,"['wheezing', 'cough that does not go away', 'itchy']",4,Yes,Unavailable,Morning,2024-02-19T07:18:38,5,Mild
+Diya Sharma,P0702,59,['pain in the upper right abdomenincreased pressure in the eye that can damage the optic nervephysical dependence on alcohol'],9,Yes,Unavailable,Morning,2024-04-24T03:18:19,0,Moderate
+Aditi Sharma,P0703,50,"['sexually transmitted infection that can cause blisters on the genitalslump', 'loose']",5,Yes,Unavailable,Evening,2024-08-15T03:35:20,5,Moderate
+Aditi Chauhan,P0704,56,"['cough that does not go away', 'increased thirst', 'chest pain']",8,No,Available,Evening,2024-03-31T08:25:23,0,Severe
+Aarav Chauhan,P0705,25,"['increased thirst', 'chest pain', 'pain in the lower back or side']",7,No,Available,Afternoon,2024-07-18T17:05:55,10,Mild
+Ishaan Verma,P0706,34,"['painful urination', 'cough that does not go away', 'swollen']",7,Yes,Available,Afternoon,2024-11-15T06:46:51,15,Moderate
+Aditi Malhotra,P0707,19,"['raised', 'painful urination', 'lump']",4,Yes,Unavailable,Evening,2024-11-08T08:51:52,0,Mild
+Aditi Malhotra,P0708,98,"['red', 'inflammation of the liver', 'chronic bronchitis']",9,Yes,Available,Morning,2024-07-15T12:56:57,0,Mild
+Dhruv Kumar,P0709,79,"['change in bowel habits', 'excessive worry', 'sudden weakness']",5,No,Available,Evening,2024-02-02T04:22:20,0,Mild
+Dhruv Verma,P0710,8,"['disturbance in eating behavior that can lead to serious health problemsdiarrhea', 'abnormal pap test results']",5,Yes,Available,Morning,2024-02-20T16:35:46,15,Moderate
+Ananya Singh,P0711,54,"['lump', 'nauseasexually transmitted infection that can cause burning during urination']",5,No,Available,Afternoon,2024-01-03T14:10:54,15,Moderate
+Diya Singh,P0712,47,"['red', 'chronic autoimmune disease that can affect any part of the bodypain']",6,No,Unavailable,Morning,2024-06-22T04:05:10,5,Severe
+Avani Shah,P0713,34,"['decreased kidney function', 'chronic bronchitisinflammation of the liver']",9,Yes,Unavailable,Morning,2024-05-04T02:13:44,0,Moderate
+Avani Gupta,P0714,82,"['chest pain', 'painful urinationincreased pressure in the eye that can damage the optic nerve']",9,Yes,Unavailable,Afternoon,2024-05-24T00:39:10,5,Moderate
+Ishaan Gupta,P0715,30,"['hyperthyroidism', 'widespread pain', 'change in bowel habits']",3,No,Unavailable,Evening,2024-06-20T16:40:20,0,Severe
+Ishaan Sharma,P0716,13,"['rash', 'painful rash that follows nerve path', 'cough']",4,No,Available,Morning,2024-11-22T20:42:57,0,Moderate
+Ishaan Chauhan,P0717,47,"['disturbance in eating behavior that can lead to serious health problemslump in the neck', 'difficulty with social interaction']",8,No,Available,Morning,2024-05-24T20:03:07,0,Mild
+Dhruv Chauhan,P0718,33,"['condition in which the heart cannot pump blood as well as it shouldhyperthyroidism', 'pain in the lower right abdomen']",8,Yes,Available,Afternoon,2024-06-22T08:38:08,15,Moderate
+Arjun Malhotra,P0719,35,"['difficulty with social interaction', 'bulge in the wall of the aortadisturbance in eating behavior that can lead to serious health problems']",6,No,Unavailable,Afternoon,2024-04-04T08:53:04,0,Severe
+Ishaan Gupta,P0720,88,"['physical dependence on alcohol', 'condition that affects the lungsdifficulty urinating']",3,Yes,Available,Evening,2024-03-18T18:30:08,0,Moderate
+Aarav Reddy,P0721,26,"['sexually transmitted infection that can cause burning during urinationhypothyroidism', 'increased thirst']",0,Yes,Unavailable,Evening,2024-11-09T00:31:28,10,Severe
+Aishwarya Sharma,P0722,47,['increased thirstdamage to the kidneys that can lead to kidney failuredifficulty with social interaction'],4,No,Available,Morning,2024-03-31T01:49:44,0,Mild
+Dhruv Gupta,P0723,53,"['increased thirst', 'itchy', 'pain in the lower back or side']",4,Yes,Unavailable,Evening,2024-09-20T12:45:40,10,Moderate
+Aditi Singh,P0724,65,"['elevated body temperature ', 'rash', 'raised']",5,Yes,Available,Afternoon,2024-04-10T16:32:49,5,Severe
+Diya Patel,P0725,77,"['difficulty getting', 'pain', 'extreme mood swings']",3,Yes,Available,Afternoon,2024-04-07T18:44:45,0,Severe
+Arjun Reddy,P0726,74,"['cough that does not go away', 'seizures', 'pain in the lower back or side']",9,No,Unavailable,Evening,2024-01-16T02:34:03,0,Severe
+Aarav Singh,P0727,19,"['painful rash that follows nerve path', 'blood in the urinesexually transmitted infection that can cause burning during urination']",6,Yes,Available,Evening,2024-06-21T18:56:51,0,Severe
+Aditi Reddy,P0728,5,"['condition in which the heart cannot pump blood as well as it shouldlump', 'fever']",0,Yes,Unavailable,Afternoon,2024-06-09T10:38:06,0,Mild
+Dhruv Sharma,P0729,8,"['hypothyroidism', 'hyperthyroidism', 'chronic bronchitis']",8,Yes,Unavailable,Morning,2024-05-25T05:06:32,0,Severe
+Ishaan Chauhan,P0730,4,"['physical dependence on alcohol', 'condition that affects the lungsitchy']",3,Yes,Unavailable,Afternoon,2024-09-05T10:51:00,0,Severe
+Aditi Verma,P0731,49,"['painful urination', 'cough that does not go awaydecreased kidney function']",9,Yes,Unavailable,Morning,2024-08-31T08:01:21,10,Severe
+Ananya Chauhan,P0732,77,"['itching', 'physical dependence on alcohol', 'nausea']",5,Yes,Available,Morning,2024-03-07T16:45:04,5,Severe
+Advik Verma,P0733,38,"['sexually transmitted infection that can cause burning during urinationpainful rash that follows nerve path', 'decreased kidney function']",6,Yes,Available,Evening,2024-06-17T23:45:00,0,Mild
+Aarav Patel,P0734,49,"['lump', 'diarrhea', 'seizures']",6,Yes,Unavailable,Evening,2024-09-08T14:40:08,10,Moderate
+Aishwarya Shah,P0735,83,"['widespread pain', 'abnormal pap test resultscough that does not go away']",1,No,Unavailable,Morning,2024-02-01T18:36:31,0,Mild
+Diya Singh,P0736,52,"['high levels of cholesterol in the blood', 'lump in the neck', 'chest pain']",5,Yes,Available,Morning,2024-08-30T22:30:42,5,Mild
+Advik Shah,P0737,50,"['chronic bronchitis', 'inflammation of the liver', 'wheezing']",4,Yes,Available,Evening,2024-07-07T11:40:52,5,Mild
+Ananya Patel,P0738,72,"['blood in the urine', 'cough that does not go away', 'runny nose']",3,Yes,Available,Evening,2024-02-14T18:12:29,0,Severe
+Avani Verma,P0739,91,"['nausea', 'sudden weakness', 'elevated body temperature ']",0,No,Available,Evening,2024-07-06T02:43:32,5,Moderate
+Dhruv Shah,P0740,50,"['increased thirst', 'difficulty getting', 'loose']",4,Yes,Unavailable,Afternoon,2024-04-06T20:18:54,5,Mild
+Dhruv Verma,P0741,30,['physical dependence on alcoholsexually transmitted infection that can cause burning during urinationlump'],3,No,Unavailable,Afternoon,2024-03-02T01:20:11,5,Severe
+Ananya Reddy,P0742,4,"['cough that does not go away', 'vomiting', 'painful urination']",2,Yes,Unavailable,Morning,2024-07-28T00:52:48,5,Mild
+Dhruv Reddy,P0743,75,"['raised', 'cough that does not go away', 'lump in the neck']",4,Yes,Unavailable,Evening,2024-10-05T16:09:46,15,Moderate
+Aishwarya Patel,P0744,85,"['condition that affects the lungs', 'difficulty urinatingbulge in the wall of the aorta']",0,Yes,Available,Morning,2024-12-11T23:00:12,5,Severe
+Diya Shah,P0745,66,"['memory loss', 'red', 'pain in the upper right abdomen']",2,No,Available,Afternoon,2024-07-26T18:44:30,5,Severe
+Advik Sharma,P0746,21,"['increased thirst', 'chronic bronchitis', 'raised']",3,Yes,Unavailable,Afternoon,2024-02-16T15:52:58,5,Moderate
+Advik Shah,P0747,81,['diarrheasexually transmitted infection that can cause burning during urinationfatigue'],2,Yes,Unavailable,Morning,2024-12-29T03:26:06,0,Moderate
+Ananya Singh,P0748,43,"['abnormal pap test results', 'cough that does not go awayexcessive worry']",5,No,Unavailable,Afternoon,2024-03-14T07:41:46,0,Mild
+Advik Singh,P0749,29,"['high levels of cholesterol in the blood', 'abnormal pap test resultsexcessive worry']",2,No,Unavailable,Morning,2024-05-29T00:54:09,0,Moderate
+Advik Gupta,P0750,27,"['pain in the lower right abdomen', 'fatigue', 'diarrhea']",7,No,Available,Morning,2024-02-22T12:43:29,0,Mild
+Dhruv Kumar,P0751,88,"['hypothyroidism', 'extreme mood swings', 'seizures']",4,Yes,Available,Morning,2024-06-10T02:58:05,0,Severe
+Dhruv Malhotra,P0752,53,"['memory loss', 'abnormal pap test results', 'difficulty getting']",2,Yes,Available,Evening,2024-08-18T20:24:41,0,Severe
+Arjun Reddy,P0753,49,"['nausea', 'condition that affects the lungs', 'itchy']",5,No,Unavailable,Morning,2024-07-09T19:04:58,0,Severe
+Aishwarya Reddy,P0754,67,"['fatigue', 'inflammation of the liver', 'seizures']",8,No,Available,Evening,2024-09-25T18:05:49,10,Severe
+Arjun Reddy,P0755,10,"['lump', 'painful rash that follows nerve path', 'pain']",5,No,Unavailable,Afternoon,2024-01-30T18:01:21,10,Mild
+Diya Patel,P0756,3,"['condition that affects the lungs', 'hyperthyroidismpain in the lower back or side']",3,Yes,Available,Evening,2024-10-19T19:25:39,0,Severe
+Diya Malhotra,P0757,90,"['cough that does not go away', 'decreased kidney function', 'loose']",8,Yes,Unavailable,Morning,2024-03-12T02:09:37,0,Severe
+Dhruv Verma,P0758,91,"['excessive worry', 'high levels of cholesterol in the blooddifficulty getting']",5,Yes,Available,Afternoon,2024-11-27T17:56:55,0,Mild
+Avani Kumar,P0759,69,"['loose', 'painful rash that follows nerve path', 'nausea']",6,No,Available,Evening,2024-08-31T12:24:23,0,Moderate
+Aditi Singh,P0760,11,"['increased pressure in the eye that can damage the optic nervedecreased kidney function', 'red']",7,No,Available,Evening,2024-02-09T13:11:36,0,Severe
+Advik Verma,P0761,13,"['decreased kidney function', 'lump in the neck', 'increased thirst']",1,Yes,Unavailable,Morning,2024-02-24T12:20:19,0,Moderate
+Diya Kumar,P0762,98,"['abdominal pain', 'damage to the kidneys that can lead to kidney failurelump']",9,Yes,Unavailable,Evening,2024-01-02T05:19:42,5,Mild
+Aishwarya Patel,P0763,38,"['red', 'runny nose', 'fatigue']",1,Yes,Available,Afternoon,2024-01-16T20:19:22,0,Moderate
+Ananya Sharma,P0764,40,"['elevated body temperature ', 'vomiting', 'hyperthyroidism']",9,No,Unavailable,Evening,2024-01-13T17:14:40,0,Mild
+Ishaan Shah,P0765,33,"['change in bowel habits', 'seizures', 'sadness']",9,No,Unavailable,Evening,2024-09-20T23:18:27,15,Mild
+Advik Shah,P0766,34,"['sexually transmitted infection that can cause burning during urinationseizures', 'tremors']",8,Yes,Unavailable,Afternoon,2024-02-21T00:48:14,0,Moderate
+Aditi Patel,P0767,27,"['pain in the upper abdomen', 'widespread pain', 'difficulty urinating']",6,Yes,Available,Morning,2024-10-15T14:51:50,10,Mild
+Aditi Gupta,P0768,90,"['cough that does not go away', 'red', 'difficulty urinating']",8,Yes,Unavailable,Evening,2024-10-02T03:46:21,5,Moderate
+Aditi Sharma,P0769,51,"['red', 'difficulty with social interaction', 'extreme mood swings']",0,No,Available,Morning,2024-03-24T19:44:37,15,Mild
+Advik Chauhan,P0770,89,"['increased pressure in the eye that can damage the optic nervepainful urination', 'sudden weakness']",0,No,Unavailable,Evening,2024-07-31T13:13:23,5,Moderate
+Aditi Gupta,P0771,83,"['increased thirst', 'tremors', 'difficulty urinating']",9,Yes,Unavailable,Evening,2024-02-19T20:50:12,15,Moderate
+Arjun Verma,P0772,21,"['physical dependence on alcohol', 'sadnesscondition that affects the lungs']",4,Yes,Available,Afternoon,2024-10-12T13:21:42,15,Moderate
+Advik Singh,P0773,95,"['lump', 'decreased kidney function', 'abnormal pap test results']",7,No,Unavailable,Evening,2024-11-08T08:14:24,0,Moderate
+Avani Chauhan,P0774,29,"['increased thirst', 'rash', 'pain in the upper right abdomen']",2,Yes,Available,Morning,2024-06-29T07:12:37,10,Moderate
+Diya Gupta,P0775,73,"['diarrhea', 'sadness', 'chest pain']",5,No,Unavailable,Morning,2024-03-24T20:47:03,0,Mild
+Advik Kumar,P0776,19,"['hyperthyroidism', 'fever', 'hypothyroidism']",8,No,Available,Morning,2024-07-10T20:12:43,0,Severe
+Aditi Sharma,P0777,26,['paindisturbance in eating behavior that can lead to serious health problemssudden weakness'],2,No,Available,Afternoon,2024-12-15T01:22:54,15,Mild
+Dhruv Shah,P0778,25,['disturbance in eating behavior that can lead to serious health problemssexually transmitted infection that can cause blisters on the genitalsdifficulty with social interaction'],3,No,Available,Morning,2024-03-10T07:32:15,0,Mild
+Aarav Reddy,P0779,40,"['inflammation of the liver', 'high levels of cholesterol in the bloodpain in the lower right abdomen']",1,No,Unavailable,Afternoon,2024-12-16T19:08:26,5,Severe
+Avani Kumar,P0780,29,"['extreme mood swings', 'pain in the lower right abdomen', 'pain']",7,Yes,Available,Afternoon,2024-11-27T00:30:03,10,Moderate
+Diya Sharma,P0781,25,"['damage to the kidneys that can lead to kidney failurepainful urination', 'tremors']",5,Yes,Available,Evening,2024-05-26T16:30:14,5,Mild
+Diya Verma,P0782,19,"['raised', 'extreme mood swings', 'painful rash that follows nerve path']",3,No,Unavailable,Afternoon,2024-04-07T01:37:49,5,Severe
+Aditi Chauhan,P0783,68,"['seizures', 'diarrhea', 'pain in the lower right abdomen']",4,Yes,Unavailable,Afternoon,2024-01-05T17:08:25,5,Moderate
+Aarav Gupta,P0784,45,"['loose', 'painful urination', 'abdominal pain']",7,No,Unavailable,Afternoon,2024-08-11T21:26:05,0,Severe
+Aishwarya Malhotra,P0785,84,"['inflammation of the liver', 'bulge in the wall of the aortachange in bowel habits']",9,No,Unavailable,Morning,2024-07-16T18:03:48,10,Mild
+Aarav Reddy,P0786,46,"['abnormal pap test results', 'cough that does not go away', 'itchy']",7,No,Available,Afternoon,2024-02-22T00:04:23,10,Moderate
+Arjun Shah,P0787,55,"['condition in which the heart cannot pump blood as well as it shouldsudden weakness', 'change in bowel habits']",8,No,Unavailable,Afternoon,2024-07-07T22:56:03,10,Severe
+Ishaan Gupta,P0788,1,"['cough that does not go away', 'cough', 'rash']",8,No,Unavailable,Morning,2024-08-18T07:24:56,0,Mild
+Dhruv Patel,P0789,11,"['damage to the kidneys that can lead to kidney failure', 'runny nosehypothyroidism']",6,No,Unavailable,Afternoon,2024-02-03T20:25:10,0,Severe
+Aarav Malhotra,P0790,68,['damage to the kidneys that can lead to kidney failurephysical dependence on alcoholcondition in which the heart cannot pump blood as well as it should'],5,No,Available,Afternoon,2024-05-09T22:01:43,0,Moderate
+Aarav Kumar,P0791,7,"['swollen', 'raised', 'pain in the lower right abdomen']",4,No,Available,Morning,2024-10-14T13:24:05,5,Mild
+Ananya Shah,P0792,92,"['sexually transmitted infection that can cause blisters on the genitalscough that does not go away', 'abnormal pap test results']",3,Yes,Unavailable,Afternoon,2024-03-08T12:52:05,0,Mild
+Aditi Singh,P0793,58,"['hypothyroidism', 'wheezing', 'raised']",4,No,Available,Morning,2024-06-15T00:42:10,0,Moderate
+Ananya Malhotra,P0794,71,"['rash', 'vomiting', 'condition that affects the lungs']",2,Yes,Unavailable,Afternoon,2024-05-14T07:55:50,15,Severe
+Diya Malhotra,P0795,20,"['tremors', 'pain in the upper abdomen', 'rash']",7,No,Available,Evening,2024-11-15T04:25:47,10,Mild
+Aishwarya Malhotra,P0796,35,"['loose', 'diarrhea', 'chest pain']",5,No,Available,Evening,2024-05-20T06:57:35,0,Moderate
+Dhruv Malhotra,P0797,51,"['chronic bronchitis', 'tremors', 'blood in the urine']",3,Yes,Unavailable,Evening,2024-09-14T01:51:56,0,Mild
+Dhruv Malhotra,P0798,21,"['change in bowel habits', 'hypothyroidismsexually transmitted infection that can cause blisters on the genitals']",3,Yes,Available,Evening,2024-09-27T03:53:45,5,Severe
+Ishaan Chauhan,P0799,44,"['condition in which the heart cannot pump blood as well as it shouldpain in the lower right abdomen', 'blood in the urine']",7,Yes,Available,Evening,2024-12-29T21:28:43,0,Mild
+Aishwarya Shah,P0800,1,"['difficulty getting', 'sudden weaknessdifficulty with social interaction']",4,Yes,Available,Afternoon,2024-03-25T17:10:05,5,Severe
+Avani Verma,P0801,67,"['chronic autoimmune disease that can affect any part of the body', 'looseextreme mood swings']",4,Yes,Unavailable,Evening,2024-11-03T06:24:39,0,Severe
+Aditi Patel,P0802,98,"['diarrhea', 'red', 'pain in the upper abdomen']",0,Yes,Available,Morning,2024-10-20T20:29:43,10,Severe
+Ananya Malhotra,P0803,13,"['chest pain', 'lump in the neck', 'chronic bronchitis']",0,Yes,Available,Afternoon,2024-08-11T23:50:09,5,Moderate
+Aarav Reddy,P0804,16,['blood in the urinesexually transmitted infection that can cause burning during urinationloose'],6,No,Unavailable,Afternoon,2024-10-26T10:00:12,10,Severe
+Ananya Reddy,P0805,34,"['condition in which the heart cannot pump blood as well as it shouldwidespread pain', 'fever']",0,No,Available,Morning,2024-05-16T19:53:54,5,Moderate
+Arjun Patel,P0806,24,"['pain in the lower right abdomen', 'lump in the neck', 'diarrhea']",4,Yes,Available,Morning,2024-05-28T04:21:33,5,Moderate
+Avani Singh,P0807,13,"['diarrhea', 'nausea', 'memory loss']",0,Yes,Unavailable,Afternoon,2024-07-29T21:22:16,10,Severe
+Aarav Singh,P0808,6,"['sadness', 'red', 'condition that affects the lungs']",6,No,Available,Afternoon,2024-01-21T06:08:13,0,Severe
+Aditi Chauhan,P0809,39,"['fatigue', 'hypothyroidismsexually transmitted infection that can cause blisters on the genitals']",9,Yes,Available,Morning,2024-06-22T19:25:07,0,Mild
+Aishwarya Malhotra,P0810,2,"['chest pain', 'hypothyroidism', 'wheezing']",0,No,Available,Morning,2024-05-10T08:57:00,0,Severe
+Diya Patel,P0811,11,"['sexually transmitted infection that can cause blisters on the genitalsmemory loss', 'itching']",1,Yes,Unavailable,Morning,2024-03-06T16:55:26,10,Mild
+Aishwarya Gupta,P0812,7,['nauseacondition in which the heart cannot pump blood as well as it shouldabdominal pain'],8,No,Unavailable,Evening,2024-10-13T18:30:04,0,Moderate
+Ananya Kumar,P0813,7,['chest paindisturbance in eating behavior that can lead to serious health problemsdifficulty urinating'],3,No,Available,Morning,2024-08-08T23:56:36,10,Mild
+Advik Singh,P0814,39,"['nausea', 'hypothyroidism', 'runny nose']",8,Yes,Available,Afternoon,2024-07-20T00:28:16,0,Moderate
+Aarav Chauhan,P0815,76,"['itching', 'damage to the kidneys that can lead to kidney failurememory loss']",6,No,Available,Morning,2024-08-29T13:26:54,5,Severe
+Ishaan Chauhan,P0816,86,['change in bowel habitssexually transmitted infection that can cause burning during urinationincreased thirst'],5,No,Unavailable,Evening,2024-05-05T18:10:36,0,Moderate
+Aarav Shah,P0817,51,"['swollen', 'condition that affects the lungs', 'lump in the neck']",5,No,Available,Afternoon,2024-04-29T00:42:08,15,Mild
+Aishwarya Shah,P0818,52,"['lump in the neck', 'loose', 'hypothyroidism']",4,No,Available,Afternoon,2024-06-09T06:32:33,0,Severe
+Avani Patel,P0819,3,"['itching', 'lump', 'increased thirst']",5,No,Available,Morning,2024-03-12T19:53:02,0,Moderate
+Diya Sharma,P0820,77,"['seizures', 'bulge in the wall of the aortadamage to the kidneys that can lead to kidney failure']",6,Yes,Available,Evening,2024-02-21T01:27:44,0,Mild
+Avani Patel,P0821,30,"['painful rash that follows nerve path', 'raised', 'hypothyroidism']",7,Yes,Unavailable,Evening,2024-08-22T19:48:09,5,Severe
+Dhruv Chauhan,P0822,10,"['itchy', 'pain in the upper abdomen', 'lump in the neck']",4,Yes,Unavailable,Evening,2024-02-18T21:32:47,5,Moderate
+Aishwarya Verma,P0823,73,"['sadness', 'pain in the lower back or side', 'sudden weakness']",9,Yes,Unavailable,Morning,2024-08-09T11:07:51,0,Mild
+Dhruv Singh,P0824,6,"['pain in the upper right abdomen', 'hyperthyroidism', 'blood in the urine']",5,Yes,Unavailable,Afternoon,2024-04-03T10:44:14,0,Moderate
+Diya Kumar,P0825,54,"['sexually transmitted infection that can cause blisters on the genitalsexcessive worry', 'blood in the urine']",5,Yes,Available,Morning,2024-11-21T02:46:09,0,Severe
+Aarav Singh,P0826,66,"['sexually transmitted infection that can cause blisters on the genitalspain in the upper abdomen', 'red']",3,Yes,Unavailable,Evening,2024-08-04T02:26:35,0,Severe
+Aarav Reddy,P0827,44,"['sexually transmitted infection that can cause blisters on the genitalscough', 'memory loss']",7,Yes,Unavailable,Afternoon,2024-03-16T19:32:11,5,Moderate
+Aarav Singh,P0828,80,"['chest pain', 'fever', 'cough']",0,No,Available,Afternoon,2024-11-29T08:01:17,15,Mild
+Ishaan Reddy,P0829,63,"['lump', 'bulge in the wall of the aorta', 'inflammation of the liver']",8,Yes,Available,Afternoon,2024-02-13T00:23:33,0,Moderate
+Ananya Reddy,P0830,77,"['extreme mood swings', 'condition that affects the lungshigh levels of cholesterol in the blood']",6,Yes,Available,Afternoon,2024-10-18T16:47:46,15,Severe
+Aarav Chauhan,P0831,48,"['loose', 'decreased kidney function', 'pain in the upper right abdomen']",2,Yes,Unavailable,Afternoon,2024-08-08T03:34:11,5,Mild
+Arjun Shah,P0832,77,"['memory loss', 'cough', 'abdominal pain']",3,Yes,Available,Evening,2024-05-29T03:40:02,0,Mild
+Aarav Reddy,P0833,22,['pain in the lower right abdomensexually transmitted infection that can cause blisters on the genitalsexcessive worry'],4,No,Unavailable,Morning,2024-11-09T00:57:02,5,Severe
+Diya Gupta,P0834,19,"['wheezing', 'physical dependence on alcohol', 'fatigue']",8,Yes,Unavailable,Evening,2024-01-13T00:20:07,0,Severe
+Avani Singh,P0835,90,"['widespread pain', 'diarrhea', 'tremors']",4,No,Unavailable,Afternoon,2024-08-19T09:35:55,0,Severe
+Ishaan Shah,P0836,14,"['increased pressure in the eye that can damage the optic nerve', 'loosehypothyroidism']",3,No,Unavailable,Evening,2024-08-19T01:26:16,15,Mild
+Aarav Singh,P0837,95,"['seizures', 'chronic bronchitis', 'extreme mood swings']",5,Yes,Available,Afternoon,2024-07-19T03:56:31,0,Moderate
+Ananya Verma,P0838,93,"['loose', 'abnormal pap test results', 'vomiting']",4,No,Unavailable,Afternoon,2024-02-10T00:39:40,0,Severe
+Ananya Reddy,P0839,86,"['diarrhea', 'red', 'sudden weakness']",6,Yes,Unavailable,Morning,2024-03-06T14:53:02,0,Moderate
+Avani Reddy,P0840,7,"['disturbance in eating behavior that can lead to serious health problemscondition that affects the lungs', 'change in bowel habits']",3,Yes,Unavailable,Evening,2024-06-27T23:50:10,15,Mild
+Aishwarya Sharma,P0841,49,['tremorssexually transmitted infection that can cause burning during urinationred'],3,No,Available,Morning,2024-06-30T14:01:23,5,Mild
+Arjun Malhotra,P0842,41,"['chronic bronchitis', 'fever', 'widespread pain']",1,Yes,Unavailable,Evening,2024-03-27T15:43:00,5,Severe
+Arjun Malhotra,P0843,27,"['vomiting', 'sadness', 'chest pain']",3,No,Available,Evening,2024-12-24T00:17:25,0,Severe
+Avani Kumar,P0844,31,"['inflammation of the liver', 'pain in the lower right abdomen', 'pain']",1,Yes,Available,Morning,2024-06-11T08:01:09,5,Severe
+Advik Kumar,P0845,6,"['fever', 'inflammation of the liversexually transmitted infection that can cause burning during urination']",4,No,Available,Morning,2024-12-08T02:58:26,15,Mild
+Diya Singh,P0846,16,"['bulge in the wall of the aorta', 'wheezing', 'chest pain']",7,Yes,Unavailable,Evening,2024-04-03T09:45:14,0,Severe
+Aditi Chauhan,P0847,64,"['vomiting', 'diarrhea', 'high levels of cholesterol in the blood']",5,Yes,Unavailable,Evening,2024-01-26T04:31:47,10,Severe
+Ananya Sharma,P0848,38,"['abnormal pap test results', 'cough', 'itchy']",0,Yes,Available,Afternoon,2024-09-21T02:22:54,0,Severe
+Advik Singh,P0849,60,"['hypothyroidism', 'itchydisturbance in eating behavior that can lead to serious health problems']",3,Yes,Unavailable,Afternoon,2024-09-06T03:56:23,5,Moderate
+Diya Patel,P0850,96,"['rash', 'nausea', 'raised']",4,Yes,Available,Morning,2024-01-29T22:24:34,0,Mild
+Diya Gupta,P0851,97,"['pain in the lower right abdomen', 'chest painelevated body temperature ']",2,Yes,Available,Evening,2024-04-10T17:53:12,5,Severe
+Ananya Gupta,P0852,81,"['disturbance in eating behavior that can lead to serious health problemsdiarrhea', 'nausea']",7,No,Available,Morning,2024-02-06T19:01:20,0,Mild
+Aishwarya Patel,P0853,33,"['loose', 'runny nose', 'hypothyroidism']",4,No,Unavailable,Evening,2024-01-07T08:34:09,0,Moderate
+Ananya Verma,P0854,63,"['lump', 'fever', 'hypothyroidism']",4,No,Unavailable,Morning,2024-06-15T17:58:33,15,Moderate
+Aishwarya Singh,P0855,11,"['decreased kidney function', 'extreme mood swingsabnormal pap test results']",7,Yes,Available,Morning,2024-01-23T14:57:53,0,Mild
+Arjun Singh,P0856,13,"['chronic autoimmune disease that can affect any part of the bodypain in the upper right abdomen', 'nausea']",9,No,Unavailable,Afternoon,2024-02-14T11:49:58,0,Severe
+Ishaan Shah,P0857,94,"['sexually transmitted infection that can cause burning during urinationnausea', 'sadness']",5,No,Available,Morning,2024-10-17T07:56:23,0,Severe
+Avani Kumar,P0858,65,"['decreased kidney function', 'widespread painpain in the lower back or side']",6,Yes,Unavailable,Evening,2024-03-12T01:07:00,15,Severe
+Dhruv Gupta,P0859,30,"['pain', 'cough', 'sadness']",9,Yes,Unavailable,Evening,2024-03-11T20:18:56,15,Severe
+Diya Shah,P0860,91,"['itchy', 'abnormal pap test results', 'lump in the neck']",1,Yes,Unavailable,Afternoon,2024-03-27T21:39:05,15,Mild
+Aditi Gupta,P0861,23,"['vomiting', 'pain in the lower back or sidedamage to the kidneys that can lead to kidney failure']",6,No,Available,Afternoon,2024-09-23T06:50:34,0,Mild
+Aarav Patel,P0862,20,"['difficulty with social interaction', 'abdominal pain', 'swollen']",4,No,Unavailable,Morning,2024-11-12T12:04:58,0,Mild
+Ishaan Verma,P0863,6,"['widespread pain', 'difficulty getting', 'abdominal pain']",1,No,Available,Morning,2024-10-21T02:48:16,0,Moderate
+Arjun Chauhan,P0864,37,"['lump', 'pain in the upper right abdomen', 'rash']",9,Yes,Available,Afternoon,2024-08-15T15:00:28,10,Moderate
+Ishaan Kumar,P0865,84,"['painful rash that follows nerve path', 'difficulty getting', 'wheezing']",7,Yes,Unavailable,Afternoon,2024-09-08T10:10:41,0,Mild
+Advik Verma,P0866,6,"['nausea', 'widespread pain', 'diarrhea']",9,No,Unavailable,Evening,2024-11-25T10:52:14,15,Moderate
+Dhruv Verma,P0867,93,"['difficulty urinating', 'runny nose', 'fever']",8,No,Available,Afternoon,2024-05-24T08:35:02,10,Mild
+Avani Singh,P0868,77,"['cough', 'memory loss', 'red']",8,No,Available,Afternoon,2024-03-12T00:50:28,0,Moderate
+Ananya Patel,P0869,27,"['swollen', 'abnormal pap test results', 'lump in the neck']",5,Yes,Available,Morning,2024-08-05T11:51:27,0,Moderate
+Avani Kumar,P0870,84,"['elevated body temperature ', 'difficulty with social interactionextreme mood swings']",4,Yes,Unavailable,Morning,2024-07-31T19:10:41,15,Mild
+Diya Gupta,P0871,13,"['raised', 'hyperthyroidism', 'red']",2,No,Unavailable,Afternoon,2024-08-21T00:26:25,0,Severe
+Aditi Malhotra,P0872,8,"['fever', 'increased pressure in the eye that can damage the optic nervechest pain']",6,No,Available,Morning,2024-04-09T23:45:37,0,Severe
+Diya Reddy,P0873,53,"['inflammation of the liver', 'high levels of cholesterol in the bloodseizures']",5,No,Unavailable,Morning,2024-05-25T00:08:11,0,Moderate
+Arjun Chauhan,P0874,81,"['wheezing', 'seizuresdamage to the kidneys that can lead to kidney failure']",5,Yes,Unavailable,Afternoon,2024-02-11T12:30:33,15,Moderate
+Dhruv Reddy,P0875,30,"['pain in the upper abdomen', 'tremorshigh levels of cholesterol in the blood']",2,Yes,Available,Afternoon,2024-03-16T01:06:01,0,Mild
+Arjun Patel,P0876,1,"['sexually transmitted infection that can cause burning during urinationpain in the lower right abdomen', 'chronic bronchitis']",3,No,Available,Morning,2024-04-17T08:24:47,0,Mild
+Aarav Shah,P0877,88,"['pain in the upper right abdomen', 'itching', 'memory loss']",5,No,Unavailable,Evening,2024-05-24T06:57:35,0,Severe
+Aditi Malhotra,P0878,80,"['elevated body temperature ', 'abdominal pain', 'hypothyroidism']",4,Yes,Available,Evening,2024-01-25T03:53:41,0,Severe
+Ishaan Kumar,P0879,75,['swollensexually transmitted infection that can cause blisters on the genitalsrash'],8,Yes,Available,Evening,2024-06-16T09:32:40,10,Moderate
+Diya Gupta,P0880,4,['pain in the lower back or sidecondition in which the heart cannot pump blood as well as it shouldhigh levels of cholesterol in the blood'],6,No,Available,Afternoon,2024-02-14T15:24:29,5,Moderate
+Aarav Gupta,P0881,62,"['blood in the urine', 'sudden weakness', 'widespread pain']",5,Yes,Unavailable,Morning,2024-05-02T17:41:59,5,Severe
+Aditi Gupta,P0882,68,"['red', 'hypothyroidism', 'widespread pain']",2,No,Unavailable,Morning,2024-12-15T02:14:30,10,Mild
+Aarav Chauhan,P0883,17,"['physical dependence on alcohol', 'itchydisturbance in eating behavior that can lead to serious health problems']",8,Yes,Unavailable,Afternoon,2024-08-12T18:10:08,5,Mild
+Advik Malhotra,P0884,74,"['pain in the lower right abdomen', 'abdominal paindisturbance in eating behavior that can lead to serious health problems']",5,Yes,Available,Morning,2024-08-27T10:12:39,5,Mild
+Aarav Gupta,P0885,85,"['seizures', 'chest pain', 'difficulty urinating']",9,No,Available,Afternoon,2024-07-11T10:15:14,0,Moderate
+Ishaan Shah,P0886,57,"['inflammation of the liver', 'abnormal pap test results', 'loose']",7,Yes,Unavailable,Evening,2024-12-19T05:46:18,0,Moderate
+Aishwarya Sharma,P0887,63,"['wheezing', 'blood in the urine', 'cough that does not go away']",1,Yes,Available,Evening,2024-04-30T20:25:39,0,Mild
+Advik Verma,P0888,57,['nauseadisturbance in eating behavior that can lead to serious health problemssadness'],5,No,Unavailable,Morning,2024-09-14T10:40:39,0,Moderate
+Ananya Shah,P0889,49,['widespread painchronic autoimmune disease that can affect any part of the bodyexcessive worry'],9,Yes,Unavailable,Evening,2024-06-16T11:44:40,15,Severe
+Aditi Kumar,P0890,18,['widespread painsexually transmitted infection that can cause blisters on the genitalsphysical dependence on alcohol'],7,No,Unavailable,Afternoon,2024-04-14T20:43:24,0,Severe
+Ananya Malhotra,P0891,58,"['high levels of cholesterol in the blood', 'inflammation of the liversexually transmitted infection that can cause blisters on the genitals']",0,No,Available,Evening,2024-02-26T20:56:47,5,Moderate
+Avani Sharma,P0892,10,"['condition that affects the lungs', 'painincreased pressure in the eye that can damage the optic nerve']",9,Yes,Unavailable,Morning,2024-07-20T02:59:10,0,Mild
+Arjun Reddy,P0893,63,"['chest pain', 'sudden weakness', 'increased thirst']",2,Yes,Available,Afternoon,2024-06-23T09:31:27,0,Mild
+Aishwarya Chauhan,P0894,80,"['physical dependence on alcohol', 'pain', 'hyperthyroidism']",6,Yes,Available,Morning,2024-06-08T04:22:02,15,Moderate
+Dhruv Chauhan,P0895,79,"['raised', 'physical dependence on alcohol', 'fever']",1,No,Unavailable,Morning,2024-04-05T06:34:57,0,Moderate
+Ananya Sharma,P0896,34,"['itching', 'excessive worry', 'bulge in the wall of the aorta']",3,No,Available,Afternoon,2024-03-27T12:34:49,5,Severe
+Aditi Reddy,P0897,5,"['inflammation of the liver', 'itching', 'itchy']",2,Yes,Unavailable,Evening,2024-01-23T01:08:49,0,Moderate
+Ananya Reddy,P0898,17,"['condition that affects the lungs', 'abdominal pain', 'lump']",3,No,Available,Morning,2024-01-03T05:32:33,0,Severe
+Ishaan Shah,P0899,72,"['raised', 'pain', 'chronic bronchitis']",4,No,Available,Evening,2024-07-08T02:44:34,5,Severe
+Diya Gupta,P0900,63,"['chronic bronchitis', 'pain in the upper right abdomen', 'abdominal pain']",6,Yes,Available,Afternoon,2024-03-27T14:17:27,0,Mild
+Advik Gupta,P0901,24,"['bulge in the wall of the aorta', 'loose', 'fatigue']",0,No,Available,Evening,2024-02-04T08:08:56,0,Mild
+Aarav Reddy,P0902,92,"['runny nose', 'difficulty with social interaction', 'seizures']",9,No,Unavailable,Evening,2024-09-23T15:36:37,0,Severe
+Ananya Singh,P0903,8,"['chest pain', 'damage to the kidneys that can lead to kidney failurehyperthyroidism']",6,Yes,Available,Afternoon,2024-03-08T17:28:36,10,Severe
+Dhruv Singh,P0904,23,"['pain', 'increased thirst', 'lump']",7,Yes,Available,Morning,2024-08-27T21:58:40,0,Severe
+Dhruv Patel,P0905,99,"['change in bowel habits', 'itching', 'cough that does not go away']",4,No,Unavailable,Morning,2024-05-31T11:06:29,0,Mild
+Ishaan Sharma,P0906,31,['redsexually transmitted infection that can cause burning during urinationhigh levels of cholesterol in the blood'],1,Yes,Unavailable,Evening,2024-11-28T08:56:49,0,Moderate
+Aditi Singh,P0907,81,"['rash', 'difficulty getting', 'abdominal pain']",5,No,Unavailable,Morning,2024-07-04T13:11:16,0,Moderate
+Ishaan Malhotra,P0908,28,"['nausea', 'pain in the lower back or side', 'raised']",1,No,Unavailable,Evening,2024-11-15T21:43:44,5,Severe
+Ananya Patel,P0909,48,"['raised', 'bulge in the wall of the aorta', 'hyperthyroidism']",5,No,Available,Evening,2024-04-30T01:23:44,5,Severe
+Aarav Patel,P0910,12,['sudden weaknesscondition in which the heart cannot pump blood as well as it shouldseizures'],5,No,Unavailable,Afternoon,2024-02-01T13:04:11,0,Moderate
+Advik Sharma,P0911,88,"['sexually transmitted infection that can cause blisters on the genitalsdiarrhea', 'decreased kidney function']",3,No,Available,Evening,2024-01-18T01:55:37,0,Severe
+Arjun Sharma,P0912,79,"['loose', 'difficulty gettingcondition in which the heart cannot pump blood as well as it should']",7,Yes,Available,Morning,2024-05-07T23:07:03,5,Mild
+Diya Singh,P0913,31,"['pain in the lower right abdomen', 'cough that does not go away', 'cough']",1,Yes,Unavailable,Afternoon,2024-02-20T09:23:00,0,Mild
+Ishaan Shah,P0914,91,"['red', 'extreme mood swings', 'diarrhea']",3,Yes,Available,Morning,2024-09-16T23:00:58,5,Moderate
+Diya Malhotra,P0915,35,"['sexually transmitted infection that can cause burning during urinationitchy', 'chronic bronchitis']",6,Yes,Unavailable,Afternoon,2024-08-08T11:32:58,10,Moderate
+Dhruv Kumar,P0916,55,"['hyperthyroidism', 'fatigue', 'painful urination']",1,No,Available,Afternoon,2024-01-27T01:48:57,0,Mild
+Diya Verma,P0917,82,"['cough that does not go away', 'chronic bronchitis', 'sadness']",7,Yes,Available,Morning,2024-04-07T00:32:58,0,Mild
+Aditi Chauhan,P0918,36,"['fatigue', 'pain in the upper right abdomen', 'widespread pain']",0,No,Available,Afternoon,2024-06-02T17:33:48,15,Moderate
+Aarav Shah,P0919,72,"['increased pressure in the eye that can damage the optic nerveinflammation of the liver', 'itching']",6,Yes,Unavailable,Morning,2024-02-07T14:49:46,0,Moderate
+Advik Reddy,P0920,60,"['fatigue', 'difficulty with social interactioninflammation of the liver']",4,Yes,Available,Evening,2024-09-08T23:57:03,0,Mild
+Diya Sharma,P0921,38,"['condition that affects the lungs', 'seizures', 'runny nose']",0,No,Available,Afternoon,2024-04-30T08:20:04,0,Mild
+Ananya Patel,P0922,69,"['vomiting', 'cough that does not go away', 'decreased kidney function']",4,Yes,Unavailable,Afternoon,2024-07-11T02:45:35,0,Severe
+Dhruv Malhotra,P0923,54,['inflammation of the livercondition in which the heart cannot pump blood as well as it shouldchronic bronchitis'],9,No,Available,Afternoon,2024-11-25T10:17:10,0,Severe
+Ishaan Reddy,P0924,14,"['itching', 'rash', 'painful rash that follows nerve path']",0,No,Available,Evening,2024-09-19T06:28:26,0,Moderate
+Ananya Verma,P0925,20,"['wheezing', 'seizures', 'fever']",3,Yes,Unavailable,Morning,2024-09-22T21:26:56,5,Moderate
+Ananya Malhotra,P0926,9,"['pain in the upper right abdomen', 'pain in the lower right abdomendisturbance in eating behavior that can lead to serious health problems']",4,No,Available,Afternoon,2024-05-28T18:20:43,0,Mild
+Dhruv Patel,P0927,97,"['change in bowel habits', 'memory loss', 'itchy']",6,Yes,Unavailable,Evening,2024-01-09T15:57:10,0,Severe
+Arjun Sharma,P0928,82,['itchingsexually transmitted infection that can cause blisters on the genitalsphysical dependence on alcohol'],7,No,Available,Evening,2024-09-21T16:06:17,5,Mild
+Advik Kumar,P0929,70,"['painful rash that follows nerve path', 'memory losspain in the upper abdomen']",4,Yes,Unavailable,Evening,2024-12-01T17:44:41,0,Moderate
+Diya Singh,P0930,2,"['sexually transmitted infection that can cause burning during urinationrash', 'itching']",4,Yes,Unavailable,Morning,2024-08-30T12:47:39,15,Severe
+Ananya Patel,P0931,30,"['hyperthyroidism', 'pain in the lower right abdomendecreased kidney function']",3,Yes,Unavailable,Morning,2024-09-17T20:39:33,0,Severe
+Dhruv Kumar,P0932,6,"['inflammation of the liver', 'high levels of cholesterol in the bloodraised']",6,Yes,Unavailable,Morning,2024-07-12T00:48:04,5,Moderate
+Ishaan Patel,P0933,81,"['physical dependence on alcohol', 'abdominal paindisturbance in eating behavior that can lead to serious health problems']",8,Yes,Available,Morning,2024-11-22T09:58:30,0,Mild
+Dhruv Gupta,P0934,41,"['extreme mood swings', 'fever', 'blood in the urine']",3,Yes,Available,Afternoon,2024-02-23T05:15:07,0,Severe
+Aishwarya Reddy,P0935,23,"['decreased kidney function', 'bulge in the wall of the aortainflammation of the liver']",5,No,Unavailable,Evening,2024-09-22T23:25:47,10,Severe
+Avani Kumar,P0936,31,"['itchy', 'sudden weaknesssexually transmitted infection that can cause burning during urination']",7,Yes,Available,Afternoon,2024-03-01T20:04:17,5,Moderate
+Diya Reddy,P0937,20,"['pain in the lower back or side', 'blood in the urine', 'widespread pain']",4,Yes,Unavailable,Morning,2024-12-07T11:36:19,15,Mild
+Aishwarya Sharma,P0938,5,"['vomiting', 'physical dependence on alcoholchronic autoimmune disease that can affect any part of the body']",8,Yes,Unavailable,Morning,2024-06-22T02:10:18,0,Mild
+Aditi Sharma,P0939,21,"['pain in the lower right abdomen', 'condition that affects the lungsdifficulty getting']",0,Yes,Available,Evening,2024-02-02T20:21:28,0,Moderate
+Advik Verma,P0940,75,"['wheezing', 'raised', 'extreme mood swings']",8,No,Unavailable,Afternoon,2024-03-01T12:31:42,0,Moderate
+Ishaan Kumar,P0941,68,"['nausea', 'excessive worry', 'vomiting']",6,Yes,Available,Morning,2024-06-06T14:58:16,5,Mild
+Aditi Shah,P0942,87,"['change in bowel habits', 'seizures', 'cough that does not go away']",6,Yes,Unavailable,Afternoon,2024-03-03T00:24:40,5,Severe
+Ananya Patel,P0943,61,"['swollen', 'runny nose', 'diarrhea']",8,No,Available,Morning,2024-09-01T03:05:42,5,Moderate
+Arjun Malhotra,P0944,94,"['swollen', 'difficulty urinating', 'pain']",8,No,Available,Evening,2024-08-08T18:15:19,0,Mild
+Advik Gupta,P0945,42,['rashcondition in which the heart cannot pump blood as well as it shouldincreased pressure in the eye that can damage the optic nerve'],9,No,Available,Evening,2024-08-13T08:18:03,5,Moderate
+Ananya Malhotra,P0946,41,"['elevated body temperature ', 'sadness', 'lump in the neck']",7,No,Unavailable,Morning,2024-01-10T14:43:42,0,Severe
+Aarav Shah,P0947,61,"['high levels of cholesterol in the blood', 'rashelevated body temperature ']",2,No,Unavailable,Evening,2024-03-31T14:29:17,5,Moderate
+Aditi Patel,P0948,82,"['sudden weakness', 'change in bowel habits', 'excessive worry']",8,No,Unavailable,Morning,2024-04-16T04:46:23,10,Mild
+Ananya Kumar,P0949,52,"['nausea', 'loose', 'change in bowel habits']",3,Yes,Available,Morning,2024-08-01T04:00:07,0,Moderate
+Dhruv Gupta,P0950,41,"['damage to the kidneys that can lead to kidney failuredecreased kidney function', 'swollen']",5,Yes,Available,Evening,2024-09-18T05:37:15,0,Severe
+Avani Singh,P0951,60,['pain in the lower right abdomenincreased pressure in the eye that can damage the optic nervedisturbance in eating behavior that can lead to serious health problems'],3,No,Unavailable,Evening,2024-07-14T10:38:41,0,Severe
+Diya Singh,P0952,95,"['sudden weakness', 'abdominal pain', 'chest pain']",5,Yes,Unavailable,Evening,2024-10-03T01:31:18,0,Moderate
+Avani Chauhan,P0953,30,"['memory loss', 'cough', 'fever']",7,Yes,Available,Morning,2024-11-20T09:30:05,0,Severe
+Diya Gupta,P0954,98,['change in bowel habitsdisturbance in eating behavior that can lead to serious health problemspain in the upper abdomen'],1,Yes,Unavailable,Morning,2024-11-06T16:39:41,10,Moderate
+Advik Singh,P0955,95,"['fatigue', 'hypothyroidism', 'itching']",6,No,Available,Morning,2024-05-16T15:19:12,10,Severe
+Aditi Verma,P0956,38,"['fatigue', 'loose', 'vomiting']",7,Yes,Available,Morning,2024-10-13T12:30:08,15,Moderate
+Advik Reddy,P0957,89,"['loose', 'itchy', 'tremors']",1,No,Unavailable,Morning,2024-02-26T16:19:35,0,Severe
+Aarav Kumar,P0958,17,"['increased pressure in the eye that can damage the optic nervedamage to the kidneys that can lead to kidney failure', 'red']",7,No,Unavailable,Evening,2024-01-01T23:23:40,0,Mild
+Arjun Verma,P0959,40,"['rash', 'seizures', 'nausea']",8,Yes,Available,Afternoon,2024-07-17T20:16:19,0,Moderate
+Ananya Kumar,P0960,30,"['difficulty urinating', 'itchyincreased pressure in the eye that can damage the optic nerve']",7,No,Available,Evening,2024-12-12T12:02:28,15,Mild
+Dhruv Reddy,P0961,66,"['raised', 'runny nose', 'rash']",5,No,Unavailable,Evening,2024-03-21T07:30:45,0,Moderate
+Arjun Gupta,P0962,24,['difficulty urinatingsexually transmitted infection that can cause blisters on the genitalsvomiting'],2,Yes,Unavailable,Afternoon,2024-11-12T04:03:29,15,Mild
+Ananya Chauhan,P0963,73,"['pain', 'increased pressure in the eye that can damage the optic nervepain in the upper right abdomen']",7,No,Unavailable,Evening,2024-01-27T11:02:56,0,Severe
+Advik Chauhan,P0964,1,"['pain', 'pain in the upper abdomen', 'swollen']",3,No,Available,Afternoon,2024-05-03T08:39:39,10,Severe
+Ananya Singh,P0965,88,"['abdominal pain', 'elevated body temperature ', 'wheezing']",5,Yes,Unavailable,Evening,2024-04-15T14:54:56,10,Mild
+Avani Chauhan,P0966,38,"['difficulty getting', 'excessive worrychronic autoimmune disease that can affect any part of the body']",7,No,Unavailable,Morning,2024-03-11T15:38:22,10,Moderate
+Aarav Malhotra,P0967,64,"['inflammation of the liver', 'physical dependence on alcohol', 'lump']",6,Yes,Unavailable,Morning,2024-03-03T14:57:04,0,Mild
+Dhruv Shah,P0968,27,"['blood in the urine', 'hyperthyroidism', 'runny nose']",6,No,Available,Morning,2024-09-17T07:29:13,0,Mild
+Arjun Kumar,P0969,90,"['vomiting', 'loose', 'difficulty getting']",9,Yes,Unavailable,Evening,2024-04-10T17:47:02,0,Mild
+Aditi Reddy,P0970,90,"['blood in the urine', 'decreased kidney function', 'abdominal pain']",9,No,Unavailable,Afternoon,2024-12-17T04:56:59,0,Severe
+Diya Patel,P0971,7,"['red', 'physical dependence on alcohol', 'decreased kidney function']",5,Yes,Unavailable,Evening,2024-01-29T15:53:57,0,Mild
+Arjun Sharma,P0972,89,"['hyperthyroidism', 'pain in the lower back or side', 'itching']",6,No,Unavailable,Afternoon,2024-09-18T02:00:55,0,Mild
+Ishaan Chauhan,P0973,80,"['difficulty getting', 'lump', 'difficulty with social interaction']",6,Yes,Available,Morning,2024-10-10T19:01:46,5,Mild
+Aishwarya Malhotra,P0974,42,"['increased thirst', 'abnormal pap test results', 'swollen']",9,Yes,Unavailable,Morning,2024-12-08T08:01:26,0,Severe
+Ananya Sharma,P0975,18,"['memory loss', 'difficulty with social interaction', 'cough']",9,No,Available,Evening,2024-09-30T16:41:37,10,Severe
+Ananya Singh,P0976,81,"['raised', 'tremors', 'inflammation of the liver']",3,No,Available,Morning,2024-07-24T17:20:39,10,Moderate
+Aishwarya Patel,P0977,44,"['high levels of cholesterol in the bloodcondition that affects the lungs', 'runny nose']",1,Yes,Available,Morning,2024-03-21T19:29:02,0,Severe
+Aishwarya Gupta,P0978,70,['chronic autoimmune disease that can affect any part of the bodydecreased kidney functiondisturbance in eating behavior that can lead to serious health problems'],0,No,Available,Afternoon,2024-04-20T10:41:10,5,Mild
+Avani Singh,P0979,20,"['increased thirst', 'raised', 'abdominal pain']",3,Yes,Available,Morning,2024-02-12T14:07:30,5,Mild
+Advik Verma,P0980,23,"['elevated body temperature ', 'rashsexually transmitted infection that can cause burning during urination']",4,No,Unavailable,Morning,2024-09-18T02:20:36,0,Mild
+Dhruv Gupta,P0981,12,"['chronic autoimmune disease that can affect any part of the bodypain in the upper abdomen', 'sadness']",3,Yes,Unavailable,Afternoon,2024-04-19T02:46:38,10,Mild
+Advik Verma,P0982,12,"['excessive worry', 'damage to the kidneys that can lead to kidney failureraised']",1,No,Available,Evening,2024-06-01T06:50:26,15,Severe
+Aarav Chauhan,P0983,34,['pain in the lower right abdomensexually transmitted infection that can cause blisters on the genitalshyperthyroidism'],0,Yes,Unavailable,Evening,2024-01-03T15:01:36,5,Moderate
+Advik Malhotra,P0984,8,"['loose', 'excessive worry', 'increased thirst']",8,No,Available,Evening,2024-11-28T20:24:46,10,Moderate
+Avani Chauhan,P0985,27,['vomitingchronic autoimmune disease that can affect any part of the bodyexcessive worry'],5,Yes,Available,Afternoon,2024-04-22T03:15:30,0,Moderate
+Dhruv Malhotra,P0986,49,"['increased pressure in the eye that can damage the optic nervecough that does not go away', 'widespread pain']",9,Yes,Available,Morning,2024-04-05T06:12:49,0,Severe
+Aditi Reddy,P0987,72,"['lump', 'difficulty with social interaction', 'elevated body temperature ']",1,Yes,Unavailable,Evening,2024-08-06T00:18:47,0,Mild
+Dhruv Malhotra,P0988,55,"['chronic autoimmune disease that can affect any part of the bodyabdominal pain', 'inflammation of the liver']",5,Yes,Unavailable,Morning,2024-06-09T07:03:19,15,Severe
+Arjun Singh,P0989,97,"['blood in the urine', 'fever', 'condition that affects the lungs']",3,Yes,Unavailable,Morning,2024-04-10T20:08:18,0,Mild
+Aishwarya Gupta,P0990,83,['condition in which the heart cannot pump blood as well as it shouldpain in the lower back or sidedamage to the kidneys that can lead to kidney failure'],8,No,Unavailable,Afternoon,2024-02-01T07:24:14,0,Mild
+Diya Gupta,P0991,88,"['painful urination', 'chronic bronchitissexually transmitted infection that can cause blisters on the genitals']",3,Yes,Available,Evening,2024-12-30T07:05:12,5,Mild
+Arjun Verma,P0992,22,"['chronic autoimmune disease that can affect any part of the bodyexcessive worry', 'raised']",2,Yes,Available,Afternoon,2024-05-30T07:14:38,10,Mild
+Aditi Kumar,P0993,3,"['elevated body temperature ', 'inflammation of the liver', 'raised']",8,No,Unavailable,Morning,2024-09-26T04:21:50,0,Severe
+Aditi Verma,P0994,9,"['excessive worry', 'fever', 'diarrhea']",7,No,Available,Afternoon,2024-07-15T15:49:33,0,Mild
+Ishaan Reddy,P0995,11,"['blood in the urine', 'cough', 'difficulty getting']",2,Yes,Unavailable,Evening,2024-08-11T20:14:42,15,Mild
+Aditi Singh,P0996,6,"['cough', 'damage to the kidneys that can lead to kidney failurepainful rash that follows nerve path']",9,Yes,Unavailable,Morning,2024-03-04T22:27:33,15,Severe
+Advik Patel,P0997,39,"['elevated body temperature ', 'hypothyroidismcondition that affects the lungs']",3,No,Unavailable,Evening,2024-08-21T00:56:49,0,Severe
+Aarav Chauhan,P0998,39,"['pain', 'excessive worry', 'memory loss']",8,Yes,Available,Afternoon,2024-02-03T19:54:02,15,Mild
+Diya Reddy,P0999,66,['difficulty gettingcondition in which the heart cannot pump blood as well as it shouldfever'],2,No,Unavailable,Afternoon,2024-10-30T01:36:36,0,Severe
+Aarav Gupta,P1000,60,"['swollen', 'abdominal pain', 'fatigue']",4,Yes,Available,Afternoon,2024-10-03T23:25:41,0,Severe
