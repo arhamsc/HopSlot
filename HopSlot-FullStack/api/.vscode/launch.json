@@ -12,8 +12,7 @@
       "program": "src/main.ts",
       "cwd": "${workspaceFolder}",
       "stopOnEntry": false,
-      "watchMode": false,
-      "runtime": "${workspaceFolder}/node_modules/bun/bin/bun.exe"
+      "watchMode": false
     },
     {
       "type": "bun",
