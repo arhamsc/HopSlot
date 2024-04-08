@@ -14,7 +14,162 @@ datasource db {
   url      = env("SQL_DATABASE_URL")
 }
 
-model Test {
-  id   String @id @default(uuid())
-  name String
+enum Role {
+  HOSP_ADMIN
+  PATIENT
+  DOCTOR
+  ADMIN
+}
+
+model User {
+  id       String  @id @default(uuid())
+  email    String  @unique
+  username String  @unique
+  password String?
+
+  firstName  String?
+  lastName   String?
+  employeeId String?
+  role       Role    @default(PATIENT)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  Hospital     Hospital[]
+  Doctor       Doctor?
+  Patient      Patient?
+  Appointment  Appointment[]
+  Prescription Prescription[]
+  Report       Report[]
+
+  @@map("users")
+}
+
+model Hospital {
+  id      String  @id @default(uuid())
+  name    String
+  address String
+  phone   String?
+  email   String?
+  website String?
+
+  admin   User   @relation(fields: [adminId], references: [id])
+  adminId String
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  Doctor       Doctor[]
+  Appointment  Appointment[]
+  Prescription Prescription[]
+  Report       Report[]
+
+  @@map("hospitals")
+}
+
+model Doctor {
+  hospitalId String
+  hospital   Hospital @relation(fields: [hospitalId], references: [id])
+
+  userId String @unique
+  user   User   @relation(fields: [userId], references: [id])
+
+  cabinNumber           Int
+  cabinFloor            Int
+  cabinLat              Decimal
+  cabinLng              Decimal
+  cabinAlt              Decimal
+  noOfPatientsConsulted Int
+  lastClockIn           DateTime?
+
+  createdAt    DateTime       @default(now())
+  updatedAt    DateTime       @updatedAt
+  Appointment  Appointment[]
+  Prescription Prescription[]
+  Report       Report[]
+
+  @@map("doctors")
+}
+
+model Patient {
+  userId String @unique
+  user   User   @relation(fields: [userId], references: [id])
+
+  lastAppointment Appointment? @relation(fields: [appointmentId], references: [id])
+
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+  appointmentId String?
+
+  @@map("patients")
+}
+
+model Appointment {
+  id String @id @default(uuid())
+
+  hospitalId String
+  hospital   Hospital @relation(fields: [hospitalId], references: [id])
+
+  doctorId String
+  doctor   Doctor @relation(fields: [doctorId], references: [userId])
+
+  patientId String
+  patient   User   @relation(fields: [patientId], references: [id])
+
+  appointment DateTime
+
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+  Patient   Patient[]
+
+  @@map("appointments")
+}
+
+model Prescription {
+  id String @id @default(uuid())
+
+  hospitalId String
+  hospital   Hospital @relation(fields: [hospitalId], references: [id])
+
+  doctorId String
+  doctor   Doctor @relation(fields: [doctorId], references: [userId])
+
+  patientId String
+  patient   User   @relation(fields: [patientId], references: [id])
+
+  issueDate  DateTime
+  body       String
+  otherNotes String?
+  docSign    String
+  reports    String[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  Report    Report[]
+
+  @@map("prescriptions")
+}
+
+model Report {
+  id String @id @default(uuid())
+
+  hospitalId String
+  hospital   Hospital @relation(fields: [hospitalId], references: [id])
+
+  doctorId String
+  doctor   Doctor @relation(fields: [doctorId], references: [userId])
+
+  patientId String
+  patient   User   @relation(fields: [patientId], references: [id])
+
+  issueDate DateTime
+  signedBy  String
+
+  prescriptionId String
+  prescription   Prescription @relation(fields: [prescriptionId], references: [id])
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("reports")
 }
