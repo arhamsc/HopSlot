@@ -1,4 +1,4 @@
-import { ArgonOptions } from 'src/types/argon.types';
+import { ArgonOptions } from 'src/core/types/argon.types';
 
 export const argonOptions = (): ArgonOptions => ({
   argon: {

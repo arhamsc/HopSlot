@@ -3,7 +3,7 @@ import { AuthGuard } from '@nestjs/passport';
 import { Observable } from 'rxjs';
 
 @Injectable()
-export class RtGuard extends AuthGuard('jwt-rt') implements CanActivate {
+export class RtGuard extends AuthGuard('rt-jwt') implements CanActivate {
   constructor() {
     super();
   }

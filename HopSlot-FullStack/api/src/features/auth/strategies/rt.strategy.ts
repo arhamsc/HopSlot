@@ -3,7 +3,9 @@ import { JwtPayload, JwtRTPayload } from '../types/jwt_payload.types';
 import { PassportStrategy } from '@nestjs/passport';
 import { ConfigService } from '@nestjs/config';
 import { FastifyRequest } from 'fastify';
+import { Injectable } from '@nestjs/common';
 
+@Injectable()
 export class RTJwtStrategy extends PassportStrategy(Strategy, 'rt-jwt') {
   constructor(private readonly configService: ConfigService) {
     super({

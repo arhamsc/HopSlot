@@ -5,6 +5,7 @@ import {
   CanActivate,
   ExecutionContext,
   Injectable,
+  Logger,
   UnauthorizedException,
 } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
@@ -24,6 +25,8 @@ export class AtGuard extends AuthGuard('at-jwt') implements CanActivate {
   ) {
     super();
   }
+
+  private readonly logger = new Logger(AtGuard.name);
 
   canActivate(
     context: ExecutionContext,
@@ -58,6 +61,6 @@ export class AtGuard extends AuthGuard('at-jwt') implements CanActivate {
       }),
     );
 
-    return true;
+    return aTObv;
   }
 }

@@ -15,7 +15,6 @@ async function bootstrap() {
     }),
   );
   app.enableCors();
-  app.useGlobalPipes(new ValidationPipe({ whitelist: true }));
   const { httpAdapter } = app.get(HttpAdapterHost);
   app.useGlobalFilters(new PrismaClientExceptionFilter(httpAdapter));
   await app.listen(3000);

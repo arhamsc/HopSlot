@@ -1,0 +1,7 @@
+export * from "./user"
+export * from "./hospital"
+export * from "./doctor"
+export * from "./patient"
+export * from "./appointment"
+export * from "./prescription"
+export * from "./report"

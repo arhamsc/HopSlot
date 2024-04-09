@@ -4,8 +4,10 @@ import { ExtractJwt, Strategy } from 'passport-jwt';
 import { PostgresPrismaService } from 'src/global/database/postgres-prisma.service';
 import { JwtPayload } from '../types/jwt_payload.types';
 import { Observable, from } from 'rxjs';
-import { UserEssentials } from 'src/types/model_essentials.types';
+import { UserEssentials } from 'src/core/types/model_essentials.types';
+import { Injectable } from '@nestjs/common';
 
+@Injectable()
 export class ATJwtStrategy extends PassportStrategy(Strategy, 'at-jwt') {
   constructor(
     private config: ConfigService,
