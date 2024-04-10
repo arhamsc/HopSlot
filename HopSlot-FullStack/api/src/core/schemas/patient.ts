@@ -4,6 +4,7 @@ import { CompleteUser, RelatedUserModel, CompleteAppointment, RelatedAppointment
 
 export const PatientModel = z.object({
   userId: z.string().uuid().optional(),
+  age: z.number().int(),
   appointmentId: z.string().uuid().nullish(),
   createdAt: z.date().optional(),
   updatedAt: z.date().optional(),

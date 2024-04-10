@@ -1,6 +1,12 @@
+interface Opts {
+  secret?: Buffer;
+  salt?: Buffer;
+}
+
 export interface ArgonOptions {
   argon: {
-    secret?: Buffer;
-    salt?: Buffer;
+    at: Opts;
+    rt: Opts;
+    common: Opts;
   };
 }

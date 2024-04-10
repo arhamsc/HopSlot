@@ -100,6 +100,7 @@ model Doctor {
 model Patient {
   userId String @unique /// @z.string().uuid().optional()
   user   User   @relation(fields: [userId], references: [id])
+  age    Int
 
   lastAppointment Appointment? @relation(fields: [appointmentId], references: [id])
   appointmentId   String? /// @z.string().uuid()

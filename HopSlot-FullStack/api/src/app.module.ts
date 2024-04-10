@@ -20,7 +20,7 @@ import MyZodValidation from './core/pipes/zod-validation.pipe';
     DatabaseModule,
     AuthModule,
     ConfigModule.forRoot({ isGlobal: true, load: [argonOptions] }),
-    JwtModule.register({}),
+    JwtModule.register({ global: true }),
     HospitalModule,
     DoctorModule,
     AdminModule,

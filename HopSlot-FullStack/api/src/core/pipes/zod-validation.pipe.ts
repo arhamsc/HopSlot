@@ -1,19 +1,16 @@
-import {
-  ArgumentMetadata,
-  BadRequestException,
-  Injectable,
-  PipeTransform,
-} from '@nestjs/common';
-import { createZodValidationPipe, validate } from 'nestjs-zod';
-import { ZodDto, isZodDto } from 'nestjs-zod/dto';
-import { ZodError, ZodSchema, ZodTypeDef, z } from 'nestjs-zod/z';
+import { BadRequestException } from '@nestjs/common';
+import { createZodValidationPipe } from 'nestjs-zod';
+import { ZodError } from 'nestjs-zod/z';
 
 const MyZodValidation = createZodValidationPipe({
   createValidationException: (error: Error) => {
     // console.log({ error });
     if (error instanceof ZodError) {
       if (!error.isEmpty && error.errors.length === 1) {
-        if (error.errors[0]?.path?.length === 0)
+        if (
+          error.errors[0]?.path?.length === 0 &&
+          error.errors.every((e) => e.code !== 'custom')
+        )
           return new BadRequestException('No data provided.');
       }
       return new BadRequestException(error.errors);
