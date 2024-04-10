@@ -1,7 +1,12 @@
-import { BadRequestException, Injectable } from '@nestjs/common';
+import {
+  BadRequestException,
+  ForbiddenException,
+  Injectable,
+  NotFoundException,
+  UnauthorizedException,
+} from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 import { JwtService } from '@nestjs/jwt';
-import { ArgonOptions } from 'src/core/types/argon.types';
 import { PostgresPrismaService } from 'src/global/database/postgres-prisma.service';
 import * as argon from 'argon2';
 import { Tokens } from './types/tokens.type';
@@ -95,7 +100,7 @@ export class AuthService {
             ).pipe(switchMap((tokens) => of({ user, tokens })));
           }),
           tap((info) => {
-            return from(this.updateRtHash(info.user.id, info.tokens.rt));
+            return from(this.updateRtHash(info.user.id, info.tokens.rt, 'rt'));
           }),
           switchMap((info) => {
             return of({
@@ -176,22 +181,20 @@ export class AuthService {
     ).pipe(
       switchMap((user) => {
         if (!user) {
-          return throwError(
-            () => new BadRequestException('Invalid credentials'),
-          );
+          return throwError(() => new NotFoundException('Invalid credentials'));
         }
         return from(this.verifyHash(user.password ?? '', dto.password)).pipe(
           switchMap((valid) => {
             if (!valid) {
               return throwError(
-                () => new BadRequestException('Invalid credentials'),
+                () => new UnauthorizedException('Invalid credentials'),
               );
             }
             return from(
               this.getTokens(user.id, user.email, user.username, user.role),
             ).pipe(
               tap((tokens) => {
-                return this.updateRtHash(user.id, tokens.rt);
+                return this.updateRtHash(user.id, tokens.rt, 'rt');
               }),
               map((tokens) => {
                 return {
@@ -201,6 +204,8 @@ export class AuthService {
                       email: user.email,
                       username: user.username,
                       role: user.role,
+                      firstName: user.firstName,
+                      lastName: user.lastName,
                     },
                     tokens,
                   },
@@ -214,8 +219,80 @@ export class AuthService {
     );
   }
 
-  private async updateRtHash(userId: string, refreshToken: string) {
-    const hash = await this.hashData(refreshToken);
+  logout(id: string) {
+    return from(
+      this.prismaPG.user.update({
+        where: { id },
+        data: {
+          refreshTokenHash: null,
+        },
+      }),
+    ).pipe(
+      map(() => {
+        return {
+          message: 'Logged out successfully.',
+        };
+      }),
+    );
+  }
+
+  refreshToken(id: string, refreshToken: string) {
+    return from(
+      this.prismaPG.user.findUnique({
+        where: {
+          id,
+        },
+      }),
+    ).pipe(
+      switchMap((user) => {
+        if (!user) {
+          throw new NotFoundException('No such user exists.');
+        }
+
+        if (!user.refreshTokenHash) {
+          throw new ForbiddenException('User has no refresh token.');
+        }
+
+        return from(
+          this.verifyHash(user.refreshTokenHash, refreshToken, 'rt'),
+        ).pipe(
+          switchMap((valid) => {
+            if (!valid) {
+              throw new UnauthorizedException('Invalid refresh token.');
+            }
+            return from(
+              this.getTokens(user.id, user.email, user.username, user.role),
+            ).pipe(
+              tap((tokens) => {
+                return this.updateRtHash(user.id, tokens.rt, 'rt');
+              }),
+              map((tokens) => {
+                return {
+                  data: {
+                    user: {
+                      id: user.id,
+                      email: user.email,
+                      username: user.username,
+                      role: user.role,
+                    },
+                    tokens,
+                  },
+                  message: 'Refreshed token successfully',
+                };
+              }),
+            );
+          }),
+        );
+      }),
+    );
+  }
+
+  private async updateRtHash(
+    userId: string,
+    refreshToken: string,
+    type: 'at' | 'rt' | 'common',
+  ) {
+    const hash = await this.hashData(refreshToken, type);
     const user = await this.prismaPG.user.update({
       where: { id: userId },
       data: { refreshTokenHash: hash.toString() },

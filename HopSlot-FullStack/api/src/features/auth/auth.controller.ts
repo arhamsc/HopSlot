@@ -1,9 +1,18 @@
-import { Body, Controller, HttpCode, HttpStatus, Post } from '@nestjs/common';
+import {
+  Body,
+  Controller,
+  HttpCode,
+  HttpStatus,
+  Post,
+  UseGuards,
+} from '@nestjs/common';
 import { AuthService } from './auth.service';
 import { Public } from 'src/core/decorators/public.decorator';
 import { SignUpDto } from './dtos/sign-up.dto';
 import { CheckForUsernameEmailDto } from './dtos/check-for-username-email.dto';
 import { LoginDto } from './dtos/login.dto';
+import { GetCurrentUser } from 'src/core/decorators/get-current-user.decorator';
+import { RtGuard } from 'src/core/guards/rt/rt.guard';
 
 @Controller('auth')
 export class AuthController {
@@ -28,5 +37,22 @@ export class AuthController {
   @Public()
   login(@Body() loginDto: LoginDto) {
     return this.authService.login(loginDto);
+  }
+
+  @Post('logout')
+  @HttpCode(HttpStatus.OK)
+  logout(@GetCurrentUser('id') userId: string) {
+    return this.authService.logout(userId);
+  }
+
+  @Public()
+  @UseGuards(RtGuard)
+  @Post('refresh')
+  @HttpCode(HttpStatus.OK)
+  refreshTokens(
+    @GetCurrentUser('id') userId: string,
+    @GetCurrentUser('refreshToken') refreshToken: string,
+  ) {
+    return this.authService.refreshToken(userId, refreshToken);
   }
 }
