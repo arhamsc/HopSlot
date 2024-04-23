@@ -1,4 +1,4 @@
-import { Module, ValidationPipe } from '@nestjs/common';
+import { Module } from '@nestjs/common';
 import { DatabaseModule } from './global/database/database.module';
 import { AuthModule } from './features/auth/auth.module';
 import { argonOptions } from './config/argon.config';
