@@ -6,7 +6,7 @@ import { CompleteHospital, RelatedHospitalModel, CompleteDoctor, RelatedDoctorMo
 export const UserModel = z.object({
   id: z.string().uuid().optional(),
   email: z.string().email(),
-  username: z.string().min(5).max(10),
+  username: z.string().min(5).max(20),
   password: z.password().atLeastOne('digit').atLeastOne('lowercase').atLeastOne('uppercase').min(8).max(100).nullish(),
   firstName: z.string().nullish(),
   lastName: z.string().nullish(),

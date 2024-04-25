@@ -26,10 +26,17 @@ enum Role {
   ADMIN
 }
 
+enum AppointmentStatus {
+  PENDING
+  CONFIRMED
+  CANCELLED
+  COMPLETED
+}
+
 model User {
   id       String  @id @default(uuid()) /// @z.string().uuid().optional()
   email    String  @unique /// @z.string().email()
-  username String  @unique /// @z.string().min(5).max(10)
+  username String  @unique /// @z.string().min(5).max(20)
   password String? /// @z.password().atLeastOne('digit').atLeastOne('lowercase').atLeastOne('uppercase').min(8).max(100)
 
   firstName        String?
@@ -124,6 +131,7 @@ model Appointment {
   patient   User   @relation(fields: [patientId], references: [id])
 
   appointment DateTime
+  status      AppointmentStatus @default(PENDING) /// @z.nativeEnum(AppointmentStatus)
 
   createdAt DateTime  @default(now()) /// @z.date().optional()
   updatedAt DateTime  @updatedAt /// @z.date().optional()

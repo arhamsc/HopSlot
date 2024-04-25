@@ -48,7 +48,11 @@ export class AuthService {
         return from(
           this.prismaPG.user.create({
             data: {
-              ...signUpDto,
+              email: signUpDto.email,
+              username: signUpDto.username,
+              role: signUpDto.role,
+              firstName: signUpDto.firstName,
+              lastName: signUpDto.lastName,
               password: passwordHash,
             },
           }),
@@ -318,7 +322,6 @@ export class AuthService {
     type: 'at' | 'rt' | 'common' = 'common',
   ) {
     const opts = this.config.get('argon');
-    console.log({ hash, data, opts });
     return argon.verify(hash, data, {
       ...(type === 'at' ? opts?.at : type === 'rt' ? opts?.rt : opts?.common),
     });

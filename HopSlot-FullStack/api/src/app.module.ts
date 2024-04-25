@@ -14,6 +14,10 @@ import { RTJwtStrategy } from './features/auth/strategies/rt.strategy';
 import { ATJwtStrategy } from './features/auth/strategies/at.strategy';
 import { AtGuard } from './core/guards/at/at.guard';
 import MyZodValidation from './core/pipes/zod-validation.pipe';
+import { AccessControlModule } from 'nest-access-control';
+import { roles } from './features/auth/roles.rbac';
+import { AcRolesGuard } from './core/guards/ac-roles/ac-roles.guard';
+import { AppointmentModule } from './features/appointment/appointment.module';
 
 @Module({
   imports: [
@@ -24,6 +28,8 @@ import MyZodValidation from './core/pipes/zod-validation.pipe';
     HospitalModule,
     DoctorModule,
     AdminModule,
+    AccessControlModule.forRoles(roles),
+    AppointmentModule,
   ],
   providers: [
     PostgresPrismaService,
@@ -34,22 +40,14 @@ import MyZodValidation from './core/pipes/zod-validation.pipe';
       provide: APP_GUARD,
       useClass: AtGuard,
     },
-
+    {
+      provide: APP_GUARD,
+      useClass: AcRolesGuard,
+    },
     {
       provide: APP_PIPE,
       useValue: new MyZodValidation(),
     },
-    // {
-    //   provide: APP_PIPE,
-    //   useValue: new ValidationPipe({
-    //     transform: true,
-    //     whitelist: true,
-    //     forbidNonWhitelisted: true,
-    //     transformOptions: {
-    //       enableImplicitConversion: true,
-    //     },
-    //   }),
-    // },
   ],
 })
 export class AppModule {}

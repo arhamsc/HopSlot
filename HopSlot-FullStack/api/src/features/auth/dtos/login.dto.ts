@@ -3,7 +3,7 @@ import { z } from 'nestjs-zod/z';
 
 const schema = z
   .object({
-    username: z.string().min(5).max(10).optional(),
+    username: z.string().optional(),
     email: z.string().email().optional(),
     password: z.string(),
   })

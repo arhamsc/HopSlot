@@ -1,5 +1,6 @@
 import * as z from "nestjs-zod/z"
 import { createZodDto } from "nestjs-zod/dto"
+import { AppointmentStatus } from "./enums"
 import { CompleteHospital, RelatedHospitalModel, CompleteDoctor, RelatedDoctorModel, CompleteUser, RelatedUserModel, CompletePatient, RelatedPatientModel } from "./index"
 
 export const AppointmentModel = z.object({
@@ -8,6 +9,7 @@ export const AppointmentModel = z.object({
   doctorId: z.string().uuid(),
   patientId: z.string().uuid(),
   appointment: z.date(),
+  status: z.nativeEnum(AppointmentStatus),
   createdAt: z.date().optional(),
   updatedAt: z.date().optional(),
 })

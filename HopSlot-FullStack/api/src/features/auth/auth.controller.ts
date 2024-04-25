@@ -13,8 +13,10 @@ import { CheckForUsernameEmailDto } from './dtos/check-for-username-email.dto';
 import { LoginDto } from './dtos/login.dto';
 import { GetCurrentUser } from 'src/core/decorators/get-current-user.decorator';
 import { RtGuard } from 'src/core/guards/rt/rt.guard';
+import { AllowAC } from 'src/core/decorators/allow-ac/allow-ac.decorator';
 
 @Controller('auth')
+@AllowAC()
 export class AuthController {
   constructor(private readonly authService: AuthService) {}
 
