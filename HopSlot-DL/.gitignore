@@ -1,4 +1,4 @@
 test
 lib
 .idea
-datasets/final/*.csv
+datasets/final/*
