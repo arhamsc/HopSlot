@@ -5,8 +5,8 @@
 // Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
 
 generator client {
-  provider = "prisma-client-js"
-  output   = "../../node_modules/@prisma/postgres/client"
+  provider      = "prisma-client-js"
+  output        = "../../node_modules/@prisma/postgres/client"
   binaryTargets = ["native", "linux-arm64-openssl-3.0.x"]
 }
 
@@ -32,6 +32,12 @@ enum AppointmentStatus {
   CONFIRMED
   CANCELLED
   COMPLETED
+}
+
+enum Status {
+  PENDING
+  ACTIVE
+  INACTIVE
 }
 
 model User {
@@ -101,6 +107,7 @@ model Doctor {
   Appointment  Appointment[]
   Prescription Prescription[]
   Report       Report[]
+  DoctorSlots  DoctorSlot[]
 
   @@map("doctors")
 }
@@ -119,6 +126,24 @@ model Patient {
   @@map("patients")
 }
 
+model DoctorSlot {
+  id String @id @default(uuid()) /// @z.string().uuid().optional()
+
+  doctorId String /// @z.string().uuid()
+  doctor   Doctor @relation(fields: [doctorId], references: [userId])
+
+  slotStart DateTime
+  slotEnd   DateTime
+  duration  Int // in minutes, split entire slot into sub slots
+  status    Status   @default(PENDING) /// @z.nativeEnum(Status)
+
+  createdAt   DateTime      @default(now()) /// @z.date().optional()
+  updatedAt   DateTime      @updatedAt /// @z.date().optional()
+  Appointment Appointment[]
+
+  @@map("doctor_slots")
+}
+
 model Appointment {
   id String @id @default(uuid()) /// @z.string().uuid().optional()
 
@@ -131,8 +156,12 @@ model Appointment {
   patientId String /// @z.string().uuid()
   patient   User   @relation(fields: [patientId], references: [id])
 
-  appointment DateTime
-  status      AppointmentStatus @default(PENDING) /// @z.nativeEnum(AppointmentStatus)
+  appointmentSlot   DoctorSlot @relation(fields: [appointmentSlotId], references: [id])
+  appointmentSlotId String /// @z.string().uuid()
+
+  status AppointmentStatus @default(PENDING) /// @z.nativeEnum(AppointmentStatus)
+
+  delay Int?
 
   createdAt DateTime  @default(now()) /// @z.date().optional()
   updatedAt DateTime  @updatedAt /// @z.date().optional()

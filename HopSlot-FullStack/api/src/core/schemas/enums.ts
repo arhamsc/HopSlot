@@ -11,3 +11,9 @@ export enum AppointmentStatus {
   CANCELLED = "CANCELLED",
   COMPLETED = "COMPLETED"
 }
+
+export enum Status {
+  PENDING = "PENDING",
+  ACTIVE = "ACTIVE",
+  INACTIVE = "INACTIVE"
+}
