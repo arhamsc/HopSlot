@@ -3,7 +3,6 @@ import { PassportStrategy } from '@nestjs/passport';
 import { ExtractJwt, Strategy } from 'passport-jwt';
 import { PostgresPrismaService } from 'src/global/database/postgres-prisma.service';
 import { JwtPayload } from '../types/jwt_payload.types';
-import { Observable, from, map } from 'rxjs';
 import { UserEssentials } from 'src/core/types/model_essentials.types';
 import { Injectable } from '@nestjs/common';
 import { Role } from 'db/postgres';
@@ -30,8 +29,6 @@ export class ATJwtStrategy extends PassportStrategy(Strategy, 'at-jwt') {
         role: true,
       },
     });
-
-    console.log({ user });
 
     if (!user) {
       return null;

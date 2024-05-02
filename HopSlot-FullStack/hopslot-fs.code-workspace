@@ -1,11 +1,16 @@
 {
-	"folders": [
-		{
-			"path": "api"
-		},
-		{
-			"path": "app"
-		}
-	],
-  "settings": {}
+  "folders": [
+    {
+      "path": "api"
+    },
+    {
+      "path": "app"
+    },
+    {
+      "path": "docker"
+    }
+  ],
+  "settings": {
+    "cSpell.words": ["hopslot"]
+  }
 }

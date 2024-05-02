@@ -1,0 +1,101 @@
+services:
+  ### DATABASES ###
+  redis:
+    container_name: redis-scheduler-queue
+    image: redis:latest
+    ports:
+      - 6379:6379
+    volumes:
+      - ./bind-mounts/redis-bind-mount:/data
+    networks:
+      - hopslot-network
+  pg-db:
+    image: postgres:16
+    container_name: hopslot-pg-db
+    ports:
+      - 5432:5432
+    env_file:
+      - ./env/pg.local.env
+    volumes:
+      - ./bind-mounts/postgres:/var/lib/postgresql/data
+    networks:
+      - hopslot-network
+  mongo-db:
+    image: mongo:latest
+    container_name: hopslot-mongo-db
+    ports:
+      - 27017:27017
+    env_file:
+      - ./env/mongo.local.env
+    volumes:
+      - ./bind-mounts/mongo:/data/db
+      - ./init-files/mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js:ro
+    networks:
+      - hopslot-network
+
+  ### STREAMING ###
+  zookeeper:
+    image: confluentinc/cp-zookeeper:latest
+    env_file:
+      - ./env/zookeeper.local.env
+    ports:
+      - 22181:2181
+    volumes:
+      - ./bind-mounts/zoo/data:/var/lib/zookeeper/data
+      - ./bind-mounts/zoo/log:/var/lib/zookeeper/log
+    networks:
+      - hopslot-network
+  kafka:
+    image: confluentinc/cp-kafka:latest
+    depends_on:
+      - zookeeper
+    ports:
+      - 9092:9092
+      - 29092:29092
+    env_file:
+      - ./env/kafka.local.env
+    volumes:
+      - ./bind-mounts/kafka/broker-1/data:/var/lib/kafka/data
+    networks:
+      - hopslot-network
+  kafka-ui:
+    container_name: kafka-ui
+    image: provectuslabs/kafka-ui:latest
+    ports:
+      - 8080:8080
+    depends_on:
+      - kafka
+    environment:
+      DYNAMIC_CONFIG_ENABLED: 'true'
+      KAFKA_CLUSTERS_0_NAME: 'HP-Test'
+      KAFKA_CLUSTERS_0_BOOTSTRAPSERVERS: kafka:9092
+    volumes:
+      - ./bind-mounts/kui/config.yaml:/etc/kafkaui/dynamic_config.yaml
+    networks:
+      - hopslot-network
+
+  ### APPS ###
+  hopslot-api:
+    build:
+      context: ../api
+      dockerfile: ./dockerfiles/api.dockerfile
+    container_name: hopslot-api
+    image: zerefarham/hopslot-api
+    environment:
+      - PG_DB_NAME=hopslot-pg-db
+      - MD_DB_NAME=hopslot-mongo-db
+    volumes:
+      - ../api:/app
+    ports:
+      - 3000:3000
+    depends_on:
+      - pg-db
+      - mongo-db
+      - redis
+      - kafka
+    networks:
+      - hopslot-network
+    
+
+networks:
+  hopslot-network:

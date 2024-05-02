@@ -17,8 +17,6 @@ export class AcRolesGuard extends ACGuard {
       context.getClass(),
     ]);
 
-    const request = context.switchToHttp().getRequest();
-
     if (allow) return Promise.resolve(true);
     return super.canActivate(context);
   }
