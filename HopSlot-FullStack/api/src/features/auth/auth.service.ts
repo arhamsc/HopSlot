@@ -27,6 +27,7 @@ import { Role } from 'db/postgres';
 import { PrismaClientKnownRequestError } from '@prisma/client/runtime/library';
 import { CheckForUsernameEmailDto } from './dtos/check-for-username-email.dto';
 import { LoginDto } from './dtos/login.dto';
+import { DoctorService } from '../users/service-providers/doctor/doctor.service';
 
 @Injectable()
 export class AuthService {
@@ -34,6 +35,7 @@ export class AuthService {
     private jwt: JwtService,
     private prismaPG: PostgresPrismaService,
     private config: ConfigService,
+    private docService: DoctorService,
   ) {}
 
   signUpLocal(
@@ -59,28 +61,20 @@ export class AuthService {
         ).pipe(
           switchMap((user) => {
             if (user.role === Role.DOCTOR) {
-              return from(
-                this.prismaPG.doctor.create({
-                  data: {
-                    hospital: {
-                      connect: {
-                        id: signUpDto.hospitalId ?? '',
-                      },
-                    },
-                    user: {
-                      connect: {
-                        id: user.id,
-                      },
-                    },
-                    cabinNumber: signUpDto.cabinNumber!,
+              return this.docService
+                .create(
+                  {
                     cabinAlt: signUpDto.cabinAlt!,
                     cabinFloor: signUpDto.cabinFloor!,
                     cabinLat: signUpDto.cabinLat!,
                     cabinLng: signUpDto.cabinLng!,
-                    noOfPatientsConsulted: 0,
+                    cabinNumber: signUpDto.cabinNumber!,
+                    hospitalId: signUpDto.hospitalId!,
+                    userId: user.id,
                   },
-                }),
-              ).pipe(switchMap(() => of(user)));
+                  user.id,
+                )
+                .pipe(switchMap(() => of(user)));
             } else if (user.role === Role.PATIENT) {
               return from(
                 this.prismaPG.patient.create({

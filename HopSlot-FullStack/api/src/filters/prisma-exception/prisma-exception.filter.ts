@@ -43,6 +43,7 @@ export class PrismaClientExceptionFilter extends BaseExceptionFilter {
     }
   }
   catch(exception: any, host: ArgumentsHost) {
+    this.logger.warn({ exception });
     if (
       exception instanceof PGPrisma.PrismaClientKnownRequestError ||
       exception instanceof MDPrisma.PrismaClientKnownRequestError

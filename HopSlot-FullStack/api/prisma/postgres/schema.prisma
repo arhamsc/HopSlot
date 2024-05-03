@@ -88,7 +88,7 @@ model Hospital {
 }
 
 model Doctor {
-  hospitalId String /// @z.string().uuid().optional()
+  hospitalId String /// @z.string().uuid()
   hospital   Hospital @relation(fields: [hospitalId], references: [id])
 
   userId String @unique /// @z.string().uuid()
