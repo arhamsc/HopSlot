@@ -1,20 +1,10 @@
 import { Injectable, Logger, NotFoundException } from '@nestjs/common';
 import { CreateHospitalDto } from './dto/create-hospital.dto';
 import { UpdateHospitalDto } from './dto/update-hospital.dto';
-import {
-  Observable,
-  catchError,
-  from,
-  map,
-  of,
-  switchMap,
-  tap,
-  throwError,
-} from 'rxjs';
+import { Observable, from, map, switchMap } from 'rxjs';
 import { APIResponse } from 'src/core/types/api-response.type';
 import { HospitalEssentials } from 'src/core/types/model_essentials.types';
 import { PostgresPrismaService } from 'src/global/database/postgres-prisma.service';
-import { Role } from 'db/postgres';
 
 @Injectable()
 export class HospitalService {
@@ -22,68 +12,181 @@ export class HospitalService {
 
   constructor(private readonly prismaPG: PostgresPrismaService) {}
 
-  create(createHospitalDto: CreateHospitalDto): any {
-    const { adminId, ...dto } = createHospitalDto;
+  create(
+    createHospitalDto: CreateHospitalDto,
+    adminId: string,
+  ): Observable<APIResponse<HospitalEssentials>> {
+    const dto = createHospitalDto;
 
     return from(
-      this.prismaPG.user.findUniqueOrThrow({
-        where: {
-          id: adminId,
-          role: Role.HOSP_ADMIN,
+      this.prismaPG.hospital.create({
+        data: { ...dto, adminId },
+        select: {
+          id: true,
+          name: true,
+          address: true,
+          adminId: true,
+          email: true,
+          phone: true,
+          website: true,
         },
       }),
     ).pipe(
-      switchMap((admin) => {
-        //Comment for reference
-        // if (!admin) {
-        //   // If the admin does not exist, create a new user and then the hospital
-        //   return from(
-        //     this.prismaPG.user.create({
-        //       data: {
-
-        //       },
-        //     }),
-        //   ).pipe(
-        //     switchMap((newAdmin) => {
-        //       return from(
-        //         this.prismaPG.hospital.create({
-        //           data: { ...dto, adminId: newAdmin.id },
-        //         }),
-        //       );
-        //     }),
-        //   );
-        // } else {
-        // If the admin exists, create the hospital
-        return from(
-          this.prismaPG.hospital.create({
-            data: { ...dto, adminId: admin.id },
-          }),
-        );
-        // }
-      }),
-      catchError((error) => {
-        if (error.code === 'P2025') {
-          this.logger.log({ error });
-          return throwError(() => new NotFoundException('Admin not found'));
-        }
-        return throwError(() => error);
+      map((hospital) => {
+        return {
+          data: hospital,
+          message: 'Hospital created successfully',
+        };
       }),
     );
   }
 
-  findAll() {
-    return `This action returns all hospital`;
+  findMyHospitals(
+    adminId: string,
+  ): Observable<APIResponse<HospitalEssentials[]>> {
+    return from(
+      this.prismaPG.hospital.findMany({
+        where: {
+          adminId,
+        },
+        select: {
+          id: true,
+          name: true,
+          address: true,
+          adminId: true,
+          email: true,
+          phone: true,
+          website: true,
+        },
+      }),
+    ).pipe(
+      map((hospitals) => {
+        return {
+          data: hospitals,
+          message: 'Hospitals fetched successfully',
+        };
+      }),
+    );
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} hospital`;
+  findAll(): Observable<APIResponse<HospitalEssentials[]>> {
+    return from(
+      this.prismaPG.hospital.findMany({
+        select: {
+          id: true,
+          name: true,
+          address: true,
+          adminId: true,
+          email: true,
+          phone: true,
+          website: true,
+          admin: {
+            select: {
+              id: true,
+              email: true,
+              firstName: true,
+              lastName: true,
+            },
+          },
+        },
+      }),
+    ).pipe(
+      map((hospitals) => {
+        return {
+          data: hospitals,
+          message: 'Hospitals fetched successfully',
+        };
+      }),
+    );
   }
 
-  update(id: number, updateHospitalDto: UpdateHospitalDto) {
-    return `This action updates a #${id} hospital`;
+  findOne(id: string): Observable<APIResponse<HospitalEssentials>> {
+    return from(
+      this.prismaPG.hospital.findUnique({
+        where: {
+          id,
+        },
+        select: {
+          id: true,
+          name: true,
+          address: true,
+          adminId: true,
+          email: true,
+          phone: true,
+          website: true,
+          admin: {
+            select: {
+              id: true,
+              email: true,
+              firstName: true,
+              lastName: true,
+            },
+          },
+        },
+      }),
+    ).pipe(
+      map((hospital) => {
+        if (!hospital) throw new NotFoundException('Hospital not found');
+        return {
+          data: hospital,
+          message: 'Hospital fetched successfully',
+        };
+      }),
+    );
   }
 
-  remove(id: number) {
-    return `This action removes a #${id} hospital`;
+  update(
+    id: string,
+    updateHospitalDto: UpdateHospitalDto,
+  ): Observable<APIResponse<HospitalEssentials>> {
+    return from(
+      this.prismaPG.hospital.findUniqueOrThrow({
+        where: {
+          id,
+        },
+      }),
+    ).pipe(
+      switchMap(() => {
+        return from(
+          this.prismaPG.hospital.update({
+            where: {
+              id,
+            },
+            data: updateHospitalDto,
+            select: {
+              id: true,
+              name: true,
+              address: true,
+              adminId: true,
+              email: true,
+              phone: true,
+              website: true,
+            },
+          }),
+        );
+      }),
+      map((hospital) => {
+        return {
+          data: hospital,
+          message: 'Hospital updated successfully',
+        };
+      }),
+    );
+  }
+
+  remove(id: string): Observable<APIResponse> {
+    return from(
+      this.prismaPG.hospital.delete({
+        where: {
+          id,
+        },
+      }),
+    ).pipe(
+      map(() => {
+        return {
+          message: 'Hospital deleted successfully',
+        };
+      }),
+    );
   }
 }

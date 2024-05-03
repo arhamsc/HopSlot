@@ -4,8 +4,7 @@ import { AuthModule } from './features/auth/auth.module';
 import { argonOptions } from './config/argon.config';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { JwtModule } from '@nestjs/jwt';
-import { APP_GUARD, APP_PIPE } from '@nestjs/core';
-import { HospitalModule } from './features/users/service-providers/hospital/hospital.module';
+import { APP_GUARD, APP_PIPE, RouterModule } from '@nestjs/core';
 import { DoctorModule } from './features/users/service-providers/doctor/doctor.module';
 import { AdminModule } from './features/users/admin/admin.module';
 import { PostgresPrismaService } from './global/database/postgres-prisma.service';
@@ -21,6 +20,9 @@ import { AppointmentModule } from './features/appointment/appointment.module';
 import { CacheModule } from '@nestjs/cache-manager';
 import { redisStore } from 'cache-manager-redis-yet';
 import { RedisModule } from '@nestjs-modules/ioredis';
+import { DoctorSlotsModule } from './features/doctor-slots/doctor-slots.module';
+import { ServiceProvidersModule } from './features/users/service-providers/service-providers.module';
+import { routerRouts } from './core/router';
 
 @Module({
   imports: [
@@ -51,13 +53,14 @@ import { RedisModule } from '@nestjs-modules/ioredis';
       }),
       inject: [ConfigService],
     }),
+    RouterModule.register(routerRouts),
     DatabaseModule,
     AccessControlModule.forRoles(roles),
     AuthModule,
-    HospitalModule,
-    DoctorModule,
     AdminModule,
     AppointmentModule,
+    DoctorSlotsModule,
+    ServiceProvidersModule,
   ],
   providers: [
     PostgresPrismaService,

@@ -14,9 +14,17 @@ roles
   // Doctor
   .grant(Role.DOCTOR)
   .create(['prescription', 'report'])
-  .readOwn(['doctor', 'prescription', 'report', 'hospital', 'appointment'])
-  .updateOwn(['doctor', 'report', 'appointment'])
-  .deleteOwn(['doctor', 'report'])
+  .createOwn(['doctorSlot'])
+  .readOwn([
+    'doctor',
+    'prescription',
+    'report',
+    'hospital',
+    'appointment',
+    'doctorSlot',
+  ])
+  .updateOwn(['doctor', 'report', 'appointment', 'doctorSlot'])
+  .deleteOwn(['doctor', 'report', 'doctorSlot'])
   // Patient
   .grant(Role.PATIENT)
   .create(['appointment'])
@@ -27,4 +35,7 @@ roles
   .grant(Role.ADMIN)
   .extend(Role.HOSP_ADMIN)
   .extend(Role.DOCTOR)
-  .extend(Role.PATIENT);
+  .extend(Role.PATIENT)
+  .readAny(['hospital', 'doctor', 'appointment', 'prescription', 'report'])
+  .updateAny(['hospital', 'doctor', 'appointment', 'prescription', 'report'])
+  .deleteAny(['hospital', 'doctor', 'appointment', 'prescription', 'report']);
