@@ -1,3 +1,4 @@
+name: hopslot-docker-compose
 services:
   ### DATABASES ###
   redis:
