@@ -66,12 +66,13 @@ services:
       - 8080:8080
     depends_on:
       - kafka
+      - zookeeper
     environment:
       DYNAMIC_CONFIG_ENABLED: 'true'
       KAFKA_CLUSTERS_0_NAME: 'HP-Test'
       KAFKA_CLUSTERS_0_BOOTSTRAPSERVERS: kafka:9092
     volumes:
-      - ./bind-mounts/kui/config.yaml:/etc/kafkaui/dynamic_config.yaml
+      - ./bind-mounts/kui/config.yml:/etc/kafkaui/dynamic_config.yaml
     networks:
       - hopslot-network
 

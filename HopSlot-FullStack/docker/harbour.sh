@@ -5,11 +5,21 @@ FOLLOW=false
 SERVICE=""
 
 # Parse command line arguments
-while getopts ":f" opt; do
+while getopts ":fw" opt; do
   case $opt in
     f)
       FOLLOW=true
       ;;
+    w)
+      WIN=true
+      # Handle values as regular expressions
+            args=("$@")
+            C_LIST=()
+            for (( i=$OPTIND-1 ; i <= $#-1 ; i++ ))
+            do
+                C_LIST=("${C_LIST[@]}" ${args[$i]})
+            done
+            ;;
     \?)
       echo "Invalid option: -$OPTARG" >&2
       exit 1
@@ -32,6 +42,8 @@ SERVICE="$1"
 # Execute docker-compose logs with follow flag if specified
 if [ "$FOLLOW" = true ]; then
   docker compose logs "$SERVICE" --follow 
+elif [ "$WIN" = true ]; then
+  docker compose -f docker-compose.yaml -f docker-compose.win.override.yaml "${C_LIST[@]}"
 else
   docker compose logs "$SERVICE"
 fi
