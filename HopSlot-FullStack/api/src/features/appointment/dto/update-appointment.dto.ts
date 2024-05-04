@@ -1,4 +1,6 @@
-import { PartialType } from '@nestjs/mapped-types';
-import { CreateAppointmentDto } from './create-appointment.dto';
+import { OmitType, PartialType } from '@nestjs/mapped-types';
+import { AppointmentDto } from 'src/core/schemas';
 
-export class UpdateAppointmentDto extends PartialType(CreateAppointmentDto) {}
+export class UpdateAppointmentDto extends PartialType(
+  OmitType(AppointmentDto, ['createdAt', 'updatedAt']),
+) {}

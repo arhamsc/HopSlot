@@ -6,6 +6,7 @@ import {
   Patch,
   Param,
   Delete,
+  Query,
 } from '@nestjs/common';
 import { DoctorSlotsService } from './doctor-slots.service';
 import { CreateDoctorSlotDto } from './dto/create-doctor-slot.dto';
@@ -26,26 +27,49 @@ export class DoctorSlotsController {
     return this.doctorSlotsService.create(createDoctorSlotDto);
   }
 
+  @UseRoles({
+    action: 'read',
+    possession: 'own',
+    resource: 'doctorSlot',
+  })
   @Get()
   findAll() {
     return this.doctorSlotsService.findAll();
   }
 
+  @UseRoles({
+    action: 'read',
+    possession: 'own',
+    resource: 'doctorSlot',
+  })
   @Get(':id')
-  findOne(@Param('id') id: string) {
-    return this.doctorSlotsService.findOne(+id);
+  findOne(@Param('id') id: string, @Query('by-doctor') byDoctor: boolean) {
+    if (byDoctor) {
+      return this.doctorSlotsService.findSlotsByDoctorId(id);
+    }
+    return this.doctorSlotsService.findOne(id);
   }
 
+  @UseRoles({
+    action: 'update',
+    possession: 'own',
+    resource: 'doctorSlot',
+  })
   @Patch(':id')
   update(
     @Param('id') id: string,
     @Body() updateDoctorSlotDto: UpdateDoctorSlotDto,
   ) {
-    return this.doctorSlotsService.update(+id, updateDoctorSlotDto);
+    return this.doctorSlotsService.update(id, updateDoctorSlotDto);
   }
 
+  @UseRoles({
+    action: 'delete',
+    possession: 'own',
+    resource: 'doctorSlot',
+  })
   @Delete(':id')
   remove(@Param('id') id: string) {
-    return this.doctorSlotsService.remove(+id);
+    return this.doctorSlotsService.remove(id);
   }
 }

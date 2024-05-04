@@ -8,7 +8,7 @@ roles
   // Hospital Admin
   .grant(Role.HOSP_ADMIN)
   .createOwn(['hospital', 'doctor'])
-  .readOwn(['hospital', 'doctor'])
+  .readOwn(['hospital', 'doctor', 'doctorSlot'])
   .updateOwn(['hospital'])
   .deleteOwn(['hospital', 'doctor'])
   // Doctor
@@ -29,6 +29,7 @@ roles
   .grant(Role.PATIENT)
   .create(['appointment'])
   .readOwn(['appointment', 'prescription', 'report'])
+  .readAny(['doctorSlot'])
   .read(['hospital', 'doctor'])
   .updateOwn(['appointment'])
   // Admin

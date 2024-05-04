@@ -1,3 +1,8 @@
-import { AppointmentDto } from "src/core/schemas";
+import { OmitType } from '@nestjs/mapped-types';
+import { AppointmentDto } from 'src/core/schemas';
 
-export class CreateAppointmentDto extends AppointmentDto {}
+export class CreateAppointmentDto extends OmitType(AppointmentDto, [
+  'createdAt',
+  'updatedAt',
+  'status',
+]) {}

@@ -16,6 +16,11 @@ import { UseRoles } from 'nest-access-control';
 export class AppointmentController {
   constructor(private readonly appointmentService: AppointmentService) {}
 
+  @UseRoles({
+    action: 'create',
+    resource: 'appointment',
+    possession: 'own',
+  })
   @Post()
   create(@Body() createAppointmentDto: CreateAppointmentDto) {
     return this.appointmentService.create(createAppointmentDto);

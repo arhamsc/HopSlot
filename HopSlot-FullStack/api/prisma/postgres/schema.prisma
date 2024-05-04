@@ -91,7 +91,7 @@ model Doctor {
   hospitalId String /// @z.string().uuid()
   hospital   Hospital @relation(fields: [hospitalId], references: [id])
 
-  userId String @unique /// @z.string().uuid()
+  userId String @id /// @z.string().uuid()
   user   User   @relation(fields: [userId], references: [id])
 
   cabinNumber           Int
@@ -113,7 +113,7 @@ model Doctor {
 }
 
 model Patient {
-  userId String @unique /// @z.string().uuid().optional()
+  userId String @id /// @z.string().uuid().optional()
   user   User   @relation(fields: [userId], references: [id])
   age    Int
 
@@ -127,7 +127,7 @@ model Patient {
 }
 
 model DoctorSlot {
-  id String @id @default(uuid()) /// @z.string().uuid().optional()
+  id String @id @default(uuid()) /// @z.string().uuid()
 
   doctorId String /// @z.string().uuid()
   doctor   Doctor @relation(fields: [doctorId], references: [userId])
@@ -145,7 +145,7 @@ model DoctorSlot {
 }
 
 model Appointment {
-  id String @id @default(uuid()) /// @z.string().uuid().optional()
+  id String @id @default(uuid()) /// @z.string().uuid()
 
   hospitalId String /// @z.string().uuid()
   hospital   Hospital @relation(fields: [hospitalId], references: [id])

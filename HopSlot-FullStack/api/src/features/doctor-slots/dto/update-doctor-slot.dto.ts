@@ -1,4 +1,7 @@
-import { PartialType } from '@nestjs/mapped-types';
-import { CreateDoctorSlotDto } from './create-doctor-slot.dto';
+import { OmitType, PartialType } from '@nestjs/mapped-types';
 
-export class UpdateDoctorSlotDto extends PartialType(CreateDoctorSlotDto) {}
+import { DoctorSlotDto } from 'src/core/schemas';
+
+export class UpdateDoctorSlotDto extends PartialType(
+  OmitType(DoctorSlotDto, ['createdAt', 'createdAt']),
+) {}

@@ -4,7 +4,7 @@ import { AppointmentStatus } from "./enums"
 import { CompleteHospital, RelatedHospitalModel, CompleteDoctor, RelatedDoctorModel, CompleteUser, RelatedUserModel, CompleteDoctorSlot, RelatedDoctorSlotModel, CompletePatient, RelatedPatientModel } from "./index"
 
 export const AppointmentModel = z.object({
-  id: z.string().uuid().optional(),
+  id: z.string().uuid(),
   hospitalId: z.string().uuid(),
   doctorId: z.string().uuid(),
   patientId: z.string().uuid(),
