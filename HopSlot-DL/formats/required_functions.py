@@ -7,7 +7,7 @@ import json
 
 2. API Request (From Node) -> /predict -> Controller -> Parse my json (makes it into python format) -> predict(input) -> give predictions -> send to Node as Response
 """
-model = loadModelAndSupports()
+# model = loadModelAndSupports()
 
 
 def predict(appointmentBatch: list):
@@ -36,7 +36,7 @@ def transformAPIRequest(appointment):
     evidences = []
 
     selected_columns = ["question_en", "name", "value_meaning", "data_type"]
-    df = pd.read_json("../final/release_evidences.json").T
+    df = pd.read_json("../datasets/final/release_evidences.json").T
     df = df[selected_columns]
     data_dict = df.to_dict(orient="records")
 
@@ -52,7 +52,7 @@ def transformAPIRequest(appointment):
                 for key, val in res["value_meaning"].items()
                 if value_name in val.values()
             ]
-            evidences.append(["name"] + "_@_" + value_meaning[0])
+            evidences.append(res["name"] + "_@_" + value_meaning[0])
         else:
             value_meaning = symptom["values"]
             evidences.append(res["name"] + "_@_" + value_meaning)
@@ -61,7 +61,7 @@ def transformAPIRequest(appointment):
 
 
 def mapPathologyToSeverity(pathology):
-    df = pd.read_json("../final/release_conditions.json").T
+    df = pd.read_json("../datasets/final/release_conditions.json").T
     selected_columns = ["condition_name", "severity"]
     df = df[selected_columns]
     data_dict = df.to_dict(orient="records")
