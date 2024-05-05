@@ -172,6 +172,19 @@ model Appointment {
   @@map("appointments")
 }
 
+model Symptom {
+  id String @id @default(uuid()) /// @z.string().uuid()
+
+  name String /// @z.string().min(5).max(100)
+  desc String /// @z.string().min(10)
+
+  createdAt DateTime @default(now()) /// @z.date().optional()
+  updatedAt DateTime @updatedAt /// @z.date().optional()
+
+  @@map("symptoms")
+
+}
+
 model Prescription {
   id String @id @default(uuid()) /// @z.string().uuid().optional()
 

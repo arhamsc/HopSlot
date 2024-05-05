@@ -3,3 +3,4 @@ lib
 .idea
 datasets/final/*
 .venev
+**/__pycache__/
