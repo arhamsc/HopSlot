@@ -19,5 +19,5 @@ from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include("predict_symptoms.urls"))
+    path('api/predict/', include("predict_symptoms.urls"))
 ]
