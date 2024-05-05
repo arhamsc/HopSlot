@@ -16,7 +16,6 @@ def predict(appointmentBatch: list):
         transformedSymptoms = transformAPIRequest(appointment)
         pathology = model.predict(transformedSymptoms)
         severity = mapPathologyToSeverity(pathology)
-        severity = 1
         predictions.append(
             {"appointmentId": appointment.get("appointmentId"), "severity": severity}
         )
