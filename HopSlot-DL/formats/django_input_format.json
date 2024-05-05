@@ -1,0 +1,19 @@
+[
+  {
+    "appointmentId": "12233-asdas-21232",
+    "symptoms": {
+      "name": "fever",
+      "description": "fever for 2 days",
+      "type": "B"
+    }
+  },
+  {
+    "appointmentId": "34232asdas-asda-2123",
+    "symptoms": {
+      "name": "fever",
+      "description": "fever for 2 days",
+      "type": "M",
+      "values": [1, 3, 4]
+    }
+  }
+]

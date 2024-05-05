@@ -1,7 +1,7 @@
 import * as z from "nestjs-zod/z"
 import { createZodDto } from "nestjs-zod/dto"
 import { Role } from "./enums"
-import { CompleteHospital, RelatedHospitalModel, CompleteDoctor, RelatedDoctorModel, CompletePatient, RelatedPatientModel, CompleteAppointment, RelatedAppointmentModel, CompletePrescription, RelatedPrescriptionModel, CompleteReport, RelatedReportModel } from "./index"
+import { CompleteHospital, RelatedHospitalModel, CompleteDoctor, RelatedDoctorModel, CompletePatient, RelatedPatientModel, CompleteAppointment, RelatedAppointmentModel, CompleteReport, RelatedReportModel } from "./index"
 
 export const UserModel = z.object({
   id: z.string().uuid().optional(),
@@ -25,7 +25,6 @@ export interface CompleteUser extends z.infer<typeof UserModel> {
   Doctor?: CompleteDoctor | null
   Patient?: CompletePatient | null
   Appointment: CompleteAppointment[]
-  Prescription: CompletePrescription[]
   Report: CompleteReport[]
 }
 
@@ -39,6 +38,5 @@ export const RelatedUserModel: z.ZodSchema<CompleteUser> = z.lazy(() => UserMode
   Doctor: RelatedDoctorModel.nullish(),
   Patient: RelatedPatientModel.nullish(),
   Appointment: RelatedAppointmentModel.array(),
-  Prescription: RelatedPrescriptionModel.array(),
   Report: RelatedReportModel.array(),
 }))

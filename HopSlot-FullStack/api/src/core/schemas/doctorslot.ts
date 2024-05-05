@@ -6,9 +6,10 @@ import { CompleteDoctor, RelatedDoctorModel, CompleteAppointment, RelatedAppoint
 export const DoctorSlotModel = z.object({
   id: z.string().uuid(),
   doctorId: z.string().uuid(),
-  slotStart: z.date(),
-  slotEnd: z.date(),
-  duration: z.number().int(),
+  slotStartTime: z.string().datetime(),
+  slotEndTime: z.string().datetime(),
+  durationOfPerVisit: z.number().int(),
+  forDay: z.string().array(),
   status: z.nativeEnum(Status),
   createdAt: z.date().optional(),
   updatedAt: z.date().optional(),

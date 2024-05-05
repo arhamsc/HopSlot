@@ -1,7 +1,11 @@
-import { OmitType, PartialType } from '@nestjs/mapped-types';
+import { createZodDto } from 'nestjs-zod';
 
-import { DoctorSlotDto } from 'src/core/schemas';
+import { DoctorSlotModel } from 'src/core/schemas';
 
-export class UpdateDoctorSlotDto extends PartialType(
-  OmitType(DoctorSlotDto, ['createdAt', 'createdAt']),
-) {}
+const updateDoctorSlot = DoctorSlotModel.omit({
+  updatedAt: true,
+  createdAt: true,
+  doctorId: true,
+}).partial();
+
+export class UpdateDoctorSlotDto extends createZodDto(updateDoctorSlot) {}

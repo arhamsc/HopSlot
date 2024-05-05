@@ -1,8 +1,12 @@
-import { OmitType } from '@nestjs/mapped-types';
-import { AppointmentDto } from 'src/core/schemas';
+import { createZodDto } from 'nestjs-zod';
+import { AppointmentModel } from 'src/core/schemas';
 
-export class CreateAppointmentDto extends OmitType(AppointmentDto, [
-  'createdAt',
-  'updatedAt',
-  'status',
-]) {}
+const createAppointment = AppointmentModel.omit({
+  id: true,
+  updatedAt: true,
+  createdAt: true,
+  status: true,
+  patientId: true,
+});
+
+export class CreateAppointmentDto extends createZodDto(createAppointment) {}

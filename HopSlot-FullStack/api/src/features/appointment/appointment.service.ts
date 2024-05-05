@@ -18,6 +18,7 @@ export class AppointmentService {
 
   create(
     createAppointmentDto: CreateAppointmentDto,
+    userId: string,
   ): Observable<APIResponse<AppointmentEssentials>> {
     return from(
       this.scheduler.getAppointmentRequestsLength({
@@ -52,7 +53,7 @@ export class AppointmentService {
                 },
                 patient: {
                   connect: {
-                    id: createAppointmentDto.patientId,
+                    id: userId,
                   },
                 },
                 status: 'PENDING',
@@ -65,6 +66,7 @@ export class AppointmentService {
                 hospitalId: true,
                 patientId: true,
                 appointmentSlotId: true,
+                symptoms: true,
               },
             }),
           );

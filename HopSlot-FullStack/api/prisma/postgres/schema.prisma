@@ -55,12 +55,11 @@ model User {
   createdAt DateTime @default(now()) /// @z.date().optional()
   updatedAt DateTime @updatedAt /// @z.date().optional()
 
-  Hospital     Hospital[]
-  Doctor       Doctor?
-  Patient      Patient?
-  Appointment  Appointment[]
-  Prescription Prescription[]
-  Report       Report[]
+  Hospital    Hospital[]
+  Doctor      Doctor?
+  Patient     Patient?
+  Appointment Appointment[]
+  Report      Report[]
 
   @@map("users")
 }
@@ -79,20 +78,19 @@ model Hospital {
   createdAt DateTime @default(now()) /// @z.date().optional()
   updatedAt DateTime @updatedAt /// @z.date().optional()
 
-  Doctor       Doctor[]
-  Appointment  Appointment[]
-  Prescription Prescription[]
-  Report       Report[]
+  Doctor      Doctor[]
+  Appointment Appointment[]
+  Report      Report[]
 
   @@map("hospitals")
 }
 
 model Doctor {
   hospitalId String /// @z.string().uuid()
-  hospital   Hospital @relation(fields: [hospitalId], references: [id])
+  hospital   Hospital @relation(fields: [hospitalId], references: [id], onDelete: Cascade)
 
   userId String @id /// @z.string().uuid()
-  user   User   @relation(fields: [userId], references: [id])
+  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
 
   cabinNumber           Int
   cabinFloor            Int
@@ -102,12 +100,11 @@ model Doctor {
   noOfPatientsConsulted Int
   lastClockIn           DateTime?
 
-  createdAt    DateTime       @default(now()) /// @z.date().optional()
-  updatedAt    DateTime       @updatedAt /// @z.date().optional()
-  Appointment  Appointment[]
-  Prescription Prescription[]
-  Report       Report[]
-  DoctorSlots  DoctorSlot[]
+  createdAt   DateTime      @default(now()) /// @z.date().optional()
+  updatedAt   DateTime      @updatedAt /// @z.date().optional()
+  Appointment Appointment[]
+  Report      Report[]
+  DoctorSlots DoctorSlot[]
 
   @@map("doctors")
 }
@@ -132,10 +129,12 @@ model DoctorSlot {
   doctorId String /// @z.string().uuid()
   doctor   Doctor @relation(fields: [doctorId], references: [userId])
 
-  slotStart DateTime
-  slotEnd   DateTime
-  duration  Int // in minutes, split entire slot into sub slots
-  status    Status   @default(PENDING) /// @z.nativeEnum(Status)
+  slotStartTime      DateTime @db.Time /// @z.string().datetime()
+  slotEndTime        DateTime @db.Time /// @z.string().datetime()
+  durationOfPerVisit Int // in minutes, split entire slot into sub slots
+  forDay             String[] @default([]) //["mon", "tue", "wed", "thu", "fri", "sat", "sun"]
+
+  status Status @default(PENDING) /// @z.nativeEnum(Status)
 
   createdAt   DateTime      @default(now()) /// @z.date().optional()
   updatedAt   DateTime      @updatedAt /// @z.date().optional()
@@ -151,7 +150,7 @@ model Appointment {
   hospital   Hospital @relation(fields: [hospitalId], references: [id])
 
   doctorId String /// @z.string().uuid()
-  doctor   Doctor @relation(fields: [doctorId], references: [userId])
+  doctor   Doctor @relation(fields: [doctorId], references: [userId], onDelete: Cascade)
 
   patientId String /// @z.string().uuid()
   patient   User   @relation(fields: [patientId], references: [id])
@@ -161,11 +160,14 @@ model Appointment {
 
   status AppointmentStatus @default(PENDING) /// @z.nativeEnum(AppointmentStatus)
 
+  symptoms String @default("fever")
+
   delay Int?
 
-  createdAt DateTime  @default(now()) /// @z.date().optional()
-  updatedAt DateTime  @updatedAt /// @z.date().optional()
-  Patient   Patient[]
+  createdAt    DateTime       @default(now()) /// @z.date().optional()
+  updatedAt    DateTime       @updatedAt /// @z.date().optional()
+  Patient      Patient[]
+  Prescription Prescription[]
 
   @@map("appointments")
 }
@@ -173,14 +175,8 @@ model Appointment {
 model Prescription {
   id String @id @default(uuid()) /// @z.string().uuid().optional()
 
-  hospitalId String /// @z.string().uuid()
-  hospital   Hospital @relation(fields: [hospitalId], references: [id])
-
-  doctorId String /// @z.string().uuid()
-  doctor   Doctor @relation(fields: [doctorId], references: [userId])
-
-  patientId String /// @z.string().uuid()
-  patient   User   @relation(fields: [patientId], references: [id])
+  appointmentId String /// @z.string().uuid()
+  appointment   Appointment @relation(fields: [appointmentId], references: [id], onDelete: Cascade)
 
   issueDate  DateTime
   body       String /// @z.string().min(10)

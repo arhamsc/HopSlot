@@ -12,6 +12,7 @@ import { DoctorSlotsService } from './doctor-slots.service';
 import { CreateDoctorSlotDto } from './dto/create-doctor-slot.dto';
 import { UpdateDoctorSlotDto } from './dto/update-doctor-slot.dto';
 import { UseRoles } from 'nest-access-control';
+import { GetCurrentUser } from 'src/core/decorators/get-current-user.decorator';
 
 @Controller('doctor-slots')
 export class DoctorSlotsController {
@@ -23,8 +24,11 @@ export class DoctorSlotsController {
     resource: 'doctorSlot',
   })
   @Post()
-  create(@Body() createDoctorSlotDto: CreateDoctorSlotDto) {
-    return this.doctorSlotsService.create(createDoctorSlotDto);
+  create(
+    @Body() createDoctorSlotDto: CreateDoctorSlotDto,
+    @GetCurrentUser('id') userId: string,
+  ) {
+    return this.doctorSlotsService.create(createDoctorSlotDto, userId);
   }
 
   @UseRoles({

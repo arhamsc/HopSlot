@@ -1,9 +1,12 @@
-import { OmitType } from '@nestjs/mapped-types';
-import { DoctorDto } from 'src/core/schemas';
+import { createZodDto } from 'nestjs-zod';
+import { DoctorModel } from 'src/core/schemas';
 
-export class CreateDoctorDto extends OmitType(DoctorDto, [
-  'updatedAt',
-  'createdAt',
-  'noOfPatientsConsulted',
-  'lastClockIn',
-]) {}
+const createDoctor = DoctorModel.omit({
+  id: true,
+  updatedAt: true,
+  createdAt: true,
+  noOfPatientsConsulted: true,
+  lastClockIn: true,
+});
+
+export class CreateDoctorDto extends createZodDto(createDoctor) {}

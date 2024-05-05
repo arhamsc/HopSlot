@@ -1,4 +1,6 @@
-import { PartialType } from '@nestjs/mapped-types';
-import { CreateHospitalDto } from './create-hospital.dto';
+import { HospitalModel } from 'src/core/schemas';
+import { createZodDto } from 'nestjs-zod';
 
-export class UpdateHospitalDto extends PartialType(CreateHospitalDto) {}
+const updateHospital = HospitalModel.partial();
+
+export class UpdateHospitalDto extends createZodDto(updateHospital) {}

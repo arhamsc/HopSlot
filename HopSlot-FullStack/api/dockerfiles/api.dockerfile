@@ -22,11 +22,9 @@ RUN bun install
 
 COPY .env .env
 
+# Run using docker compose hopslot-api build first and then up
+RUN bun run prisma:generate:db_clients
+
 COPY . .
-
-
-# Next.js collects completely anonymous telemetry data about general usage. Learn more here: https://nextjs.org/telemetry
-# Uncomment the following line to disable telemetry at run time
-ENV NEXT_TELEMETRY_DISABLED 1
 
 CMD bun run start:dev

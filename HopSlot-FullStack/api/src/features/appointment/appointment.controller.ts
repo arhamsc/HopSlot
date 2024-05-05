@@ -11,6 +11,7 @@ import { AppointmentService } from './appointment.service';
 import { CreateAppointmentDto } from './dto/create-appointment.dto';
 import { UpdateAppointmentDto } from './dto/update-appointment.dto';
 import { UseRoles } from 'nest-access-control';
+import { GetCurrentUser } from 'src/core/decorators/get-current-user.decorator';
 
 @Controller('appointment')
 export class AppointmentController {
@@ -22,8 +23,11 @@ export class AppointmentController {
     possession: 'own',
   })
   @Post()
-  create(@Body() createAppointmentDto: CreateAppointmentDto) {
-    return this.appointmentService.create(createAppointmentDto);
+  create(
+    @Body() createAppointmentDto: CreateAppointmentDto,
+    @GetCurrentUser('id') userId: string,
+  ) {
+    return this.appointmentService.create(createAppointmentDto, userId);
   }
 
   @Get()

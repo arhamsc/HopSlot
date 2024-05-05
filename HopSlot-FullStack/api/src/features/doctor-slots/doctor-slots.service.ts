@@ -12,13 +12,19 @@ export class DoctorSlotsService {
 
   create(
     createDoctorSlotDto: CreateDoctorSlotDto,
+    userId: string,
   ): Observable<APIResponse<DoctorSlotEssentials>> {
     return from(
       this.pgPrisma.doctorSlot.findFirst({
         where: {
-          slotStart: {
-            gte: createDoctorSlotDto.slotStart,
-            lte: createDoctorSlotDto.slotEnd,
+          slotStartTime: {
+            gte: createDoctorSlotDto.slotStartTime,
+          },
+          slotEndTime: {
+            lte: createDoctorSlotDto.slotEndTime,
+          },
+          forDay: {
+            hasSome: createDoctorSlotDto.forDay,
           },
         },
       }),
@@ -29,14 +35,24 @@ export class DoctorSlotsService {
         }
         return from(
           this.pgPrisma.doctorSlot.create({
-            data: createDoctorSlotDto,
+            data: {
+              ...createDoctorSlotDto,
+              doctor: {
+                connect: {
+                  userId,
+                },
+              },
+              slotStartTime: new Date(createDoctorSlotDto.slotStartTime),
+              slotEndTime: new Date(createDoctorSlotDto.slotEndTime),
+            },
             select: {
               id: true,
-              slotStart: true,
-              slotEnd: true,
+              slotStartTime: true,
+              slotEndTime: true,
               doctorId: true,
-              duration: true,
+              durationOfPerVisit: true,
               status: true,
+              forDay: true,
             },
           }),
         );
@@ -53,11 +69,12 @@ export class DoctorSlotsService {
       this.pgPrisma.doctorSlot.findMany({
         select: {
           id: true,
-          slotStart: true,
-          slotEnd: true,
+          slotStartTime: true,
+          slotEndTime: true,
           doctorId: true,
-          duration: true,
+          durationOfPerVisit: true,
           status: true,
+          forDay: true,
         },
       }),
     ).pipe(
@@ -76,11 +93,12 @@ export class DoctorSlotsService {
         },
         select: {
           id: true,
-          slotStart: true,
-          slotEnd: true,
+          slotStartTime: true,
+          slotEndTime: true,
           doctorId: true,
-          duration: true,
+          durationOfPerVisit: true,
           status: true,
+          forDay: true,
         },
       }),
     ).pipe(
@@ -101,11 +119,12 @@ export class DoctorSlotsService {
         },
         select: {
           id: true,
-          slotStart: true,
-          slotEnd: true,
+          slotStartTime: true,
+          slotEndTime: true,
           doctorId: true,
-          duration: true,
+          durationOfPerVisit: true,
           status: true,
+          forDay: true,
         },
       }),
     ).pipe(
@@ -136,11 +155,12 @@ export class DoctorSlotsService {
             data: updateDoctorSlotDto,
             select: {
               id: true,
-              slotStart: true,
-              slotEnd: true,
+              slotStartTime: true,
+              slotEndTime: true,
               doctorId: true,
-              duration: true,
+              durationOfPerVisit: true,
               status: true,
+              forDay: true,
             },
           }),
         );

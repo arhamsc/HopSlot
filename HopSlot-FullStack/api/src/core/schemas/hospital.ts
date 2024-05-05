@@ -1,6 +1,6 @@
 import * as z from "nestjs-zod/z"
 import { createZodDto } from "nestjs-zod/dto"
-import { CompleteUser, RelatedUserModel, CompleteDoctor, RelatedDoctorModel, CompleteAppointment, RelatedAppointmentModel, CompletePrescription, RelatedPrescriptionModel, CompleteReport, RelatedReportModel } from "./index"
+import { CompleteUser, RelatedUserModel, CompleteDoctor, RelatedDoctorModel, CompleteAppointment, RelatedAppointmentModel, CompleteReport, RelatedReportModel } from "./index"
 
 export const HospitalModel = z.object({
   id: z.string().uuid().optional(),
@@ -21,7 +21,6 @@ export interface CompleteHospital extends z.infer<typeof HospitalModel> {
   admin: CompleteUser
   Doctor: CompleteDoctor[]
   Appointment: CompleteAppointment[]
-  Prescription: CompletePrescription[]
   Report: CompleteReport[]
 }
 
@@ -34,6 +33,5 @@ export const RelatedHospitalModel: z.ZodSchema<CompleteHospital> = z.lazy(() => 
   admin: RelatedUserModel,
   Doctor: RelatedDoctorModel.array(),
   Appointment: RelatedAppointmentModel.array(),
-  Prescription: RelatedPrescriptionModel.array(),
   Report: RelatedReportModel.array(),
 }))

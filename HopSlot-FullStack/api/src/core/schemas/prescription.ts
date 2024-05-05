@@ -1,12 +1,10 @@
 import * as z from "nestjs-zod/z"
 import { createZodDto } from "nestjs-zod/dto"
-import { CompleteHospital, RelatedHospitalModel, CompleteDoctor, RelatedDoctorModel, CompleteUser, RelatedUserModel, CompleteReport, RelatedReportModel } from "./index"
+import { CompleteAppointment, RelatedAppointmentModel, CompleteReport, RelatedReportModel } from "./index"
 
 export const PrescriptionModel = z.object({
   id: z.string().uuid().optional(),
-  hospitalId: z.string().uuid(),
-  doctorId: z.string().uuid(),
-  patientId: z.string().uuid(),
+  appointmentId: z.string().uuid(),
   issueDate: z.date(),
   body: z.string().min(10),
   otherNotes: z.string().nullish(),
@@ -20,9 +18,7 @@ export class PrescriptionDto extends createZodDto(PrescriptionModel) {
 }
 
 export interface CompletePrescription extends z.infer<typeof PrescriptionModel> {
-  hospital: CompleteHospital
-  doctor: CompleteDoctor
-  patient: CompleteUser
+  appointment: CompleteAppointment
   Report: CompleteReport[]
 }
 
@@ -32,8 +28,6 @@ export interface CompletePrescription extends z.infer<typeof PrescriptionModel> 
  * NOTE: Lazy required in case of potential circular dependencies within schema
  */
 export const RelatedPrescriptionModel: z.ZodSchema<CompletePrescription> = z.lazy(() => PrescriptionModel.extend({
-  hospital: RelatedHospitalModel,
-  doctor: RelatedDoctorModel,
-  patient: RelatedUserModel,
+  appointment: RelatedAppointmentModel,
   Report: RelatedReportModel.array(),
 }))
