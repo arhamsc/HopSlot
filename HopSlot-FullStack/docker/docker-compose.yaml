@@ -68,8 +68,8 @@ services:
       - kafka
       - zookeeper
     environment:
-      DYNAMIC_CONFIG_ENABLED: 'true'
-      KAFKA_CLUSTERS_0_NAME: 'HP-Test'
+      DYNAMIC_CONFIG_ENABLED: "true"
+      KAFKA_CLUSTERS_0_NAME: "HP-Test"
       KAFKA_CLUSTERS_0_BOOTSTRAPSERVERS: kafka:9092
     volumes:
       - ./bind-mounts/kui/config.yaml:/etc/kafkaui/dynamic_config.yaml
@@ -83,9 +83,6 @@ services:
       dockerfile: ./dockerfiles/api.dockerfile
     container_name: hopslot-api
     image: zerefarham/hopslot-api
-    environment:
-      - PG_DB_NAME=hopslot-pg-db
-      - MD_DB_NAME=hopslot-mongo-db
     volumes:
       - ../api:/app
     ports:
@@ -97,7 +94,23 @@ services:
       - kafka
     networks:
       - hopslot-network
-    
+
+  hopslot-django-api:
+    build:
+      context: ../django-api
+      dockerfile: ./dockerfiles/django.dockerfile
+    container_name: hopslot-django-api
+    image: zerefarham/hopslot-django-api
+    ports:
+      - 3001:3001
+    env_file:
+      - ../django-api/.env
+    depends_on:
+      - hopslot-api
+    volumes:
+      - ../django-api:/app
+    networks:
+      - hopslot-network
 
 networks:
   hopslot-network:
