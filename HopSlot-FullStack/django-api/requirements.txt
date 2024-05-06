@@ -3,3 +3,5 @@ djangorestframework
 scikit-learn
 joblib
 django-environ
+pandas
+numpy

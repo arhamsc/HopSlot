@@ -9,7 +9,8 @@ class PredictSymptomsConfig(AppConfig):
     name = 'predict_symptoms'
 
     model = None
-    model_path = Path(settings.BASE_DIR) / Path('predict_symptoms/trained_models/model.pkl')
+    models_folder = Path(settings.BASE_DIR) / Path('predict_symptoms/trained_models')
+    model_path = models_folder / 'model.pkl'
 
     def ready(self):
         self.model = joblib.load(self.model_path)
