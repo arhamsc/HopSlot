@@ -1,0 +1,31 @@
+# Environment variables declared in this file are automatically made available to Prisma.
+# See the documentation for more detail: https://pris.ly/d/prisma-schema#accessing-environment-variables-from-the-schema
+
+# Prisma supports the native connection string format for PostgreSQL, MySQL, SQLite, SQL Server, MongoDB and CockroachDB.
+# See the documentation for all the connection string options: https://pris.ly/d/connection-strings
+
+# SQL_DATABASE_URL="postgresql://scarham@localhost:5432/hopslot?schema=public"
+# MONGO_DATABASE_URL="mongodb://localhost:27017/hopslot"
+
+SQL_DATABASE_URL=postgresql://hopslot_system:HOPSLOt@2024!@pg-db:5432/hopslot-pg-db?schema=public&connect_timeout=300
+MONGO_DATABASE_URL=mongodb://hopslot_system:HOPSLOt%402024!@mongo-db-primary:27017/hopslot-mongo-db?directConnection=true&authSource=hopslot-mongo-db&replicaSet=rs0
+
+JWT_AT_SECRET=v'Wmfz{9!<WHejEsa:_fTr.7mjT}k0a!~QFBUIa|SsR}`6p%DV-Y>3-vs[y"OA=5{O0`)]k~'Q`<*T_5?1B~;_KRf|o<,d<8&%c4U8Z?c{egYc4W_V/EOj:Y`XUYhMx"/<T?gvN)pywuh9Smr|9=%w!pqAL}wAHFM4,-nC7(beIoLa~@3G/)RqA1}}i6SH{#/d{HJJ[0}I/5yu#H&i@GE}uWK.KgO)C1g[9pJm[$|O$;?Sw$PD!vsA6Q{!ZB*#sz
+JWT_AT_SALT=BQ6LE?$.%Ov8
+
+REDIS_HOST=redis
+REDIS_PORT=6379
+
+JWT_RT_SECRET=81x;)x[oSpa[<Z6Q8EFa,S+SI8$.s}@T5NbZ(iT''LdJ/q5309I|EeG2K+89`dekv/jDJ)_|b6Cu'Zd[JAn-BJe]$a&&WEczZ(meJ.6#$_:q2lJdJIN~)E;d$;TN]`knbh)u-=0Jra<Uo(Zjj`9s.iU{l'*~>GM5OqD};4gAuI:(LHAI:%WxPEoag+~"&]~ey;OS*=5g,("l9<2d;[Bd|z7]U.R2)[>eH^#fA0#YOgOCp~WcQA5,1B*@dk]cC.fp
+JWT_RT_SALT==,&`N*oeFi~o
+
+JWT_AT_EXPIRES_IN=3600000
+JWT_RT_EXPIRES_IN=86400000
+
+COMMON_SALT="$'<|3&t-oVBJ"
+COMMON_SECRET="%~[XWfr}csL>Ro]vey%8{Ski2CG4FT4}JJQWG>G[{RnVMh;*U5kl,5T71DcKoM|/oZ}ex`9!h=wm{h$|qF>wo8Qf@SUz3x(hjcRNN|0_psEFveH<"^;/R-VIE[J&H6LPC_m(I90n'Z}U?xPcUJ"wCi=%{atRF:iL1gk@Dn!^cCP}-TkkM12d^GA3He*#NZSgv-~ohZ~OmjZLb8,0b=MQ~sH]MP+D^00n@UcFqpjhgBj$8wgaA&lPt]`ea?2s`L[7"
+
+ADMIN_SECRET=GUILTY_CROWN
+
+# 2 hr doctor slot total 8 slots per slot time and for batch
+BATCH_SIZE = 8

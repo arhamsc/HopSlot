@@ -4,8 +4,16 @@
 FOLLOW=false
 SERVICE=""
 
+startMongo() {
+  docker compose up -d mongo-db-primary mongo-db-secondary-1 mongo-db-secondary-2
+
+  sleep 2
+
+  docker exec mongo-db-primary mongosh hopslot-mongo-db --file /init-files/mongo-init-2.js
+}
+
 # Parse command line arguments
-while getopts ":fw" opt; do
+while getopts ":fwm" opt; do
   case $opt in
     f)
       FOLLOW=true
@@ -20,6 +28,10 @@ while getopts ":fw" opt; do
                 C_LIST=("${C_LIST[@]}" ${args[$i]})
             done
             ;;
+    m)
+      startMongo
+      exit 1
+      ;;
     \?)
       echo "Invalid option: -$OPTARG" >&2
       exit 1

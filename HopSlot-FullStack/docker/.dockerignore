@@ -1,1 +1,26 @@
 ignored/
+
+# Ignore node_modules folder
+node_modules/
+
+# Ignore build output folder
+dist
+
+
+# Ignore database files
+data
+*.sql
+
+# Ignore logs
+logs
+*.log
+
+# Ignore editor-specific files
+.vscode
+.idea
+*.sublime-project
+*.sublime-workspace
+
+# Ignore version control files
+.git
+.gitignore

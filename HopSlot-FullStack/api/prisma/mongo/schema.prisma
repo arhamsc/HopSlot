@@ -5,8 +5,8 @@
 // Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
 
 generator client {
-  provider = "prisma-client-js"
-  output   = "../../node_modules/@prisma/mongo/client"
+  provider      = "prisma-client-js"
+  output        = "../../node_modules/@prisma/mongo/client"
   binaryTargets = ["native", "linux-arm64-openssl-3.0.x"]
 }
 
@@ -15,7 +15,46 @@ datasource db {
   url      = env("MONGO_DATABASE_URL")
 }
 
-model Test {
-  id   String @id @default(auto()) @map("_id") @db.ObjectId
-  name String
+model PointOfInterest {
+  id              String            @id @default(auto()) @map("_id") @db.ObjectId
+  name            String            @unique
+  value           String
+  forType         String
+  SymptomEvidence SymptomEvidence[] @relation(name: "defaultValue")
+
+  symptomEvidenceIds String[]          @db.ObjectId
+  symptomEvidences   SymptomEvidence[] @relation(name: "possibleValues", fields: [symptomEvidenceIds], references: [id])
+}
+
+model SymptomEvidence {
+  id           String  @id @default(auto()) @map("_id") @db.ObjectId
+  name         String  @unique
+  codeQuestion String
+  question     String
+  isActecedent Boolean
+  dataType     String
+
+  defaultValueId String?          @db.ObjectId
+  defaultValue   PointOfInterest? @relation(name: "defaultValue", fields: [defaultValueId], references: [id])
+
+  possibleValueIds String[]          @db.ObjectId
+  possibleValues   PointOfInterest[] @relation(name: "possibleValues", fields: [possibleValueIds], references: [id])
+
+  AntecedentConditions   Conditions[] @relation(name: "antecedents", fields: [AntecedentConditionsId], references: [id])
+  AntecedentConditionsId String[]     @db.ObjectId
+
+  SymptomConditions   Conditions[] @relation(name: "symptoms", fields: [SymptomConditionsId], references: [id])
+  SymptomConditionsId String[]     @db.ObjectId
+}
+
+model Conditions {
+  id      String @id @default(auto()) @map("_id") @db.ObjectId
+  name    String
+  icd10Id String
+
+  symtomIds String[]          @db.ObjectId
+  symptoms  SymptomEvidence[] @relation(name: "symptoms", fields: [symtomIds], references: [id])
+
+  antecedentIds String[]          @db.ObjectId
+  antecedents   SymptomEvidence[] @relation(name: "antecedents", fields: [antecedentIds], references: [id])
 }

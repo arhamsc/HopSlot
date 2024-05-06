@@ -21,16 +21,69 @@ services:
       - ./bind-mounts/postgres:/var/lib/postgresql/data
     networks:
       - hopslot-network
-  mongo-db:
+  ## MONGO CLUSTER ##
+  mongo-helper:
     image: mongo:latest
-    container_name: hopslot-mongo-db
+    container_name: hopslot-mongo-helper
+    command: "mongosh hopslot-mongo-db --host mongo-db-primary:27017 --file /init-files/mongo-init-2.js"
+    healthcheck:
+      test: "mongosh hopslot-mongo-db --host mongo-db-primary:27017 --file /init-files/mongo-init-2.js | grep 'OK!"
+      interval: 10s
+      timeout: 1ms
+      retries: 5
+      start_period: 20s
+    depends_on:
+      mongo-db-primary:
+        condition: service_healthy
+      mongo-db-secondary-1:
+        condition: service_started
+      mongo-db-secondary-2:
+        condition: service_started
+    networks:
+      - hopslot-network
+    volumes:
+      - ./init-files:/init-files:ro
+  mongo-db-primary:
+    image: mongo:latest
+    container_name: hopslot-mongo-db-primary
+    command: ["--replSet", "rs0", "--bind_ip_all", "--port", "27017"]
+    healthcheck:
+      test: echo "try { rs.status() } catch (err) { rs.initiate({_id:'rs0',members:[{_id:0,host:'mongo-db-primary:27017',priority:1},{_id:1,host:'mongo-db-secondary-1:27018',priority:0.5},{_id:2,host:'mongo-db-secondary-2:27019',priority:0.5}]}) }" | mongosh --port 27017 --quiet | sleep 30 | echo "rs.status()" | mongosh --port 27017 --quiet
+      interval: 10s
+      retries: 3
+      start_period: 30s
+      timeout: 2m
     ports:
       - 27017:27017
     env_file:
       - ./env/mongo.local.env
+    restart: always
     volumes:
-      - ./bind-mounts/mongo:/data/db
-      - ./init-files/mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js:ro
+      - ./bind-mounts/mongo/mongo-primary-1/data:/data/db
+      - ./bind-mounts/mongo/mongo-primary-1/config:/data/configdb
+      - ./init-files:/init-files:ro
+    networks:
+      - hopslot-network
+  mongo-db-secondary-1:
+    image: mongo:latest
+    container_name: hopslot-mongo-db-secondary-1
+    command: ["--replSet", "rs0", "--bind_ip_all", "--port", "27018"]
+    ports:
+      - 27018:27018
+    volumes:
+      - "./bind-mounts/mongo/mongo-secondary-1/data:/data/db"
+      - "./bind-mounts/mongo/mongo-secondary-1/config:/data/configdb"
+    networks:
+      - hopslot-network
+  mongo-db-secondary-2:
+    image: mongo:latest
+    container_name: hopslot-mongo-db-secondary-2
+    command: ["--replSet", "rs0", "--bind_ip_all", "--port", "27019"]
+    ports:
+      - 27019:27019
+    volumes:
+      - "./bind-mounts/mongo/mongo-secondary-2/data:/data/db"
+      - "./bind-mounts/mongo/mongo-secondary-2/config:/data/configdb"
     networks:
       - hopslot-network
 
@@ -89,7 +142,7 @@ services:
       - 3000:3000
     depends_on:
       - pg-db
-      - mongo-db
+      - mongo-db-primary
       - redis
       - kafka
     networks:
