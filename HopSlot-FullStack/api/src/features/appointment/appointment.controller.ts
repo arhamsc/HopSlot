@@ -12,10 +12,17 @@ import { CreateAppointmentDto } from './dto/create-appointment.dto';
 import { UpdateAppointmentDto } from './dto/update-appointment.dto';
 import { UseRoles } from 'nest-access-control';
 import { GetCurrentUser } from 'src/core/decorators/get-current-user.decorator';
+import { AllowAC } from 'src/core/decorators/allow-ac/allow-ac.decorator';
 
 @Controller('appointment')
 export class AppointmentController {
   constructor(private readonly appointmentService: AppointmentService) {}
+
+  @AllowAC()
+  @Get('/sample')
+  sample() {
+    return this.appointmentService.sample();
+  }
 
   @UseRoles({
     action: 'create',

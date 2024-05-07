@@ -2,29 +2,62 @@
   {
     "appointmentId": "12233-asdas-21232",
     "symptoms": [{
-      "name": "E_21",
-      "description": "fever for 2 days",
+      "name": "E_123",
+      "desc": "fever for 2 days",
       "type": "B"
     }]
   },
   {
     "appointmentId": "34232asdas-asda-2123",
     "symptoms": [{
-      "name": "E_22",
-      "description": "fever for 2 days",
-      "type": "M",
-      "values": [
-        "V_123", "V_34"
-      ]
+      "name": "E_132",
+      "desc": "fever for 1 days",
+      "type": "B"
+      
     }]
   },
   {
-    "appointmentId": "34232asdas-asda-2123",
+    "appointmentId": "64232asdas-asda-2123",
     "symptoms": [{
-      "name": "E_23",
-      "description": "fever for 2 days",
-      "type": "C",
-      "values": 2
+      "name": "E_144",
+      "desc": "last night fatigue",
+      "type": "B"
+    }]
+  },
+   {
+    "appointmentId": "74232asdas-asda-2123",
+    "symptoms": [{
+      "name": "E_243",
+      "desc": "suffocating last night",
+      "type": "B"
+    }]
+  },
+   {
+    "appointmentId": "84232asdas-asda-2123",
+    "symptoms": [{
+      "name": "E_122",
+      "desc": "dairrhea",
+      "type": "B"
+    }]
+  },
+   {
+    "appointmentId": "14232asdas-asda-2123",
+    "symptoms": [{
+      "name": "E_233",
+      "desc": "rash on hand",
+      "type": "M",
+      "values": ["V_23"]
+    },
+    {
+      "name": "E_55",
+      "desc": "back pain",
+      "type": "M",
+      "values": ["V_123", "V_234", "V_43"]
+    },
+    {
+      "name": "E_123",
+      "desc": "from morning unconsciousness",
+      "type": "B"
     }]
   }
 ]

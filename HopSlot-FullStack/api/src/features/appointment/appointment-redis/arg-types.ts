@@ -6,4 +6,6 @@ export interface StoreAppointmentArgs {
 }
 
 export interface GetAppointmentArgs
-  extends Omit<StoreAppointmentArgs, 'appointmentId'> {}
+  extends Omit<StoreAppointmentArgs, 'appointmentId'> {
+  status?: string;
+}

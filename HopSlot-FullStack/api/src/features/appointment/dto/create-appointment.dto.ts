@@ -1,5 +1,6 @@
 import { createZodDto } from 'nestjs-zod';
-import { AppointmentModel } from 'src/core/schemas';
+import { z } from 'nestjs-zod/z';
+import { AppointmentModel, SymptomModel } from 'src/core/schemas';
 
 const createAppointment = AppointmentModel.omit({
   id: true,
@@ -7,6 +8,13 @@ const createAppointment = AppointmentModel.omit({
   createdAt: true,
   status: true,
   patientId: true,
+}).extend({
+  symptoms: SymptomModel.omit({
+    id: true,
+  })
+    .array()
+    .min(1),
+  date: z.string().datetime(),
 });
 
 export class CreateAppointmentDto extends createZodDto(createAppointment) {}

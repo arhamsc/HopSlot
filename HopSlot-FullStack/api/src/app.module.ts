@@ -5,7 +5,6 @@ import { argonOptions } from './config/argon.config';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { JwtModule } from '@nestjs/jwt';
 import { APP_GUARD, APP_PIPE, RouterModule } from '@nestjs/core';
-import { DoctorModule } from './features/users/service-providers/doctor/doctor.module';
 import { AdminModule } from './features/users/admin/admin.module';
 import { PostgresPrismaService } from './global/database/postgres-prisma.service';
 import { MongoPrismaService } from './global/database/mongo-prisma.service';
@@ -23,6 +22,8 @@ import { RedisModule } from '@nestjs-modules/ioredis';
 import { DoctorSlotsModule } from './features/doctor-slots/doctor-slots.module';
 import { ServiceProvidersModule } from './features/users/service-providers/service-providers.module';
 import { routerRouts } from './core/router';
+import { ScheduleModule } from '@nestjs/schedule';
+import { SchedulerModule } from './features/scheduler/scheduler.module';
 
 @Module({
   imports: [
@@ -53,6 +54,7 @@ import { routerRouts } from './core/router';
       }),
       inject: [ConfigService],
     }),
+    ScheduleModule.forRoot(),
     RouterModule.register(routerRouts),
     DatabaseModule,
     AccessControlModule.forRoles(roles),
@@ -61,6 +63,7 @@ import { routerRouts } from './core/router';
     AppointmentModule,
     DoctorSlotsModule,
     ServiceProvidersModule,
+    SchedulerModule,
   ],
   providers: [
     PostgresPrismaService,

@@ -17,3 +17,19 @@ export interface AppointmentEssentials
 
 export interface DoctorSlotEssentials
   extends Omit<DoctorSlot, 'createdAt' | 'updatedAt'> {}
+
+export interface AppointmentDjangoEssentials {
+  appointmentId: string;
+  symptoms: {
+    name: string;
+    description: string;
+    type: string;
+    values: string[];
+  }[];
+}
+
+export interface PredictionResponse {
+  appointmentId: string;
+  pathology: string;
+  severity: number;
+}

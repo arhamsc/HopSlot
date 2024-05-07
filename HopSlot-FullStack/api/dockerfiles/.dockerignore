@@ -22,3 +22,6 @@ logs
 # Ignore version control files
 .git
 .gitignore
+
+.env
+.env.local

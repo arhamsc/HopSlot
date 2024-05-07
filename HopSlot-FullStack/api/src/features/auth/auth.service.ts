@@ -37,7 +37,7 @@ export class AuthService {
     private config: ConfigService,
     private docService: DoctorService,
   ) {}
-
+  
   signUpLocal(
     signUpDto: SignUpDto,
   ): Observable<APIResponse<{ user: UserEssentials; tokens: Tokens }>> {

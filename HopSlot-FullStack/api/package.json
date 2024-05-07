@@ -33,6 +33,7 @@
   },
   "dependencies": {
     "@nestjs-modules/ioredis": "^2.0.2",
+    "@nestjs/axios": "^3.0.2",
     "@nestjs/cache-manager": "^2.2.2",
     "@nestjs/common": "^10.0.0",
     "@nestjs/config": "^3.2.2",
@@ -42,8 +43,10 @@
     "@nestjs/passport": "^10.0.3",
     "@nestjs/platform-express": "^10.0.0",
     "@nestjs/platform-fastify": "^10.3.5",
+    "@nestjs/schedule": "^4.0.2",
     "@prisma/client": "^5.12.1",
     "argon2": "^0.40.1",
+    "axios": "^1.6.8",
     "cache-manager": "^5.5.2",
     "cache-manager-redis-yet": "^5.0.0",
     "class-transformer": "^0.5.1",

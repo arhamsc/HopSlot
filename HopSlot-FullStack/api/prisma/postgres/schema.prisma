@@ -160,7 +160,10 @@ model Appointment {
 
   status AppointmentStatus @default(PENDING) /// @z.nativeEnum(AppointmentStatus)
 
-  symptoms String @default("fever")
+  appointmentStart      DateTime? /// @z.string().datetime()
+  appointmentStartDelay Int?
+  severity              Int?
+  symptoms              Symptom[]
 
   delay Int?
 
@@ -175,14 +178,18 @@ model Appointment {
 model Symptom {
   id String @id @default(uuid()) /// @z.string().uuid()
 
-  name String /// @z.string().min(5).max(100)
-  desc String /// @z.string().min(10)
+  name   String /// @z.string().min(1).max(100)
+  desc   String /// @z.string().min(5)
+  type   String /// @z.string().min(1).max(1)
+  values String[] @default([])
 
   createdAt DateTime @default(now()) /// @z.date().optional()
   updatedAt DateTime @updatedAt /// @z.date().optional()
 
-  @@map("symptoms")
+  Appointment   Appointment? @relation(fields: [appointmentId], references: [id])
+  appointmentId String?
 
+  @@map("symptoms")
 }
 
 model Prescription {

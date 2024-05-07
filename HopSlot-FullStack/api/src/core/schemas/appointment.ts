@@ -1,7 +1,7 @@
 import * as z from "nestjs-zod/z"
 import { createZodDto } from "nestjs-zod/dto"
 import { AppointmentStatus } from "./enums"
-import { CompleteHospital, RelatedHospitalModel, CompleteDoctor, RelatedDoctorModel, CompleteUser, RelatedUserModel, CompleteDoctorSlot, RelatedDoctorSlotModel, CompletePatient, RelatedPatientModel, CompletePrescription, RelatedPrescriptionModel } from "./index"
+import { CompleteHospital, RelatedHospitalModel, CompleteDoctor, RelatedDoctorModel, CompleteUser, RelatedUserModel, CompleteDoctorSlot, RelatedDoctorSlotModel, CompleteSymptom, RelatedSymptomModel, CompletePatient, RelatedPatientModel, CompletePrescription, RelatedPrescriptionModel } from "./index"
 
 export const AppointmentModel = z.object({
   id: z.string().uuid(),
@@ -10,7 +10,9 @@ export const AppointmentModel = z.object({
   patientId: z.string().uuid(),
   appointmentSlotId: z.string().uuid(),
   status: z.nativeEnum(AppointmentStatus),
-  symptoms: z.string(),
+  appointmentStart: z.string().datetime().nullish(),
+  appointmentStartDelay: z.number().int().nullish(),
+  severity: z.number().int().nullish(),
   delay: z.number().int().nullish(),
   createdAt: z.date().optional(),
   updatedAt: z.date().optional(),
@@ -24,6 +26,7 @@ export interface CompleteAppointment extends z.infer<typeof AppointmentModel> {
   doctor: CompleteDoctor
   patient: CompleteUser
   appointmentSlot: CompleteDoctorSlot
+  symptoms: CompleteSymptom[]
   Patient: CompletePatient[]
   Prescription: CompletePrescription[]
 }
@@ -38,6 +41,7 @@ export const RelatedAppointmentModel: z.ZodSchema<CompleteAppointment> = z.lazy(
   doctor: RelatedDoctorModel,
   patient: RelatedUserModel,
   appointmentSlot: RelatedDoctorSlotModel,
+  symptoms: RelatedSymptomModel.array(),
   Patient: RelatedPatientModel.array(),
   Prescription: RelatedPrescriptionModel.array(),
 }))

@@ -20,8 +20,6 @@ COPY ./prisma ./prisma
 
 RUN bun install
 
-COPY .env .env
-
 # Run using docker compose hopslot-api build first and then up
 RUN bun run prisma:generate:db_clients
 
