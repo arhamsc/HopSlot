@@ -14,7 +14,7 @@ roles
   // Doctor
   .grant(Role.DOCTOR)
   .create(['prescription', 'report'])
-  .createOwn(['doctorSlot'])
+  .createOwn(['doctorSlot', 'reschedule'])
   .readOwn([
     'doctor',
     'prescription',

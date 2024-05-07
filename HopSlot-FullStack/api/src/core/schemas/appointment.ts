@@ -13,7 +13,7 @@ export const AppointmentModel = z.object({
   appointmentStart: z.string().datetime().nullish(),
   appointmentStartDelay: z.number().int().nullish(),
   severity: z.number().int().nullish(),
-  delay: z.number().int().nullish(),
+  additionalDelay: z.number().int(),
   createdAt: z.date().optional(),
   updatedAt: z.date().optional(),
 })

@@ -81,7 +81,7 @@ export class AppointmentService {
               select: {
                 id: true,
                 status: true,
-                delay: true,
+                additionalDelay: true,
                 doctorId: true,
                 hospitalId: true,
                 patientId: true,

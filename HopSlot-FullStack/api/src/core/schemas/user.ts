@@ -13,6 +13,7 @@ export const UserModel = z.object({
   employeeId: z.string().nullish(),
   refreshTokenHash: z.string().nullish(),
   role: z.nativeEnum(Role),
+  fcmToken: z.string().nullish(),
   createdAt: z.date().optional(),
   updatedAt: z.date().optional(),
 })

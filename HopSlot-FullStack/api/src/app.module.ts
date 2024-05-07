@@ -24,6 +24,8 @@ import { ServiceProvidersModule } from './features/users/service-providers/servi
 import { routerRouts } from './core/router';
 import { ScheduleModule } from '@nestjs/schedule';
 import { SchedulerModule } from './features/scheduler/scheduler.module';
+import { ReSchedulerModule } from './features/re-scheduler/re-scheduler.module';
+import { KafkaModule } from './global/kafka/kafka.module';
 
 @Module({
   imports: [
@@ -64,6 +66,8 @@ import { SchedulerModule } from './features/scheduler/scheduler.module';
     DoctorSlotsModule,
     ServiceProvidersModule,
     SchedulerModule,
+    ReSchedulerModule,
+    KafkaModule,
   ],
   providers: [
     PostgresPrismaService,

@@ -52,6 +52,8 @@ model User {
   refreshTokenHash String?
   role             Role    @default(PATIENT) /// @z.nativeEnum(Role)
 
+  fcmToken String?
+
   createdAt DateTime @default(now()) /// @z.date().optional()
   updatedAt DateTime @updatedAt /// @z.date().optional()
 
@@ -165,7 +167,7 @@ model Appointment {
   severity              Int?
   symptoms              Symptom[]
 
-  delay Int?
+  additionalDelay Int @default(0)
 
   createdAt    DateTime       @default(now()) /// @z.date().optional()
   updatedAt    DateTime       @updatedAt /// @z.date().optional()

@@ -54,6 +54,7 @@
     "dotenv": "^16.4.5",
     "fastify": "^4.26.2",
     "ioredis": "^5.4.1",
+    "kafkajs": "^2.2.4",
     "nest-access-control": "^3.1.0",
     "nestjs-zod": "^3.0.0",
     "nestjs-zod-prisma": "^3.0.1",
