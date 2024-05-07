@@ -32,6 +32,8 @@
     "prisma:generate:db_clients": "prisma generate --schema prisma/postgres/schema.prisma && prisma generate --schema prisma/mongo/schema.prisma"
   },
   "dependencies": {
+    "@fastify/multipart": "^8.2.0",
+    "@nest-lab/fastify-multer": "^1.2.0",
     "@nestjs-modules/ioredis": "^2.0.2",
     "@nestjs/axios": "^3.0.2",
     "@nestjs/cache-manager": "^2.2.2",
@@ -51,6 +53,7 @@
     "cache-manager-redis-yet": "^5.0.0",
     "class-transformer": "^0.5.1",
     "class-validator": "^0.14.1",
+    "cloudinary": "^2.2.0",
     "dotenv": "^16.4.5",
     "fastify": "^4.26.2",
     "ioredis": "^5.4.1",
@@ -63,6 +66,7 @@
     "passport-local": "^1.0.0",
     "reflect-metadata": "^0.2.0",
     "rxjs": "^7.8.1",
+    "streamifier": "^0.1.1",
     "zod-to-json-schema": "^3.23.0"
   },
   "devDependencies": {
@@ -74,6 +78,7 @@
     "@types/node": "^20.3.1",
     "@types/passport-jwt": "^4.0.1",
     "@types/passport-local": "^1.0.38",
+    "@types/streamifier": "^0.1.2",
     "@types/supertest": "^6.0.0",
     "@typescript-eslint/eslint-plugin": "^6.0.0",
     "@typescript-eslint/parser": "^6.0.0",

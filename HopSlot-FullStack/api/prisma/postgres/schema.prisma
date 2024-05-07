@@ -82,7 +82,6 @@ model Hospital {
 
   Doctor      Doctor[]
   Appointment Appointment[]
-  Report      Report[]
 
   @@map("hospitals")
 }
@@ -102,11 +101,12 @@ model Doctor {
   noOfPatientsConsulted Int
   lastClockIn           DateTime?
 
-  createdAt   DateTime      @default(now()) /// @z.date().optional()
-  updatedAt   DateTime      @updatedAt /// @z.date().optional()
-  Appointment Appointment[]
-  Report      Report[]
-  DoctorSlots DoctorSlot[]
+  createdAt    DateTime       @default(now()) /// @z.date().optional()
+  updatedAt    DateTime       @updatedAt /// @z.date().optional()
+  Appointment  Appointment[]
+  Report       Report[]
+  DoctorSlots  DoctorSlot[]
+  Prescription Prescription[]
 
   @@map("doctors")
 }
@@ -119,8 +119,9 @@ model Patient {
   lastAppointment Appointment? @relation(fields: [appointmentId], references: [id])
   appointmentId   String? /// @z.string().uuid()
 
-  createdAt DateTime @default(now()) /// @z.date().optional()
-  updatedAt DateTime @updatedAt /// @z.date().optional()
+  createdAt    DateTime       @default(now()) /// @z.date().optional()
+  updatedAt    DateTime       @updatedAt /// @z.date().optional()
+  Prescription Prescription[]
 
   @@map("patients")
 }
@@ -200,24 +201,26 @@ model Prescription {
   appointmentId String /// @z.string().uuid()
   appointment   Appointment @relation(fields: [appointmentId], references: [id], onDelete: Cascade)
 
+  patientId String /// @z.string().uuid()
+  patient   Patient @relation(fields: [patientId], references: [userId])
+
+  doctorId String /// @z.string().uuid()
+  doctor   Doctor @relation(fields: [doctorId], references: [userId])
+
   issueDate  DateTime
   body       String /// @z.string().min(10)
   otherNotes String?
   docSign    String
-  reports    String[]
 
   createdAt DateTime @default(now()) /// @z.date().optional()
   updatedAt DateTime @updatedAt /// @z.date().optional()
-  Report    Report[]
+  report    Report[]
 
   @@map("prescriptions")
 }
 
 model Report {
   id String @id @default(uuid()) /// @z.string().uuid().optional()
-
-  hospitalId String /// @z.string().uuid()
-  hospital   Hospital @relation(fields: [hospitalId], references: [id])
 
   doctorId String /// @z.string().uuid()
   doctor   Doctor @relation(fields: [doctorId], references: [userId])
@@ -227,6 +230,9 @@ model Report {
 
   issueDate DateTime
   signedBy  String
+
+  reportPublicId  String
+  reportSecureUrl String
 
   prescriptionId String /// @z.string().uuid()
   prescription   Prescription @relation(fields: [prescriptionId], references: [id])

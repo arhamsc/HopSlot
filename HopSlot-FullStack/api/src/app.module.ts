@@ -26,6 +26,10 @@ import { ScheduleModule } from '@nestjs/schedule';
 import { SchedulerModule } from './features/scheduler/scheduler.module';
 import { ReSchedulerModule } from './features/re-scheduler/re-scheduler.module';
 import { KafkaModule } from './global/kafka/kafka.module';
+import { FastifyMulterModule } from '@nest-lab/fastify-multer';
+import { CloudinaryModule } from './dynamic-modules/cloudinary/cloudinary.module';
+import { PrescriptionModule } from './features/prescription/prescription.module';
+import { ReportsModule } from './features/reports/reports.module';
 
 @Module({
   imports: [
@@ -68,6 +72,10 @@ import { KafkaModule } from './global/kafka/kafka.module';
     SchedulerModule,
     ReSchedulerModule,
     KafkaModule,
+    FastifyMulterModule,
+    CloudinaryModule,
+    PrescriptionModule,
+    ReportsModule,
   ],
   providers: [
     PostgresPrismaService,

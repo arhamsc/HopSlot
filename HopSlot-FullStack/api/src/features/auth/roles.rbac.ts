@@ -13,7 +13,7 @@ roles
   .deleteOwn(['hospital', 'doctor'])
   // Doctor
   .grant(Role.DOCTOR)
-  .create(['prescription', 'report'])
+  .createAny(['prescription', 'report'])
   .createOwn(['doctorSlot', 'reschedule'])
   .readOwn([
     'doctor',
