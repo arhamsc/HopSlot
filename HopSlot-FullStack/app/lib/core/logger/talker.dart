@@ -1,16 +1,23 @@
-import 'package:injectable/injectable.dart';
+import 'package:app/utils/observers/talker_riverpod_observer.dart';
+import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:talker_dio_logger/talker_dio_logger_interceptor.dart';
 import 'package:talker_flutter/talker_flutter.dart';
 
-@Singleton()
+part 'talker.g.dart';
+
+@riverpod
+CTalker talker(TalkerRef ref) {
+  return CTalker();
+}
+
 class CTalker {
   late final Talker talker;
   late final TalkerDioLogger talkerDioLogger;
-  late final TalkerRouteObserver talkerRouteObserver;
+  late final TalkerRiverpodObserver talkerRiverpodObserver;
 
   CTalker() {
-    talker = Talker();
+    talker = TalkerFlutter.init();
     talkerDioLogger = TalkerDioLogger(talker: talker);
-    talkerRouteObserver = TalkerRouteObserver(talker);
+    talkerRiverpodObserver = TalkerRiverpodObserver(talker: talker);
   }
 }
