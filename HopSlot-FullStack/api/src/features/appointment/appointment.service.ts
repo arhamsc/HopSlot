@@ -224,7 +224,6 @@ export class AppointmentService {
           )!.appointmentStartDate;
           da?.setHours(newDate.getHours());
           da?.setMinutes(newDate.getMinutes());
-          console.log({ da });
 
           await this.pgPrisma.appointment.update({
             where: {
@@ -234,6 +233,7 @@ export class AppointmentService {
               severity: prediction.severity,
               appointmentStartDelay: offset * merged.slot.durationOfPerVisit,
               appointmentStart: da,
+              status: 'CONFIRMED',
             },
           });
           offset++;

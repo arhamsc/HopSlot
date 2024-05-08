@@ -9,12 +9,14 @@ import { AppointmentService } from '../appointment/appointment.service';
 @Injectable()
 export class SchedulerService {
   logger = new Logger(SchedulerService.name);
+
   constructor(
     @InjectRedis() private readonly redis: Redis,
     private readonly config: ConfigService,
     private readonly pgPrisma: PostgresPrismaService,
     private readonly appointmentService: AppointmentService,
   ) {}
+
   //1. Cron Job to run every day to clear the appointment requests
   @Cron(CronExpression.EVERY_DAY_AT_MIDNIGHT)
   async clearAppointmentRequests() {
@@ -46,7 +48,6 @@ export class SchedulerService {
 
       if (appointment.appointmentStart < new Date()) {
         if (status === 'filled') {
-          console.log({ slot, slotId, appointment });
           await this.redis.del(key);
           await this.redis.del(`${key}:status`);
         } else {
@@ -63,7 +64,6 @@ export class SchedulerService {
 
     const keys = await this.redis.keys('appointment-requests:*');
     const appointmentKeys = keys.filter((key) => !key.endsWith(':status'));
-    console.log({ appointmentKeys });
     for (const key of appointmentKeys) {
       // Get the status of the appointment
       const status = await this.redis.get(`${key}:status`);

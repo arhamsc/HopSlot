@@ -49,10 +49,8 @@ export class ReSchedulerService implements OnModuleInit {
   rescheduleAppointmentsConsumer(doctorId: string) {
     const todayStart = new Date();
     todayStart.setHours(0, 0, 0, 0);
-    todayStart.setDate(7);
     const todayEnd = new Date();
     todayEnd.setHours(23, 59, 59, 999);
-    todayEnd.setDate(7);
     //TODO: Apply logic for fetching slot by comparing most closest to current and pass that id into appointment as well.
     return from(
       this.pgPrisma.appointment.updateMany({

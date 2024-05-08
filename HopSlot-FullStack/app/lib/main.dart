@@ -8,7 +8,6 @@ import 'package:flutter_keyboard_visibility/flutter_keyboard_visibility.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:reactive_forms_annotations/reactive_forms_annotations.dart';
-import 'package:responsive_sizer/responsive_sizer.dart';
 
 Future<void> main() async {
   final appConfig = AppConfig();
@@ -47,7 +46,7 @@ class MyApp extends ConsumerWidget {
         },
       },
       child: ScreenUtilInit(
-        designSize: const Size(393, 852),
+        designSize: const Size(428, 926),
         minTextAdapt: true,
         builder: (_, child) {
           return KeyboardDismissOnTap(

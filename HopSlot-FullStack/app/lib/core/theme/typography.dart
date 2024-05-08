@@ -1,7 +1,7 @@
 import 'package:app/core/theme/palette.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:responsive_sizer/responsive_sizer.dart';
 
 @immutable
 class CTypography extends ThemeExtension<CTypography> {
@@ -86,19 +86,19 @@ class CTypography extends ThemeExtension<CTypography> {
 
   static final CTypography cTypography = CTypography(
     title1: GoogleFonts.outfit(
-      fontSize: Adaptive.sp(38),
+      fontSize: 38.sp,
       fontWeight: FontWeight.bold,
     ),
     headline1: GoogleFonts.outfit(
-      fontSize: Adaptive.sp(24),
+      fontSize: 24.sp,
       fontWeight: FontWeight.bold,
     ),
     headline2: GoogleFonts.outfit(
-      fontSize: Adaptive.sp(18),
+      fontSize: 18.sp,
       fontWeight: FontWeight.bold,
     ),
     headline3: GoogleFonts.outfit(
-      fontSize: Adaptive.sp(30),
+      fontSize: 30.sp,
       fontWeight: FontWeight.bold,
     ),
     body1: GoogleFonts.rosario(

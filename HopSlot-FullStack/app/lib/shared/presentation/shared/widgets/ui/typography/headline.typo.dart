@@ -43,4 +43,25 @@ extension HeadlineTypography on Text {
       textScaler: textScaler,
     );
   }
+
+  Text headline3({Color? color}) {
+    final typography = CTypography.cTypography;
+    return Text(
+      data ?? "No Data", // Retain original text data
+      style: typography.headline3?.copyWith(color: color).merge(style),
+      textAlign: textAlign,
+      textDirection: textDirection,
+      locale: locale,
+      softWrap: softWrap,
+      overflow: overflow,
+      maxLines: maxLines,
+      semanticsLabel: semanticsLabel,
+      textWidthBasis: textWidthBasis,
+      selectionColor: selectionColor,
+      key: key,
+      strutStyle: strutStyle,
+      textHeightBehavior: textHeightBehavior,
+      textScaler: textScaler,
+    );
+  }
 }
