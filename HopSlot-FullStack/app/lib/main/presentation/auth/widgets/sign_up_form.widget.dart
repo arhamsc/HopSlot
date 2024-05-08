@@ -1,6 +1,6 @@
-import 'package:app/core/logger/talker.dart';
 import 'package:app/core/router/app_router.dart';
 import 'package:app/core/router/app_router.gr.dart';
+import 'package:app/main/presentation/auth/controllers/auth.controller.dart';
 import 'package:app/shared/presentation/forms/auth.form.dart';
 import 'package:app/shared/presentation/providers/forms.providers.dart';
 import 'package:app/shared/presentation/shared/widgets/ui/buttons/button.ui.dart';
@@ -16,6 +16,7 @@ class SignUpFormWidget extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final authState = ref.watch(authControllerProvider);
     return SignUpFormFormBuilder(
       model: ref.watch(signUpFormProvider),
       builder: (context, form, _) {
@@ -37,21 +38,34 @@ class SignUpFormWidget extends ConsumerWidget {
               Gap(46.h),
               ReactiveSignUpFormFormConsumer(builder: (context, form, _) {
                 return CButton(
-                  onPressed: () {
-                    form.submit(onValid: (value) {
-                      ref.read(talkerProvider).talker.log(value);
-                    });
-                  },
-                  buttonText: 'Sign Up',
+                  onPressed: authState.isLoading
+                      ? null
+                      : () {
+                          form.submit(onValid: (value) {
+                            ref.read(authControllerProvider.notifier).signUp(
+                                  email: value.email!,
+                                  password: value.password!,
+                                  firstName: value.firstName!,
+                                  lastName: value.lastName!,
+                                  username: value.username!,
+                                  age: value.age!,
+                                );
+                          });
+                        },
+                  buttonText: authState.isLoading
+                      ? 'Creating your account..'
+                      : 'Sign Up',
                 );
               }),
               Gap(16.h),
               CButton(
-                onPressed: () {
-                  ref
-                      .read(appRouterProvider)
-                      .replace(AuthRoute(authType: 'login'));
-                },
+                onPressed: authState.isLoading
+                    ? null
+                    : () {
+                        ref
+                            .read(appRouterProvider)
+                            .replace(AuthRoute(authType: 'login'));
+                      },
                 variant: ButtonVariants.secondary,
                 buttonText: 'Login',
               ),

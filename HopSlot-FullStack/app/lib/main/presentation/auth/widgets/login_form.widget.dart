@@ -1,6 +1,6 @@
-import 'package:app/core/logger/talker.dart';
 import 'package:app/core/router/app_router.dart';
 import 'package:app/core/router/app_router.gr.dart';
+import 'package:app/main/presentation/auth/controllers/auth.controller.dart';
 import 'package:app/shared/presentation/forms/auth.form.dart';
 import 'package:app/shared/presentation/providers/forms.providers.dart';
 import 'package:app/shared/presentation/shared/widgets/ui/buttons/button.ui.dart';
@@ -16,6 +16,7 @@ class LoginFormWidget extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final controllerState = ref.watch(authControllerProvider);
     return LoginFormFormBuilder(
       model: ref.watch(loginFormProvider),
       builder: (context, form, _) {
@@ -34,21 +35,28 @@ class LoginFormWidget extends ConsumerWidget {
             Gap(46.h),
             ReactiveLoginFormFormConsumer(builder: (context, form, _) {
               return CButton(
-                onPressed: () {
-                  form.submit(onValid: (value) {
-                    ref.read(talkerProvider).talker.log(value);
-                  });
-                },
-                buttonText: 'Login',
+                onPressed: controllerState.isLoading
+                    ? null
+                    : () {
+                        form.submit(onValid: (value) {
+                          ref
+                              .read(authControllerProvider.notifier)
+                              .login(value.identity!, value.password!);
+                        });
+                      },
+                buttonText:
+                    controllerState.isLoading ? 'Logging in....' : 'Login',
               );
             }),
             Gap(16.h),
             CButton(
-              onPressed: () {
-                ref
-                    .read(appRouterProvider)
-                    .replace(AuthRoute(authType: 'signup'));
-              },
+              onPressed: controllerState.isLoading
+                  ? null
+                  : () {
+                      ref
+                          .read(appRouterProvider)
+                          .replace(AuthRoute(authType: 'signup'));
+                    },
               variant: ButtonVariants.secondary,
               buttonText: 'Sign Up',
             ),

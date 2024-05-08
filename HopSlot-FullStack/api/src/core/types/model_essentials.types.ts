@@ -2,7 +2,10 @@ import { User, Hospital } from '@prisma/postgres/client';
 import { Appointment, Doctor, DoctorSlot, Role } from 'db/postgres';
 
 export interface UserEssentials
-  extends Pick<User, 'id' | 'email' | 'username' | 'role'> {
+  extends Pick<
+    User,
+    'id' | 'email' | 'username' | 'role' | 'firstName' | 'lastName' | 'fcmToken'
+  > {
   roles?: Role[];
 }
 

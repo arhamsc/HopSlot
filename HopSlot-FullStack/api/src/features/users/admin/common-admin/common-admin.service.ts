@@ -42,6 +42,7 @@ export class CommonAdminService {
           lastName: true,
           role: true,
           username: true,
+          fcmToken: true,
         },
       }),
     ).pipe(
@@ -69,6 +70,7 @@ export class CommonAdminService {
           lastName: true,
           role: true,
           username: true,
+          fcmToken: true,
         },
       }),
     ).pipe(
@@ -95,6 +97,7 @@ export class CommonAdminService {
           lastName: true,
           role: true,
           username: true,
+          fcmToken: true,
         },
       }),
     ).pipe(
@@ -120,6 +123,7 @@ export class CommonAdminService {
           lastName: true,
           role: true,
           username: true,
+          fcmToken: true,
         },
       }),
     ).pipe(

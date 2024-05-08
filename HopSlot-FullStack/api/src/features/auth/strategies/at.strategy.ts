@@ -27,6 +27,9 @@ export class ATJwtStrategy extends PassportStrategy(Strategy, 'at-jwt') {
         email: true,
         username: true,
         role: true,
+        fcmToken: true,
+        lastName: true,
+        firstName: true,
       },
     });
 

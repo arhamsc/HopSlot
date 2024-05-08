@@ -37,7 +37,7 @@ export class AuthService {
     private config: ConfigService,
     private docService: DoctorService,
   ) {}
-  
+
   signUpLocal(
     signUpDto: SignUpDto,
   ): Observable<APIResponse<{ user: UserEssentials; tokens: Tokens }>> {
@@ -108,6 +108,9 @@ export class AuthService {
                   email: info.user.email,
                   username: info.user.username,
                   role: info.user.role,
+                  firstName: info.user.firstName,
+                  lastName: info.user.lastName,
+                  fcmToken: info.user.fcmToken,
                 },
                 tokens: info.tokens,
               },
@@ -168,12 +171,22 @@ export class AuthService {
         where: {
           OR: [
             {
-              username: dto.username,
+              username: dto.identity,
             },
             {
-              email: dto.email,
+              email: dto.identity,
             },
           ],
+        },
+        select: {
+          firstName: true,
+          lastName: true,
+          email: true,
+          id: true,
+          password: true,
+          username: true,
+          role: true,
+          fcmToken: true,
         },
       }),
     ).pipe(
@@ -197,14 +210,7 @@ export class AuthService {
               map((tokens) => {
                 return {
                   data: {
-                    user: {
-                      id: user.id,
-                      email: user.email,
-                      username: user.username,
-                      role: user.role,
-                      firstName: user.firstName,
-                      lastName: user.lastName,
-                    },
+                    user,
                     tokens,
                   },
                   message: 'Logged in successfully',
