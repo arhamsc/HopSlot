@@ -13,7 +13,7 @@ AppException parseDioErrors(DioException exception) {
                 return error['message'];
               } else {
                 final pathString = error['path'].join(', ');
-                return "${error['code']}: ${pathString} - ${error['message']}";
+                return "${error['code']}: $pathString - ${error['message']}";
               }
             })
             .toList()

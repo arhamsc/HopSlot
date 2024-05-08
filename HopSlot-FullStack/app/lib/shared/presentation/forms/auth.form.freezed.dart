@@ -205,7 +205,7 @@ mixin _$SignUpForm {
   @RfControl(validators: [
     RequiredValidator(),
     MinLengthValidator(5),
-    MaxLengthValidator(8)
+    MaxLengthValidator(20)
   ])
   String? get password => throw _privateConstructorUsedError;
 
@@ -238,7 +238,7 @@ abstract class $SignUpFormCopyWith<$Res> {
       @RfControl(validators: [
         RequiredValidator(),
         MinLengthValidator(5),
-        MaxLengthValidator(8)
+        MaxLengthValidator(20)
       ])
       String? password});
 }
@@ -317,7 +317,7 @@ abstract class _$$SignUpFormImplCopyWith<$Res>
       @RfControl(validators: [
         RequiredValidator(),
         MinLengthValidator(5),
-        MaxLengthValidator(8)
+        MaxLengthValidator(20)
       ])
       String? password});
 }
@@ -389,7 +389,7 @@ class _$SignUpFormImpl implements _SignUpForm {
       @RfControl(validators: [
         RequiredValidator(),
         MinLengthValidator(5),
-        MaxLengthValidator(8)
+        MaxLengthValidator(20)
       ])
       this.password});
 
@@ -419,7 +419,7 @@ class _$SignUpFormImpl implements _SignUpForm {
   @RfControl(validators: [
     RequiredValidator(),
     MinLengthValidator(5),
-    MaxLengthValidator(8)
+    MaxLengthValidator(20)
   ])
   final String? password;
 
@@ -483,7 +483,7 @@ abstract class _SignUpForm implements SignUpForm {
       @RfControl(validators: [
         RequiredValidator(),
         MinLengthValidator(5),
-        MaxLengthValidator(8)
+        MaxLengthValidator(20)
       ])
       final String? password}) = _$SignUpFormImpl;
 
@@ -513,7 +513,7 @@ abstract class _SignUpForm implements SignUpForm {
   @RfControl(validators: [
     RequiredValidator(),
     MinLengthValidator(5),
-    MaxLengthValidator(8)
+    MaxLengthValidator(20)
   ])
   String? get password;
   @override

@@ -23,11 +23,12 @@ class AuthRepo {
                 'Something went wrong',
             code: request.data['statusCode']);
       }
-
-      return User.fromJson({
+      final user = User.fromJson({
         ...request.data['data']['user'],
         'tokens': request.data['data']['tokens'],
       });
+
+      return user;
     }, (error, stackTrace) {
       if (error is DioException) {
         final ex = parseDioErrors(error);
@@ -47,12 +48,14 @@ class AuthRepo {
     required int age,
   }) {
     return TaskEither.tryCatch(() async {
-      final request = await _dio.post('/auth/patient/signup', data: {
+      final request = await _dio.post('/auth/signup', data: {
         'email': email,
         'password': password,
         'firstName': firstName,
         'lastName': lastName,
         'username': username,
+        'age': age,
+        'role': 'PATIENT',
       });
       if (request.data['error'] != null) {
         throw AuthExceptions(
@@ -61,15 +64,36 @@ class AuthRepo {
                 'Something went wrong',
             code: request.data['statusCode']);
       }
-      return User.fromJson({
+      final user = User.fromJson({
         ...request.data['data']['user'],
-        ...request.data['data']['tokens'],
+        'tokens': request.data['data']['tokens'],
       });
+
+      return user;
     }, (error, stackTrace) {
       if (error is DioException) {
-        return AuthExceptions(
-            message: error.message ?? error.error.toString(),
-            code: AuthExceptionCodes.dioException);
+        final ex = parseDioErrors(error);
+        return AuthExceptions(message: ex.message, code: ex.code);
+      }
+      return AuthExceptions(
+          message: error.toString(), code: AuthExceptionCodes.unknown);
+    });
+  }
+
+  TaskEither<AuthExceptions, void> logout() {
+    return TaskEither.tryCatch(() async {
+      final request = await _dio.post('/auth/logout');
+      if (request.data['error'] != null) {
+        throw AuthExceptions(
+            message: request.data['error'] ??
+                request.data['message'] ??
+                'Something went wrong',
+            code: request.data['statusCode']);
+      }
+    }, (error, stackTrace) {
+      if (error is DioException) {
+        final ex = parseDioErrors(error);
+        return AuthExceptions(message: ex.message, code: ex.code);
       }
       return AuthExceptions(
           message: error.toString(), code: AuthExceptionCodes.unknown);

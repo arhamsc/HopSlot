@@ -20,13 +20,21 @@ User _$UserFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$User {
+  @HiveField(0)
   String get id => throw _privateConstructorUsedError;
+  @HiveField(1)
   String get email => throw _privateConstructorUsedError;
+  @HiveField(2)
   String get username => throw _privateConstructorUsedError;
+  @HiveField(3)
   String get firstName => throw _privateConstructorUsedError;
+  @HiveField(4)
   String get lastName => throw _privateConstructorUsedError;
+  @HiveField(5)
   String get role => throw _privateConstructorUsedError;
+  @HiveField(6)
   String? get fcmToken => throw _privateConstructorUsedError;
+  @HiveField(7)
   Tokens get tokens => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -40,14 +48,14 @@ abstract class $UserCopyWith<$Res> {
       _$UserCopyWithImpl<$Res, User>;
   @useResult
   $Res call(
-      {String id,
-      String email,
-      String username,
-      String firstName,
-      String lastName,
-      String role,
-      String? fcmToken,
-      Tokens tokens});
+      {@HiveField(0) String id,
+      @HiveField(1) String email,
+      @HiveField(2) String username,
+      @HiveField(3) String firstName,
+      @HiveField(4) String lastName,
+      @HiveField(5) String role,
+      @HiveField(6) String? fcmToken,
+      @HiveField(7) Tokens tokens});
 
   $TokensCopyWith<$Res> get tokens;
 }
@@ -127,14 +135,14 @@ abstract class _$$UserImplCopyWith<$Res> implements $UserCopyWith<$Res> {
   @override
   @useResult
   $Res call(
-      {String id,
-      String email,
-      String username,
-      String firstName,
-      String lastName,
-      String role,
-      String? fcmToken,
-      Tokens tokens});
+      {@HiveField(0) String id,
+      @HiveField(1) String email,
+      @HiveField(2) String username,
+      @HiveField(3) String firstName,
+      @HiveField(4) String lastName,
+      @HiveField(5) String role,
+      @HiveField(6) String? fcmToken,
+      @HiveField(7) Tokens tokens});
 
   @override
   $TokensCopyWith<$Res> get tokens;
@@ -200,33 +208,41 @@ class __$$UserImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$UserImpl implements _User {
   const _$UserImpl(
-      {required this.id,
-      required this.email,
-      required this.username,
-      required this.firstName,
-      required this.lastName,
-      required this.role,
-      this.fcmToken,
-      required this.tokens});
+      {@HiveField(0) required this.id,
+      @HiveField(1) required this.email,
+      @HiveField(2) required this.username,
+      @HiveField(3) required this.firstName,
+      @HiveField(4) required this.lastName,
+      @HiveField(5) required this.role,
+      @HiveField(6) this.fcmToken,
+      @HiveField(7) required this.tokens});
 
   factory _$UserImpl.fromJson(Map<String, dynamic> json) =>
       _$$UserImplFromJson(json);
 
   @override
+  @HiveField(0)
   final String id;
   @override
+  @HiveField(1)
   final String email;
   @override
+  @HiveField(2)
   final String username;
   @override
+  @HiveField(3)
   final String firstName;
   @override
+  @HiveField(4)
   final String lastName;
   @override
+  @HiveField(5)
   final String role;
   @override
+  @HiveField(6)
   final String? fcmToken;
   @override
+  @HiveField(7)
   final Tokens tokens;
 
   @override
@@ -274,32 +290,40 @@ class _$UserImpl implements _User {
 
 abstract class _User implements User {
   const factory _User(
-      {required final String id,
-      required final String email,
-      required final String username,
-      required final String firstName,
-      required final String lastName,
-      required final String role,
-      final String? fcmToken,
-      required final Tokens tokens}) = _$UserImpl;
+      {@HiveField(0) required final String id,
+      @HiveField(1) required final String email,
+      @HiveField(2) required final String username,
+      @HiveField(3) required final String firstName,
+      @HiveField(4) required final String lastName,
+      @HiveField(5) required final String role,
+      @HiveField(6) final String? fcmToken,
+      @HiveField(7) required final Tokens tokens}) = _$UserImpl;
 
   factory _User.fromJson(Map<String, dynamic> json) = _$UserImpl.fromJson;
 
   @override
+  @HiveField(0)
   String get id;
   @override
+  @HiveField(1)
   String get email;
   @override
+  @HiveField(2)
   String get username;
   @override
+  @HiveField(3)
   String get firstName;
   @override
+  @HiveField(4)
   String get lastName;
   @override
+  @HiveField(5)
   String get role;
   @override
+  @HiveField(6)
   String? get fcmToken;
   @override
+  @HiveField(7)
   Tokens get tokens;
   @override
   @JsonKey(ignore: true)

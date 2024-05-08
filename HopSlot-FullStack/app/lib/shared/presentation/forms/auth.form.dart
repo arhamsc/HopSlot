@@ -54,7 +54,7 @@ class SignUpForm with _$SignUpForm {
     @RfControl(validators: [
       RequiredValidator(),
       MinLengthValidator(5),
-      MaxLengthValidator(8),
+      MaxLengthValidator(20),
     ])
     String? password,
   }) = _SignUpForm;

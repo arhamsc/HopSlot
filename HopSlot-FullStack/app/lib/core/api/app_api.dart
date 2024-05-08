@@ -1,5 +1,5 @@
-
 import 'package:app/core/logger/talker.dart';
+import 'package:app/shared/domain/providers/user_provider/user.provider.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
@@ -23,7 +23,8 @@ class API {
     nestApi.options.headers['Accept'] = "application/json";
     nestApi.options.headers['ContentType'] = "application/json";
 
-    nestApi.options.headers['Authorization'] = 'Bearer $_nestBearerToken';
+    nestApi.options.headers['Authorization'] =
+        'Bearer ${ref.watch(userNotifierProvider).tokens.at}';
   }
 
   String? _nestBearerToken;

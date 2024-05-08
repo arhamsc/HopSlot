@@ -16,7 +16,13 @@ AppRouter appRouter(AppRouterRef ref) {
 class AppRouter extends $AppRouter implements AutoRouteGuard {
   AppRouterRef ref;
 
-  AppRouter(this.ref);
+  AppRouter(this.ref) {
+    ref.listen(userNotifierProvider, (previous, next) {
+      if (next == User.empty()) {
+        reevaluateGuards();
+      }
+    });
+  }
 
   @override
   List<AutoRoute> get routes => [
@@ -48,7 +54,17 @@ class AppRouter extends $AppRouter implements AutoRouteGuard {
   void onNavigation(NavigationResolver resolver, StackRouter router) {
     final user = ref.read(userNotifierProvider);
     if (user != User.empty() || resolver.route.name == AuthRoute.name) {
-      resolver.next(true);
+      if (resolver.route.name == AuthRoute.name) {
+        if (user.role == 'PATIENT') {
+          resolver.redirect(const PatientHomeRoute());
+        } else if (user.role == 'DOCTOR') {
+          resolver.redirect(const DocHomeRoute());
+        } else {
+          resolver.next(true);
+        }
+      } else {
+        resolver.next(true);
+      }
     } else {
       resolver.redirect(AuthRoute());
     }

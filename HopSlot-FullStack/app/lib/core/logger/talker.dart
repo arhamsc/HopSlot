@@ -1,6 +1,6 @@
 import 'package:app/utils/observers/talker_riverpod_observer.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
-import 'package:talker_dio_logger/talker_dio_logger_interceptor.dart';
+import 'package:talker_dio_logger/talker_dio_logger.dart';
 import 'package:talker_flutter/talker_flutter.dart';
 
 part 'talker.g.dart';
@@ -17,7 +17,12 @@ class CTalker {
 
   CTalker() {
     talker = TalkerFlutter.init();
-    talkerDioLogger = TalkerDioLogger(talker: talker);
+    talkerDioLogger = TalkerDioLogger(
+      talker: talker,
+      settings: const TalkerDioLoggerSettings(
+        printRequestHeaders: true,
+      ),
+    );
     talkerRiverpodObserver = TalkerRiverpodObserver(talker: talker);
   }
 }

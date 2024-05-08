@@ -20,7 +20,9 @@ Tokens _$TokensFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Tokens {
+  @HiveField(0)
   String get at => throw _privateConstructorUsedError;
+  @HiveField(1)
   String get rt => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -33,7 +35,7 @@ abstract class $TokensCopyWith<$Res> {
   factory $TokensCopyWith(Tokens value, $Res Function(Tokens) then) =
       _$TokensCopyWithImpl<$Res, Tokens>;
   @useResult
-  $Res call({String at, String rt});
+  $Res call({@HiveField(0) String at, @HiveField(1) String rt});
 }
 
 /// @nodoc
@@ -72,7 +74,7 @@ abstract class _$$TokensImplCopyWith<$Res> implements $TokensCopyWith<$Res> {
       __$$TokensImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String at, String rt});
+  $Res call({@HiveField(0) String at, @HiveField(1) String rt});
 }
 
 /// @nodoc
@@ -105,14 +107,17 @@ class __$$TokensImplCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$TokensImpl implements _Tokens {
-  const _$TokensImpl({required this.at, required this.rt});
+  const _$TokensImpl(
+      {@HiveField(0) required this.at, @HiveField(1) required this.rt});
 
   factory _$TokensImpl.fromJson(Map<String, dynamic> json) =>
       _$$TokensImplFromJson(json);
 
   @override
+  @HiveField(0)
   final String at;
   @override
+  @HiveField(1)
   final String rt;
 
   @override
@@ -148,14 +153,17 @@ class _$TokensImpl implements _Tokens {
 }
 
 abstract class _Tokens implements Tokens {
-  const factory _Tokens({required final String at, required final String rt}) =
-      _$TokensImpl;
+  const factory _Tokens(
+      {@HiveField(0) required final String at,
+      @HiveField(1) required final String rt}) = _$TokensImpl;
 
   factory _Tokens.fromJson(Map<String, dynamic> json) = _$TokensImpl.fromJson;
 
   @override
+  @HiveField(0)
   String get at;
   @override
+  @HiveField(1)
   String get rt;
   @override
   @JsonKey(ignore: true)

@@ -1511,7 +1511,7 @@ class SignUpFormForm implements FormModel<SignUpForm> {
             validators: [
               RequiredValidator(),
               MinLengthValidator(5),
-              MaxLengthValidator(8)
+              MaxLengthValidator(20)
             ],
             asyncValidators: [],
             asyncValidatorsDebounceTime: 250,

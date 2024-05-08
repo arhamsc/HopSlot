@@ -8,7 +8,7 @@ part of 'use_case.provides.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$loginUCHash() => r'b6df027f667a198d544d30dbadd455b6aa330851';
+String _$loginUCHash() => r'a8fbb2356e5a8498ee04e3ae0c6ef1409a62f6c4';
 
 /// See also [loginUC].
 @ProviderFor(loginUC)
@@ -22,7 +22,7 @@ final loginUCProvider = AutoDisposeProvider<LoginUC>.internal(
 );
 
 typedef LoginUCRef = AutoDisposeProviderRef<LoginUC>;
-String _$signUpUCHash() => r'0fa1e88630be98d84829079a37b855a4dab8a27f';
+String _$signUpUCHash() => r'3c4295e858627fe1319450cfc02fe3f9c9c60eec';
 
 /// See also [signUpUC].
 @ProviderFor(signUpUC)
@@ -36,5 +36,19 @@ final signUpUCProvider = AutoDisposeProvider<SignUpUC>.internal(
 );
 
 typedef SignUpUCRef = AutoDisposeProviderRef<SignUpUC>;
+String _$logoutUCHash() => r'5272652690e270518f3a50f131fc12f78876d5e7';
+
+/// See also [logoutUC].
+@ProviderFor(logoutUC)
+final logoutUCProvider = AutoDisposeProvider<LogoutUC>.internal(
+  logoutUC,
+  name: r'logoutUCProvider',
+  debugGetCreateSourceHash:
+      const bool.fromEnvironment('dart.vm.product') ? null : _$logoutUCHash,
+  dependencies: null,
+  allTransitiveDependencies: null,
+);
+
+typedef LogoutUCRef = AutoDisposeProviderRef<LogoutUC>;
 // ignore_for_file: type=lint
 // ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member

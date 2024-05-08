@@ -14,6 +14,8 @@ Future<void> main() async {
 
   await appConfig.loadEnvs();
 
+  await appConfig.configureHive();
+
   final container = ProviderContainer();
 
   final talker = container.read(talkerProvider);
@@ -44,6 +46,10 @@ class MyApp extends ConsumerWidget {
         ValidationMessage.required: (error) {
           return 'This field is required';
         },
+        ValidationMessage.maxLength: (e) =>
+            'Required ${(e as Map<String, dynamic>)['requiredLength']} characters but got ${(e)['actualLength']}',
+        ValidationMessage.minLength: (e) =>
+            'Required ${(e as Map<String, dynamic>)['requiredLength']} characters but got ${(e)['actualLength']}',
       },
       child: ScreenUtilInit(
         designSize: const Size(428, 926),
