@@ -13,11 +13,11 @@ import 'package:app/main/presentation/doctor/presentation/screens/doc_home.scree
     as _i4;
 import 'package:app/main/presentation/patient/presentation/screens/patient_home.screen.dart'
     as _i6;
-import 'package:app/shared/presentation/shared/widgets/utility/empty_screens/auth_empty.screen.dart'
+import 'package:app/shared/presentation/widgets/utility/empty_screens/auth_empty.screen.dart'
     as _i1;
-import 'package:app/shared/presentation/shared/widgets/utility/empty_screens/doctor_empty.screen.dart'
+import 'package:app/shared/presentation/widgets/utility/empty_screens/doctor_empty.screen.dart'
     as _i3;
-import 'package:app/shared/presentation/shared/widgets/utility/empty_screens/patient_empty.screen.dart'
+import 'package:app/shared/presentation/widgets/utility/empty_screens/patient_empty.screen.dart'
     as _i5;
 import 'package:auto_route/auto_route.dart' as _i7;
 import 'package:flutter/material.dart' as _i8;

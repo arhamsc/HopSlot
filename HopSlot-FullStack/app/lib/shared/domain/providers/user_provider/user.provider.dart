@@ -1,4 +1,4 @@
-import 'package:app/shared/domain/models/user/user.model.dart';
+import 'package:app/shared/domain/models/entities/user/user.model.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:jwt_decoder/jwt_decoder.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';

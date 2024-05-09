@@ -1,4 +1,4 @@
-import 'package:app/shared/domain/models/user/user.model.dart';
+import 'package:app/shared/domain/models/entities/user/user.model.dart';
 import 'package:app/utils/exceptions/auth_exception.dart';
 import 'package:app/utils/exceptions/exception_codes/auth_exception_codes.dart';
 import 'package:app/utils/parse_dio_error.dart';

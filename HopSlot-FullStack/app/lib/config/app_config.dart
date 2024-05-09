@@ -1,5 +1,5 @@
-import 'package:app/shared/domain/models/tokens/tokens.model.dart';
-import 'package:app/shared/domain/models/user/user.model.dart';
+import 'package:app/shared/domain/models/entities/user/user.model.dart';
+import 'package:app/shared/domain/models/helpers/tokens/tokens.model.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 

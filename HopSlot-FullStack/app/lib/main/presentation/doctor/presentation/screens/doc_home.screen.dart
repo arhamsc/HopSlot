@@ -1,4 +1,4 @@
-import 'package:app/shared/presentation/shared/widgets/layout/scaffold.layout.dart';
+import 'package:app/shared/presentation/widgets/layout/scaffold.layout.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 

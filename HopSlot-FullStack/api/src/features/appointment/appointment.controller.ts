@@ -6,6 +6,10 @@ import {
   Patch,
   Param,
   Delete,
+  BadGatewayException,
+  Query,
+  BadRequestException,
+  ParseEnumPipe,
 } from '@nestjs/common';
 import { AppointmentService } from './appointment.service';
 import { CreateAppointmentDto } from './dto/create-appointment.dto';
@@ -13,6 +17,7 @@ import { UpdateAppointmentDto } from './dto/update-appointment.dto';
 import { UseRoles } from 'nest-access-control';
 import { GetCurrentUser } from 'src/core/decorators/get-current-user.decorator';
 import { AllowAC } from 'src/core/decorators/allow-ac/allow-ac.decorator';
+import { Role } from 'db/postgres';
 
 @Controller('appointment')
 export class AppointmentController {
@@ -43,8 +48,21 @@ export class AppointmentController {
     resource: 'appointment',
     possession: 'own',
   })
-  findAll() {
-    return this.appointmentService.findAll();
+  findAll(
+    @GetCurrentUser('id') userId: string,
+    @GetCurrentUser('role') role: Role,
+    @Query('type', new ParseEnumPipe(['upcoming', 'past'], { optional: true }))
+    type?: 'upcoming' | 'past',
+  ) {
+    if (role === Role.ADMIN) {
+      return this.appointmentService.findAll();
+    } else {
+      return this.appointmentService.findMyAppointments({
+        userId,
+        forEntity: role,
+        type,
+      });
+    }
   }
 
   @Get(':id')
