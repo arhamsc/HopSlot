@@ -48,8 +48,6 @@ abstract class $DoctorSlotCopyWith<$Res> {
       int durationOfPerVisit,
       List<String> forDay,
       Status status});
-
-  $StatusCopyWith<$Res> get status;
 }
 
 /// @nodoc
@@ -104,14 +102,6 @@ class _$DoctorSlotCopyWithImpl<$Res, $Val extends DoctorSlot>
               as Status,
     ) as $Val);
   }
-
-  @override
-  @pragma('vm:prefer-inline')
-  $StatusCopyWith<$Res> get status {
-    return $StatusCopyWith<$Res>(_value.status, (value) {
-      return _then(_value.copyWith(status: value) as $Val);
-    });
-  }
 }
 
 /// @nodoc
@@ -130,9 +120,6 @@ abstract class _$$DoctorSlotImplCopyWith<$Res>
       int durationOfPerVisit,
       List<String> forDay,
       Status status});
-
-  @override
-  $StatusCopyWith<$Res> get status;
 }
 
 /// @nodoc

@@ -50,5 +50,21 @@ final logoutUCProvider = AutoDisposeProvider<LogoutUC>.internal(
 );
 
 typedef LogoutUCRef = AutoDisposeProviderRef<LogoutUC>;
+String _$getAppointmentsUCHash() => r'2424723a75b7cd88ba8ffe4875ea169b9c61e887';
+
+/// See also [getAppointmentsUC].
+@ProviderFor(getAppointmentsUC)
+final getAppointmentsUCProvider =
+    AutoDisposeProvider<GetAppointmentsUseCase>.internal(
+  getAppointmentsUC,
+  name: r'getAppointmentsUCProvider',
+  debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
+      ? null
+      : _$getAppointmentsUCHash,
+  dependencies: null,
+  allTransitiveDependencies: null,
+);
+
+typedef GetAppointmentsUCRef = AutoDisposeProviderRef<GetAppointmentsUseCase>;
 // ignore_for_file: type=lint
 // ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member

@@ -24,8 +24,8 @@ _$DoctorSlotImpl _$$DoctorSlotImplFromJson(Map<String, dynamic> json) =>
               $checkedConvert('durationOfPerVisit', (v) => (v as num).toInt()),
           forDay: $checkedConvert('forDay',
               (v) => (v as List<dynamic>).map((e) => e as String).toList()),
-          status: $checkedConvert(
-              'status', (v) => Status.fromJson(v as Map<String, dynamic>)),
+          status:
+              $checkedConvert('status', (v) => $enumDecode(_$StatusEnumMap, v)),
         );
         return val;
       },
@@ -39,5 +39,11 @@ Map<String, dynamic> _$$DoctorSlotImplToJson(_$DoctorSlotImpl instance) =>
       'slotEndTime': instance.slotEndTime.toIso8601String(),
       'durationOfPerVisit': instance.durationOfPerVisit,
       'forDay': instance.forDay,
-      'status': instance.status.toJson(),
+      'status': _$StatusEnumMap[instance.status]!,
     };
+
+const _$StatusEnumMap = {
+  Status.pending: 'PENDING',
+  Status.active: 'ACTIVE',
+  Status.inactive: 'INACTIVE',
+};

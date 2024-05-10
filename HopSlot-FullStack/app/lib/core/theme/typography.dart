@@ -88,83 +88,105 @@ class CTypography extends ThemeExtension<CTypography> {
     title1: GoogleFonts.outfit(
       fontSize: 38.sp,
       fontWeight: FontWeight.bold,
+      color: Palette.lightTheme.tertiary,
     ),
     headline1: GoogleFonts.outfit(
       fontSize: 24.sp,
       fontWeight: FontWeight.bold,
+      color: Palette.lightTheme.tertiary,
     ),
     headline2: GoogleFonts.outfit(
       fontSize: 18.sp,
       fontWeight: FontWeight.bold,
+      color: Palette.lightTheme.tertiary,
     ),
     headline3: GoogleFonts.outfit(
       fontSize: 30.sp,
       fontWeight: FontWeight.bold,
+      color: Palette.lightTheme.tertiary,
     ),
     body1: GoogleFonts.rosario(
       fontSize: (18.sp),
       fontWeight: FontWeight.normal,
-      height: 1.4, // 140% line height
-      letterSpacing: 1, // 5% letter spacing
-      color: Palette.lightTheme.secondary,
+      height: 1.4,
+      // 140% line height
+      letterSpacing: 1,
+      // 5% letter spacing
+      color: Palette.lightTheme.tertiary,
     ),
     body1Medium: GoogleFonts.rosario(
       fontSize: (18.sp),
       fontWeight: FontWeight.w500,
-      height: 1.4, // 140% line height
-      letterSpacing: 1, // 5% letter spacing
-      color: Palette.lightTheme.secondary,
+      height: 1.4,
+      // 140% line height
+      letterSpacing: 1,
+      // 5% letter spacing
+      color: Palette.lightTheme.tertiary,
     ),
     body1Bold: GoogleFonts.rosario(
       fontSize: (18.sp),
       fontWeight: FontWeight.bold,
-      height: 1.4, // 140% line height
-      letterSpacing: 1, // 5% letter spacing
-      color: Palette.lightTheme.secondary,
+      height: 1.4,
+      // 140% line height
+      letterSpacing: 1,
+      // 5% letter spacing
+      color: Palette.lightTheme.tertiary,
     ),
     body2: GoogleFonts.rosario(
       textStyle: TextStyle(
         fontSize: (16.sp),
         fontWeight: FontWeight.normal,
-        height: 1.4, // 140% line height
-        letterSpacing: 1, // 5% letter spacing
-        color: Palette.lightTheme.secondary,
+        height: 1.4,
+        // 140% line height
+        letterSpacing: 1,
+        // 5% letter spacing
+        color: Palette.lightTheme.tertiary,
       ),
     ),
     body2Medium: GoogleFonts.rosario(
       fontSize: (16.sp),
       fontWeight: FontWeight.w500,
-      height: 1.4, // 140% line height
-      letterSpacing: 1, // 5% letter spacing
-      color: Palette.lightTheme.secondary,
+      height: 1.4,
+      // 140% line height
+      letterSpacing: 1,
+      // 5% letter spacing
+      color: Palette.lightTheme.tertiary,
     ),
     body2Bold: GoogleFonts.rosario(
       fontSize: (16.sp),
       fontWeight: FontWeight.bold,
-      height: 1.4, // 140% line height
-      letterSpacing: 1, // 5% letter spacing
-      color: Palette.lightTheme.secondary,
+      height: 1.4,
+      // 140% line height
+      letterSpacing: 1,
+      // 5% letter spacing
+      color: Palette.lightTheme.tertiary,
     ),
     body3: GoogleFonts.rosario(
       fontSize: (12.sp),
       fontWeight: FontWeight.normal,
-      height: 1.4, // 140% line height
-      letterSpacing: 1, // 5% letter spacing
-      color: Palette.lightTheme.secondary,
+      height: 1.4,
+      // 140% line height
+      letterSpacing: 1,
+      // 5% letter spacing
+      color: Palette.lightTheme.tertiary,
     ),
     body3Medium: GoogleFonts.rosario(
       fontSize: (12.sp),
       fontWeight: FontWeight.w500,
-      height: 1.4, // 140% line height
-      letterSpacing: 1, // 5% letter spacing
-      color: Palette.lightTheme.secondary,
+      height: 1.4,
+      // 140% line height
+      letterSpacing: 1,
+      // 5% letter spacing
+      color: Palette.lightTheme.tertiary,
     ),
     body3Bold: GoogleFonts.rosario(
       fontSize: (12.sp),
       fontWeight: FontWeight.bold,
-      height: 1.4, // 140% line height
-      letterSpacing: 1, // 5% letter spacing
-      color: Palette.lightTheme.secondary,
+      height: 1.4,
+      // 140% line height
+      letterSpacing: 1,
+      // 5% letter spacing
+      color: Palette.lightTheme.tertiary,
     ),
   );
 }

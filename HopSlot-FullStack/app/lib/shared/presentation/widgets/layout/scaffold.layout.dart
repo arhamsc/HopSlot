@@ -45,8 +45,25 @@ class CScaffold extends StatelessWidget {
       "showAppBar and appBarTitle must be provided together",
     );
     return Scaffold(
-      extendBodyBehindAppBar: true,
-      extendBody: true,
+      appBar: showAppBar ? AppBar() : null,
+      drawer: Drawer(
+        child: ListView(
+          children: [
+            ListTile(
+              title: Text("Home"),
+              onTap: () {
+                AutoRouter.of(context).pop();
+              },
+            ),
+            ListTile(
+              title: Text("Logout"),
+              onTap: () {
+                AutoRouter.of(context).pop();
+              },
+            ),
+          ],
+        ),
+      ),
       body: SnackBarListener(
         child: SizedBox(
           height: sU.screenHeight,

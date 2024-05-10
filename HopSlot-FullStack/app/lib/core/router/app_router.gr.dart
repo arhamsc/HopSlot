@@ -11,7 +11,7 @@
 import 'package:app/main/presentation/auth/screens/auth.screen.dart' as _i2;
 import 'package:app/main/presentation/doctor/presentation/screens/doc_home.screen.dart'
     as _i4;
-import 'package:app/main/presentation/patient/presentation/screens/patient_home.screen.dart'
+import 'package:app/main/presentation/patient/screens/patient_home.screen.dart'
     as _i6;
 import 'package:app/shared/presentation/widgets/utility/empty_screens/auth_empty.screen.dart'
     as _i1;

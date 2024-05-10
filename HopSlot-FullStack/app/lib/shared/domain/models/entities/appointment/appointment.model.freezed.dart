@@ -56,8 +56,6 @@ abstract class $AppointmentCopyWith<$Res> {
       int? appointmentStartDelay,
       int? severity,
       List<Symptom> symptoms});
-
-  $EAppointmentStatusCopyWith<$Res> get status;
 }
 
 /// @nodoc
@@ -132,14 +130,6 @@ class _$AppointmentCopyWithImpl<$Res, $Val extends Appointment>
               as List<Symptom>,
     ) as $Val);
   }
-
-  @override
-  @pragma('vm:prefer-inline')
-  $EAppointmentStatusCopyWith<$Res> get status {
-    return $EAppointmentStatusCopyWith<$Res>(_value.status, (value) {
-      return _then(_value.copyWith(status: value) as $Val);
-    });
-  }
 }
 
 /// @nodoc
@@ -162,9 +152,6 @@ abstract class _$$AppointmentImplCopyWith<$Res>
       int? appointmentStartDelay,
       int? severity,
       List<Symptom> symptoms});
-
-  @override
-  $EAppointmentStatusCopyWith<$Res> get status;
 }
 
 /// @nodoc

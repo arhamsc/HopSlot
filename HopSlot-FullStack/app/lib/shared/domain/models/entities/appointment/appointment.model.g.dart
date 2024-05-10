@@ -20,8 +20,8 @@ _$AppointmentImpl _$$AppointmentImplFromJson(Map<String, dynamic> json) =>
           patientId: $checkedConvert('patientId', (v) => v as String),
           appointmentSlotId:
               $checkedConvert('appointmentSlotId', (v) => v as String),
-          status: $checkedConvert('status',
-              (v) => EAppointmentStatus.fromJson(v as Map<String, dynamic>)),
+          status: $checkedConvert(
+              'status', (v) => $enumDecode(_$EAppointmentStatusEnumMap, v)),
           additionalDelay:
               $checkedConvert('additionalDelay', (v) => (v as num).toInt()),
           appointmentStart: $checkedConvert('appointmentStart',
@@ -48,10 +48,17 @@ Map<String, dynamic> _$$AppointmentImplToJson(_$AppointmentImpl instance) =>
       'doctorId': instance.doctorId,
       'patientId': instance.patientId,
       'appointmentSlotId': instance.appointmentSlotId,
-      'status': instance.status.toJson(),
+      'status': _$EAppointmentStatusEnumMap[instance.status]!,
       'additionalDelay': instance.additionalDelay,
       'appointmentStart': instance.appointmentStart?.toIso8601String(),
       'appointmentStartDelay': instance.appointmentStartDelay,
       'severity': instance.severity,
       'symptoms': instance.symptoms.map((e) => e.toJson()).toList(),
     };
+
+const _$EAppointmentStatusEnumMap = {
+  EAppointmentStatus.pending: 'PENDING',
+  EAppointmentStatus.confirmed: 'CONFIRMED',
+  EAppointmentStatus.cancelled: 'CANCELLED',
+  EAppointmentStatus.completed: 'COMPLETED',
+};

@@ -6,7 +6,7 @@ import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part 'app_api.g.dart';
 
-@riverpod
+@Riverpod(keepAlive: true)
 API api(ApiRef ref) {
   return API(ref: ref);
 }
