@@ -8,7 +8,7 @@ part of 'use_case.provides.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$loginUCHash() => r'a8fbb2356e5a8498ee04e3ae0c6ef1409a62f6c4';
+String _$loginUCHash() => r'69d53bc2e509772c7138325aee2828d694218ef8';
 
 /// See also [loginUC].
 @ProviderFor(loginUC)
@@ -150,5 +150,35 @@ final getAppointmentDetailUCProvider =
 
 typedef GetAppointmentDetailUCRef
     = AutoDisposeProviderRef<GetAppointmentDetailUC>;
+String _$getDocDetailsUCHash() => r'1e165ec91c3be89e75ea5432e8f712aea455876b';
+
+/// See also [getDocDetailsUC].
+@ProviderFor(getDocDetailsUC)
+final getDocDetailsUCProvider =
+    AutoDisposeProvider<GetDocDetailsUseCase>.internal(
+  getDocDetailsUC,
+  name: r'getDocDetailsUCProvider',
+  debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
+      ? null
+      : _$getDocDetailsUCHash,
+  dependencies: null,
+  allTransitiveDependencies: null,
+);
+
+typedef GetDocDetailsUCRef = AutoDisposeProviderRef<GetDocDetailsUseCase>;
+String _$iAmLateUCHash() => r'2a620373ddbbc83c45c6f4e94b2992f85659b73b';
+
+/// See also [iAmLateUC].
+@ProviderFor(iAmLateUC)
+final iAmLateUCProvider = AutoDisposeProvider<IAmLateUC>.internal(
+  iAmLateUC,
+  name: r'iAmLateUCProvider',
+  debugGetCreateSourceHash:
+      const bool.fromEnvironment('dart.vm.product') ? null : _$iAmLateUCHash,
+  dependencies: null,
+  allTransitiveDependencies: null,
+);
+
+typedef IAmLateUCRef = AutoDisposeProviderRef<IAmLateUC>;
 // ignore_for_file: type=lint
 // ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member

@@ -109,4 +109,14 @@ export class DoctorController {
   getAppointmentsHistory(@GetCurrentUser('id') doctorId: string) {
     return this.doctorInfoService.fetchAppointmentHistory(doctorId);
   }
+
+  @UseRoles({
+    resource: 'appointment',
+    action: 'read',
+    possession: 'own',
+  })
+  @Get('closest-appointment')
+  getNextAppointment(@GetCurrentUser('id') doctorId: string) {
+    return this.doctorService.getClosestSlot(doctorId);
+  }
 }

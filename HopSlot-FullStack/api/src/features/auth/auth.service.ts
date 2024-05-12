@@ -187,6 +187,8 @@ export class AuthService {
           username: true,
           role: true,
           fcmToken: true,
+          Doctor: true,
+          Patient: true,
         },
       }),
     ).pipe(

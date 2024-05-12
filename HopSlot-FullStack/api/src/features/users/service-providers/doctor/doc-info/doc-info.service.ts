@@ -4,6 +4,7 @@ import { APIResponse } from 'src/core/types/api-response.type';
 import { PostgresPrismaService } from 'src/global/database/postgres-prisma.service';
 import { DocStats } from '../doc-types';
 import { AppointmentEssentials } from 'src/core/types/model_essentials.types';
+import { DateTime } from 'luxon';
 
 @Injectable()
 export class DocInfoService {
@@ -59,23 +60,29 @@ export class DocInfoService {
   getTodaysAppointments(
     doctorId: string,
   ): Observable<APIResponse<AppointmentEssentials[]>> {
-    const startDate = new Date();
-    //TODO: Remove this line
-    startDate.setDate(13);
-    startDate.setUTCHours(0, 0, 0, 0);
-    const endDate = new Date();
-    //TODO: Remove this line
-    endDate.setDate(13);
-    endDate.setUTCHours(23, 59, 59, 999);
-    // endDate.setHours(23, 59, 59, 999);
-    console.log({ startDate, endDate });
+    let startDate = DateTime.now();
+
+    startDate = startDate.set({
+      hour: 0,
+      minute: 0,
+      second: 0,
+      millisecond: 0,
+    });
+    let endDate = DateTime.now();
+
+    endDate = endDate.set({
+      hour: 23,
+      minute: 59,
+      second: 59,
+    });
+    // TODO: Universalize the date time values in UTC
     return from(
       this.pgPrisma.appointment.findMany({
         where: {
           doctorId,
           appointmentStart: {
-            gte: startDate,
-            lt: endDate,
+            gte: startDate.toISO({ includeOffset: false }) + 'Z',
+            lt: endDate.toISO({ includeOffset: false }) + 'Z',
           },
         },
         select: {

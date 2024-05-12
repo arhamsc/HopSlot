@@ -27,23 +27,37 @@ model Doctor {
  */
 
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 
 part 'doctor.model.freezed.dart';
+
 part 'doctor.model.g.dart';
 
 @freezed
+@HiveType(typeId: 2)
 class Doctor with _$Doctor {
   const factory Doctor({
-    required String hospitalId,
-    required String userId,
-    required int cabinNumber,
-    required int cabinFloor,
-    required double cabinLat,
-    required double cabinLng,
-    required double cabinAlt,
-    required int noOfPatientsConsulted,
-    DateTime? lastClockIn,
+    @HiveField(0) required String hospitalId,
+    @HiveField(1) required String userId,
+    @HiveField(2) required int cabinNumber,
+    @HiveField(3) required int cabinFloor,
+    @HiveField(4) required double cabinLat,
+    @HiveField(5) required double cabinLng,
+    @HiveField(6) required double cabinAlt,
+    @HiveField(7) required int noOfPatientsConsulted,
+    @HiveField(8) DateTime? lastClockIn,
   }) = _Doctor;
+
+  factory Doctor.empty() => const _Doctor(
+        hospitalId: "",
+        userId: "",
+        cabinNumber: 0,
+        cabinFloor: 0,
+        cabinLat: 0,
+        cabinLng: 0,
+        cabinAlt: 0,
+        noOfPatientsConsulted: 0,
+      );
 
   factory Doctor.fromJson(Map<String, dynamic> json) => _$DoctorFromJson(json);
 }

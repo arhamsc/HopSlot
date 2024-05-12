@@ -20,14 +20,23 @@ Doctor _$DoctorFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Doctor {
+  @HiveField(0)
   String get hospitalId => throw _privateConstructorUsedError;
+  @HiveField(1)
   String get userId => throw _privateConstructorUsedError;
+  @HiveField(2)
   int get cabinNumber => throw _privateConstructorUsedError;
+  @HiveField(3)
   int get cabinFloor => throw _privateConstructorUsedError;
+  @HiveField(4)
   double get cabinLat => throw _privateConstructorUsedError;
+  @HiveField(5)
   double get cabinLng => throw _privateConstructorUsedError;
+  @HiveField(6)
   double get cabinAlt => throw _privateConstructorUsedError;
+  @HiveField(7)
   int get noOfPatientsConsulted => throw _privateConstructorUsedError;
+  @HiveField(8)
   DateTime? get lastClockIn => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -41,15 +50,15 @@ abstract class $DoctorCopyWith<$Res> {
       _$DoctorCopyWithImpl<$Res, Doctor>;
   @useResult
   $Res call(
-      {String hospitalId,
-      String userId,
-      int cabinNumber,
-      int cabinFloor,
-      double cabinLat,
-      double cabinLng,
-      double cabinAlt,
-      int noOfPatientsConsulted,
-      DateTime? lastClockIn});
+      {@HiveField(0) String hospitalId,
+      @HiveField(1) String userId,
+      @HiveField(2) int cabinNumber,
+      @HiveField(3) int cabinFloor,
+      @HiveField(4) double cabinLat,
+      @HiveField(5) double cabinLng,
+      @HiveField(6) double cabinAlt,
+      @HiveField(7) int noOfPatientsConsulted,
+      @HiveField(8) DateTime? lastClockIn});
 }
 
 /// @nodoc
@@ -124,15 +133,15 @@ abstract class _$$DoctorImplCopyWith<$Res> implements $DoctorCopyWith<$Res> {
   @override
   @useResult
   $Res call(
-      {String hospitalId,
-      String userId,
-      int cabinNumber,
-      int cabinFloor,
-      double cabinLat,
-      double cabinLng,
-      double cabinAlt,
-      int noOfPatientsConsulted,
-      DateTime? lastClockIn});
+      {@HiveField(0) String hospitalId,
+      @HiveField(1) String userId,
+      @HiveField(2) int cabinNumber,
+      @HiveField(3) int cabinFloor,
+      @HiveField(4) double cabinLat,
+      @HiveField(5) double cabinLng,
+      @HiveField(6) double cabinAlt,
+      @HiveField(7) int noOfPatientsConsulted,
+      @HiveField(8) DateTime? lastClockIn});
 }
 
 /// @nodoc
@@ -201,36 +210,45 @@ class __$$DoctorImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$DoctorImpl implements _Doctor {
   const _$DoctorImpl(
-      {required this.hospitalId,
-      required this.userId,
-      required this.cabinNumber,
-      required this.cabinFloor,
-      required this.cabinLat,
-      required this.cabinLng,
-      required this.cabinAlt,
-      required this.noOfPatientsConsulted,
-      this.lastClockIn});
+      {@HiveField(0) required this.hospitalId,
+      @HiveField(1) required this.userId,
+      @HiveField(2) required this.cabinNumber,
+      @HiveField(3) required this.cabinFloor,
+      @HiveField(4) required this.cabinLat,
+      @HiveField(5) required this.cabinLng,
+      @HiveField(6) required this.cabinAlt,
+      @HiveField(7) required this.noOfPatientsConsulted,
+      @HiveField(8) this.lastClockIn});
 
   factory _$DoctorImpl.fromJson(Map<String, dynamic> json) =>
       _$$DoctorImplFromJson(json);
 
   @override
+  @HiveField(0)
   final String hospitalId;
   @override
+  @HiveField(1)
   final String userId;
   @override
+  @HiveField(2)
   final int cabinNumber;
   @override
+  @HiveField(3)
   final int cabinFloor;
   @override
+  @HiveField(4)
   final double cabinLat;
   @override
+  @HiveField(5)
   final double cabinLng;
   @override
+  @HiveField(6)
   final double cabinAlt;
   @override
+  @HiveField(7)
   final int noOfPatientsConsulted;
   @override
+  @HiveField(8)
   final DateTime? lastClockIn;
 
   @override
@@ -292,35 +310,44 @@ class _$DoctorImpl implements _Doctor {
 
 abstract class _Doctor implements Doctor {
   const factory _Doctor(
-      {required final String hospitalId,
-      required final String userId,
-      required final int cabinNumber,
-      required final int cabinFloor,
-      required final double cabinLat,
-      required final double cabinLng,
-      required final double cabinAlt,
-      required final int noOfPatientsConsulted,
-      final DateTime? lastClockIn}) = _$DoctorImpl;
+      {@HiveField(0) required final String hospitalId,
+      @HiveField(1) required final String userId,
+      @HiveField(2) required final int cabinNumber,
+      @HiveField(3) required final int cabinFloor,
+      @HiveField(4) required final double cabinLat,
+      @HiveField(5) required final double cabinLng,
+      @HiveField(6) required final double cabinAlt,
+      @HiveField(7) required final int noOfPatientsConsulted,
+      @HiveField(8) final DateTime? lastClockIn}) = _$DoctorImpl;
 
   factory _Doctor.fromJson(Map<String, dynamic> json) = _$DoctorImpl.fromJson;
 
   @override
+  @HiveField(0)
   String get hospitalId;
   @override
+  @HiveField(1)
   String get userId;
   @override
+  @HiveField(2)
   int get cabinNumber;
   @override
+  @HiveField(3)
   int get cabinFloor;
   @override
+  @HiveField(4)
   double get cabinLat;
   @override
+  @HiveField(5)
   double get cabinLng;
   @override
+  @HiveField(6)
   double get cabinAlt;
   @override
+  @HiveField(7)
   int get noOfPatientsConsulted;
   @override
+  @HiveField(8)
   DateTime? get lastClockIn;
   @override
   @JsonKey(ignore: true)

@@ -8,6 +8,8 @@ import 'package:app/main/domain/use_cases/auth_ucs/logout.uc.dart';
 import 'package:app/main/domain/use_cases/auth_ucs/sign_up.uc.dart';
 import 'package:app/main/domain/use_cases/doc_use_cases/doc_dashboard.uc.dart';
 import 'package:app/main/domain/use_cases/appointment_use_cases/get_appointment_history.uc.dart';
+import 'package:app/main/domain/use_cases/doc_use_cases/get_doc_details.uc.dart';
+import 'package:app/main/domain/use_cases/doc_use_cases/i_am_late.uc.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part 'use_case.provides.g.dart';
@@ -16,7 +18,8 @@ part 'use_case.provides.g.dart';
 
 @riverpod
 LoginUC loginUC(LoginUCRef ref) {
-  return LoginUC(ref.watch(authRepoProvider), ref);
+  return LoginUC(
+      ref.watch(authRepoProvider), ref, ref.watch(getDocDetailsUCProvider));
 }
 
 @riverpod
@@ -59,4 +62,14 @@ GetAppointmentHistoryUC getAppointmentHistoryUC(
 @riverpod
 GetAppointmentDetailUC getAppointmentDetailUC(GetAppointmentDetailUCRef ref) {
   return GetAppointmentDetailUC(ref.watch(appointmentsRepoProvider));
+}
+
+@riverpod
+GetDocDetailsUseCase getDocDetailsUC(GetDocDetailsUCRef ref) {
+  return GetDocDetailsUseCase(ref.watch(docRepoProvider));
+}
+
+@riverpod
+IAmLateUC iAmLateUC(IAmLateUCRef ref) {
+  return IAmLateUC(ref.watch(docRepoProvider));
 }

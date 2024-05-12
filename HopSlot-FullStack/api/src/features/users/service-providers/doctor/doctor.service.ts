@@ -1,10 +1,12 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, NotFoundException } from '@nestjs/common';
 import { CreateDoctorDto } from './dto/create-doctor.dto';
 import { UpdateDoctorDto } from './dto/update-doctor.dto';
 import { Observable, from, map, switchMap } from 'rxjs';
 import { APIResponse } from 'src/core/types/api-response.type';
 import { DoctorEssentials } from 'src/core/types/model_essentials.types';
 import { PostgresPrismaService } from 'src/global/database/postgres-prisma.service';
+import { Appointment } from 'db/postgres';
+import { DateTime } from 'luxon';
 
 @Injectable()
 export class DoctorService {
@@ -182,5 +184,30 @@ export class DoctorService {
         },
       }),
     ).pipe(map(() => ({ message: 'Doctor deleted successfully' })));
+  }
+
+  getClosestSlot(userId: string): Observable<APIResponse<Appointment>> {
+    const today = DateTime.now().set({ hour: 0, minute: 0, second: 0 });
+    return from(
+      this.prismaPG.appointment.findFirst({
+        where: {
+          doctorId: userId,
+          appointmentStart: {
+            gte: today.toISO({ includeOffset: false }) + 'Z',
+          },
+        },
+        orderBy: {
+          appointmentStart: 'asc',
+        },
+        take: 1,
+      }),
+    ).pipe(
+      map((appointment) => {
+        if (!appointment) {
+          throw new NotFoundException('No appointments found');
+        }
+        return { data: appointment, message: 'Closest appointment found' };
+      }),
+    );
   }
 }

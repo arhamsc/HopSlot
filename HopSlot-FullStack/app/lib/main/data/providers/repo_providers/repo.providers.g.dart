@@ -69,5 +69,19 @@ final docInfoRepoProvider = AutoDisposeProvider<DocInfoRepo>.internal(
 );
 
 typedef DocInfoRepoRef = AutoDisposeProviderRef<DocInfoRepo>;
+String _$docRepoHash() => r'2e4cb1d67da8f9dd49c93e61f0aae4c527714c9d';
+
+/// See also [docRepo].
+@ProviderFor(docRepo)
+final docRepoProvider = AutoDisposeProvider<DocRepo>.internal(
+  docRepo,
+  name: r'docRepoProvider',
+  debugGetCreateSourceHash:
+      const bool.fromEnvironment('dart.vm.product') ? null : _$docRepoHash,
+  dependencies: null,
+  allTransitiveDependencies: null,
+);
+
+typedef DocRepoRef = AutoDisposeProviderRef<DocRepo>;
 // ignore_for_file: type=lint
 // ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member

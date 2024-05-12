@@ -32,7 +32,7 @@ class AppointmentHistoryScreen extends ConsumerWidget {
             child: AlertDialog(
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.all(Radius.circular(16.r)),
-                side: BorderSide(),
+                side: const BorderSide(),
               ),
               contentPadding: EdgeInsets.only(
                   left: 24.0.w, top: 16.0.h, right: 24.0.w, bottom: 16.0.h),

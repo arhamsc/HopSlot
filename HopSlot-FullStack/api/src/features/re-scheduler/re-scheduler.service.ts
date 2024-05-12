@@ -1,4 +1,5 @@
 import { Injectable, OnModuleInit } from '@nestjs/common';
+import { DateTime } from 'luxon';
 import { from } from 'rxjs';
 import { APIResponse } from 'src/core/types/api-response.type';
 import { PostgresPrismaService } from 'src/global/database/postgres-prisma.service';
@@ -47,19 +48,37 @@ export class ReSchedulerService implements OnModuleInit {
   }
 
   rescheduleAppointmentsConsumer(doctorId: string) {
-    const todayStart = new Date();
-    todayStart.setHours(0, 0, 0, 0);
-    const todayEnd = new Date();
+    let startDate = DateTime.now();
+    startDate = startDate.set({
+      hour: 0,
+      minute: 0,
+      second: 0,
+      millisecond: 0,
+    });
+    let endDate = DateTime.now();
 
-    todayEnd.setHours(23, 59, 59, 999);
+    endDate = endDate.set({
+      hour: 23,
+      minute: 59,
+      second: 59,
+    });
     //TODO: Apply logic for fetching slot by comparing most closest to current and pass that id into appointment as well.
+
+    //Assume: Doc has 1 slot per day
     return from(
       this.pgPrisma.appointment.updateMany({
         where: {
           doctorId,
           appointmentStart: {
-            gte: todayStart, // Match today's date
-            lt: todayEnd, // Match until end of today
+            gte:
+              startDate.toISO({
+                includeOffset: false,
+              }) + 'Z',
+            // Match today's date
+            lt:
+              endDate.toISO({
+                includeOffset: false,
+              }) + 'Z', // Match until end of today
           },
         },
         data: {
