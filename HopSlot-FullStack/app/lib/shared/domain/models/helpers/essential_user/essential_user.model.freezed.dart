@@ -23,6 +23,7 @@ mixin _$EssentialUser {
   String get id => throw _privateConstructorUsedError;
   String get firstName => throw _privateConstructorUsedError;
   String get lastName => throw _privateConstructorUsedError;
+  String? get email => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -36,7 +37,7 @@ abstract class $EssentialUserCopyWith<$Res> {
           EssentialUser value, $Res Function(EssentialUser) then) =
       _$EssentialUserCopyWithImpl<$Res, EssentialUser>;
   @useResult
-  $Res call({String id, String firstName, String lastName});
+  $Res call({String id, String firstName, String lastName, String? email});
 }
 
 /// @nodoc
@@ -55,6 +56,7 @@ class _$EssentialUserCopyWithImpl<$Res, $Val extends EssentialUser>
     Object? id = null,
     Object? firstName = null,
     Object? lastName = null,
+    Object? email = freezed,
   }) {
     return _then(_value.copyWith(
       id: null == id
@@ -69,6 +71,10 @@ class _$EssentialUserCopyWithImpl<$Res, $Val extends EssentialUser>
           ? _value.lastName
           : lastName // ignore: cast_nullable_to_non_nullable
               as String,
+      email: freezed == email
+          ? _value.email
+          : email // ignore: cast_nullable_to_non_nullable
+              as String?,
     ) as $Val);
   }
 }
@@ -81,7 +87,7 @@ abstract class _$$EssentialUserImplCopyWith<$Res>
       __$$EssentialUserImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String id, String firstName, String lastName});
+  $Res call({String id, String firstName, String lastName, String? email});
 }
 
 /// @nodoc
@@ -98,6 +104,7 @@ class __$$EssentialUserImplCopyWithImpl<$Res>
     Object? id = null,
     Object? firstName = null,
     Object? lastName = null,
+    Object? email = freezed,
   }) {
     return _then(_$EssentialUserImpl(
       id: null == id
@@ -112,6 +119,10 @@ class __$$EssentialUserImplCopyWithImpl<$Res>
           ? _value.lastName
           : lastName // ignore: cast_nullable_to_non_nullable
               as String,
+      email: freezed == email
+          ? _value.email
+          : email // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -120,7 +131,10 @@ class __$$EssentialUserImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$EssentialUserImpl implements _EssentialUser {
   const _$EssentialUserImpl(
-      {required this.id, required this.firstName, required this.lastName});
+      {required this.id,
+      required this.firstName,
+      required this.lastName,
+      this.email});
 
   factory _$EssentialUserImpl.fromJson(Map<String, dynamic> json) =>
       _$$EssentialUserImplFromJson(json);
@@ -131,10 +145,12 @@ class _$EssentialUserImpl implements _EssentialUser {
   final String firstName;
   @override
   final String lastName;
+  @override
+  final String? email;
 
   @override
   String toString() {
-    return 'EssentialUser(id: $id, firstName: $firstName, lastName: $lastName)';
+    return 'EssentialUser(id: $id, firstName: $firstName, lastName: $lastName, email: $email)';
   }
 
   @override
@@ -146,12 +162,13 @@ class _$EssentialUserImpl implements _EssentialUser {
             (identical(other.firstName, firstName) ||
                 other.firstName == firstName) &&
             (identical(other.lastName, lastName) ||
-                other.lastName == lastName));
+                other.lastName == lastName) &&
+            (identical(other.email, email) || other.email == email));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, id, firstName, lastName);
+  int get hashCode => Object.hash(runtimeType, id, firstName, lastName, email);
 
   @JsonKey(ignore: true)
   @override
@@ -171,7 +188,8 @@ abstract class _EssentialUser implements EssentialUser {
   const factory _EssentialUser(
       {required final String id,
       required final String firstName,
-      required final String lastName}) = _$EssentialUserImpl;
+      required final String lastName,
+      final String? email}) = _$EssentialUserImpl;
 
   factory _EssentialUser.fromJson(Map<String, dynamic> json) =
       _$EssentialUserImpl.fromJson;
@@ -182,6 +200,8 @@ abstract class _EssentialUser implements EssentialUser {
   String get firstName;
   @override
   String get lastName;
+  @override
+  String? get email;
   @override
   @JsonKey(ignore: true)
   _$$EssentialUserImplCopyWith<_$EssentialUserImpl> get copyWith =>

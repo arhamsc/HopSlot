@@ -114,5 +114,41 @@ final docDashboardUCProvider = AutoDisposeProvider<DocDashboardUC>.internal(
 );
 
 typedef DocDashboardUCRef = AutoDisposeProviderRef<DocDashboardUC>;
+String _$getAppointmentHistoryUCHash() =>
+    r'251cfa7ea1d2490174fa2b7f124716edb74707c8';
+
+/// See also [getAppointmentHistoryUC].
+@ProviderFor(getAppointmentHistoryUC)
+final getAppointmentHistoryUCProvider =
+    AutoDisposeProvider<GetAppointmentHistoryUC>.internal(
+  getAppointmentHistoryUC,
+  name: r'getAppointmentHistoryUCProvider',
+  debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
+      ? null
+      : _$getAppointmentHistoryUCHash,
+  dependencies: null,
+  allTransitiveDependencies: null,
+);
+
+typedef GetAppointmentHistoryUCRef
+    = AutoDisposeProviderRef<GetAppointmentHistoryUC>;
+String _$getAppointmentDetailUCHash() =>
+    r'1f11432f449eca9305e164a4521e4ba351bdaba1';
+
+/// See also [getAppointmentDetailUC].
+@ProviderFor(getAppointmentDetailUC)
+final getAppointmentDetailUCProvider =
+    AutoDisposeProvider<GetAppointmentDetailUC>.internal(
+  getAppointmentDetailUC,
+  name: r'getAppointmentDetailUCProvider',
+  debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
+      ? null
+      : _$getAppointmentDetailUCHash,
+  dependencies: null,
+  allTransitiveDependencies: null,
+);
+
+typedef GetAppointmentDetailUCRef
+    = AutoDisposeProviderRef<GetAppointmentDetailUC>;
 // ignore_for_file: type=lint
 // ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member

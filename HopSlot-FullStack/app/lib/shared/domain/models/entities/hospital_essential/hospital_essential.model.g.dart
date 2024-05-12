@@ -2,31 +2,35 @@
 
 // ignore_for_file: type=lint, invalid_annotation_target
 
-part of 'essential_user.model.dart';
+part of 'hospital_essential.model.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$EssentialUserImpl _$$EssentialUserImplFromJson(Map<String, dynamic> json) =>
+_$HospitalEssentialImpl _$$HospitalEssentialImplFromJson(
+        Map<String, dynamic> json) =>
     $checkedCreate(
-      r'_$EssentialUserImpl',
+      r'_$HospitalEssentialImpl',
       json,
       ($checkedConvert) {
-        final val = _$EssentialUserImpl(
+        final val = _$HospitalEssentialImpl(
           id: $checkedConvert('id', (v) => v as String),
-          firstName: $checkedConvert('firstName', (v) => v as String),
-          lastName: $checkedConvert('lastName', (v) => v as String),
+          name: $checkedConvert('name', (v) => v as String),
+          address: $checkedConvert('address', (v) => v as String),
           email: $checkedConvert('email', (v) => v as String?),
+          phone: $checkedConvert('phone', (v) => v as String?),
         );
         return val;
       },
     );
 
-Map<String, dynamic> _$$EssentialUserImplToJson(_$EssentialUserImpl instance) =>
+Map<String, dynamic> _$$HospitalEssentialImplToJson(
+        _$HospitalEssentialImpl instance) =>
     <String, dynamic>{
       'id': instance.id,
-      'firstName': instance.firstName,
-      'lastName': instance.lastName,
+      'name': instance.name,
+      'address': instance.address,
       'email': instance.email,
+      'phone': instance.phone,
     };

@@ -10,6 +10,7 @@ class EssentialUser with _$EssentialUser {
     required String id,
     required String firstName,
     required String lastName,
+    String? email,
   }) = _EssentialUser;
 
   factory EssentialUser.fromJson(Map<String, dynamic> json) =>

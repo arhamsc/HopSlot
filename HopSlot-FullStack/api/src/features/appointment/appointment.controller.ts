@@ -52,20 +52,31 @@ export class AppointmentController {
     @Query('type', new ParseEnumPipe(['upcoming', 'past'], { optional: true }))
     type?: 'upcoming' | 'past',
   ) {
-    if (role === Role.ADMIN) {
-      return this.appointmentService.findAll();
-    } else {
-      return this.appointmentService.findMyAppointments({
-        userId,
-        forEntity: role,
-        type,
-      });
-    }
+    return this.appointmentService.findMyAppointments({
+      userId,
+      forEntity: role,
+      type,
+    });
+  }
+
+  @UseRoles({
+    action: 'read',
+    resource: 'appointment',
+    possession: 'own',
+  })
+  @Get('/all')
+  findAllAppointments(@GetCurrentUser('id') userId: string) {
+    return this.appointmentService.findAll(userId);
   }
 
   @Get(':id')
+  @UseRoles({
+    action: 'read',
+    resource: 'appointment',
+    possession: 'own',
+  })
   findOne(@Param('id') id: string) {
-    return this.appointmentService.findOne(+id);
+    return this.appointmentService.findOne(id);
   }
 
   @Patch(':id')

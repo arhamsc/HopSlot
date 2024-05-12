@@ -65,7 +65,7 @@ class DoctorDrawer extends ConsumerWidget {
             ),
             title: const Text('Appointment History').body1(isMedium: true),
             onTap: () {
-              // ref.read(appRouterProvider).push(const BookAppointmentRoute());
+              ref.read(appRouterProvider).push(const AppointmentHistoryRoute());
             },
           ),
           ListTile(

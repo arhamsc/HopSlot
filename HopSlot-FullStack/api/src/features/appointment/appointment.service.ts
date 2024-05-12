@@ -10,7 +10,7 @@ import { DjangoPredictorService } from './django-predictor/django-predictor.serv
 import { AppointmentRedisService } from './appointment-redis/appointment-redis.service';
 import { ScheduleAppointmentService } from './schedule-appointment/schedule-appointment.service';
 import { FindAllMyAppointmentsParams } from './params';
-import { Role } from 'db/postgres';
+import { Appointment, Role } from 'db/postgres';
 
 @Injectable()
 export class AppointmentService {
@@ -116,11 +116,6 @@ export class AppointmentService {
     );
   }
 
-  async findAll() {
-    // const res = await this.scheduler('2', '3', '4');
-    return `This action returns all appointment`;
-  }
-
   findMyAppointments({
     userId,
     forEntity,
@@ -176,8 +171,97 @@ export class AppointmentService {
     );
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} appointment`;
+  findAll(userId: string): Observable<APIResponse<Partial<Appointment>[]>> {
+    // const res = await this.scheduler('2', '3', '4');
+    return from(
+      this.pgPrisma.appointment.findMany({
+        where: {
+          OR: [
+            {
+              patientId: userId,
+            },
+            {
+              doctorId: userId,
+            },
+          ],
+        },
+        select: {
+          id: true,
+          patient: {
+            select: {
+              id: true,
+              firstName: true,
+              lastName: true,
+            },
+          },
+          doctor: {
+            select: {
+              user: {
+                select: {
+                  id: true,
+                  firstName: true,
+                  lastName: true,
+                },
+              },
+            },
+          },
+          appointmentStart: true,
+        },
+      }),
+    ).pipe(
+      map((appointments) => ({
+        data: appointments.map((a) => ({ ...a, doctor: a.doctor.user })),
+        message: 'Appointments fetched successfully.',
+      })),
+    );
+  }
+
+  findOne(id: string): Observable<APIResponse<Partial<Appointment>>> {
+    return from(
+      this.pgPrisma.appointment.findUniqueOrThrow({
+        where: { id },
+        select: {
+          id: true,
+          status: true,
+          additionalDelay: true,
+          hospital: {
+            select: {
+              id: true,
+              name: true,
+              address: true,
+              email: true,
+              phone: true,
+            },
+          },
+          appointmentStart: true,
+          appointmentStartDelay: true,
+          patient: {
+            select: {
+              id: true,
+              firstName: true,
+              lastName: true,
+            },
+          },
+          doctor: {
+            select: {
+              user: {
+                select: {
+                  id: true,
+                  firstName: true,
+                  lastName: true,
+                  email: true,
+                },
+              },
+            },
+          },
+        },
+      }),
+    ).pipe(
+      map((appointment) => ({
+        data: { ...appointment, doctor: appointment.doctor.user },
+        message: 'Appointment fetched successfully.',
+      })),
+    );
   }
 
   update(id: number, updateAppointmentDto: UpdateAppointmentDto) {

@@ -1,4 +1,6 @@
 import 'package:app/shared/domain/models/entities/appointment/appointment.model.dart';
+import 'package:app/shared/domain/models/entities/appointment_detail/appointment_detail.model.dart';
+import 'package:app/shared/domain/models/entities/appointment_item/appointment_item.model.dart';
 import 'package:app/shared/domain/models/helpers/api_response/api_response.model.dart';
 import 'package:app/utils/exceptions/app_exception.dart';
 import 'package:app/utils/exceptions/task_try_catch_error.dart';
@@ -53,5 +55,29 @@ class AppointmentsRepo {
         );
       },
     );
+  }
+
+  TaskEither<AppException, ApiResponse<List<AppointmentItem>>>
+      getAppointmentHistory() {
+    return taskTryCatchWrapperRepo(() async {
+      final response = await _dio.get("/appointment/all");
+      return ApiResponse.fromJson(
+        response.data,
+        (json) => (json as List<dynamic>)
+            .map((e) => AppointmentItem.fromJson(e))
+            .toList(),
+      );
+    });
+  }
+
+  TaskEither<AppException, ApiResponse<AppointmentDetail>> getAppointmentDetail(
+      String id) {
+    return taskTryCatchWrapperRepo(() async {
+      final response = await _dio.get("/appointment/$id");
+      return ApiResponse.fromJson(
+        response.data,
+        (json) => AppointmentDetail.fromJson(json),
+      );
+    });
   }
 }

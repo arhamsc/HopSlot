@@ -37,6 +37,10 @@ class AppRouter extends $AppRouter implements AutoRouteGuard {
               page: DocHomeRoute.page,
               path: "",
             ),
+            AutoRoute(
+              page: AppointmentHistoryRoute.page,
+              path: "appointment-history",
+            ),
           ],
         ),
         AutoRoute(
