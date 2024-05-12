@@ -4,6 +4,8 @@ import releaseEvidences from './seed-data/release_evidences.json';
 import path from 'path';
 import { config } from 'dotenv';
 
+console.log(path.join(__dirname, '../../.env.local'));
+
 config({
   path: path.join(__dirname, '../../.env.local'),
 });
@@ -11,6 +13,7 @@ config({
 const mdPrisma = new PrismaClient();
 
 async function extractValuesData() {
+  await mdPrisma.pointOfInterest.deleteMany();
   const data = releaseEvidences;
   const uniqueValueKeys = new Set();
   const sample: { name: string; value: string; forType: string }[] = [];
@@ -55,6 +58,7 @@ async function extractValuesData() {
 }
 
 async function seedReleaseConditions() {
+  await mdPrisma.symptomEvidence.deleteMany();
   const data: Prisma.SymptomEvidenceUncheckedCreateInput[] = [];
   for (const releaseEvidence of releaseEvidences) {
     const { possible_values, default_value, data_type } = releaseEvidence;
@@ -90,9 +94,8 @@ async function seedReleaseConditions() {
       codeQuestion: releaseEvidence.code_question,
       dataType: releaseEvidence.data_type,
       isActecedent: releaseEvidence.is_antecedent,
-      question: releaseEvidence.code_question,
+      question: releaseEvidence.question_en,
     });
-    console.log(defaultValue);
   }
 
   try {
@@ -106,6 +109,7 @@ async function seedReleaseConditions() {
 }
 
 async function seedConditions() {
+  await mdPrisma.conditions.deleteMany();
   const data: Prisma.ConditionsUncheckedCreateInput[] = [];
   for (const condition of releaseConditions) {
     const { antecedents, symptoms } = condition;

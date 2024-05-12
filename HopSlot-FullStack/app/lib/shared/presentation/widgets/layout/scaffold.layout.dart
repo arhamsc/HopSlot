@@ -1,11 +1,14 @@
+import 'package:app/shared/domain/providers/user_provider/user.provider.dart';
 import 'package:app/shared/presentation/widgets/layout/listeners/snack_bar.listener.dart';
+import 'package:app/shared/presentation/widgets/layout/patient_drawer.layout.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_keyboard_visibility/flutter_keyboard_visibility.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-class CScaffold extends StatelessWidget {
+class CScaffold extends ConsumerWidget {
   CScaffold({
     super.key,
     required this.body,
@@ -34,7 +37,7 @@ class CScaffold extends StatelessWidget {
   final sU = ScreenUtil();
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     assert(
       showBottomNavigation == null || tabsRouter != null,
       "showBottomNavigation and tabsRouter must be provided together",
@@ -44,26 +47,12 @@ class CScaffold extends StatelessWidget {
       showAppBar == false || appBarTitle != null,
       "showAppBar and appBarTitle must be provided together",
     );
+
+    final user = ref.watch(userNotifierProvider);
+
     return Scaffold(
       appBar: showAppBar ? AppBar() : null,
-      drawer: Drawer(
-        child: ListView(
-          children: [
-            ListTile(
-              title: Text("Home"),
-              onTap: () {
-                AutoRouter.of(context).pop();
-              },
-            ),
-            ListTile(
-              title: Text("Logout"),
-              onTap: () {
-                AutoRouter.of(context).pop();
-              },
-            ),
-          ],
-        ),
-      ),
+      drawer: user.role == 'PATIENT' ? const PatientDrawer() : null,
       body: SnackBarListener(
         child: SizedBox(
           height: sU.screenHeight,

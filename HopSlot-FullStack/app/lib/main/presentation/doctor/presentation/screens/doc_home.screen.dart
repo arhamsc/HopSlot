@@ -8,6 +8,6 @@ class DocHomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return CScaffold(body: Center(child: Text('Doctor Home')));
+    return CScaffold(body: const Center(child: Text('Doctor Home')));
   }
 }

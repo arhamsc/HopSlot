@@ -27,8 +27,10 @@ class InputStyles {
       labelStyle: typography?.body2?.copyWith(
         color: palette?.tertiary,
       ),
+      floatingLabelBehavior: FloatingLabelBehavior.never,
       fillColor: palette?.secondary?.withOpacity(0.35),
       filled: true,
+      constraints: BoxConstraints(maxHeight: 100.h),
     );
   }
 

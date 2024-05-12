@@ -1,3 +1,4 @@
+import 'package:app/core/logger/talker.dart';
 import 'package:app/shared/domain/models/entities/user/user.model.dart';
 import 'package:app/shared/domain/providers/user_provider/user.provider.dart';
 import 'package:auto_route/auto_route.dart';
@@ -46,6 +47,10 @@ class AppRouter extends $AppRouter implements AutoRouteGuard {
               page: PatientHomeRoute.page,
               path: "",
             ),
+            AutoRoute(
+              page: BookAppointmentRoute.page,
+              path: "book-appointment",
+            ),
           ],
         ),
       ];
@@ -66,6 +71,7 @@ class AppRouter extends $AppRouter implements AutoRouteGuard {
         resolver.next(true);
       }
     } else {
+      ref.read(talkerProvider).talker.info("Reached to redirect");
       resolver.redirect(AuthRoute());
     }
   }

@@ -19,6 +19,7 @@
     @@map("doctor_slots")
     }
  */
+library;
 
 import 'package:app/shared/domain/enums/status/status.enum.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';

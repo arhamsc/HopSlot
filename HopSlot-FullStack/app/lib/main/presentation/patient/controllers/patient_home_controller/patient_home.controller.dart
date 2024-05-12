@@ -1,5 +1,5 @@
 import 'package:app/main/domain/providers/use_case_providers/use_case.provides.dart';
-import 'package:app/main/presentation/patient/controllers/states/patient_home.state.dart';
+import 'package:app/main/presentation/patient/controllers/patient_home_controller/state/patient_home.state.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part 'patient_home.controller.g.dart';

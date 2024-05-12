@@ -1,4 +1,5 @@
 import 'package:app/core/api/app_api.dart';
+import 'package:app/main/data/repositories/appointment_lookup.repo.dart';
 import 'package:app/main/data/repositories/appointments.repo.dart';
 import 'package:app/main/data/repositories/auth.repo.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
@@ -14,4 +15,9 @@ AuthRepo authRepo(AuthRepoRef ref) {
 @riverpod
 AppointmentsRepo appointmentsRepo(AppointmentsRepoRef ref) {
   return AppointmentsRepo(ref.watch(apiProvider).nestApi);
+}
+
+@riverpod
+AppointmentLookupRepo appointmentLookupRepo(AppointmentLookupRepoRef ref) {
+  return AppointmentLookupRepo(ref.watch(apiProvider).nestApi);
 }

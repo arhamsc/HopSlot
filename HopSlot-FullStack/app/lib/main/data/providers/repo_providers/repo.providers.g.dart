@@ -37,5 +37,23 @@ final appointmentsRepoProvider = AutoDisposeProvider<AppointmentsRepo>.internal(
 );
 
 typedef AppointmentsRepoRef = AutoDisposeProviderRef<AppointmentsRepo>;
+String _$appointmentLookupRepoHash() =>
+    r'69cfce96171210471e37dbd886849292fecbd9f3';
+
+/// See also [appointmentLookupRepo].
+@ProviderFor(appointmentLookupRepo)
+final appointmentLookupRepoProvider =
+    AutoDisposeProvider<AppointmentLookupRepo>.internal(
+  appointmentLookupRepo,
+  name: r'appointmentLookupRepoProvider',
+  debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
+      ? null
+      : _$appointmentLookupRepoHash,
+  dependencies: null,
+  allTransitiveDependencies: null,
+);
+
+typedef AppointmentLookupRepoRef
+    = AutoDisposeProviderRef<AppointmentLookupRepo>;
 // ignore_for_file: type=lint
 // ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member

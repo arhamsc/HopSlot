@@ -1,5 +1,4 @@
-import 'package:app/core/theme/palette.dart';
-import 'package:app/main/presentation/patient/controllers/patient_home.controller.dart';
+import 'package:app/main/presentation/patient/controllers/patient_home_controller/patient_home.controller.dart';
 import 'package:app/main/presentation/patient/widgets/appointment_list.widget.dart';
 import 'package:app/shared/presentation/widgets/layout/scaffold.layout.dart';
 import 'package:app/shared/presentation/widgets/ui/typography/headline.typo.dart';
@@ -17,7 +16,6 @@ class PatientHomeScreen extends HookConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final state = ref.watch(patientHomeControllerProvider);
-    final palette = Theme.of(context).extension<Palette>();
 
     useEffect(() {
       Future.delayed(Duration.zero, () {
@@ -33,26 +31,31 @@ class PatientHomeScreen extends HookConsumerWidget {
         onRefresh: () async {
           await _controller(ref).fetchAppointments();
         },
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
+        child: Stack(
           children: [
-            const Text('Upcoming Appointments').headline1(),
-            Gap(24.h),
-            AppointmentList(
-              appointments: state.value?.upcomingAppointments ?? [],
-              emptyMessage: "No upcoming appointments",
+            ListView(),
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                const Text('Upcoming Appointments').headline1(),
+                Gap(24.h),
+                AppointmentList(
+                  appointments: state.value?.upcomingAppointments ?? [],
+                  emptyMessage: "No upcoming appointments",
+                ),
+                Gap(48.h),
+                const Text('Past Appointments').headline1(),
+                Gap(24.h),
+                Expanded(
+                  child: AppointmentList(
+                    appointments: state.value?.pastAppointments ?? [],
+                    emptyMessage: "No past appointments",
+                    expandHeight: true,
+                  ),
+                ),
+                Gap(24.h),
+              ],
             ),
-            Gap(48.h),
-            const Text('Past Appointments').headline1(),
-            Gap(24.h),
-            Expanded(
-              child: AppointmentList(
-                appointments: state.value?.pastAppointments ?? [],
-                emptyMessage: "No past appointments",
-                expandHeight: true,
-              ),
-            ),
-            Gap(24.h),
           ],
         ),
       ),

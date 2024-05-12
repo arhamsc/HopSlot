@@ -6,9 +6,7 @@ import {
   Patch,
   Param,
   Delete,
-  BadGatewayException,
   Query,
-  BadRequestException,
   ParseEnumPipe,
 } from '@nestjs/common';
 import { AppointmentService } from './appointment.service';
@@ -19,7 +17,7 @@ import { GetCurrentUser } from 'src/core/decorators/get-current-user.decorator';
 import { AllowAC } from 'src/core/decorators/allow-ac/allow-ac.decorator';
 import { Role } from 'db/postgres';
 
-@Controller('appointment')
+@Controller('')
 export class AppointmentController {
   constructor(private readonly appointmentService: AppointmentService) {}
 

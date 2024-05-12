@@ -265,6 +265,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "5.4.3+1"
+  dropdown_search:
+    dependency: transitive
+    description:
+      name: dropdown_search
+      sha256: "55106e8290acaa97ed15bea1fdad82c3cf0c248dd410e651f5a8ac6870f783ab"
+      url: "https://pub.dev"
+    source: hosted
+    version: "5.0.6"
   fake_async:
     dependency: transitive
     description:
@@ -816,6 +824,22 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.2.3"
+  reactive_date_time_picker:
+    dependency: "direct main"
+    description:
+      name: reactive_date_time_picker
+      sha256: "0dc34eb7338c2e4d2cb16bbc9f60ab8b2dc015d3a07ac9a6e912ae51cb51b2d5"
+      url: "https://pub.dev"
+    source: hosted
+    version: "3.0.1"
+  reactive_dropdown_search:
+    dependency: "direct main"
+    description:
+      name: reactive_dropdown_search
+      sha256: "3824c3b063190a579eeacbc7e604a4642bbfb62509fab3e06bafc8d699f34d06"
+      url: "https://pub.dev"
+    source: hosted
+    version: "3.0.2"
   reactive_forms:
     dependency: transitive
     description:

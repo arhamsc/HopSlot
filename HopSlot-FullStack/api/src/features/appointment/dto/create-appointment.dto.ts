@@ -8,6 +8,7 @@ const createAppointment = AppointmentModel.omit({
   createdAt: true,
   status: true,
   patientId: true,
+  additionalDelay: true,
 }).extend({
   symptoms: SymptomModel.omit({
     id: true,

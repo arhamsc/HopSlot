@@ -4,6 +4,8 @@ import { Redis } from 'ioredis';
 import { Cron, CronExpression } from '@nestjs/schedule';
 import { PostgresPrismaService } from 'src/global/database/postgres-prisma.service';
 import { ScheduleAppointmentService } from '../appointment/schedule-appointment/schedule-appointment.service';
+import { ConfigService } from '@nestjs/config';
+import { AppointmentRedisService } from '../appointment/appointment-redis/appointment-redis.service';
 
 @Injectable()
 export class SchedulerService {
@@ -13,6 +15,8 @@ export class SchedulerService {
     @InjectRedis() private readonly redis: Redis,
     private readonly pgPrisma: PostgresPrismaService,
     private readonly scheduleAppointmentService: ScheduleAppointmentService,
+    private readonly config: ConfigService,
+    private readonly appRedis: AppointmentRedisService,
   ) {}
 
   //1. Cron Job to run every day to clear the appointment requests
@@ -76,6 +80,15 @@ export class SchedulerService {
         this.scheduleAppointmentService
           .schedulerAppointment(hospitalId, doctorId, slotId)
           .subscribe();
+      } else {
+        if (appointmentRequests.length === this.config.get('BATCH_SIZE')) {
+          this.appRedis.updateAppointmentRequestStatus({
+            hospitalId,
+            doctorId,
+            slotId,
+            status: 'ready',
+          });
+        }
       }
     }
   }

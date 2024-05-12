@@ -1,4 +1,5 @@
 import 'package:app/shared/domain/models/entities/appointment/appointment.model.dart';
+import 'package:app/shared/domain/models/helpers/api_response/api_response.model.dart';
 import 'package:app/utils/exceptions/app_exception.dart';
 import 'package:app/utils/exceptions/task_try_catch_error.dart';
 import 'package:dio/dio.dart';
@@ -33,6 +34,23 @@ class AppointmentsRepo {
             .map((e) => Appointment.fromJson(e))
             .toList();
         return appointments;
+      },
+    );
+  }
+
+  TaskEither<AppException, ApiResponse<Appointment>> bookAppointment({
+    required Map<String, dynamic> bookingData,
+  }) {
+    return taskTryCatchWrapperRepo(
+      () async {
+        final response = await _dio.post(
+          "/appointment",
+          data: bookingData,
+        );
+        return ApiResponse.fromJson(
+          response.data,
+          (json) => Appointment.fromJson(json),
+        );
       },
     );
   }

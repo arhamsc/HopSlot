@@ -66,5 +66,38 @@ final getAppointmentsUCProvider =
 );
 
 typedef GetAppointmentsUCRef = AutoDisposeProviderRef<GetAppointmentsUseCase>;
+String _$appointmentLookUpUCHash() =>
+    r'34610999f837b0263c475a2a90c458b1881aa93f';
+
+/// See also [appointmentLookUpUC].
+@ProviderFor(appointmentLookUpUC)
+final appointmentLookUpUCProvider =
+    AutoDisposeProvider<AppointmentLookUpUC>.internal(
+  appointmentLookUpUC,
+  name: r'appointmentLookUpUCProvider',
+  debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
+      ? null
+      : _$appointmentLookUpUCHash,
+  dependencies: null,
+  allTransitiveDependencies: null,
+);
+
+typedef AppointmentLookUpUCRef = AutoDisposeProviderRef<AppointmentLookUpUC>;
+String _$bookAppointmentUCHash() => r'0205ad3f9d125324923083863af66b443eec8f26';
+
+/// See also [bookAppointmentUC].
+@ProviderFor(bookAppointmentUC)
+final bookAppointmentUCProvider =
+    AutoDisposeProvider<BookAppointmentUC>.internal(
+  bookAppointmentUC,
+  name: r'bookAppointmentUCProvider',
+  debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
+      ? null
+      : _$bookAppointmentUCHash,
+  dependencies: null,
+  allTransitiveDependencies: null,
+);
+
+typedef BookAppointmentUCRef = AutoDisposeProviderRef<BookAppointmentUC>;
 // ignore_for_file: type=lint
 // ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member

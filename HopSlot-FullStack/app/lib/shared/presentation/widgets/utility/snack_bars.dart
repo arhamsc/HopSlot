@@ -27,11 +27,13 @@ class SnackBars {
     return DefaultFlashController(
       context,
       duration: const Duration(seconds: 4),
+      persistent: true,
       builder: (context, controller) {
         return SizedBox(
           child: FlashBar(
             controller: controller,
-            backgroundColor: backgroundColor ?? palette?.tertiary,
+            backgroundColor:
+                backgroundColor ?? palette?.quaternary?.withOpacity(0.5),
             actions: actions,
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.all(Radius.circular(10.r)),

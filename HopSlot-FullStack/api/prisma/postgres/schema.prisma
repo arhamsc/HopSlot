@@ -182,7 +182,7 @@ model Symptom {
   id String @id @default(uuid()) /// @z.string().uuid()
 
   name   String /// @z.string().min(1).max(100)
-  desc   String /// @z.string().min(5)
+  desc   String /// @z.string()
   type   String /// @z.string().min(1).max(1)
   values String[] @default([])
 

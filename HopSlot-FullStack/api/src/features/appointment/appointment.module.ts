@@ -6,13 +6,16 @@ import { HttpModule } from '@nestjs/axios';
 import { ConfigService } from '@nestjs/config';
 import { AppointmentRedisModule } from './appointment-redis/appointment-redis.module';
 import { ScheduleAppointmentService } from './schedule-appointment/schedule-appointment.service';
+import { AppointmentLookupService } from './appointment-lookup/appointment-lookup.service';
+import { AppointmentLookupController } from './appointment-lookup/appointment-lookup.controller';
 
 @Module({
-  controllers: [AppointmentController],
+  controllers: [AppointmentController, AppointmentLookupController],
   providers: [
     AppointmentService,
     DjangoPredictorService,
     ScheduleAppointmentService,
+    AppointmentLookupService,
   ],
   exports: [AppointmentService, ScheduleAppointmentService],
   imports: [

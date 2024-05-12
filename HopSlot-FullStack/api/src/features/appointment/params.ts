@@ -1,4 +1,4 @@
-import { Role } from "db/postgres";
+import { Role } from 'db/postgres';
 
 export interface FindAllMyAppointmentsParams {
   userId: string;

@@ -2,7 +2,7 @@ import { Injectable, Logger, NotAcceptableException } from '@nestjs/common';
 import { CreateAppointmentDto } from './dto/create-appointment.dto';
 import { UpdateAppointmentDto } from './dto/update-appointment.dto';
 import { PostgresPrismaService } from 'src/global/database/postgres-prisma.service';
-import { Observable, from, map, of, switchMap, tap } from 'rxjs';
+import { Observable, from, map, switchMap, tap } from 'rxjs';
 import { APIResponse } from 'src/core/types/api-response.type';
 import { AppointmentEssentials } from 'src/core/types/model_essentials.types';
 import { ConfigService } from '@nestjs/config';
@@ -132,11 +132,19 @@ export class AppointmentService {
       this.pgPrisma.appointment.findMany({
         where: {
           [forEntity === Role.DOCTOR ? 'doctorId' : 'patientId']: userId,
-          appointmentStart: type
-            ? type === 'upcoming'
-              ? { gt: new Date() }
-              : { lt: new Date() }
-            : undefined,
+          OR: [
+            {
+              appointmentStart: type
+                ? type === 'upcoming'
+                  ? { gt: new Date() }
+                  : { lt: new Date() }
+                : undefined,
+            },
+            {
+              appointmentStart:
+                type === 'upcoming' ? { equals: null } : undefined,
+            },
+          ],
         },
         select: {
           id: true,

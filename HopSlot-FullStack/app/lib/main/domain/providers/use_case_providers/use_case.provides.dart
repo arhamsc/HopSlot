@@ -1,4 +1,6 @@
 import 'package:app/main/data/providers/repo_providers/repo.providers.dart';
+import 'package:app/main/domain/use_cases/appointment_use_cases/appointment_look_up.uc.dart';
+import 'package:app/main/domain/use_cases/appointment_use_cases/book_appointment.uc.dart';
 import 'package:app/main/domain/use_cases/appointment_use_cases/get_appointment.uc.dart';
 import 'package:app/main/domain/use_cases/auth_ucs/login.uc.dart';
 import 'package:app/main/domain/use_cases/auth_ucs/logout.uc.dart';
@@ -28,4 +30,14 @@ LogoutUC logoutUC(LogoutUCRef ref) {
 @riverpod
 GetAppointmentsUseCase getAppointmentsUC(GetAppointmentsUCRef ref) {
   return GetAppointmentsUseCase(ref.watch(appointmentsRepoProvider));
+}
+
+@riverpod
+AppointmentLookUpUC appointmentLookUpUC(AppointmentLookUpUCRef ref) {
+  return AppointmentLookUpUC(ref.watch(appointmentLookupRepoProvider));
+}
+
+@riverpod
+BookAppointmentUC bookAppointmentUC(BookAppointmentUCRef ref) {
+  return BookAppointmentUC(ref.watch(appointmentsRepoProvider));
 }

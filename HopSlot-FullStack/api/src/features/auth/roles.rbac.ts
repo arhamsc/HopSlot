@@ -29,7 +29,7 @@ roles
   .grant(Role.PATIENT)
   .create(['appointment'])
   .readOwn(['appointment', 'prescription', 'report'])
-  .readAny(['doctorSlot'])
+  .readAny(['doctorSlot', 'symptomEvidence'])
   .read(['hospital', 'doctor'])
   .updateOwn(['appointment'])
   // Admin
