@@ -31,6 +31,7 @@ mixin _$Appointment {
   int? get appointmentStartDelay => throw _privateConstructorUsedError;
   int? get severity => throw _privateConstructorUsedError;
   List<Symptom> get symptoms => throw _privateConstructorUsedError;
+  EssentialUser? get patient => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -55,7 +56,10 @@ abstract class $AppointmentCopyWith<$Res> {
       DateTime? appointmentStart,
       int? appointmentStartDelay,
       int? severity,
-      List<Symptom> symptoms});
+      List<Symptom> symptoms,
+      EssentialUser? patient});
+
+  $EssentialUserCopyWith<$Res>? get patient;
 }
 
 /// @nodoc
@@ -82,6 +86,7 @@ class _$AppointmentCopyWithImpl<$Res, $Val extends Appointment>
     Object? appointmentStartDelay = freezed,
     Object? severity = freezed,
     Object? symptoms = null,
+    Object? patient = freezed,
   }) {
     return _then(_value.copyWith(
       id: null == id
@@ -128,7 +133,23 @@ class _$AppointmentCopyWithImpl<$Res, $Val extends Appointment>
           ? _value.symptoms
           : symptoms // ignore: cast_nullable_to_non_nullable
               as List<Symptom>,
+      patient: freezed == patient
+          ? _value.patient
+          : patient // ignore: cast_nullable_to_non_nullable
+              as EssentialUser?,
     ) as $Val);
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $EssentialUserCopyWith<$Res>? get patient {
+    if (_value.patient == null) {
+      return null;
+    }
+
+    return $EssentialUserCopyWith<$Res>(_value.patient!, (value) {
+      return _then(_value.copyWith(patient: value) as $Val);
+    });
   }
 }
 
@@ -151,7 +172,11 @@ abstract class _$$AppointmentImplCopyWith<$Res>
       DateTime? appointmentStart,
       int? appointmentStartDelay,
       int? severity,
-      List<Symptom> symptoms});
+      List<Symptom> symptoms,
+      EssentialUser? patient});
+
+  @override
+  $EssentialUserCopyWith<$Res>? get patient;
 }
 
 /// @nodoc
@@ -176,6 +201,7 @@ class __$$AppointmentImplCopyWithImpl<$Res>
     Object? appointmentStartDelay = freezed,
     Object? severity = freezed,
     Object? symptoms = null,
+    Object? patient = freezed,
   }) {
     return _then(_$AppointmentImpl(
       id: null == id
@@ -222,6 +248,10 @@ class __$$AppointmentImplCopyWithImpl<$Res>
           ? _value._symptoms
           : symptoms // ignore: cast_nullable_to_non_nullable
               as List<Symptom>,
+      patient: freezed == patient
+          ? _value.patient
+          : patient // ignore: cast_nullable_to_non_nullable
+              as EssentialUser?,
     ));
   }
 }
@@ -240,7 +270,8 @@ class _$AppointmentImpl implements _Appointment {
       this.appointmentStart,
       this.appointmentStartDelay,
       this.severity,
-      final List<Symptom> symptoms = const []})
+      final List<Symptom> symptoms = const [],
+      this.patient})
       : _symptoms = symptoms;
 
   factory _$AppointmentImpl.fromJson(Map<String, dynamic> json) =>
@@ -276,8 +307,11 @@ class _$AppointmentImpl implements _Appointment {
   }
 
   @override
+  final EssentialUser? patient;
+
+  @override
   String toString() {
-    return 'Appointment(id: $id, hospitalId: $hospitalId, doctorId: $doctorId, patientId: $patientId, appointmentSlotId: $appointmentSlotId, status: $status, additionalDelay: $additionalDelay, appointmentStart: $appointmentStart, appointmentStartDelay: $appointmentStartDelay, severity: $severity, symptoms: $symptoms)';
+    return 'Appointment(id: $id, hospitalId: $hospitalId, doctorId: $doctorId, patientId: $patientId, appointmentSlotId: $appointmentSlotId, status: $status, additionalDelay: $additionalDelay, appointmentStart: $appointmentStart, appointmentStartDelay: $appointmentStartDelay, severity: $severity, symptoms: $symptoms, patient: $patient)';
   }
 
   @override
@@ -303,7 +337,8 @@ class _$AppointmentImpl implements _Appointment {
                 other.appointmentStartDelay == appointmentStartDelay) &&
             (identical(other.severity, severity) ||
                 other.severity == severity) &&
-            const DeepCollectionEquality().equals(other._symptoms, _symptoms));
+            const DeepCollectionEquality().equals(other._symptoms, _symptoms) &&
+            (identical(other.patient, patient) || other.patient == patient));
   }
 
   @JsonKey(ignore: true)
@@ -320,7 +355,8 @@ class _$AppointmentImpl implements _Appointment {
       appointmentStart,
       appointmentStartDelay,
       severity,
-      const DeepCollectionEquality().hash(_symptoms));
+      const DeepCollectionEquality().hash(_symptoms),
+      patient);
 
   @JsonKey(ignore: true)
   @override
@@ -348,7 +384,8 @@ abstract class _Appointment implements Appointment {
       final DateTime? appointmentStart,
       final int? appointmentStartDelay,
       final int? severity,
-      final List<Symptom> symptoms}) = _$AppointmentImpl;
+      final List<Symptom> symptoms,
+      final EssentialUser? patient}) = _$AppointmentImpl;
 
   factory _Appointment.fromJson(Map<String, dynamic> json) =
       _$AppointmentImpl.fromJson;
@@ -375,6 +412,8 @@ abstract class _Appointment implements Appointment {
   int? get severity;
   @override
   List<Symptom> get symptoms;
+  @override
+  EssentialUser? get patient;
   @override
   @JsonKey(ignore: true)
   _$$AppointmentImplCopyWith<_$AppointmentImpl> get copyWith =>

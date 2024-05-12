@@ -13,10 +13,14 @@ import { UpdateDoctorDto } from './dto/update-doctor.dto';
 import { GetCurrentUser } from 'src/core/decorators/get-current-user.decorator';
 import { Role } from 'db/postgres';
 import { UseRoles } from 'nest-access-control';
+import { DocInfoService } from './doc-info/doc-info.service';
 
 @Controller('doctor')
 export class DoctorController {
-  constructor(private readonly doctorService: DoctorService) {}
+  constructor(
+    private readonly doctorService: DoctorService,
+    private readonly doctorInfoService: DocInfoService,
+  ) {}
 
   @Post()
   @UseRoles({
@@ -74,5 +78,35 @@ export class DoctorController {
   @Delete(':id')
   remove(@Param('id') id: string) {
     return this.doctorService.remove(id);
+  }
+
+  @UseRoles({
+    resource: 'doctorInfo',
+    action: 'read',
+    possession: 'own',
+  })
+  @Get('my-stats')
+  getMyStats(@GetCurrentUser('id') doctorId: string) {
+    return this.doctorInfoService.getMyStats(doctorId);
+  }
+
+  @UseRoles({
+    resource: 'appointment',
+    action: 'read',
+    possession: 'own',
+  })
+  @Get('todays-appointments')
+  getTodaysAppointments(@GetCurrentUser('id') doctorId: string) {
+    return this.doctorInfoService.getTodaysAppointments(doctorId);
+  }
+
+  @UseRoles({
+    resource: 'appointment',
+    action: 'read',
+    possession: 'own',
+  })
+  @Get('appointments-history')
+  getAppointmentsHistory(@GetCurrentUser('id') doctorId: string) {
+    return this.doctorInfoService.fetchAppointmentHistory(doctorId);
   }
 }

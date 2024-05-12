@@ -2,29 +2,27 @@
 
 // ignore_for_file: type=lint, invalid_annotation_target
 
-part of 'book_appointment.controller.dart';
+part of 'doc_home.controller.dart';
 
 // **************************************************************************
 // RiverpodGenerator
 // **************************************************************************
 
-String _$bookAppointmentControllerHash() =>
-    r'e9683d77cb3b654ae2cac821feda74e11b6215fb';
+String _$docHomeControllerHash() => r'2c0a691fd8591166a4f2fceab1c6807d3a967e05';
 
-/// See also [BookAppointmentController].
-@ProviderFor(BookAppointmentController)
-final bookAppointmentControllerProvider = AutoDisposeAsyncNotifierProvider<
-    BookAppointmentController, BookAppointmentState>.internal(
-  BookAppointmentController.new,
-  name: r'bookAppointmentControllerProvider',
+/// See also [DocHomeController].
+@ProviderFor(DocHomeController)
+final docHomeControllerProvider =
+    AutoDisposeAsyncNotifierProvider<DocHomeController, DocHomeState>.internal(
+  DocHomeController.new,
+  name: r'docHomeControllerProvider',
   debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
       ? null
-      : _$bookAppointmentControllerHash,
+      : _$docHomeControllerHash,
   dependencies: null,
   allTransitiveDependencies: null,
 );
 
-typedef _$BookAppointmentController
-    = AutoDisposeAsyncNotifier<BookAppointmentState>;
+typedef _$DocHomeController = AutoDisposeAsyncNotifier<DocHomeState>;
 // ignore_for_file: type=lint
 // ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member

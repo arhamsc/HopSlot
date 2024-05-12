@@ -17,7 +17,7 @@ class DataTransformationService:
                     evidences.append(symptom["name"] + "_@_" + value)
             else:
                 value_meaning = symptom["values"]
-                evidences.append(symptom["name"] + "_@_" + value_meaning)
+                evidences.append(symptom["name"] + "_@_" + value_meaning[0])
 
         return evidences
 

@@ -21,7 +21,6 @@ export class DjangoPredictorService {
   ): Observable<PredictionResponse[]> {
     return from(this.httpService.axiosRef.post('/api/predict', data)).pipe(
       map((res) => {
-        console.log({ res: res.data });
         return res.data;
       }),
       catchError((err) => {

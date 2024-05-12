@@ -1,4 +1,5 @@
 import 'package:app/shared/domain/providers/user_provider/user.provider.dart';
+import 'package:app/shared/presentation/widgets/layout/doctor_drawer.layout.dart';
 import 'package:app/shared/presentation/widgets/layout/listeners/snack_bar.listener.dart';
 import 'package:app/shared/presentation/widgets/layout/patient_drawer.layout.dart';
 import 'package:auto_route/auto_route.dart';
@@ -52,7 +53,11 @@ class CScaffold extends ConsumerWidget {
 
     return Scaffold(
       appBar: showAppBar ? AppBar() : null,
-      drawer: user.role == 'PATIENT' ? const PatientDrawer() : null,
+      drawer: user.role == 'PATIENT'
+          ? const PatientDrawer()
+          : user.role == "DOCTOR"
+              ? const DoctorDrawer()
+              : null,
       body: SnackBarListener(
         child: SizedBox(
           height: sU.screenHeight,

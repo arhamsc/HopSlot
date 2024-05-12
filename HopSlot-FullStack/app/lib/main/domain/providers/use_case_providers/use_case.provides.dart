@@ -5,6 +5,7 @@ import 'package:app/main/domain/use_cases/appointment_use_cases/get_appointment.
 import 'package:app/main/domain/use_cases/auth_ucs/login.uc.dart';
 import 'package:app/main/domain/use_cases/auth_ucs/logout.uc.dart';
 import 'package:app/main/domain/use_cases/auth_ucs/sign_up.uc.dart';
+import 'package:app/main/domain/use_cases/doc_use_cases/doc_dashboard.uc.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part 'use_case.provides.g.dart';
@@ -40,4 +41,9 @@ AppointmentLookUpUC appointmentLookUpUC(AppointmentLookUpUCRef ref) {
 @riverpod
 BookAppointmentUC bookAppointmentUC(BookAppointmentUCRef ref) {
   return BookAppointmentUC(ref.watch(appointmentsRepoProvider));
+}
+
+@riverpod
+DocDashboardUC docDashboardUC(DocDashboardUCRef ref) {
+  return DocDashboardUC(ref.watch(docInfoRepoProvider));
 }

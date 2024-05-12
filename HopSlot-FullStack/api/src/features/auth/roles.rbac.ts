@@ -22,6 +22,7 @@ roles
     'hospital',
     'appointment',
     'doctorSlot',
+    'doctorInfo',
   ])
   .updateOwn(['doctor', 'report', 'appointment', 'doctorSlot'])
   .deleteOwn(['doctor', 'report', 'doctorSlot'])

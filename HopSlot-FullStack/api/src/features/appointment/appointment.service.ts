@@ -39,7 +39,6 @@ export class AppointmentService {
       }),
     ).pipe(
       switchMap((stats) => {
-        console.log({ stats });
         if (stats.length >= this.config.get('BATCH_SIZE')) {
           if (stats.status === 'pending') {
             this.scheduleAppointmentService
@@ -83,6 +82,7 @@ export class AppointmentService {
                   },
                 },
                 status: 'PENDING',
+                appointmentStart: createAppointmentDto.date,
               },
               select: {
                 id: true,

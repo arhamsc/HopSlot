@@ -45,6 +45,7 @@ export class ScheduleAppointmentService {
           })),
         })),
       })),
+
       switchMap((obj) =>
         this.djangoService.getPredictions(obj.appointments).pipe(
           map((a) => {

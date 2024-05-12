@@ -9,7 +9,7 @@
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
 import 'package:app/main/presentation/auth/screens/auth.screen.dart' as _i2;
-import 'package:app/main/presentation/doctor/presentation/screens/doc_home.screen.dart'
+import 'package:app/main/presentation/doctor/screens/doc_home.screen.dart'
     as _i5;
 import 'package:app/main/presentation/patient/screens/book_appointment.screen.dart'
     as _i3;

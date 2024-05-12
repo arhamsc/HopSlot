@@ -34,9 +34,11 @@ model Appointment {
 
 import 'package:app/shared/domain/enums/appointment_status/appointment_status.enum.dart';
 import 'package:app/shared/domain/models/entities/symptom/symptom.model.dart';
+import 'package:app/shared/domain/models/helpers/essential_user/essential_user.model.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'appointment.model.freezed.dart';
+
 part 'appointment.model.g.dart';
 
 @freezed
@@ -53,6 +55,7 @@ class Appointment with _$Appointment {
     int? appointmentStartDelay,
     int? severity,
     @Default([]) List<Symptom> symptoms,
+    EssentialUser? patient,
   }) = _Appointment;
 
   factory Appointment.fromJson(Map<String, dynamic> json) =>

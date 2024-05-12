@@ -99,5 +99,20 @@ final bookAppointmentUCProvider =
 );
 
 typedef BookAppointmentUCRef = AutoDisposeProviderRef<BookAppointmentUC>;
+String _$docDashboardUCHash() => r'74f47011af4b8cf0fa210f6579c158730b8797fc';
+
+/// See also [docDashboardUC].
+@ProviderFor(docDashboardUC)
+final docDashboardUCProvider = AutoDisposeProvider<DocDashboardUC>.internal(
+  docDashboardUC,
+  name: r'docDashboardUCProvider',
+  debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
+      ? null
+      : _$docDashboardUCHash,
+  dependencies: null,
+  allTransitiveDependencies: null,
+);
+
+typedef DocDashboardUCRef = AutoDisposeProviderRef<DocDashboardUC>;
 // ignore_for_file: type=lint
 // ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member

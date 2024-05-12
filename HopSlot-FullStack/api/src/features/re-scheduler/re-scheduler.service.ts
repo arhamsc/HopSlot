@@ -50,6 +50,7 @@ export class ReSchedulerService implements OnModuleInit {
     const todayStart = new Date();
     todayStart.setHours(0, 0, 0, 0);
     const todayEnd = new Date();
+
     todayEnd.setHours(23, 59, 59, 999);
     //TODO: Apply logic for fetching slot by comparing most closest to current and pass that id into appointment as well.
     return from(

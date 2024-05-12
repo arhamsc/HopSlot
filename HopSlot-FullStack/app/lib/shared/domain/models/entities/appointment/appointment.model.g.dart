@@ -36,6 +36,11 @@ _$AppointmentImpl _$$AppointmentImplFromJson(Map<String, dynamic> json) =>
                       ?.map((e) => Symptom.fromJson(e as Map<String, dynamic>))
                       .toList() ??
                   const []),
+          patient: $checkedConvert(
+              'patient',
+              (v) => v == null
+                  ? null
+                  : EssentialUser.fromJson(v as Map<String, dynamic>)),
         );
         return val;
       },
@@ -54,6 +59,7 @@ Map<String, dynamic> _$$AppointmentImplToJson(_$AppointmentImpl instance) =>
       'appointmentStartDelay': instance.appointmentStartDelay,
       'severity': instance.severity,
       'symptoms': instance.symptoms.map((e) => e.toJson()).toList(),
+      'patient': instance.patient?.toJson(),
     };
 
 const _$EAppointmentStatusEnumMap = {
