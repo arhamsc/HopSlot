@@ -4,6 +4,8 @@ import 'package:app/main/data/repositories/appointments.repo.dart';
 import 'package:app/main/data/repositories/auth.repo.dart';
 import 'package:app/main/data/repositories/doc.repo.dart';
 import 'package:app/main/data/repositories/doc_info.repo.dart';
+import 'package:app/main/data/repositories/patient.repo.dart';
+import 'package:app/main/data/repositories/prescription.repo.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part 'repo.providers.g.dart';
@@ -32,4 +34,14 @@ DocInfoRepo docInfoRepo(DocInfoRepoRef ref) {
 @riverpod
 DocRepo docRepo(DocRepoRef ref) {
   return DocRepo(ref.watch(apiProvider).nestApi);
+}
+
+@riverpod
+PrescriptionRepo prescriptionRepo(PrescriptionRepoRef ref) {
+  return PrescriptionRepo(ref.watch(apiProvider).nestApi);
+}
+
+@riverpod
+PatientRepo patientRepo(PatientRepoRef ref) {
+  return PatientRepo(ref.watch(apiProvider).nestApi);
 }

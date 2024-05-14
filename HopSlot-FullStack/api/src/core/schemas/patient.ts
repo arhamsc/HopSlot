@@ -3,7 +3,7 @@ import { createZodDto } from "nestjs-zod/dto"
 import { CompleteUser, RelatedUserModel, CompleteAppointment, RelatedAppointmentModel, CompletePrescription, RelatedPrescriptionModel } from "./index"
 
 export const PatientModel = z.object({
-  userId: z.string().uuid().optional(),
+  userId: z.string().uuid(),
   age: z.number().int(),
   appointmentId: z.string().uuid().nullish(),
   createdAt: z.date().optional(),

@@ -16,17 +16,26 @@ model Patient {
  */
 
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:hive/hive.dart';
 
 part 'patient.model.freezed.dart';
+
 part 'patient.model.g.dart';
 
 @freezed
+@HiveType(typeId: 3)
 class Patient with _$Patient {
   const factory Patient({
-    required String userId,
-    required int age,
-    @JsonKey(name: 'appointmentId') String? lastAppointmentId,
+    @HiveField(0) required String userId,
+    @HiveField(1) required int age,
+    @HiveField(2) @JsonKey(name: 'appointmentId') String? lastAppointmentId,
   }) = _Patient;
+
+  factory Patient.empty() => const Patient(
+        userId: '',
+        age: 0,
+        lastAppointmentId: '',
+      );
 
   factory Patient.fromJson(Map<String, dynamic> json) =>
       _$PatientFromJson(json);

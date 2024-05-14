@@ -84,6 +84,7 @@ export class DocInfoService {
             gte: startDate.toISO({ includeOffset: false }) + 'Z',
             lt: endDate.toISO({ includeOffset: false }) + 'Z',
           },
+          status: { not: 'COMPLETED' },
         },
         select: {
           id: true,

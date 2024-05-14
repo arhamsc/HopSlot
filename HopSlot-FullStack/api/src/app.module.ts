@@ -30,6 +30,7 @@ import { FastifyMulterModule } from '@nest-lab/fastify-multer';
 import { CloudinaryModule } from './dynamic-modules/cloudinary/cloudinary.module';
 import { PrescriptionModule } from './features/prescription/prescription.module';
 import { ReportsModule } from './features/reports/reports.module';
+import { PatientModule } from './features/users/consumers/patient/patient.module';
 
 @Module({
   imports: [
@@ -76,6 +77,7 @@ import { ReportsModule } from './features/reports/reports.module';
     CloudinaryModule,
     PrescriptionModule,
     ReportsModule,
+    PatientModule,
   ],
   providers: [
     PostgresPrismaService,

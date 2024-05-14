@@ -29,10 +29,13 @@ mixin _$Doctor {
   @HiveField(3)
   int get cabinFloor => throw _privateConstructorUsedError;
   @HiveField(4)
+  @StringToDoubleTransformer()
   double get cabinLat => throw _privateConstructorUsedError;
   @HiveField(5)
+  @StringToDoubleTransformer()
   double get cabinLng => throw _privateConstructorUsedError;
   @HiveField(6)
+  @StringToDoubleTransformer()
   double get cabinAlt => throw _privateConstructorUsedError;
   @HiveField(7)
   int get noOfPatientsConsulted => throw _privateConstructorUsedError;
@@ -54,9 +57,9 @@ abstract class $DoctorCopyWith<$Res> {
       @HiveField(1) String userId,
       @HiveField(2) int cabinNumber,
       @HiveField(3) int cabinFloor,
-      @HiveField(4) double cabinLat,
-      @HiveField(5) double cabinLng,
-      @HiveField(6) double cabinAlt,
+      @HiveField(4) @StringToDoubleTransformer() double cabinLat,
+      @HiveField(5) @StringToDoubleTransformer() double cabinLng,
+      @HiveField(6) @StringToDoubleTransformer() double cabinAlt,
       @HiveField(7) int noOfPatientsConsulted,
       @HiveField(8) DateTime? lastClockIn});
 }
@@ -137,9 +140,9 @@ abstract class _$$DoctorImplCopyWith<$Res> implements $DoctorCopyWith<$Res> {
       @HiveField(1) String userId,
       @HiveField(2) int cabinNumber,
       @HiveField(3) int cabinFloor,
-      @HiveField(4) double cabinLat,
-      @HiveField(5) double cabinLng,
-      @HiveField(6) double cabinAlt,
+      @HiveField(4) @StringToDoubleTransformer() double cabinLat,
+      @HiveField(5) @StringToDoubleTransformer() double cabinLng,
+      @HiveField(6) @StringToDoubleTransformer() double cabinAlt,
       @HiveField(7) int noOfPatientsConsulted,
       @HiveField(8) DateTime? lastClockIn});
 }
@@ -214,9 +217,9 @@ class _$DoctorImpl implements _Doctor {
       @HiveField(1) required this.userId,
       @HiveField(2) required this.cabinNumber,
       @HiveField(3) required this.cabinFloor,
-      @HiveField(4) required this.cabinLat,
-      @HiveField(5) required this.cabinLng,
-      @HiveField(6) required this.cabinAlt,
+      @HiveField(4) @StringToDoubleTransformer() required this.cabinLat,
+      @HiveField(5) @StringToDoubleTransformer() required this.cabinLng,
+      @HiveField(6) @StringToDoubleTransformer() required this.cabinAlt,
       @HiveField(7) required this.noOfPatientsConsulted,
       @HiveField(8) this.lastClockIn});
 
@@ -237,12 +240,15 @@ class _$DoctorImpl implements _Doctor {
   final int cabinFloor;
   @override
   @HiveField(4)
+  @StringToDoubleTransformer()
   final double cabinLat;
   @override
   @HiveField(5)
+  @StringToDoubleTransformer()
   final double cabinLng;
   @override
   @HiveField(6)
+  @StringToDoubleTransformer()
   final double cabinAlt;
   @override
   @HiveField(7)
@@ -314,9 +320,9 @@ abstract class _Doctor implements Doctor {
       @HiveField(1) required final String userId,
       @HiveField(2) required final int cabinNumber,
       @HiveField(3) required final int cabinFloor,
-      @HiveField(4) required final double cabinLat,
-      @HiveField(5) required final double cabinLng,
-      @HiveField(6) required final double cabinAlt,
+      @HiveField(4) @StringToDoubleTransformer() required final double cabinLat,
+      @HiveField(5) @StringToDoubleTransformer() required final double cabinLng,
+      @HiveField(6) @StringToDoubleTransformer() required final double cabinAlt,
       @HiveField(7) required final int noOfPatientsConsulted,
       @HiveField(8) final DateTime? lastClockIn}) = _$DoctorImpl;
 
@@ -336,12 +342,15 @@ abstract class _Doctor implements Doctor {
   int get cabinFloor;
   @override
   @HiveField(4)
+  @StringToDoubleTransformer()
   double get cabinLat;
   @override
   @HiveField(5)
+  @StringToDoubleTransformer()
   double get cabinLng;
   @override
   @HiveField(6)
+  @StringToDoubleTransformer()
   double get cabinAlt;
   @override
   @HiveField(7)

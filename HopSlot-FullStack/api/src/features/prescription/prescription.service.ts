@@ -2,9 +2,9 @@ import { Injectable } from '@nestjs/common';
 import { CreatePrescriptionDto } from './dto/create-prescription.dto';
 import { UpdatePrescriptionDto } from './dto/update-prescription.dto';
 import { PostgresPrismaService } from 'src/global/database/postgres-prisma.service';
-import { Observable, from, map, switchMap } from 'rxjs';
+import { Observable, from, map, switchMap, tap } from 'rxjs';
 import { APIResponse } from 'src/core/types/api-response.type';
-import { Prescription } from 'db/postgres';
+import { AppointmentStatus, Prescription, Role } from 'db/postgres';
 import { File } from '@nest-lab/fastify-multer';
 import { CloudinaryService } from 'src/dynamic-modules/cloudinary/cloudinary.service';
 
@@ -72,6 +72,14 @@ export class PrescriptionService {
           }),
         );
       }),
+      tap(async () => {
+        await this.pgPrisma.appointment.update({
+          where: { id: createPrescriptionDto.appointmentId },
+          data: {
+            status: AppointmentStatus.COMPLETED,
+          },
+        });
+      }),
       map((prescription) => ({
         message: 'Prescription created',
         data: prescription,
@@ -107,18 +115,12 @@ export class PrescriptionService {
 
   findAllMyPrescriptions(
     userId: string,
+    role: Role,
   ): Observable<APIResponse<Prescription[]>> {
     return from(
       this.pgPrisma.prescription.findMany({
         where: {
-          OR: [
-            {
-              doctorId: userId,
-            },
-            {
-              patientId: userId,
-            },
-          ],
+          [role === Role.DOCTOR ? 'doctorId' : 'patientId']: userId,
         },
       }),
     ).pipe(

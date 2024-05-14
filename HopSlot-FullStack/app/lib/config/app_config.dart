@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:app/shared/domain/models/entities/doctor/doctor.model.dart';
+import 'package:app/shared/domain/models/entities/patient/patient.model.dart';
 import 'package:app/shared/domain/models/entities/user/user.model.dart';
 import 'package:app/shared/domain/models/helpers/tokens/tokens.model.dart';
 import 'package:app/utils/get_position.dart';
@@ -8,8 +9,6 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:geolocator/geolocator.dart';
-import 'package:geolocator_apple/geolocator_apple.dart';
-import 'package:geolocator_android/geolocator_android.dart';
 
 class AppConfig {
   Future<void> loadEnvs() async {
@@ -21,8 +20,10 @@ class AppConfig {
     Hive.registerAdapter(UserAdapter());
     Hive.registerAdapter(TokensAdapter());
     Hive.registerAdapter(DoctorAdapter());
+    Hive.registerAdapter(PatientAdapter());
     await Hive.openBox<User>('currentUser');
     await Hive.openBox<Doctor>('doctor');
+    await Hive.openBox<Patient>('patient');
   }
 
   Future<void> configureGeoLocation() async {

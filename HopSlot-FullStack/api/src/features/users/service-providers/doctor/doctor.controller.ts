@@ -14,6 +14,7 @@ import { GetCurrentUser } from 'src/core/decorators/get-current-user.decorator';
 import { Role } from 'db/postgres';
 import { UseRoles } from 'nest-access-control';
 import { DocInfoService } from './doc-info/doc-info.service';
+import { UpdateRoomLocationDto } from './dto/update-room-location.dto';
 
 @Controller('doctor')
 export class DoctorController {
@@ -118,5 +119,18 @@ export class DoctorController {
   @Get('closest-appointment')
   getNextAppointment(@GetCurrentUser('id') doctorId: string) {
     return this.doctorService.getClosestSlot(doctorId);
+  }
+
+  @UseRoles({
+    resource: 'doctor',
+    action: 'read',
+    possession: 'own',
+  })
+  @Patch('room-location')
+  updateRoomLocation(
+    @GetCurrentUser('id') userId: string,
+    @Body() dto: UpdateRoomLocationDto,
+  ) {
+    return this.doctorService.updateRoomLocation(dto, userId);
   }
 }

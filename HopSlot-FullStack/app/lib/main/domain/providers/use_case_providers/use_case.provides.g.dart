@@ -180,5 +180,70 @@ final iAmLateUCProvider = AutoDisposeProvider<IAmLateUC>.internal(
 );
 
 typedef IAmLateUCRef = AutoDisposeProviderRef<IAmLateUC>;
+String _$getPrescriptionUCHash() => r'1b4ecbb0cad37da18d4067b6b9f401d793601c84';
+
+/// See also [getPrescriptionUC].
+@ProviderFor(getPrescriptionUC)
+final getPrescriptionUCProvider =
+    AutoDisposeProvider<GetPrescriptionUC>.internal(
+  getPrescriptionUC,
+  name: r'getPrescriptionUCProvider',
+  debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
+      ? null
+      : _$getPrescriptionUCHash,
+  dependencies: null,
+  allTransitiveDependencies: null,
+);
+
+typedef GetPrescriptionUCRef = AutoDisposeProviderRef<GetPrescriptionUC>;
+String _$issuePrescriptionUCHash() =>
+    r'32ad995fb0df1456fa33b468245be9cbe7e83a53';
+
+/// See also [issuePrescriptionUC].
+@ProviderFor(issuePrescriptionUC)
+final issuePrescriptionUCProvider =
+    AutoDisposeProvider<IssuePrescriptionUC>.internal(
+  issuePrescriptionUC,
+  name: r'issuePrescriptionUCProvider',
+  debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
+      ? null
+      : _$issuePrescriptionUCHash,
+  dependencies: null,
+  allTransitiveDependencies: null,
+);
+
+typedef IssuePrescriptionUCRef = AutoDisposeProviderRef<IssuePrescriptionUC>;
+String _$getPatientDetailsUCHash() =>
+    r'4422844bcfcafd46e058b9538962ef5422137b7c';
+
+/// See also [getPatientDetailsUC].
+@ProviderFor(getPatientDetailsUC)
+final getPatientDetailsUCProvider = AutoDisposeProvider<GetPatientUC>.internal(
+  getPatientDetailsUC,
+  name: r'getPatientDetailsUCProvider',
+  debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
+      ? null
+      : _$getPatientDetailsUCHash,
+  dependencies: null,
+  allTransitiveDependencies: null,
+);
+
+typedef GetPatientDetailsUCRef = AutoDisposeProviderRef<GetPatientUC>;
+String _$docUpdateRoomLocHash() => r'ac47f48620e289ac185c26941f6f5f298d20e2e8';
+
+/// See also [docUpdateRoomLoc].
+@ProviderFor(docUpdateRoomLoc)
+final docUpdateRoomLocProvider =
+    AutoDisposeProvider<DocUpdateRoomLocUC>.internal(
+  docUpdateRoomLoc,
+  name: r'docUpdateRoomLocProvider',
+  debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
+      ? null
+      : _$docUpdateRoomLocHash,
+  dependencies: null,
+  allTransitiveDependencies: null,
+);
+
+typedef DocUpdateRoomLocRef = AutoDisposeProviderRef<DocUpdateRoomLocUC>;
 // ignore_for_file: type=lint
 // ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member

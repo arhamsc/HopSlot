@@ -8,7 +8,7 @@ part of 'doctor.provider.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$doctorNotifierHash() => r'0c5f6083ccc1617a3c7bb3db13f49aa95198226a';
+String _$doctorNotifierHash() => r'998a7e298aae40588c87ca5dbd716097479608e6';
 
 /// See also [DoctorNotifier].
 @ProviderFor(DoctorNotifier)

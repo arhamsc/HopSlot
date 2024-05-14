@@ -1,5 +1,5 @@
 import { User, Hospital } from '@prisma/postgres/client';
-import { Appointment, Doctor, DoctorSlot, Role } from 'db/postgres';
+import { Appointment, Doctor, DoctorSlot, Patient, Role } from 'db/postgres';
 
 export interface UserEssentials
   extends Pick<
@@ -11,6 +11,9 @@ export interface UserEssentials
 
 export interface HospitalEssentials
   extends Omit<Hospital, 'createdAt' | 'updatedAt'> {}
+
+export interface PatientEssential
+  extends Pick<Patient, 'userId' | 'age' | 'appointmentId'> {}
 
 export interface DoctorEssentials
   extends Omit<Doctor, 'createdAt' | 'updatedAt'> {}

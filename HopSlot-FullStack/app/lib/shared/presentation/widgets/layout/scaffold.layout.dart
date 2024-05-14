@@ -13,46 +13,33 @@ class CScaffold extends ConsumerWidget {
   CScaffold({
     super.key,
     required this.body,
-    this.topGradient = true,
-    this.bottomGradient = false,
     this.requireKeyboardPadding = false,
     this.noTopPadding = true,
-    this.showBottomNavigation,
-    this.tabsRouter,
     this.showAppBar = false,
-    this.appBarTitle,
-    this.appBarAvatar,
+    this.extendBodyBehindAppBar = false,
+    this.noHorizontalPadding = false,
   });
 
   final Widget body;
-  final bool topGradient;
-  final bool bottomGradient;
   final bool requireKeyboardPadding;
   final bool noTopPadding;
-  final bool? showBottomNavigation;
-  final TabsRouter? tabsRouter;
   final bool showAppBar;
-  final Widget? appBarTitle;
-  final String? appBarAvatar;
+  final bool extendBodyBehindAppBar;
+  final bool noHorizontalPadding;
 
   final sU = ScreenUtil();
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    assert(
-      showBottomNavigation == null || tabsRouter != null,
-      "showBottomNavigation and tabsRouter must be provided together",
-    );
-
-    assert(
-      showAppBar == false || appBarTitle != null,
-      "showAppBar and appBarTitle must be provided together",
-    );
-
     final user = ref.watch(userNotifierProvider);
 
     return Scaffold(
-      appBar: showAppBar ? AppBar() : null,
+      extendBodyBehindAppBar: extendBodyBehindAppBar,
+      appBar: showAppBar
+          ? AppBar(
+              backgroundColor: Colors.transparent,
+            )
+          : null,
       drawer: user.role == 'PATIENT'
           ? const PatientDrawer()
           : user.role == "DOCTOR"
@@ -68,8 +55,8 @@ class CScaffold extends ConsumerWidget {
                 canPop: !isKeyboardVisible,
                 child: Padding(
                   padding: EdgeInsets.only(
-                    left: 16.w,
-                    right: 16.w,
+                    left: noHorizontalPadding ? 0 : 16.w,
+                    right: noHorizontalPadding ? 0 : 16.w,
                     top: noTopPadding ? 0.h : 36.h,
                   ),
                   child: !requireKeyboardPadding

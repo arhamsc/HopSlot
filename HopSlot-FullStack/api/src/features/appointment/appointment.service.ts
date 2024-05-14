@@ -140,6 +140,7 @@ export class AppointmentService {
                 type === 'upcoming' ? { equals: null } : undefined,
             },
           ],
+          status: type === 'upcoming' ? { not: 'COMPLETED' } : undefined,
         },
         select: {
           id: true,

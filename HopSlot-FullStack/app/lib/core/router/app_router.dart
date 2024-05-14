@@ -41,6 +41,10 @@ class AppRouter extends $AppRouter implements AutoRouteGuard {
               page: AppointmentHistoryRoute.page,
               path: "appointment-history",
             ),
+            AutoRoute(
+              page: IssuePrescriptionRoute.page,
+              path: "issue-prescription",
+            ),
           ],
         ),
         AutoRoute(
@@ -57,6 +61,7 @@ class AppRouter extends $AppRouter implements AutoRouteGuard {
             ),
           ],
         ),
+        AutoRoute(page: ProfileRoute.page, path: "/profile"),
       ];
 
   @override

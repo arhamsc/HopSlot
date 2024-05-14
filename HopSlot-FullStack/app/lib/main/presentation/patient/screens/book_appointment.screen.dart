@@ -40,7 +40,6 @@ class BookAppointmentScreen extends ConsumerWidget {
     });
     return CScaffold(
       showAppBar: true,
-      appBarTitle: const SizedBox(),
       body: SingleChildScrollView(
         child: Column(
           children: [

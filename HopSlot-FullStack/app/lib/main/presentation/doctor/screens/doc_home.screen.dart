@@ -1,6 +1,10 @@
+import 'package:app/core/constants/enums.dart';
+import 'package:app/core/router/app_router.dart';
+import 'package:app/core/router/app_router.gr.dart';
 import 'package:app/core/theme/palette.dart';
 import 'package:app/main/presentation/doctor/controllers/doc_home_controller/doc_home.controller.dart';
 import 'package:app/main/presentation/doctor/widgets/stat_card.widget.dart';
+import 'package:app/shared/presentation/providers/snack_bar_messenger_provider/snack_bar_messenger_provider.dart';
 import 'package:app/shared/presentation/widgets/2_col_box.widget.dart';
 import 'package:app/shared/presentation/widgets/layout/scaffold.layout.dart';
 import 'package:app/shared/presentation/widgets/ui/typography/headline.typo.dart';
@@ -22,7 +26,6 @@ class DocHomeScreen extends ConsumerWidget {
     final state = ref.watch(docHomeControllerProvider);
     return CScaffold(
       showAppBar: true,
-      appBarTitle: const SizedBox(),
       body: RefreshIndicator(
         onRefresh: () => ref.refresh(docHomeControllerProvider.future),
         child: Stack(
@@ -81,7 +84,21 @@ class DocHomeScreen extends ConsumerWidget {
                                     : DateFormatter.formatDateTime(
                                         currentAppointment!.appointmentStart!),
                               ),
-                              onTap: () {},
+                              onTap: () {
+                                if (currentAppointment != null) {
+                                  ref.read(appRouterProvider).push(
+                                      IssuePrescriptionRoute(
+                                          appointment: currentAppointment));
+                                } else {
+                                  ref
+                                      .read(snackBarMessengerProvider.notifier)
+                                      .showSnackBar(
+                                        message:
+                                            "Could not take you to issuing prescription.",
+                                        type: SnackbarType.error,
+                                      );
+                                }
+                              },
                             );
                           },
                           itemCount:

@@ -83,5 +83,34 @@ final docRepoProvider = AutoDisposeProvider<DocRepo>.internal(
 );
 
 typedef DocRepoRef = AutoDisposeProviderRef<DocRepo>;
+String _$prescriptionRepoHash() => r'b5c8592aff1405ec3407296b2d58fecdc6675beb';
+
+/// See also [prescriptionRepo].
+@ProviderFor(prescriptionRepo)
+final prescriptionRepoProvider = AutoDisposeProvider<PrescriptionRepo>.internal(
+  prescriptionRepo,
+  name: r'prescriptionRepoProvider',
+  debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
+      ? null
+      : _$prescriptionRepoHash,
+  dependencies: null,
+  allTransitiveDependencies: null,
+);
+
+typedef PrescriptionRepoRef = AutoDisposeProviderRef<PrescriptionRepo>;
+String _$patientRepoHash() => r'97cb10af1bff798018f79df504ba0f091dc52d92';
+
+/// See also [patientRepo].
+@ProviderFor(patientRepo)
+final patientRepoProvider = AutoDisposeProvider<PatientRepo>.internal(
+  patientRepo,
+  name: r'patientRepoProvider',
+  debugGetCreateSourceHash:
+      const bool.fromEnvironment('dart.vm.product') ? null : _$patientRepoHash,
+  dependencies: null,
+  allTransitiveDependencies: null,
+);
+
+typedef PatientRepoRef = AutoDisposeProviderRef<PatientRepo>;
 // ignore_for_file: type=lint
 // ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member

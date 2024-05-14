@@ -76,7 +76,7 @@ class DoctorDrawer extends ConsumerWidget {
             ),
             title: const Text('Profile').body1(isMedium: true),
             onTap: () {
-              // ref.read(appRouterProvider).push(const BookAppointmentRoute());
+              ref.read(appRouterProvider).push(const ProfileRoute());
             },
           ),
           Divider(

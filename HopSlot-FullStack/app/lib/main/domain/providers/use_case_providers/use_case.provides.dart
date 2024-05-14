@@ -8,8 +8,12 @@ import 'package:app/main/domain/use_cases/auth_ucs/logout.uc.dart';
 import 'package:app/main/domain/use_cases/auth_ucs/sign_up.uc.dart';
 import 'package:app/main/domain/use_cases/doc_use_cases/doc_dashboard.uc.dart';
 import 'package:app/main/domain/use_cases/appointment_use_cases/get_appointment_history.uc.dart';
+import 'package:app/main/domain/use_cases/doc_use_cases/doc_update_room_loc.uc.dart';
 import 'package:app/main/domain/use_cases/doc_use_cases/get_doc_details.uc.dart';
 import 'package:app/main/domain/use_cases/doc_use_cases/i_am_late.uc.dart';
+import 'package:app/main/domain/use_cases/patients/get_patient_details.uc.dart';
+import 'package:app/main/domain/use_cases/prescription/get_prescription.uc.dart';
+import 'package:app/main/domain/use_cases/prescription/issue_prescription.uc.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part 'use_case.provides.g.dart';
@@ -72,4 +76,24 @@ GetDocDetailsUseCase getDocDetailsUC(GetDocDetailsUCRef ref) {
 @riverpod
 IAmLateUC iAmLateUC(IAmLateUCRef ref) {
   return IAmLateUC(ref.watch(docRepoProvider));
+}
+
+@riverpod
+GetPrescriptionUC getPrescriptionUC(GetPrescriptionUCRef ref) {
+  return GetPrescriptionUC(ref.watch(prescriptionRepoProvider));
+}
+
+@riverpod
+IssuePrescriptionUC issuePrescriptionUC(IssuePrescriptionUCRef ref) {
+  return IssuePrescriptionUC(ref.watch(prescriptionRepoProvider));
+}
+
+@riverpod
+GetPatientUC getPatientDetailsUC(GetPatientDetailsUCRef ref) {
+  return GetPatientUC(ref.watch(patientRepoProvider));
+}
+
+@riverpod
+DocUpdateRoomLocUC docUpdateRoomLoc(DocUpdateRoomLocRef ref) {
+  return DocUpdateRoomLocUC(ref.watch(docRepoProvider), ref);
 }

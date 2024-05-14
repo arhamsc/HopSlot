@@ -74,7 +74,6 @@ class AppointmentHistoryScreen extends ConsumerWidget {
     });
     return CScaffold(
       showAppBar: true,
-      appBarTitle: const SizedBox(),
       body: RefreshIndicator(
         onRefresh: () =>
             ref.refresh(appointmentHistoryControllerProvider.future),

@@ -26,7 +26,6 @@ class PatientHomeScreen extends HookConsumerWidget {
 
     return CScaffold(
       showAppBar: true,
-      appBarTitle: const SizedBox(),
       body: RefreshIndicator(
         onRefresh: () async {
           await _controller(ref).fetchAppointments();

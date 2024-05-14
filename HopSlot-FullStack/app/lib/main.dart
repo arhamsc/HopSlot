@@ -5,6 +5,8 @@ import 'package:app/core/router/app_router.dart';
 import 'package:app/core/theme/app_theme.dart';
 import 'package:app/main/domain/providers/use_case_providers/use_case.provides.dart';
 import 'package:app/shared/application/providers/service_providers/service.providers.dart';
+import 'package:app/shared/domain/models/entities/user/user.model.dart';
+import 'package:app/shared/domain/providers/patient_provider/patient.provider.dart';
 import 'package:app/shared/domain/providers/user_provider/user.provider.dart';
 import 'package:app/utils/observers/auto_route_observer.dart';
 import 'package:flutter/material.dart';
@@ -47,18 +49,40 @@ class MyApp extends ConsumerWidget {
     final appRouter = ref.watch(appRouterProvider);
     final talker = ref.watch(talkerProvider);
 
+    // Listener to fetch doctor info if role is DOCTOR and there is token in api
     ref.listen(apiProvider, (previous, next) async {
-      final _doc = ref.read(getDocDetailsUCProvider);
+      final user = ref.read(userNotifierProvider);
+      final oldDoc = ref.watch(doctorNotifierProvider);
+      final oldPatient = ref.watch(patientNotifierProvider);
+      talker.talker.info(user);
+      if (user == User.empty()) {
+        return;
+      }
+
       final header = next.nestApi.options.headers['Authorization'] as String?;
-      if (header != null && (header.split(" ")[1].isNotEmpty)) {
-        final r = ref.read(userNotifierProvider);
-        if (r.role == "DOCTOR") {
-          final doc = await _doc.call(r.id);
-          doc.fold((l) => null, (r) {
-            ref.read(doctorNotifierProvider.notifier).update(r);
-            return null;
-          });
+      if (header == null || (header.split(" ")[1].isEmpty)) {
+        return;
+      }
+
+      if (user.role == "DOCTOR") {
+        final doc = await ref.read(getDocDetailsUCProvider).call(user.id);
+        final doctor = doc.fold((l) => null, (r) {
+          return r;
+        });
+
+        if (doctor != null) {
+          ref.read(doctorNotifierProvider.notifier).update(doctor);
         }
+        return;
+      }
+
+      if (user.role == "PATIENT") {
+        final patUC = ref.read(getPatientDetailsUCProvider);
+        final pat = await patUC.call(user.id);
+        pat.fold((l) => null, (r) {
+          ref.read(patientNotifierProvider.notifier).update(r);
+          return null;
+        });
       }
     });
 

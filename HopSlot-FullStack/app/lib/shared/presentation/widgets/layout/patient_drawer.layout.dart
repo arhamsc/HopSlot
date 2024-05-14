@@ -68,6 +68,17 @@ class PatientDrawer extends ConsumerWidget {
               ref.read(appRouterProvider).push(const BookAppointmentRoute());
             },
           ),
+          ListTile(
+            leading: Icon(
+              Icons.person,
+              size: 32.sp,
+              color: palette?.secondary,
+            ),
+            title: const Text('Profile').body1(isMedium: true),
+            onTap: () {
+              ref.read(appRouterProvider).push(const ProfileRoute());
+            },
+          ),
           Divider(
             color: palette?.secondary?.withOpacity(0.8),
             thickness: 2,

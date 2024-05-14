@@ -17,6 +17,7 @@ import { UpdatePrescriptionDto } from './dto/update-prescription.dto';
 import { UseRoles } from 'nest-access-control';
 import { GetCurrentUser } from 'src/core/decorators/get-current-user.decorator';
 import { File, FileInterceptor } from '@nest-lab/fastify-multer';
+import { Role } from 'db/postgres';
 
 @Controller('prescription')
 export class PrescriptionController {
@@ -46,13 +47,14 @@ export class PrescriptionController {
     @Query('type') type: string,
     @GetCurrentUser('id') userId: string,
     @Query('appointmentId') appointmentId: string,
+    @GetCurrentUser('role') role: Role,
   ) {
     if (!type) {
       throw new BadRequestException('Type is required.');
     }
 
     if (type === 'my') {
-      return this.prescriptionService.findAllMyPrescriptions(userId);
+      return this.prescriptionService.findAllMyPrescriptions(userId, role);
     } else if (type === 'appointment') {
       if (!appointmentId) {
         throw new BadRequestException(

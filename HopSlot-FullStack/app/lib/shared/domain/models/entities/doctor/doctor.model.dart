@@ -26,6 +26,7 @@ model Doctor {
 
  */
 
+import 'package:app/utils/transformations/string_to_double_transformer.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 
@@ -41,9 +42,9 @@ class Doctor with _$Doctor {
     @HiveField(1) required String userId,
     @HiveField(2) required int cabinNumber,
     @HiveField(3) required int cabinFloor,
-    @HiveField(4) required double cabinLat,
-    @HiveField(5) required double cabinLng,
-    @HiveField(6) required double cabinAlt,
+    @HiveField(4) @StringToDoubleTransformer() required double cabinLat,
+    @HiveField(5) @StringToDoubleTransformer() required double cabinLng,
+    @HiveField(6) @StringToDoubleTransformer() required double cabinAlt,
     @HiveField(7) required int noOfPatientsConsulted,
     @HiveField(8) DateTime? lastClockIn,
   }) = _Doctor;

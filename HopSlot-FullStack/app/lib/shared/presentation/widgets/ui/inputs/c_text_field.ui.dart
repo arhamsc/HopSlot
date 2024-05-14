@@ -12,6 +12,7 @@ class CTextField extends StatelessWidget {
     this.size = SizeVariants.xl,
     this.otherValidationMessages,
     this.obscureText,
+    this.maxLines,
   });
 
   final String formControlName;
@@ -20,6 +21,7 @@ class CTextField extends StatelessWidget {
   final SizeVariants size;
   final Map<String, String Function(Object)>? otherValidationMessages;
   final bool? obscureText;
+  final int? maxLines;
 
   InputDecoration _inputDecoration(BuildContext context) {
     return switch (variant) {
@@ -36,7 +38,9 @@ class CTextField extends StatelessWidget {
         hintText: placeholder,
         labelText: placeholder,
       ),
-      obscureText: obscureText ?? false,
+      maxLines: obscureText == null && maxLines != null ? maxLines : 1,
+      obscureText:
+          obscureText != null && maxLines == null ? obscureText! : false,
     );
   }
 }

@@ -1,7 +1,9 @@
 import 'dart:async';
 
 import 'package:app/main/domain/use_cases/doc_use_cases/i_am_late.uc.dart';
+import 'package:app/shared/domain/models/entities/user/user.model.dart';
 import 'package:app/shared/domain/providers/doctor_provider/doctor.provider.dart';
+import 'package:app/shared/domain/providers/user_provider/user.provider.dart';
 import 'package:flutter/foundation.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
@@ -54,6 +56,10 @@ class LocationService {
     StreamSubscription<Position> positionStream =
         Geolocator.getPositionStream(locationSettings: locationSettings)
             .listen((Position? position) async {
+      final user = ref.watch(userNotifierProvider);
+      if (user == User.empty()) {
+        return;
+      }
       final closest = await _iAmLateUC.callClosestAppointment();
       if (closest.isLeft()) {
         return;

@@ -80,9 +80,12 @@ _$DoctorImpl _$$DoctorImplFromJson(Map<String, dynamic> json) => $checkedCreate(
           cabinNumber:
               $checkedConvert('cabinNumber', (v) => (v as num).toInt()),
           cabinFloor: $checkedConvert('cabinFloor', (v) => (v as num).toInt()),
-          cabinLat: $checkedConvert('cabinLat', (v) => (v as num).toDouble()),
-          cabinLng: $checkedConvert('cabinLng', (v) => (v as num).toDouble()),
-          cabinAlt: $checkedConvert('cabinAlt', (v) => (v as num).toDouble()),
+          cabinLat: $checkedConvert('cabinLat',
+              (v) => const StringToDoubleTransformer().fromJson(v as String)),
+          cabinLng: $checkedConvert('cabinLng',
+              (v) => const StringToDoubleTransformer().fromJson(v as String)),
+          cabinAlt: $checkedConvert('cabinAlt',
+              (v) => const StringToDoubleTransformer().fromJson(v as String)),
           noOfPatientsConsulted: $checkedConvert(
               'noOfPatientsConsulted', (v) => (v as num).toInt()),
           lastClockIn: $checkedConvert('lastClockIn',
@@ -98,9 +101,9 @@ Map<String, dynamic> _$$DoctorImplToJson(_$DoctorImpl instance) =>
       'userId': instance.userId,
       'cabinNumber': instance.cabinNumber,
       'cabinFloor': instance.cabinFloor,
-      'cabinLat': instance.cabinLat,
-      'cabinLng': instance.cabinLng,
-      'cabinAlt': instance.cabinAlt,
+      'cabinLat': const StringToDoubleTransformer().toJson(instance.cabinLat),
+      'cabinLng': const StringToDoubleTransformer().toJson(instance.cabinLng),
+      'cabinAlt': const StringToDoubleTransformer().toJson(instance.cabinAlt),
       'noOfPatientsConsulted': instance.noOfPatientsConsulted,
       'lastClockIn': instance.lastClockIn?.toIso8601String(),
     };

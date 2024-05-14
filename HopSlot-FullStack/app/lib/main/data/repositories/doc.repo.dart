@@ -32,4 +32,21 @@ class DocRepo {
           res.data, (json) => Appointment.fromJson(json));
     });
   }
+
+  TaskEither<AppException, ApiResponse<Map<String, dynamic>>>
+      updateRoomLocation({
+    required double lat,
+    required double lng,
+    required double alt,
+  }) {
+    return taskTryCatchWrapperRepo(() async {
+      final res = await _dio.patch("/doctor/room-location", data: {
+        "cabinLat": lat,
+        "cabinLng": lng,
+        "cabinAlt": alt,
+      });
+
+      return ApiResponse.fromJson(res.data, (json) => json);
+    });
+  }
 }

@@ -20,8 +20,11 @@ Patient _$PatientFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Patient {
+  @HiveField(0)
   String get userId => throw _privateConstructorUsedError;
+  @HiveField(1)
   int get age => throw _privateConstructorUsedError;
+  @HiveField(2)
   @JsonKey(name: 'appointmentId')
   String? get lastAppointmentId => throw _privateConstructorUsedError;
 
@@ -36,9 +39,9 @@ abstract class $PatientCopyWith<$Res> {
       _$PatientCopyWithImpl<$Res, Patient>;
   @useResult
   $Res call(
-      {String userId,
-      int age,
-      @JsonKey(name: 'appointmentId') String? lastAppointmentId});
+      {@HiveField(0) String userId,
+      @HiveField(1) int age,
+      @HiveField(2) @JsonKey(name: 'appointmentId') String? lastAppointmentId});
 }
 
 /// @nodoc
@@ -83,9 +86,9 @@ abstract class _$$PatientImplCopyWith<$Res> implements $PatientCopyWith<$Res> {
   @override
   @useResult
   $Res call(
-      {String userId,
-      int age,
-      @JsonKey(name: 'appointmentId') String? lastAppointmentId});
+      {@HiveField(0) String userId,
+      @HiveField(1) int age,
+      @HiveField(2) @JsonKey(name: 'appointmentId') String? lastAppointmentId});
 }
 
 /// @nodoc
@@ -124,18 +127,21 @@ class __$$PatientImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$PatientImpl implements _Patient {
   const _$PatientImpl(
-      {required this.userId,
-      required this.age,
-      @JsonKey(name: 'appointmentId') this.lastAppointmentId});
+      {@HiveField(0) required this.userId,
+      @HiveField(1) required this.age,
+      @HiveField(2) @JsonKey(name: 'appointmentId') this.lastAppointmentId});
 
   factory _$PatientImpl.fromJson(Map<String, dynamic> json) =>
       _$$PatientImplFromJson(json);
 
   @override
+  @HiveField(0)
   final String userId;
   @override
+  @HiveField(1)
   final int age;
   @override
+  @HiveField(2)
   @JsonKey(name: 'appointmentId')
   final String? lastAppointmentId;
 
@@ -175,18 +181,22 @@ class _$PatientImpl implements _Patient {
 
 abstract class _Patient implements Patient {
   const factory _Patient(
-          {required final String userId,
-          required final int age,
-          @JsonKey(name: 'appointmentId') final String? lastAppointmentId}) =
-      _$PatientImpl;
+      {@HiveField(0) required final String userId,
+      @HiveField(1) required final int age,
+      @HiveField(2)
+      @JsonKey(name: 'appointmentId')
+      final String? lastAppointmentId}) = _$PatientImpl;
 
   factory _Patient.fromJson(Map<String, dynamic> json) = _$PatientImpl.fromJson;
 
   @override
+  @HiveField(0)
   String get userId;
   @override
+  @HiveField(1)
   int get age;
   @override
+  @HiveField(2)
   @JsonKey(name: 'appointmentId')
   String? get lastAppointmentId;
   @override

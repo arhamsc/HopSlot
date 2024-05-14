@@ -5,8 +5,9 @@ import { Observable, from, map, switchMap } from 'rxjs';
 import { APIResponse } from 'src/core/types/api-response.type';
 import { DoctorEssentials } from 'src/core/types/model_essentials.types';
 import { PostgresPrismaService } from 'src/global/database/postgres-prisma.service';
-import { Appointment } from 'db/postgres';
+import { Appointment, Doctor } from 'db/postgres';
 import { DateTime } from 'luxon';
+import { UpdateRoomLocationDto } from './dto/update-room-location.dto';
 
 @Injectable()
 export class DoctorService {
@@ -208,6 +209,33 @@ export class DoctorService {
         }
         return { data: appointment, message: 'Closest appointment found' };
       }),
+    );
+  }
+
+  updateRoomLocation(
+    dto: UpdateRoomLocationDto,
+    userId: string,
+  ): Observable<
+    APIResponse<Pick<Doctor, 'userId' | 'cabinAlt' | 'cabinLat' | 'cabinLng'>>
+  > {
+    console.log({ userId });
+    return from(
+      this.prismaPG.doctor.update({
+        where: {
+          userId,
+        },
+        data: {
+          ...dto,
+        },
+        select: {
+          userId: true,
+          cabinAlt: true,
+          cabinLat: true,
+          cabinLng: true,
+        },
+      }),
+    ).pipe(
+      map((doctor) => ({ data: doctor, message: 'Room location updated' })),
     );
   }
 }
