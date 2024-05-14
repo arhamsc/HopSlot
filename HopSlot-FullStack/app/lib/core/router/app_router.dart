@@ -32,6 +32,7 @@ class AppRouter extends $AppRouter implements AutoRouteGuard {
         AutoRoute(
           page: DocEmptyRoute.page,
           path: "/doctor",
+          usesPathAsKey: true,
           children: [
             AutoRoute(
               page: DocHomeRoute.page,
@@ -44,6 +45,20 @@ class AppRouter extends $AppRouter implements AutoRouteGuard {
             AutoRoute(
               page: IssuePrescriptionRoute.page,
               path: "issue-prescription",
+            ),
+            AutoRoute(
+              page: DocEmptyRoute.page,
+              path: "my-slots",
+              children: [
+                AutoRoute(
+                  page: MyDocSlotsRoute.page,
+                  path: "",
+                ),
+                AutoRoute(
+                  page: EditSlotRoute.page,
+                  path: "edit",
+                ),
+              ],
             ),
           ],
         ),

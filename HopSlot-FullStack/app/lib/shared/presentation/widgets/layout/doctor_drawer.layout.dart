@@ -70,6 +70,17 @@ class DoctorDrawer extends ConsumerWidget {
           ),
           ListTile(
             leading: Icon(
+              Icons.event_note_rounded,
+              size: 32.sp,
+              color: palette?.secondary,
+            ),
+            title: const Text('My Slots').body1(isMedium: true),
+            onTap: () {
+              ref.read(appRouterProvider).push(const MyDocSlotsRoute());
+            },
+          ),
+          ListTile(
+            leading: Icon(
               Icons.person,
               size: 32.sp,
               color: palette?.secondary,

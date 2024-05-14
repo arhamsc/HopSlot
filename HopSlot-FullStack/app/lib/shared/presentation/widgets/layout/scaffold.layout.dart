@@ -64,7 +64,10 @@ class CScaffold extends ConsumerWidget {
                       : SingleChildScrollView(
                           child: Column(
                             children: [
-                              SizedBox(height: sU.screenHeight, child: body),
+                              SizedBox(
+                                  height: sU.screenHeight -
+                                      (showAppBar ? 100.h : 0),
+                                  child: body),
                               if (isKeyboardVisible)
                                 Gap(
                                   MediaQuery.of(context).viewInsets.bottom,

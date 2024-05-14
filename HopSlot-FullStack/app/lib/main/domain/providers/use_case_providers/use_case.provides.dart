@@ -8,6 +8,10 @@ import 'package:app/main/domain/use_cases/auth_ucs/logout.uc.dart';
 import 'package:app/main/domain/use_cases/auth_ucs/sign_up.uc.dart';
 import 'package:app/main/domain/use_cases/doc_use_cases/doc_dashboard.uc.dart';
 import 'package:app/main/domain/use_cases/appointment_use_cases/get_appointment_history.uc.dart';
+import 'package:app/main/domain/use_cases/doc_use_cases/doc_slot/create_doc_slot.uc.dart';
+import 'package:app/main/domain/use_cases/doc_use_cases/doc_slot/delete_doc_slot.uc.dart';
+import 'package:app/main/domain/use_cases/doc_use_cases/doc_slot/get_doc_slot.uc.dart';
+import 'package:app/main/domain/use_cases/doc_use_cases/doc_slot/update_doc_slot.uc.dart';
 import 'package:app/main/domain/use_cases/doc_use_cases/doc_update_room_loc.uc.dart';
 import 'package:app/main/domain/use_cases/doc_use_cases/get_doc_details.uc.dart';
 import 'package:app/main/domain/use_cases/doc_use_cases/i_am_late.uc.dart';
@@ -96,4 +100,25 @@ GetPatientUC getPatientDetailsUC(GetPatientDetailsUCRef ref) {
 @riverpod
 DocUpdateRoomLocUC docUpdateRoomLoc(DocUpdateRoomLocRef ref) {
   return DocUpdateRoomLocUC(ref.watch(docRepoProvider), ref);
+}
+
+/* Doc Slot UC */
+@riverpod
+GetDocSlotUC getDocSlotUC(GetDocSlotUCRef ref) {
+  return GetDocSlotUC(ref.watch(docSlotRepoProvider));
+}
+
+@riverpod
+CreateDocSlotUC createDocSlotUC(CreateDocSlotUCRef ref) {
+  return CreateDocSlotUC(ref.watch(docSlotRepoProvider));
+}
+
+@riverpod
+UpdateDocSlotUC updateDocSlotUC(UpdateDocSlotUCRef ref) {
+  return UpdateDocSlotUC(ref.watch(docSlotRepoProvider));
+}
+
+@riverpod
+DeleteDocSlotUC deleteDocSlotUC(DeleteDocSlotUCRef ref) {
+  return DeleteDocSlotUC(ref.watch(docSlotRepoProvider));
 }

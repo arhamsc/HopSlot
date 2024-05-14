@@ -112,5 +112,19 @@ final patientRepoProvider = AutoDisposeProvider<PatientRepo>.internal(
 );
 
 typedef PatientRepoRef = AutoDisposeProviderRef<PatientRepo>;
+String _$docSlotRepoHash() => r'bbe27cd7f8b33c28cafd78db9e8e9d59b264bd50';
+
+/// See also [docSlotRepo].
+@ProviderFor(docSlotRepo)
+final docSlotRepoProvider = AutoDisposeProvider<DocSlotRepo>.internal(
+  docSlotRepo,
+  name: r'docSlotRepoProvider',
+  debugGetCreateSourceHash:
+      const bool.fromEnvironment('dart.vm.product') ? null : _$docSlotRepoHash,
+  dependencies: null,
+  allTransitiveDependencies: null,
+);
+
+typedef DocSlotRepoRef = AutoDisposeProviderRef<DocSlotRepo>;
 // ignore_for_file: type=lint
 // ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member

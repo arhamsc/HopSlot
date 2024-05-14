@@ -21,11 +21,16 @@ DoctorSlot _$DoctorSlotFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$DoctorSlot {
   String get id => throw _privateConstructorUsedError;
+  @RfControl(validators: [RequiredValidator()])
   String get doctorId => throw _privateConstructorUsedError;
   DateTime get slotStartTime => throw _privateConstructorUsedError;
+  @RfControl(validators: [RequiredValidator()])
   DateTime get slotEndTime => throw _privateConstructorUsedError;
+  @RfControl(validators: [RequiredValidator()])
   int get durationOfPerVisit => throw _privateConstructorUsedError;
+  @RfControl(validators: [RequiredValidator()])
   List<String> get forDay => throw _privateConstructorUsedError;
+  @RfControl(validators: [RequiredValidator()])
   Status get status => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -42,12 +47,12 @@ abstract class $DoctorSlotCopyWith<$Res> {
   @useResult
   $Res call(
       {String id,
-      String doctorId,
+      @RfControl(validators: [RequiredValidator()]) String doctorId,
       DateTime slotStartTime,
-      DateTime slotEndTime,
-      int durationOfPerVisit,
-      List<String> forDay,
-      Status status});
+      @RfControl(validators: [RequiredValidator()]) DateTime slotEndTime,
+      @RfControl(validators: [RequiredValidator()]) int durationOfPerVisit,
+      @RfControl(validators: [RequiredValidator()]) List<String> forDay,
+      @RfControl(validators: [RequiredValidator()]) Status status});
 }
 
 /// @nodoc
@@ -114,12 +119,12 @@ abstract class _$$DoctorSlotImplCopyWith<$Res>
   @useResult
   $Res call(
       {String id,
-      String doctorId,
+      @RfControl(validators: [RequiredValidator()]) String doctorId,
       DateTime slotStartTime,
-      DateTime slotEndTime,
-      int durationOfPerVisit,
-      List<String> forDay,
-      Status status});
+      @RfControl(validators: [RequiredValidator()]) DateTime slotEndTime,
+      @RfControl(validators: [RequiredValidator()]) int durationOfPerVisit,
+      @RfControl(validators: [RequiredValidator()]) List<String> forDay,
+      @RfControl(validators: [RequiredValidator()]) Status status});
 }
 
 /// @nodoc
@@ -178,30 +183,37 @@ class __$$DoctorSlotImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$DoctorSlotImpl implements _DoctorSlot {
   const _$DoctorSlotImpl(
-      {required this.id,
-      required this.doctorId,
+      {this.id = "",
+      @RfControl(validators: [RequiredValidator()]) required this.doctorId,
       required this.slotStartTime,
-      required this.slotEndTime,
+      @RfControl(validators: [RequiredValidator()]) required this.slotEndTime,
+      @RfControl(validators: [RequiredValidator()])
       required this.durationOfPerVisit,
+      @RfControl(validators: [RequiredValidator()])
       required final List<String> forDay,
-      required this.status})
+      @RfControl(validators: [RequiredValidator()]) required this.status})
       : _forDay = forDay;
 
   factory _$DoctorSlotImpl.fromJson(Map<String, dynamic> json) =>
       _$$DoctorSlotImplFromJson(json);
 
   @override
+  @JsonKey()
   final String id;
   @override
+  @RfControl(validators: [RequiredValidator()])
   final String doctorId;
   @override
   final DateTime slotStartTime;
   @override
+  @RfControl(validators: [RequiredValidator()])
   final DateTime slotEndTime;
   @override
+  @RfControl(validators: [RequiredValidator()])
   final int durationOfPerVisit;
   final List<String> _forDay;
   @override
+  @RfControl(validators: [RequiredValidator()])
   List<String> get forDay {
     if (_forDay is EqualUnmodifiableListView) return _forDay;
     // ignore: implicit_dynamic_type
@@ -209,6 +221,7 @@ class _$DoctorSlotImpl implements _DoctorSlot {
   }
 
   @override
+  @RfControl(validators: [RequiredValidator()])
   final Status status;
 
   @override
@@ -262,12 +275,17 @@ class _$DoctorSlotImpl implements _DoctorSlot {
 
 abstract class _DoctorSlot implements DoctorSlot {
   const factory _DoctorSlot(
-      {required final String id,
+      {final String id,
+      @RfControl(validators: [RequiredValidator()])
       required final String doctorId,
       required final DateTime slotStartTime,
+      @RfControl(validators: [RequiredValidator()])
       required final DateTime slotEndTime,
+      @RfControl(validators: [RequiredValidator()])
       required final int durationOfPerVisit,
+      @RfControl(validators: [RequiredValidator()])
       required final List<String> forDay,
+      @RfControl(validators: [RequiredValidator()])
       required final Status status}) = _$DoctorSlotImpl;
 
   factory _DoctorSlot.fromJson(Map<String, dynamic> json) =
@@ -276,16 +294,21 @@ abstract class _DoctorSlot implements DoctorSlot {
   @override
   String get id;
   @override
+  @RfControl(validators: [RequiredValidator()])
   String get doctorId;
   @override
   DateTime get slotStartTime;
   @override
+  @RfControl(validators: [RequiredValidator()])
   DateTime get slotEndTime;
   @override
+  @RfControl(validators: [RequiredValidator()])
   int get durationOfPerVisit;
   @override
+  @RfControl(validators: [RequiredValidator()])
   List<String> get forDay;
   @override
+  @RfControl(validators: [RequiredValidator()])
   Status get status;
   @override
   @JsonKey(ignore: true)

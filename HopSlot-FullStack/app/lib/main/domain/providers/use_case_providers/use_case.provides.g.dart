@@ -245,5 +245,64 @@ final docUpdateRoomLocProvider =
 );
 
 typedef DocUpdateRoomLocRef = AutoDisposeProviderRef<DocUpdateRoomLocUC>;
+String _$getDocSlotUCHash() => r'e517787c849a4bf4a748bc481218554b07ed7524';
+
+/// See also [getDocSlotUC].
+@ProviderFor(getDocSlotUC)
+final getDocSlotUCProvider = AutoDisposeProvider<GetDocSlotUC>.internal(
+  getDocSlotUC,
+  name: r'getDocSlotUCProvider',
+  debugGetCreateSourceHash:
+      const bool.fromEnvironment('dart.vm.product') ? null : _$getDocSlotUCHash,
+  dependencies: null,
+  allTransitiveDependencies: null,
+);
+
+typedef GetDocSlotUCRef = AutoDisposeProviderRef<GetDocSlotUC>;
+String _$createDocSlotUCHash() => r'8a77f713aa3d94e73b8a8e33183b6958d1373571';
+
+/// See also [createDocSlotUC].
+@ProviderFor(createDocSlotUC)
+final createDocSlotUCProvider = AutoDisposeProvider<CreateDocSlotUC>.internal(
+  createDocSlotUC,
+  name: r'createDocSlotUCProvider',
+  debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
+      ? null
+      : _$createDocSlotUCHash,
+  dependencies: null,
+  allTransitiveDependencies: null,
+);
+
+typedef CreateDocSlotUCRef = AutoDisposeProviderRef<CreateDocSlotUC>;
+String _$updateDocSlotUCHash() => r'41f2ab4521490aa225155c75dea2337a76859856';
+
+/// See also [updateDocSlotUC].
+@ProviderFor(updateDocSlotUC)
+final updateDocSlotUCProvider = AutoDisposeProvider<UpdateDocSlotUC>.internal(
+  updateDocSlotUC,
+  name: r'updateDocSlotUCProvider',
+  debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
+      ? null
+      : _$updateDocSlotUCHash,
+  dependencies: null,
+  allTransitiveDependencies: null,
+);
+
+typedef UpdateDocSlotUCRef = AutoDisposeProviderRef<UpdateDocSlotUC>;
+String _$deleteDocSlotUCHash() => r'de2dec77253ddc6e85e1712cb223b90b5d802318';
+
+/// See also [deleteDocSlotUC].
+@ProviderFor(deleteDocSlotUC)
+final deleteDocSlotUCProvider = AutoDisposeProvider<DeleteDocSlotUC>.internal(
+  deleteDocSlotUC,
+  name: r'deleteDocSlotUCProvider',
+  debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
+      ? null
+      : _$deleteDocSlotUCHash,
+  dependencies: null,
+  allTransitiveDependencies: null,
+);
+
+typedef DeleteDocSlotUCRef = AutoDisposeProviderRef<DeleteDocSlotUC>;
 // ignore_for_file: type=lint
 // ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member

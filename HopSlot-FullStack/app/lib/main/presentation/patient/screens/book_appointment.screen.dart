@@ -75,6 +75,7 @@ class BookAppointmentScreen extends ConsumerWidget {
                     CDropdownMultiSearchField<LookUpResponse>(
                       formControlName: form.selectedSymptomsControlPath(),
                       label: "Symptoms",
+                      showSearchBox: true,
                       searchFieldLabel: "Search Symptoms",
                       asyncItems: (query) =>
                           _controller(ref).fetchBinarySymptoms(query),

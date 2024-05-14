@@ -9,18 +9,25 @@ TaskEither<K, T> taskTryCatchWrapperRepo<K extends AppException?, T>(
     {K Function({
       required String message,
       required Enum code,
+      StackTrace? stackTrace,
     })? exceptionType}) {
   return TaskEither.tryCatch(main, (error, stackTrace) {
     if (error is DioException) {
       final ex = parseDioErrors(error);
       return exceptionType != null
-          ? exceptionType(message: ex.message, code: ex.code)
-          : AppException(message: ex.message, code: ex.code) as K;
+          ? exceptionType(
+              message: ex.message, code: ex.code, stackTrace: stackTrace)
+          : AppException(
+              message: ex.message, code: ex.code, stackTrace: stackTrace) as K;
     }
     return exceptionType != null
         ? exceptionType(
-            message: error.toString(), code: AuthExceptionCodes.unknown)
+            message: error.toString(),
+            code: AuthExceptionCodes.unknown,
+            stackTrace: stackTrace)
         : AppException(
-            message: error.toString(), code: AuthExceptionCodes.unknown) as K;
+            message: error.toString(),
+            code: AuthExceptionCodes.unknown,
+            stackTrace: stackTrace) as K;
   });
 }

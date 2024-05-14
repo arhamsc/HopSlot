@@ -4,6 +4,7 @@ import 'package:app/main/data/repositories/appointments.repo.dart';
 import 'package:app/main/data/repositories/auth.repo.dart';
 import 'package:app/main/data/repositories/doc.repo.dart';
 import 'package:app/main/data/repositories/doc_info.repo.dart';
+import 'package:app/main/data/repositories/doc_slot.repo.dart';
 import 'package:app/main/data/repositories/patient.repo.dart';
 import 'package:app/main/data/repositories/prescription.repo.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
@@ -44,4 +45,9 @@ PrescriptionRepo prescriptionRepo(PrescriptionRepoRef ref) {
 @riverpod
 PatientRepo patientRepo(PatientRepoRef ref) {
   return PatientRepo(ref.watch(apiProvider).nestApi);
+}
+
+@riverpod
+DocSlotRepo docSlotRepo(DocSlotRepoRef ref) {
+  return DocSlotRepo(ref.watch(apiProvider).nestApi);
 }

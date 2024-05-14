@@ -67,7 +67,7 @@ class CDropdownMultiSearchField<T> extends StatelessWidget {
           );
         },
         title: Text(searchFieldLabel).body1(isBold: true),
-        showSearchBox: true,
+        showSearchBox: showSearchBox,
         searchFieldProps: TextFieldProps(
           decoration: InputStyles.primaryText(context),
         ),

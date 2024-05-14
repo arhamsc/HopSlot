@@ -14,7 +14,7 @@ _$DoctorSlotImpl _$$DoctorSlotImplFromJson(Map<String, dynamic> json) =>
       json,
       ($checkedConvert) {
         final val = _$DoctorSlotImpl(
-          id: $checkedConvert('id', (v) => v as String),
+          id: $checkedConvert('id', (v) => v as String? ?? ""),
           doctorId: $checkedConvert('doctorId', (v) => v as String),
           slotStartTime: $checkedConvert(
               'slotStartTime', (v) => DateTime.parse(v as String)),
