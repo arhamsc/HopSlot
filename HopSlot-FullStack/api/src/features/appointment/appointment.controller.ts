@@ -91,4 +91,14 @@ export class AppointmentController {
   remove(@Param('id') id: string) {
     return this.appointmentService.remove(+id);
   }
+
+  @Patch(':id/cancel')
+  @UseRoles({
+    action: 'update',
+    resource: 'appointment',
+    possession: 'own',
+  })
+  cancel(@Param('id') id: string, @GetCurrentUser('id') userId: string) {
+    return this.appointmentService.cancelAppointment(id, userId);
+  }
 }

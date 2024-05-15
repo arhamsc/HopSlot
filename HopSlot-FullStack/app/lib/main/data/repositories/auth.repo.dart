@@ -1,6 +1,9 @@
 import 'package:app/shared/domain/models/entities/user/user.model.dart';
+import 'package:app/shared/domain/models/helpers/api_response/api_response.model.dart';
+import 'package:app/utils/exceptions/app_exception.dart';
 import 'package:app/utils/exceptions/auth_exception.dart';
 import 'package:app/utils/exceptions/exception_codes/auth_exception_codes.dart';
+import 'package:app/utils/exceptions/task_try_catch_error.dart';
 import 'package:app/utils/parse_dio_error.dart';
 import 'package:dio/dio.dart';
 import 'package:fpdart/fpdart.dart';
@@ -10,7 +13,10 @@ class AuthRepo {
 
   AuthRepo(this._dio);
 
-  TaskEither<AuthExceptions, User> login(String identity, String password) {
+  TaskEither<AuthExceptions, User> login(
+    String identity,
+    String password,
+  ) {
     return TaskEither.tryCatch(() async {
       final request = await _dio.post('/auth/login', data: {
         'identity': identity,
@@ -46,6 +52,7 @@ class AuthRepo {
     required String lastName,
     required String username,
     required int age,
+    String? fcmToken,
   }) {
     return TaskEither.tryCatch(() async {
       final request = await _dio.post('/auth/signup', data: {
@@ -56,6 +63,7 @@ class AuthRepo {
         'username': username,
         'age': age,
         'role': 'PATIENT',
+        'fcmToken': fcmToken,
       });
       if (request.data['error'] != null) {
         throw AuthExceptions(
@@ -97,6 +105,39 @@ class AuthRepo {
       }
       return AuthExceptions(
           message: error.toString(), code: AuthExceptionCodes.unknown);
+    });
+  }
+
+  TaskEither<AppException, ApiResponse> updateToken(String token) {
+    return taskTryCatchWrapperRepo(() async {
+      final request = await _dio.post('/auth/update-token', data: {
+        'token': token,
+      });
+
+      return ApiResponse.fromJson(request.data, (json) => json);
+    });
+  }
+
+  /// If returns true then its exists if not true then it doesnt exist
+  TaskEither<AppException, ApiResponse<bool>> checkUsernameOrEmail({
+    String? username,
+    String? email,
+  }) {
+    return taskTryCatchWrapperRepo(() async {
+      final request = await _dio.post('/auth/check-for-username-email',
+          data: username != null
+              ? {
+                  'username': username,
+                }
+              : email != null
+                  ? {
+                      'email': email,
+                    }
+                  : {});
+
+      final res = ApiResponse.fromJson(request.data, (json) => json as bool);
+
+      return res;
     });
   }
 }

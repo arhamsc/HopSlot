@@ -48,14 +48,14 @@ export class ReSchedulerService implements OnModuleInit {
   }
 
   rescheduleAppointmentsConsumer(doctorId: string) {
-    let startDate = DateTime.now();
+    let startDate = DateTime.now().setZone('utc');
     startDate = startDate.set({
       hour: 0,
       minute: 0,
       second: 0,
       millisecond: 0,
     });
-    let endDate = DateTime.now();
+    let endDate = DateTime.now().setZone('utc');
 
     endDate = endDate.set({
       hour: 23,

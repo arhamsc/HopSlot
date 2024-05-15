@@ -1484,7 +1484,7 @@ class SignUpFormForm implements FormModel<SignUpForm> {
         emailControlName: FormControl<String>(
             value: signUpForm?.email,
             validators: [RequiredValidator(), EmailValidator()],
-            asyncValidators: [],
+            asyncValidators: [UniqueEmailAsyncValidator()],
             asyncValidatorsDebounceTime: 250,
             disabled: false,
             touched: false),
@@ -1495,7 +1495,7 @@ class SignUpFormForm implements FormModel<SignUpForm> {
               MinLengthValidator(4),
               MaxLengthValidator(10)
             ],
-            asyncValidators: [],
+            asyncValidators: [UniqueUsernameAsyncValidator()],
             asyncValidatorsDebounceTime: 250,
             disabled: false,
             touched: false),

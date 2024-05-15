@@ -1,8 +1,12 @@
+import 'package:app/main.dart';
+import 'package:app/utils/validators/unique_username_email_validator.util.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:reactive_forms_annotations/reactive_forms_annotations.dart';
 
 part 'auth.form.freezed.dart';
+
 part 'auth.form.g.dart';
+
 part 'auth.form.gform.dart';
 
 @freezed
@@ -37,12 +41,16 @@ class SignUpForm with _$SignUpForm {
     @RfControl(validators: [
       RequiredValidator(),
       EmailValidator(),
+    ], asyncValidators: [
+      UniqueEmailAsyncValidator()
     ])
     String? email,
     @RfControl(validators: [
       RequiredValidator(),
       MinLengthValidator(4),
       MaxLengthValidator(10),
+    ], asyncValidators: [
+      UniqueUsernameAsyncValidator(),
     ])
     String? username,
     @RfControl(validators: [

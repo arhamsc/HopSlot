@@ -1,5 +1,6 @@
 import 'package:app/main/presentation/doctor/controllers/appointment_history_controller/appointment_history.controller.dart';
 import 'package:app/shared/presentation/widgets/2_col_box.widget.dart';
+import 'package:app/shared/presentation/widgets/functional/appointment_detail_dialog.widget.dart';
 import 'package:app/shared/presentation/widgets/layout/scaffold.layout.dart';
 import 'package:app/shared/presentation/widgets/ui/typography/body.typo.dart';
 import 'package:app/shared/presentation/widgets/ui/typography/headline.typo.dart';
@@ -29,44 +30,12 @@ class AppointmentHistoryScreen extends ConsumerWidget {
           barrierDismissible: true,
           builder: (context, controller) => FadeTransition(
             opacity: controller.controller,
-            child: AlertDialog(
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.all(Radius.circular(16.r)),
-                side: const BorderSide(),
-              ),
-              contentPadding: EdgeInsets.only(
-                  left: 24.0.w, top: 16.0.h, right: 24.0.w, bottom: 16.0.h),
-              title: Text(DateFormatter.formatDateTime(value.appointmentStart))
-                  .headline2(),
-              content: Column(
-                mainAxisSize: MainAxisSize.min,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text("Patient Name: ${value.patient.firstName} ${value.patient.lastName}")
-                      .body1(),
-                  Gap(8.h),
-                  Text("Doctor Name: ${value.doctor.firstName} ${value.doctor.lastName}")
-                      .body1(),
-                  Gap(8.h),
-                  Text("Hospital Name: ${value.hospital.name}").body1(),
-                  Gap(8.h),
-                  Text("Appointment Start Time: ${DateFormatter.formatDateTime(value.appointmentStart)}")
-                      .body1(),
-                  Gap(8.h),
-                  Text("Status: ${value.status}").body1(),
-                  Gap(8.h),
-                  Text("Delay: ${value.additionalDelay} minutes").body1(),
-                ],
-              ),
-              actions: [
-                TextButton(
-                  onPressed: () async {
-                    controller.dismiss();
-                    _controller(ref).resetSelectedAppointmentDetail();
-                  },
-                  child: const Text('Close'),
-                ),
-              ],
+            child: AppointmentDetailAlertDialog(
+              value: value,
+              controller: controller,
+              onDismiss: () {
+                _controller(ref).resetSelectedAppointmentDetail();
+              },
             ),
           ),
         );
@@ -82,7 +51,7 @@ class AppointmentHistoryScreen extends ConsumerWidget {
             ListView(),
             Column(
               children: [
-                Text("Appointment History").headline1(),
+                const Text("Appointment History").headline1(),
                 Gap(24.h),
                 Expanded(
                   child: Col2Box(

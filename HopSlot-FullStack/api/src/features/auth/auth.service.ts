@@ -38,6 +38,25 @@ export class AuthService {
     private docService: DoctorService,
   ) {}
 
+  updateToken(token: string, userId: string): Observable<APIResponse> {
+    return from(
+      this.prismaPG.user.update({
+        where: {
+          id: userId,
+        },
+        data: {
+          fcmToken: token,
+        },
+      }),
+    ).pipe(
+      map(() => {
+        return {
+          message: 'Token updated successfully',
+        };
+      }),
+    );
+  }
+
   signUpLocal(
     signUpDto: SignUpDto,
   ): Observable<APIResponse<{ user: UserEssentials; tokens: Tokens }>> {
@@ -231,6 +250,7 @@ export class AuthService {
         where: { id },
         data: {
           refreshTokenHash: null,
+          fcmToken: null,
         },
       }),
     ).pipe(

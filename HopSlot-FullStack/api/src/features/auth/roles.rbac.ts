@@ -24,15 +24,15 @@ roles
     'doctorSlot',
     'doctorInfo',
   ])
-  .updateOwn(['doctor', 'report', 'appointment', 'doctorSlot'])
+  .updateOwn(['doctor', 'report', 'doctorSlot'])
   .deleteOwn(['doctor', 'report', 'doctorSlot'])
   // Patient
   .grant(Role.PATIENT)
-  .create(['appointment'])
-  .readOwn(['appointment', 'prescription', 'report'])
+  .create(['appointment', 'patient'])
+  .readOwn(['appointment', 'prescription', 'report', 'patient'])
   .readAny(['doctorSlot', 'symptomEvidence'])
   .read(['hospital', 'doctor'])
-  .updateOwn(['appointment'])
+  .updateOwn(['appointment', 'patient'])
   // Admin
   .grant(Role.ADMIN)
   .extend(Role.HOSP_ADMIN)

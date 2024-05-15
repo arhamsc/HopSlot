@@ -5,6 +5,7 @@ import 'package:app/shared/domain/models/entities/user/user.model.dart';
 import 'package:app/shared/domain/providers/doctor_provider/doctor.provider.dart';
 import 'package:app/shared/domain/providers/user_provider/user.provider.dart';
 import 'package:app/utils/exceptions/auth_exception.dart';
+import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:fpdart/fpdart.dart';
 
 class LoginUC {
@@ -18,8 +19,11 @@ class LoginUC {
       String email, String password) async {
     final result = await _authRepository.login(email, password).run();
     return result.fold((l) => left(l), (r) async {
-      ref.read(userNotifierProvider.notifier).update(r);
-
+      final token = await FirebaseMessaging.instance.getToken();
+      ref.read(updateTokenUCProvider).call(token ?? "");
+      ref
+          .read(userNotifierProvider.notifier)
+          .update(r.copyWith(fcmToken: token));
       return right(r);
     });
   }

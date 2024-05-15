@@ -63,6 +63,8 @@ dependencies:
   reactive_date_time_picker: ^3.0.1
   geolocator: ^11.0.0
   reactive_file_picker: ^3.0.0
+  firebase_core: ^2.31.0
+  firebase_messaging: ^14.9.2
 
 dev_dependencies:
   flutter_test:

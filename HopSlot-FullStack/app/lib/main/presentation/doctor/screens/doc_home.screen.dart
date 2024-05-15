@@ -8,7 +8,6 @@ import 'package:app/shared/presentation/providers/snack_bar_messenger_provider/s
 import 'package:app/shared/presentation/widgets/2_col_box.widget.dart';
 import 'package:app/shared/presentation/widgets/layout/scaffold.layout.dart';
 import 'package:app/shared/presentation/widgets/ui/typography/headline.typo.dart';
-import 'package:app/shared/presentation/widgets/ui/typography/title.typo.dart';
 import 'package:app/utils/date_formatter.util.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';

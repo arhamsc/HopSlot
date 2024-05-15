@@ -2,7 +2,20 @@ import { Injectable, Logger, NotAcceptableException } from '@nestjs/common';
 import { CreateAppointmentDto } from './dto/create-appointment.dto';
 import { UpdateAppointmentDto } from './dto/update-appointment.dto';
 import { PostgresPrismaService } from 'src/global/database/postgres-prisma.service';
-import { Observable, from, map, switchMap, tap } from 'rxjs';
+import {
+  Observable,
+  concatMap,
+  filter,
+  first,
+  from,
+  last,
+  map,
+  mergeMap,
+  of,
+  switchMap,
+  tap,
+  throwError,
+} from 'rxjs';
 import { APIResponse } from 'src/core/types/api-response.type';
 import { AppointmentEssentials } from 'src/core/types/model_essentials.types';
 import { ConfigService } from '@nestjs/config';
@@ -11,6 +24,7 @@ import { AppointmentRedisService } from './appointment-redis/appointment-redis.s
 import { ScheduleAppointmentService } from './schedule-appointment/schedule-appointment.service';
 import { FindAllMyAppointmentsParams } from './params';
 import { Appointment, Role } from 'db/postgres';
+import { DateTime } from 'luxon';
 
 @Injectable()
 export class AppointmentService {
@@ -163,6 +177,9 @@ export class AppointmentService {
           appointmentStart: true,
           severity: true,
         },
+        orderBy: {
+          appointmentStart: 'desc',
+        },
       }),
     ).pipe(
       map((appointments) => ({
@@ -271,5 +288,142 @@ export class AppointmentService {
 
   remove(id: number) {
     return `This action removes a #${id} appointment`;
+  }
+
+  cancelAppointment(
+    id: string,
+    patientId: string,
+  ): Observable<APIResponse<Appointment>> {
+    //1. Find appointment
+
+    //2. Find all appointments for the same slot which are after this
+
+    //3. Shift their timings -15 min
+
+    //4. Cancel this appointment
+
+    //5. Send notification to patient
+
+    //6. If in redis then remove from there and update its status if "filled"
+    return from(
+      this.pgPrisma.appointment.findFirstOrThrow({
+        where: { id, status: { notIn: ['COMPLETED', 'CANCELLED'] }, patientId },
+        include: {
+          appointmentSlot: true,
+        },
+      }),
+    ).pipe(
+      map((app) => {
+        if (app.appointmentStart! < new Date()) {
+          throw new NotAcceptableException('Cannot cancel past appointments');
+        }
+        return app;
+      }),
+      concatMap((appointment) => {
+        // from() performs the event for each member of the list
+        let slotEndTime = DateTime.fromJSDate(
+          appointment.appointmentSlot.slotEndTime,
+        );
+
+        const appointmentStart = DateTime.fromJSDate(
+          appointment.appointmentStart!,
+        );
+
+        slotEndTime = slotEndTime
+          .set({
+            month: appointmentStart.month,
+            day: appointmentStart.day,
+            year: appointmentStart.year,
+          })
+          .plus({ minutes: 15 });
+
+        return from(
+          this.pgPrisma.appointment.findMany({
+            where: {
+              appointmentStart: {
+                gt: appointment.appointmentStart ?? undefined,
+                lte: slotEndTime.toJSDate(),
+              },
+              appointmentSlotId: appointment.appointmentSlotId,
+            },
+            orderBy: {
+              appointmentStart: 'asc',
+            },
+          }),
+        ).pipe(
+          map((appointments) => {
+            if (appointments.length === 0) {
+              throwError(
+                () =>
+                  new NotAcceptableException(
+                    'No appointments found for this slot',
+                  ),
+              );
+            } else {
+              return appointments;
+            }
+          }),
+          // Split all the appointments into individual appointments due to the return type of findMany as a promise
+          mergeMap((appointments) => appointments ?? []),
+          filter((appointment) => appointment.appointmentStart !== null),
+          tap(async (appointment) => {
+            let appointmentStartTime = DateTime.fromJSDate(
+              appointment.appointmentStart!,
+              {
+                zone: 'utc',
+              },
+            );
+            appointmentStartTime = appointmentStartTime.minus({ minutes: 15 });
+            const finalTime = appointmentStartTime.toJSDate();
+            console.log({ appointment, finalTime, appointmentStartTime });
+            await this.pgPrisma.appointment.update({
+              where: { id: appointment.id },
+              data: {
+                appointmentStart: finalTime,
+                additionalDelay: {
+                  decrement: 15,
+                },
+                appointmentStartDelay: {
+                  decrement: 15,
+                },
+              },
+            });
+          }),
+          map(() => appointment),
+        );
+      }),
+      tap(async (appointment) => {
+        await this.pgPrisma.appointment.update({
+          where: {
+            id: appointment.id,
+          },
+          data: {
+            status: 'CANCELLED',
+          },
+        });
+      }),
+      tap(async (appointment) => {
+        await this.appRedis.removeAppointmentRequest({
+          doctorId: appointment.doctorId,
+          hospitalId: appointment.hospitalId,
+          slotId: appointment.appointmentSlotId,
+          appointmentId: appointment.id,
+        });
+      }),
+      tap(async (appointment) => {
+        await this.appRedis.updateAppointmentRequestStatus({
+          doctorId: appointment.doctorId,
+          hospitalId: appointment.hospitalId,
+          slotId: appointment.appointmentSlotId,
+          status: 'pending',
+        });
+      }),
+      map((appointment) => {
+        return {
+          message: 'Appointment cancelled successfully',
+          data: appointment,
+        };
+      }),
+    );
   }
 }

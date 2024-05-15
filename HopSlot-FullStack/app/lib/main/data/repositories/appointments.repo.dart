@@ -80,4 +80,15 @@ class AppointmentsRepo {
       );
     });
   }
+
+  TaskEither<AppException, ApiResponse<Appointment>> cancelAppointment(
+      String id) {
+    return taskTryCatchWrapperRepo(() async {
+      final response = await _dio.patch("/appointment/$id/cancel");
+      return ApiResponse.fromJson(
+        response.data,
+        (json) => Appointment.fromJson(json),
+      );
+    });
+  }
 }

@@ -23,5 +23,22 @@ final locationServiceProvider = AutoDisposeProvider<LocationService>.internal(
 );
 
 typedef LocationServiceRef = AutoDisposeProviderRef<LocationService>;
+String _$fbMessagingServiceHash() =>
+    r'8e9e292ca25b812987d43a368485e28730120703';
+
+/// See also [fbMessagingService].
+@ProviderFor(fbMessagingService)
+final fbMessagingServiceProvider =
+    AutoDisposeProvider<FBMessagingService>.internal(
+  fbMessagingService,
+  name: r'fbMessagingServiceProvider',
+  debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
+      ? null
+      : _$fbMessagingServiceHash,
+  dependencies: null,
+  allTransitiveDependencies: null,
+);
+
+typedef FbMessagingServiceRef = AutoDisposeProviderRef<FBMessagingService>;
 // ignore_for_file: type=lint
 // ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member

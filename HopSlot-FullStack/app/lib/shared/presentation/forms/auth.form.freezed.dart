@@ -192,12 +192,16 @@ mixin _$SignUpForm {
   String? get firstName => throw _privateConstructorUsedError;
   @RfControl(validators: [RequiredValidator(), MinLengthValidator(4)])
   String? get lastName => throw _privateConstructorUsedError;
-  @RfControl(validators: [RequiredValidator(), EmailValidator()])
+  @RfControl(
+      validators: [RequiredValidator(), EmailValidator()],
+      asyncValidators: [UniqueEmailAsyncValidator()])
   String? get email => throw _privateConstructorUsedError;
   @RfControl(validators: [
     RequiredValidator(),
     MinLengthValidator(4),
     MaxLengthValidator(10)
+  ], asyncValidators: [
+    UniqueUsernameAsyncValidator()
   ])
   String? get username => throw _privateConstructorUsedError;
   @RfControl(validators: [NumberValidator(allowNegatives: false)])
@@ -226,12 +230,16 @@ abstract class $SignUpFormCopyWith<$Res> {
       String? firstName,
       @RfControl(validators: [RequiredValidator(), MinLengthValidator(4)])
       String? lastName,
-      @RfControl(validators: [RequiredValidator(), EmailValidator()])
+      @RfControl(
+          validators: [RequiredValidator(), EmailValidator()],
+          asyncValidators: [UniqueEmailAsyncValidator()])
       String? email,
       @RfControl(validators: [
         RequiredValidator(),
         MinLengthValidator(4),
         MaxLengthValidator(10)
+      ], asyncValidators: [
+        UniqueUsernameAsyncValidator()
       ])
       String? username,
       @RfControl(validators: [NumberValidator(allowNegatives: false)]) int? age,
@@ -305,12 +313,16 @@ abstract class _$$SignUpFormImplCopyWith<$Res>
       String? firstName,
       @RfControl(validators: [RequiredValidator(), MinLengthValidator(4)])
       String? lastName,
-      @RfControl(validators: [RequiredValidator(), EmailValidator()])
+      @RfControl(
+          validators: [RequiredValidator(), EmailValidator()],
+          asyncValidators: [UniqueEmailAsyncValidator()])
       String? email,
       @RfControl(validators: [
         RequiredValidator(),
         MinLengthValidator(4),
         MaxLengthValidator(10)
+      ], asyncValidators: [
+        UniqueUsernameAsyncValidator()
       ])
       String? username,
       @RfControl(validators: [NumberValidator(allowNegatives: false)]) int? age,
@@ -377,12 +389,16 @@ class _$SignUpFormImpl implements _SignUpForm {
       this.firstName,
       @RfControl(validators: [RequiredValidator(), MinLengthValidator(4)])
       this.lastName,
-      @RfControl(validators: [RequiredValidator(), EmailValidator()])
+      @RfControl(
+          validators: [RequiredValidator(), EmailValidator()],
+          asyncValidators: [UniqueEmailAsyncValidator()])
       this.email,
       @RfControl(validators: [
         RequiredValidator(),
         MinLengthValidator(4),
         MaxLengthValidator(10)
+      ], asyncValidators: [
+        UniqueUsernameAsyncValidator()
       ])
       this.username,
       @RfControl(validators: [NumberValidator(allowNegatives: false)]) this.age,
@@ -403,13 +419,17 @@ class _$SignUpFormImpl implements _SignUpForm {
   @RfControl(validators: [RequiredValidator(), MinLengthValidator(4)])
   final String? lastName;
   @override
-  @RfControl(validators: [RequiredValidator(), EmailValidator()])
+  @RfControl(
+      validators: [RequiredValidator(), EmailValidator()],
+      asyncValidators: [UniqueEmailAsyncValidator()])
   final String? email;
   @override
   @RfControl(validators: [
     RequiredValidator(),
     MinLengthValidator(4),
     MaxLengthValidator(10)
+  ], asyncValidators: [
+    UniqueUsernameAsyncValidator()
   ])
   final String? username;
   @override
@@ -470,12 +490,16 @@ abstract class _SignUpForm implements SignUpForm {
       final String? firstName,
       @RfControl(validators: [RequiredValidator(), MinLengthValidator(4)])
       final String? lastName,
-      @RfControl(validators: [RequiredValidator(), EmailValidator()])
+      @RfControl(
+          validators: [RequiredValidator(), EmailValidator()],
+          asyncValidators: [UniqueEmailAsyncValidator()])
       final String? email,
       @RfControl(validators: [
         RequiredValidator(),
         MinLengthValidator(4),
         MaxLengthValidator(10)
+      ], asyncValidators: [
+        UniqueUsernameAsyncValidator()
       ])
       final String? username,
       @RfControl(validators: [NumberValidator(allowNegatives: false)])
@@ -497,13 +521,17 @@ abstract class _SignUpForm implements SignUpForm {
   @RfControl(validators: [RequiredValidator(), MinLengthValidator(4)])
   String? get lastName;
   @override
-  @RfControl(validators: [RequiredValidator(), EmailValidator()])
+  @RfControl(
+      validators: [RequiredValidator(), EmailValidator()],
+      asyncValidators: [UniqueEmailAsyncValidator()])
   String? get email;
   @override
   @RfControl(validators: [
     RequiredValidator(),
     MinLengthValidator(4),
     MaxLengthValidator(10)
+  ], asyncValidators: [
+    UniqueUsernameAsyncValidator()
   ])
   String? get username;
   @override

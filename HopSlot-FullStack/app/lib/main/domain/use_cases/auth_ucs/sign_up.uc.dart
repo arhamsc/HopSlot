@@ -18,6 +18,7 @@ class SignUpUC {
     required String lastName,
     required String username,
     required int age,
+    String? fcmToken,
   }) async {
     final res = await _authRepository
         .patientSignUp(
@@ -27,6 +28,7 @@ class SignUpUC {
           lastName: lastName,
           username: username,
           age: age,
+          fcmToken: fcmToken,
         )
         .run();
     return res.fold((l) => left(l), (r) {

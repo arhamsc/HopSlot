@@ -50,6 +50,38 @@ final logoutUCProvider = AutoDisposeProvider<LogoutUC>.internal(
 );
 
 typedef LogoutUCRef = AutoDisposeProviderRef<LogoutUC>;
+String _$updateTokenUCHash() => r'2e05cf20ec38fe03c4b3cc575953ca1a405f78b3';
+
+/// See also [updateTokenUC].
+@ProviderFor(updateTokenUC)
+final updateTokenUCProvider = AutoDisposeProvider<UpdateTokenUC>.internal(
+  updateTokenUC,
+  name: r'updateTokenUCProvider',
+  debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
+      ? null
+      : _$updateTokenUCHash,
+  dependencies: null,
+  allTransitiveDependencies: null,
+);
+
+typedef UpdateTokenUCRef = AutoDisposeProviderRef<UpdateTokenUC>;
+String _$checkUserNameEmailUCHash() =>
+    r'9d614dd136edabea3044b1c766afa61f031d9738';
+
+/// See also [checkUserNameEmailUC].
+@ProviderFor(checkUserNameEmailUC)
+final checkUserNameEmailUCProvider =
+    AutoDisposeProvider<CheckUsernameEmailUC>.internal(
+  checkUserNameEmailUC,
+  name: r'checkUserNameEmailUCProvider',
+  debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
+      ? null
+      : _$checkUserNameEmailUCHash,
+  dependencies: null,
+  allTransitiveDependencies: null,
+);
+
+typedef CheckUserNameEmailUCRef = AutoDisposeProviderRef<CheckUsernameEmailUC>;
 String _$getAppointmentsUCHash() => r'2424723a75b7cd88ba8ffe4875ea169b9c61e887';
 
 /// See also [getAppointmentsUC].
@@ -166,6 +198,23 @@ final getDocDetailsUCProvider =
 );
 
 typedef GetDocDetailsUCRef = AutoDisposeProviderRef<GetDocDetailsUseCase>;
+String _$cancelAppointmentUCHash() =>
+    r'709f709bbda81b4f499c44386c0d0fb2592c0951';
+
+/// See also [cancelAppointmentUC].
+@ProviderFor(cancelAppointmentUC)
+final cancelAppointmentUCProvider =
+    AutoDisposeProvider<CancelAppointmentUC>.internal(
+  cancelAppointmentUC,
+  name: r'cancelAppointmentUCProvider',
+  debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
+      ? null
+      : _$cancelAppointmentUCHash,
+  dependencies: null,
+  allTransitiveDependencies: null,
+);
+
+typedef CancelAppointmentUCRef = AutoDisposeProviderRef<CancelAppointmentUC>;
 String _$iAmLateUCHash() => r'2a620373ddbbc83c45c6f4e94b2992f85659b73b';
 
 /// See also [iAmLateUC].

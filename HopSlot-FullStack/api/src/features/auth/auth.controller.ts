@@ -1,11 +1,9 @@
 import {
   Body,
   Controller,
-  Get,
   HttpCode,
   HttpStatus,
   Post,
-  Query,
   UseGuards,
 } from '@nestjs/common';
 import { AuthService } from './auth.service';
@@ -58,5 +56,13 @@ export class AuthController {
     @GetCurrentUser('refreshToken') refreshToken: string,
   ) {
     return this.authService.refreshToken(userId, refreshToken);
+  }
+
+  @Post('update-token')
+  updateToken(
+    @GetCurrentUser('id') userId: string,
+    @Body('token') token: string,
+  ) {
+    return this.authService.updateToken(token, userId);
   }
 }

@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "561386739182",
+    "project_id": "hopslot-44ceb",
+    "storage_bucket": "hopslot-44ceb.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:561386739182:android:9649522189decfb7ab2aff",
+        "android_client_info": {
+          "package_name": "com.hopslot.app.app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDRnbB-K63ndyUeBX2zcAvx4kXlfo5qr64"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

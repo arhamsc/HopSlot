@@ -26,7 +26,7 @@ class SnackBars {
 
     return DefaultFlashController(
       context,
-      duration: const Duration(seconds: 4),
+      duration: const Duration(seconds: 2),
       persistent: true,
       builder: (context, controller) {
         return SizedBox(

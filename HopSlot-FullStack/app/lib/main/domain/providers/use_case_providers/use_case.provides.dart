@@ -1,11 +1,14 @@
 import 'package:app/main/data/providers/repo_providers/repo.providers.dart';
 import 'package:app/main/domain/use_cases/appointment_use_cases/appointment_look_up.uc.dart';
 import 'package:app/main/domain/use_cases/appointment_use_cases/book_appointment.uc.dart';
+import 'package:app/main/domain/use_cases/appointment_use_cases/cancel_appointment.uc.dart';
 import 'package:app/main/domain/use_cases/appointment_use_cases/get_appointment.uc.dart';
 import 'package:app/main/domain/use_cases/appointment_use_cases/get_appointment_detail.uc.dart';
+import 'package:app/main/domain/use_cases/auth_ucs/check_username_email.uc.dart';
 import 'package:app/main/domain/use_cases/auth_ucs/login.uc.dart';
 import 'package:app/main/domain/use_cases/auth_ucs/logout.uc.dart';
 import 'package:app/main/domain/use_cases/auth_ucs/sign_up.uc.dart';
+import 'package:app/main/domain/use_cases/auth_ucs/update_token.uc.dart';
 import 'package:app/main/domain/use_cases/doc_use_cases/doc_dashboard.uc.dart';
 import 'package:app/main/domain/use_cases/appointment_use_cases/get_appointment_history.uc.dart';
 import 'package:app/main/domain/use_cases/doc_use_cases/doc_slot/create_doc_slot.uc.dart';
@@ -38,6 +41,16 @@ SignUpUC signUpUC(SignUpUCRef ref) {
 @riverpod
 LogoutUC logoutUC(LogoutUCRef ref) {
   return LogoutUC(ref.watch(authRepoProvider), ref);
+}
+
+@riverpod
+UpdateTokenUC updateTokenUC(UpdateTokenUCRef ref) {
+  return UpdateTokenUC(ref.watch(authRepoProvider));
+}
+
+@riverpod
+CheckUsernameEmailUC checkUserNameEmailUC(CheckUserNameEmailUCRef ref) {
+  return CheckUsernameEmailUC(ref.watch(authRepoProvider));
 }
 
 /* Appointment Use Cases */
@@ -75,6 +88,11 @@ GetAppointmentDetailUC getAppointmentDetailUC(GetAppointmentDetailUCRef ref) {
 @riverpod
 GetDocDetailsUseCase getDocDetailsUC(GetDocDetailsUCRef ref) {
   return GetDocDetailsUseCase(ref.watch(docRepoProvider));
+}
+
+@riverpod
+CancelAppointmentUC cancelAppointmentUC(CancelAppointmentUCRef ref) {
+  return CancelAppointmentUC(ref.watch(appointmentsRepoProvider));
 }
 
 @riverpod

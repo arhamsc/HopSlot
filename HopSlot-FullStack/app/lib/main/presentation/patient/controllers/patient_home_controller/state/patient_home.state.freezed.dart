@@ -23,6 +23,9 @@ mixin _$PatientHomeState {
   List<Appointment> get upcomingAppointments =>
       throw _privateConstructorUsedError;
   List<Appointment> get pastAppointments => throw _privateConstructorUsedError;
+  AppointmentDetail? get selectedAppointment =>
+      throw _privateConstructorUsedError;
+  String? get activeType => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -38,7 +41,11 @@ abstract class $PatientHomeStateCopyWith<$Res> {
   @useResult
   $Res call(
       {List<Appointment> upcomingAppointments,
-      List<Appointment> pastAppointments});
+      List<Appointment> pastAppointments,
+      AppointmentDetail? selectedAppointment,
+      String? activeType});
+
+  $AppointmentDetailCopyWith<$Res>? get selectedAppointment;
 }
 
 /// @nodoc
@@ -56,6 +63,8 @@ class _$PatientHomeStateCopyWithImpl<$Res, $Val extends PatientHomeState>
   $Res call({
     Object? upcomingAppointments = null,
     Object? pastAppointments = null,
+    Object? selectedAppointment = freezed,
+    Object? activeType = freezed,
   }) {
     return _then(_value.copyWith(
       upcomingAppointments: null == upcomingAppointments
@@ -66,7 +75,28 @@ class _$PatientHomeStateCopyWithImpl<$Res, $Val extends PatientHomeState>
           ? _value.pastAppointments
           : pastAppointments // ignore: cast_nullable_to_non_nullable
               as List<Appointment>,
+      selectedAppointment: freezed == selectedAppointment
+          ? _value.selectedAppointment
+          : selectedAppointment // ignore: cast_nullable_to_non_nullable
+              as AppointmentDetail?,
+      activeType: freezed == activeType
+          ? _value.activeType
+          : activeType // ignore: cast_nullable_to_non_nullable
+              as String?,
     ) as $Val);
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $AppointmentDetailCopyWith<$Res>? get selectedAppointment {
+    if (_value.selectedAppointment == null) {
+      return null;
+    }
+
+    return $AppointmentDetailCopyWith<$Res>(_value.selectedAppointment!,
+        (value) {
+      return _then(_value.copyWith(selectedAppointment: value) as $Val);
+    });
   }
 }
 
@@ -80,7 +110,12 @@ abstract class _$$PatientHomeStateImplCopyWith<$Res>
   @useResult
   $Res call(
       {List<Appointment> upcomingAppointments,
-      List<Appointment> pastAppointments});
+      List<Appointment> pastAppointments,
+      AppointmentDetail? selectedAppointment,
+      String? activeType});
+
+  @override
+  $AppointmentDetailCopyWith<$Res>? get selectedAppointment;
 }
 
 /// @nodoc
@@ -96,6 +131,8 @@ class __$$PatientHomeStateImplCopyWithImpl<$Res>
   $Res call({
     Object? upcomingAppointments = null,
     Object? pastAppointments = null,
+    Object? selectedAppointment = freezed,
+    Object? activeType = freezed,
   }) {
     return _then(_$PatientHomeStateImpl(
       upcomingAppointments: null == upcomingAppointments
@@ -106,6 +143,14 @@ class __$$PatientHomeStateImplCopyWithImpl<$Res>
           ? _value._pastAppointments
           : pastAppointments // ignore: cast_nullable_to_non_nullable
               as List<Appointment>,
+      selectedAppointment: freezed == selectedAppointment
+          ? _value.selectedAppointment
+          : selectedAppointment // ignore: cast_nullable_to_non_nullable
+              as AppointmentDetail?,
+      activeType: freezed == activeType
+          ? _value.activeType
+          : activeType // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -115,7 +160,9 @@ class __$$PatientHomeStateImplCopyWithImpl<$Res>
 class _$PatientHomeStateImpl implements _PatientHomeState {
   const _$PatientHomeStateImpl(
       {required final List<Appointment> upcomingAppointments,
-      required final List<Appointment> pastAppointments})
+      required final List<Appointment> pastAppointments,
+      this.selectedAppointment,
+      this.activeType})
       : _upcomingAppointments = upcomingAppointments,
         _pastAppointments = pastAppointments;
 
@@ -141,8 +188,13 @@ class _$PatientHomeStateImpl implements _PatientHomeState {
   }
 
   @override
+  final AppointmentDetail? selectedAppointment;
+  @override
+  final String? activeType;
+
+  @override
   String toString() {
-    return 'PatientHomeState(upcomingAppointments: $upcomingAppointments, pastAppointments: $pastAppointments)';
+    return 'PatientHomeState(upcomingAppointments: $upcomingAppointments, pastAppointments: $pastAppointments, selectedAppointment: $selectedAppointment, activeType: $activeType)';
   }
 
   @override
@@ -153,7 +205,11 @@ class _$PatientHomeStateImpl implements _PatientHomeState {
             const DeepCollectionEquality()
                 .equals(other._upcomingAppointments, _upcomingAppointments) &&
             const DeepCollectionEquality()
-                .equals(other._pastAppointments, _pastAppointments));
+                .equals(other._pastAppointments, _pastAppointments) &&
+            (identical(other.selectedAppointment, selectedAppointment) ||
+                other.selectedAppointment == selectedAppointment) &&
+            (identical(other.activeType, activeType) ||
+                other.activeType == activeType));
   }
 
   @JsonKey(ignore: true)
@@ -161,7 +217,9 @@ class _$PatientHomeStateImpl implements _PatientHomeState {
   int get hashCode => Object.hash(
       runtimeType,
       const DeepCollectionEquality().hash(_upcomingAppointments),
-      const DeepCollectionEquality().hash(_pastAppointments));
+      const DeepCollectionEquality().hash(_pastAppointments),
+      selectedAppointment,
+      activeType);
 
   @JsonKey(ignore: true)
   @override
@@ -180,9 +238,10 @@ class _$PatientHomeStateImpl implements _PatientHomeState {
 
 abstract class _PatientHomeState implements PatientHomeState {
   const factory _PatientHomeState(
-          {required final List<Appointment> upcomingAppointments,
-          required final List<Appointment> pastAppointments}) =
-      _$PatientHomeStateImpl;
+      {required final List<Appointment> upcomingAppointments,
+      required final List<Appointment> pastAppointments,
+      final AppointmentDetail? selectedAppointment,
+      final String? activeType}) = _$PatientHomeStateImpl;
 
   factory _PatientHomeState.fromJson(Map<String, dynamic> json) =
       _$PatientHomeStateImpl.fromJson;
@@ -191,6 +250,10 @@ abstract class _PatientHomeState implements PatientHomeState {
   List<Appointment> get upcomingAppointments;
   @override
   List<Appointment> get pastAppointments;
+  @override
+  AppointmentDetail? get selectedAppointment;
+  @override
+  String? get activeType;
   @override
   @JsonKey(ignore: true)
   _$$PatientHomeStateImplCopyWith<_$PatientHomeStateImpl> get copyWith =>

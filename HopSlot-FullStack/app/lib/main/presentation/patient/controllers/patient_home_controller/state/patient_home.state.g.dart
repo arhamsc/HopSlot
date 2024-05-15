@@ -25,6 +25,12 @@ _$PatientHomeStateImpl _$$PatientHomeStateImplFromJson(
               (v) => (v as List<dynamic>)
                   .map((e) => Appointment.fromJson(e as Map<String, dynamic>))
                   .toList()),
+          selectedAppointment: $checkedConvert(
+              'selectedAppointment',
+              (v) => v == null
+                  ? null
+                  : AppointmentDetail.fromJson(v as Map<String, dynamic>)),
+          activeType: $checkedConvert('activeType', (v) => v as String?),
         );
         return val;
       },
@@ -37,4 +43,6 @@ Map<String, dynamic> _$$PatientHomeStateImplToJson(
           instance.upcomingAppointments.map((e) => e.toJson()).toList(),
       'pastAppointments':
           instance.pastAppointments.map((e) => e.toJson()).toList(),
+      'selectedAppointment': instance.selectedAppointment?.toJson(),
+      'activeType': instance.activeType,
     };

@@ -1,10 +1,13 @@
 import 'dart:async';
 
+import 'package:app/firebase_options.dart';
 import 'package:app/shared/domain/models/entities/doctor/doctor.model.dart';
 import 'package:app/shared/domain/models/entities/patient/patient.model.dart';
 import 'package:app/shared/domain/models/entities/user/user.model.dart';
 import 'package:app/shared/domain/models/helpers/tokens/tokens.model.dart';
 import 'package:app/utils/get_position.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:hive_flutter/hive_flutter.dart';
@@ -68,5 +71,11 @@ class AppConfig {
           ? 'Unknown'
           : '${position.latitude.toString()}, ${position.longitude.toString()}');
     });
+  }
+
+  Future<void> configureFirebase() async {
+    await Firebase.initializeApp(
+      options: DefaultFirebaseOptions.currentPlatform,
+    );
   }
 }

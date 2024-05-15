@@ -51,6 +51,16 @@ export class AppointmentRedisService {
     await this.redis.del(listKey);
   }
 
+  async removeAppointmentRequest({
+    hospitalId,
+    doctorId,
+    slotId,
+    appointmentId,
+  }: GetAppointmentArgs & { appointmentId: string }) {
+    const listKey = `appointment-requests:${hospitalId}:${doctorId}:${slotId}`;
+    await this.redis.lrem(listKey, 0, appointmentId);
+  }
+
   async getAppointmentRequestsStats({
     hospitalId,
     doctorId,
