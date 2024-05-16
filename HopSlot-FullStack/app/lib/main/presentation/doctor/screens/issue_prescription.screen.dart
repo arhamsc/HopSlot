@@ -6,7 +6,7 @@ import 'package:app/core/theme/palette.dart';
 import 'package:app/main/domain/forms/prescription_form/prescription.form.dart';
 import 'package:app/main/domain/providers/form_providers/forms.providers.dart';
 import 'package:app/main/presentation/doctor/controllers/issue_prescription_controller/issue_prescription.controller.dart';
-import 'package:app/shared/domain/models/entities/appointment/appointment.model.dart';
+import 'package:app/main/domain/entities/appointment/appointment.model.dart';
 import 'package:app/shared/presentation/providers/snack_bar_messenger_provider/snack_bar_messenger_provider.dart';
 import 'package:app/shared/presentation/widgets/layout/scaffold.layout.dart';
 import 'package:app/shared/presentation/widgets/ui/buttons/button.ui.dart';
@@ -21,7 +21,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:reactive_file_picker/reactive_file_picker.dart';
-import 'package:reactive_forms_annotations/reactive_forms_annotations.dart';
 
 @RoutePage()
 class IssuePrescriptionScreen extends ConsumerWidget {

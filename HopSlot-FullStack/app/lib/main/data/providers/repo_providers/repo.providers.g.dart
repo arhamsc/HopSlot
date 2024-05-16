@@ -126,5 +126,178 @@ final docSlotRepoProvider = AutoDisposeProvider<DocSlotRepo>.internal(
 );
 
 typedef DocSlotRepoRef = AutoDisposeProviderRef<DocSlotRepo>;
+String _$flutterLocalNotificationRepoHash() =>
+    r'90bc4b28f6349b90a39981763fa28375e8395b55';
+
+/// Copied from Dart SDK
+class _SystemHash {
+  _SystemHash._();
+
+  static int combine(int hash, int value) {
+    // ignore: parameter_assignments
+    hash = 0x1fffffff & (hash + value);
+    // ignore: parameter_assignments
+    hash = 0x1fffffff & (hash + ((0x0007ffff & hash) << 10));
+    return hash ^ (hash >> 6);
+  }
+
+  static int finish(int hash) {
+    // ignore: parameter_assignments
+    hash = 0x1fffffff & (hash + ((0x03ffffff & hash) << 3));
+    // ignore: parameter_assignments
+    hash = hash ^ (hash >> 11);
+    return 0x1fffffff & (hash + ((0x00003fff & hash) << 15));
+  }
+}
+
+/// See also [flutterLocalNotificationRepo].
+@ProviderFor(flutterLocalNotificationRepo)
+const flutterLocalNotificationRepoProvider =
+    FlutterLocalNotificationRepoFamily();
+
+/// See also [flutterLocalNotificationRepo].
+class FlutterLocalNotificationRepoFamily
+    extends Family<FlutterLocalNotificationRepo> {
+  /// See also [flutterLocalNotificationRepo].
+  const FlutterLocalNotificationRepoFamily();
+
+  /// See also [flutterLocalNotificationRepo].
+  FlutterLocalNotificationRepoProvider call(
+    FlutterLocalNotificationsPlugin plugin,
+  ) {
+    return FlutterLocalNotificationRepoProvider(
+      plugin,
+    );
+  }
+
+  @override
+  FlutterLocalNotificationRepoProvider getProviderOverride(
+    covariant FlutterLocalNotificationRepoProvider provider,
+  ) {
+    return call(
+      provider.plugin,
+    );
+  }
+
+  static const Iterable<ProviderOrFamily>? _dependencies = null;
+
+  @override
+  Iterable<ProviderOrFamily>? get dependencies => _dependencies;
+
+  static const Iterable<ProviderOrFamily>? _allTransitiveDependencies = null;
+
+  @override
+  Iterable<ProviderOrFamily>? get allTransitiveDependencies =>
+      _allTransitiveDependencies;
+
+  @override
+  String? get name => r'flutterLocalNotificationRepoProvider';
+}
+
+/// See also [flutterLocalNotificationRepo].
+class FlutterLocalNotificationRepoProvider
+    extends AutoDisposeProvider<FlutterLocalNotificationRepo> {
+  /// See also [flutterLocalNotificationRepo].
+  FlutterLocalNotificationRepoProvider(
+    FlutterLocalNotificationsPlugin plugin,
+  ) : this._internal(
+          (ref) => flutterLocalNotificationRepo(
+            ref as FlutterLocalNotificationRepoRef,
+            plugin,
+          ),
+          from: flutterLocalNotificationRepoProvider,
+          name: r'flutterLocalNotificationRepoProvider',
+          debugGetCreateSourceHash:
+              const bool.fromEnvironment('dart.vm.product')
+                  ? null
+                  : _$flutterLocalNotificationRepoHash,
+          dependencies: FlutterLocalNotificationRepoFamily._dependencies,
+          allTransitiveDependencies:
+              FlutterLocalNotificationRepoFamily._allTransitiveDependencies,
+          plugin: plugin,
+        );
+
+  FlutterLocalNotificationRepoProvider._internal(
+    super._createNotifier, {
+    required super.name,
+    required super.dependencies,
+    required super.allTransitiveDependencies,
+    required super.debugGetCreateSourceHash,
+    required super.from,
+    required this.plugin,
+  }) : super.internal();
+
+  final FlutterLocalNotificationsPlugin plugin;
+
+  @override
+  Override overrideWith(
+    FlutterLocalNotificationRepo Function(
+            FlutterLocalNotificationRepoRef provider)
+        create,
+  ) {
+    return ProviderOverride(
+      origin: this,
+      override: FlutterLocalNotificationRepoProvider._internal(
+        (ref) => create(ref as FlutterLocalNotificationRepoRef),
+        from: from,
+        name: null,
+        dependencies: null,
+        allTransitiveDependencies: null,
+        debugGetCreateSourceHash: null,
+        plugin: plugin,
+      ),
+    );
+  }
+
+  @override
+  AutoDisposeProviderElement<FlutterLocalNotificationRepo> createElement() {
+    return _FlutterLocalNotificationRepoProviderElement(this);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return other is FlutterLocalNotificationRepoProvider &&
+        other.plugin == plugin;
+  }
+
+  @override
+  int get hashCode {
+    var hash = _SystemHash.combine(0, runtimeType.hashCode);
+    hash = _SystemHash.combine(hash, plugin.hashCode);
+
+    return _SystemHash.finish(hash);
+  }
+}
+
+mixin FlutterLocalNotificationRepoRef
+    on AutoDisposeProviderRef<FlutterLocalNotificationRepo> {
+  /// The parameter `plugin` of this provider.
+  FlutterLocalNotificationsPlugin get plugin;
+}
+
+class _FlutterLocalNotificationRepoProviderElement
+    extends AutoDisposeProviderElement<FlutterLocalNotificationRepo>
+    with FlutterLocalNotificationRepoRef {
+  _FlutterLocalNotificationRepoProviderElement(super.provider);
+
+  @override
+  FlutterLocalNotificationsPlugin get plugin =>
+      (origin as FlutterLocalNotificationRepoProvider).plugin;
+}
+
+String _$fcmRepoHash() => r'289096e32af58342e8086e93ef51a86bb0fee25c';
+
+/// See also [fcmRepo].
+@ProviderFor(fcmRepo)
+final fcmRepoProvider = AutoDisposeProvider<FCMRepo>.internal(
+  fcmRepo,
+  name: r'fcmRepoProvider',
+  debugGetCreateSourceHash:
+      const bool.fromEnvironment('dart.vm.product') ? null : _$fcmRepoHash,
+  dependencies: null,
+  allTransitiveDependencies: null,
+);
+
+typedef FcmRepoRef = AutoDisposeProviderRef<FCMRepo>;
 // ignore_for_file: type=lint
 // ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member

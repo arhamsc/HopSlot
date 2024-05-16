@@ -1,6 +1,6 @@
 import 'package:app/main/domain/models/doctor/doc_stats_model/doc_stats.model.dart';
-import 'package:app/shared/domain/models/entities/appointment/appointment.model.dart';
-import 'package:app/shared/domain/models/helpers/api_response/api_response.model.dart';
+import 'package:app/main/domain/entities/appointment/appointment.model.dart';
+import 'package:app/main/domain/helpers/api_response/api_response.model.dart';
 import 'package:app/utils/exceptions/app_exception.dart';
 import 'package:app/utils/exceptions/task_try_catch_error.dart';
 import 'package:dio/dio.dart';

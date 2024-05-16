@@ -1,10 +1,11 @@
 import { Injectable, Logger } from '@nestjs/common';
-import { catchError, from, map, switchMap, tap } from 'rxjs';
+import { catchError, from, map, skipWhile, switchMap, tap } from 'rxjs';
 import { AppointmentRedisService } from '../appointment-redis/appointment-redis.service';
 import { PostgresPrismaService } from 'src/global/database/postgres-prisma.service';
-import { ConfigService } from '@nestjs/config';
 import { DjangoPredictorService } from '../django-predictor/django-predictor.service';
 import { AppointmentService } from '../appointment.service';
+import { NotificationService } from 'src/global/notification/notification.service';
+import { NotificationCodes } from 'src/enums/notification-codes.enum';
 
 @Injectable()
 export class ScheduleAppointmentService {
@@ -13,7 +14,7 @@ export class ScheduleAppointmentService {
   constructor(
     private appRedis: AppointmentRedisService,
     private readonly pgPrisma: PostgresPrismaService,
-    private readonly config: ConfigService,
+    private readonly notiService: NotificationService,
     private readonly djangoService: DjangoPredictorService,
   ) {}
   schedulerAppointment(hospitalId: string, doctorId: string, slotId: string) {
@@ -29,6 +30,16 @@ export class ScheduleAppointmentService {
           },
           include: {
             symptoms: true,
+            doctor: {
+              select: {
+                user: {
+                  select: {
+                    id: true,
+                    fcmToken: true,
+                  },
+                },
+              },
+            },
           },
         }),
       ),
@@ -44,6 +55,7 @@ export class ScheduleAppointmentService {
             values: s.values,
           })),
         })),
+        originalAppointments: appointments,
       })),
 
       switchMap((obj) =>
@@ -52,6 +64,7 @@ export class ScheduleAppointmentService {
             return {
               predictions: a,
               appointments: obj.appointments,
+              originalAppointments: obj.originalAppointments,
             };
           }),
         ),
@@ -84,7 +97,11 @@ export class ScheduleAppointmentService {
           }
         });
 
-        return { predictions: preds, appointments: predictions.appointments };
+        return {
+          predictions: preds,
+          appointments: predictions.appointments,
+          originalAppointments: predictions.originalAppointments,
+        };
       }),
       switchMap((predictions) =>
         from(
@@ -138,6 +155,79 @@ export class ScheduleAppointmentService {
             status: 'filled',
           });
         }
+      }),
+      tap((merged) => {
+        if (merged.predictions.length <= 0) return;
+        return from(merged.predictions)
+          .pipe(
+            switchMap((prediction) => {
+              return from(
+                this.pgPrisma.appointment.findUnique({
+                  where: {
+                    id: prediction.appointmentId,
+                  },
+                  include: {
+                    patient: {
+                      select: {
+                        id: true,
+                        fcmToken: true,
+                      },
+                    },
+                    doctor: {
+                      select: {
+                        user: {
+                          select: {
+                            id: true,
+                            fcmToken: true,
+                            lastName: true,
+                            firstName: true,
+                          },
+                        },
+                      },
+                    },
+                  },
+                }),
+              );
+            }),
+          )
+          .pipe(
+            skipWhile((appointment) => !appointment),
+            tap((appointment) => {
+              if (!appointment?.patient.fcmToken) return;
+              //send notification to patient
+              return this.notiService
+                .sendNotification(appointment.patient.fcmToken, {
+                  title: 'Appointment Scheduled',
+                  body: `Your appointment has been scheduled for ${appointment.appointmentStart} with Dr. ${appointment.doctor.user.firstName} ${appointment.doctor.user.lastName}`,
+                  data: {
+                    code: NotificationCodes.APPOINTMENT_CONFIRMED,
+                    fromId: appointment.doctor.user.id,
+                    fromRole: 'DOCTOR',
+                    message: `Your appointment has been scheduled for ${appointment.appointmentStart} with Dr. ${appointment.doctor.user.firstName} ${appointment.doctor.user.lastName}`,
+                    appointmentId: appointment.id,
+                  },
+                })
+                .subscribe();
+            }),
+          );
+      }),
+      tap((a) => {
+        if (a.predictions.length <= 0) return;
+
+        if (!a.originalAppointments[0].doctor.user.fcmToken) return;
+
+        this.notiService
+          .sendNotification(a.originalAppointments[0].doctor.user.fcmToken, {
+            title: 'Appointment Scheduled',
+            body: `Appointments scheduled for ${a.originalAppointments[0].appointmentStart?.toLocaleString()} with ${a.originalAppointments.length} patients`,
+            data: {
+              code: NotificationCodes.APPOINTMENT_CONFIRMED,
+              fromId: a.originalAppointments[0].doctor.user.id,
+              fromRole: 'DOCTOR',
+              message: `Appointments scheduled for ${a.originalAppointments[0].appointmentStart?.toLocaleString()} with ${a.originalAppointments.length} patients`,
+            },
+          })
+          .subscribe();
       }),
       catchError((err) => {
         this.logger.error(err);

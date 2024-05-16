@@ -1,5 +1,5 @@
-import 'package:app/shared/domain/models/entities/user/user.model.dart';
-import 'package:app/shared/domain/models/helpers/api_response/api_response.model.dart';
+import 'package:app/main/domain/entities/user/user.model.dart';
+import 'package:app/main/domain/helpers/api_response/api_response.model.dart';
 import 'package:app/utils/exceptions/app_exception.dart';
 import 'package:app/utils/exceptions/auth_exception.dart';
 import 'package:app/utils/exceptions/exception_codes/auth_exception_codes.dart';

@@ -1,5 +1,5 @@
 import 'package:app/main/data/repositories/doc_slot.repo.dart';
-import 'package:app/shared/domain/models/entities/doctor_slot/doctor_slot.model.dart';
+import 'package:app/main/domain/entities/doctor_slot/doctor_slot.model.dart';
 import 'package:app/utils/exceptions/app_exception.dart';
 import 'package:fpdart/fpdart.dart';
 

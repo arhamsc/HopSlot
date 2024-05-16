@@ -2,7 +2,7 @@ import 'package:app/core/router/app_router.dart';
 import 'package:app/core/router/app_router.gr.dart';
 import 'package:app/core/theme/palette.dart';
 import 'package:app/main/domain/providers/use_case_providers/use_case.provides.dart';
-import 'package:app/shared/domain/providers/user_provider/user.provider.dart';
+import 'package:app/main/domain/providers/user_provider/user.provider.dart';
 import 'package:app/shared/presentation/widgets/ui/buttons/button.ui.dart';
 import 'package:app/shared/presentation/widgets/ui/typography/body.typo.dart';
 import 'package:app/shared/presentation/widgets/ui/typography/headline.typo.dart';

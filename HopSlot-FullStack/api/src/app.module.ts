@@ -31,10 +31,12 @@ import { CloudinaryModule } from './dynamic-modules/cloudinary/cloudinary.module
 import { PrescriptionModule } from './features/prescription/prescription.module';
 import { ReportsModule } from './features/reports/reports.module';
 import { PatientModule } from './features/users/consumers/patient/patient.module';
+import { FirebaseModule } from 'nestjs-firebase';
+import { NotificationModule } from './global/notification/notification.module';
 
 @Module({
   imports: [
-    ConfigModule.forRoot({ isGlobal: true, load: [argonOptions] }),
+    ConfigModule.forRoot({ isGlobal: true, load: [argonOptions], cache: true }),
     JwtModule.register({ global: true }),
     CacheModule.registerAsync({
       isGlobal: true,
@@ -61,6 +63,12 @@ import { PatientModule } from './features/users/consumers/patient/patient.module
       }),
       inject: [ConfigService],
     }),
+    FirebaseModule.forRootAsync({
+      inject: [ConfigService],
+      useFactory: (config: ConfigService) => ({
+        googleApplicationCredential: config.get('HOPSLOT_FB_SECRET'),
+      }),
+    }),
     ScheduleModule.forRoot(),
     RouterModule.register(routerRouts),
     DatabaseModule,
@@ -78,6 +86,7 @@ import { PatientModule } from './features/users/consumers/patient/patient.module
     PrescriptionModule,
     ReportsModule,
     PatientModule,
+    NotificationModule,
   ],
   providers: [
     PostgresPrismaService,

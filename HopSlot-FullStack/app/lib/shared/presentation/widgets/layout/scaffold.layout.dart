@@ -1,8 +1,7 @@
-import 'package:app/shared/domain/providers/user_provider/user.provider.dart';
+import 'package:app/main/domain/providers/user_provider/user.provider.dart';
 import 'package:app/shared/presentation/widgets/layout/doctor_drawer.layout.dart';
 import 'package:app/shared/presentation/widgets/layout/listeners/snack_bar.listener.dart';
 import 'package:app/shared/presentation/widgets/layout/patient_drawer.layout.dart';
-import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_keyboard_visibility/flutter_keyboard_visibility.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';

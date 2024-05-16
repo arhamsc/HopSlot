@@ -1,7 +1,7 @@
-import 'package:app/shared/domain/enums/action_result/action_result.enum.dart';
-import 'package:app/shared/domain/models/entities/doctor/doctor.model.dart';
-import 'package:app/shared/domain/models/entities/patient/patient.model.dart';
-import 'package:app/shared/domain/models/entities/user/user.model.dart';
+import 'package:app/main/domain/enums/action_result/action_result.enum.dart';
+import 'package:app/main/domain/entities/doctor/doctor.model.dart';
+import 'package:app/main/domain/entities/patient/patient.model.dart';
+import 'package:app/main/domain/entities/user/user.model.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'profile_controller.state.g.dart';

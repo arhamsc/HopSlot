@@ -1,6 +1,6 @@
 import 'package:app/core/logger/talker.dart';
-import 'package:app/shared/domain/models/entities/user/user.model.dart';
-import 'package:app/shared/domain/providers/user_provider/user.provider.dart';
+import 'package:app/main/domain/entities/user/user.model.dart';
+import 'package:app/main/domain/providers/user_provider/user.provider.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 

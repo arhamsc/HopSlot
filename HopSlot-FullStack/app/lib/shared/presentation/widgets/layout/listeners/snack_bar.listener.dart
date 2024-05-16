@@ -1,5 +1,5 @@
 import 'package:app/core/constants/enums.dart';
-import 'package:app/shared/domain/models/states/snack_bar_state/snack_bar.state.model.dart';
+import 'package:app/main/domain/states/snack_bar_state/snack_bar.state.model.dart';
 import 'package:app/shared/presentation/providers/flash_bar_controller/flash_bar_controller.provider.dart';
 import 'package:app/shared/presentation/providers/snack_bar_messenger_provider/snack_bar_messenger_provider.dart';
 import 'package:app/shared/presentation/providers/snack_bars_provider/snack_bars.provider.dart';

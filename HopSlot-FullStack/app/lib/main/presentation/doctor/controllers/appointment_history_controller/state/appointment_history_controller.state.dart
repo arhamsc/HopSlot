@@ -1,5 +1,5 @@
-import 'package:app/shared/domain/models/entities/appointment_detail/appointment_detail.model.dart';
-import 'package:app/shared/domain/models/entities/appointment_item/appointment_item.model.dart';
+import 'package:app/main/domain/entities/appointment_detail/appointment_detail.model.dart';
+import 'package:app/main/domain/entities/appointment_item/appointment_item.model.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'appointment_history_controller.state.g.dart';

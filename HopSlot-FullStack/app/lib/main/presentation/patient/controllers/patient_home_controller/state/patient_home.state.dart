@@ -1,5 +1,5 @@
-import 'package:app/shared/domain/models/entities/appointment/appointment.model.dart';
-import 'package:app/shared/domain/models/entities/appointment_detail/appointment_detail.model.dart';
+import 'package:app/main/domain/entities/appointment/appointment.model.dart';
+import 'package:app/main/domain/entities/appointment_detail/appointment_detail.model.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'patient_home.state.freezed.dart';

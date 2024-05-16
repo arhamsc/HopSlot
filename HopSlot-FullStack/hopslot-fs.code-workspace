@@ -11,6 +11,13 @@
     }
   ],
   "settings": {
-    "cSpell.words": ["Actecedent", "clipboardy", "datetime", "hopslot", "preds"]
+    "cSpell.words": [
+      "Actecedent",
+      "clipboardy",
+      "datetime",
+      "hopslot",
+      "noti",
+      "preds"
+    ]
   }
 }

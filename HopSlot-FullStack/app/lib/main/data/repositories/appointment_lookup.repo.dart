@@ -1,7 +1,7 @@
-import 'package:app/shared/domain/models/entities/doctor_slot/doctor_slot.model.dart';
-import 'package:app/shared/domain/models/entities/symptom_evidence/symptom_evidence.model.dart';
-import 'package:app/shared/domain/models/helpers/api_response/api_response.model.dart';
-import 'package:app/shared/domain/models/helpers/look_up_response/look_up_response.model.dart';
+import 'package:app/main/domain/entities/doctor_slot/doctor_slot.model.dart';
+import 'package:app/main/domain/entities/symptom_evidence/symptom_evidence.model.dart';
+import 'package:app/main/domain/helpers/api_response/api_response.model.dart';
+import 'package:app/main/domain/helpers/look_up_response/look_up_response.model.dart';
 import 'package:app/utils/exceptions/app_exception.dart';
 import 'package:app/utils/exceptions/task_try_catch_error.dart';
 import 'package:dio/dio.dart';

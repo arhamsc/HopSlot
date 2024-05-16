@@ -1,7 +1,6 @@
 import 'package:app/core/theme/palette.dart';
 import 'package:app/core/theme/typography.dart';
 import 'package:app/shared/presentation/widgets/ui/typography/headline.typo.dart';
-import 'package:app/shared/presentation/widgets/ui/typography/title.typo.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';

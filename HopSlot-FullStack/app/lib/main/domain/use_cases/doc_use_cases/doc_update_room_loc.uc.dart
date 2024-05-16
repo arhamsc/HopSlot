@@ -1,7 +1,6 @@
 import 'package:app/main/data/repositories/doc.repo.dart';
-import 'package:app/shared/domain/providers/doctor_provider/doctor.provider.dart';
+import 'package:app/main/domain/providers/doctor_provider/doctor.provider.dart';
 import 'package:app/utils/exceptions/app_exception.dart';
-import 'package:auto_route/auto_route.dart';
 import 'package:fpdart/fpdart.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 

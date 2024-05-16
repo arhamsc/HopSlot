@@ -1,4 +1,3 @@
-import 'dart:ffi';
 
 import 'package:app/main/domain/providers/use_case_providers/use_case.provides.dart';
 import 'package:app/main/presentation/doctor/controllers/appointment_history_controller/state/appointment_history_controller.state.dart';

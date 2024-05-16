@@ -1,5 +1,5 @@
 import 'package:app/core/logger/talker.dart';
-import 'package:app/shared/domain/providers/user_provider/user.provider.dart';
+import 'package:app/main/domain/providers/user_provider/user.provider.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';

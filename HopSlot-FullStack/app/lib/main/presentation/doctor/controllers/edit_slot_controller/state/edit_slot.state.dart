@@ -1,4 +1,4 @@
-import 'package:app/shared/domain/models/entities/doctor_slot/doctor_slot.model.dart';
+import 'package:app/main/domain/entities/doctor_slot/doctor_slot.model.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'edit_slot.state.g.dart';

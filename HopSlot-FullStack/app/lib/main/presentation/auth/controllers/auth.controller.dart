@@ -1,5 +1,5 @@
 import 'package:app/main/domain/providers/use_case_providers/use_case.provides.dart';
-import 'package:app/shared/domain/models/entities/user/user.model.dart';
+import 'package:app/main/domain/entities/user/user.model.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 

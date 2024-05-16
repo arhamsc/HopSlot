@@ -1,6 +1,6 @@
 import 'package:app/main/data/repositories/prescription.repo.dart';
 import 'package:app/main/domain/forms/prescription_form/prescription.form.dart';
-import 'package:app/shared/domain/models/entities/prescription/prescription.model.dart';
+import 'package:app/main/domain/entities/prescription/prescription.model.dart';
 import 'package:app/utils/exceptions/app_exception.dart';
 import 'package:fpdart/fpdart.dart';
 

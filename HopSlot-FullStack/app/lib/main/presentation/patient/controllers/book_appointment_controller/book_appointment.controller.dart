@@ -1,9 +1,9 @@
 import 'package:app/main/domain/providers/use_case_providers/use_case.provides.dart';
 import 'package:app/main/presentation/patient/controllers/book_appointment_controller/state/book_appointment.state.dart';
 import 'package:app/main/presentation/patient/forms/book_appointment_form/book_appointment.form.dart';
-import 'package:app/shared/domain/models/entities/doctor_slot/doctor_slot.model.dart';
-import 'package:app/shared/domain/models/entities/symptom_evidence/symptom_evidence.model.dart';
-import 'package:app/shared/domain/models/helpers/look_up_response/look_up_response.model.dart';
+import 'package:app/main/domain/entities/doctor_slot/doctor_slot.model.dart';
+import 'package:app/main/domain/entities/symptom_evidence/symptom_evidence.model.dart';
+import 'package:app/main/domain/helpers/look_up_response/look_up_response.model.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part 'book_appointment.controller.g.dart';

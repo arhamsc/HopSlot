@@ -1,4 +1,3 @@
-import 'dart:ffi';
 
 import 'package:app/main/domain/forms/prescription_form/prescription.form.dart';
 import 'package:app/main/domain/providers/use_case_providers/use_case.provides.dart';

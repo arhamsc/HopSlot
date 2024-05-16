@@ -1,5 +1,5 @@
 import 'package:app/core/constants/enums.dart';
-import 'package:app/shared/domain/models/states/snack_bar_state/snack_bar.state.model.dart';
+import 'package:app/main/domain/states/snack_bar_state/snack_bar.state.model.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part 'snack_bar_messenger_provider.g.dart';

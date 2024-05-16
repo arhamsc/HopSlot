@@ -1,8 +1,8 @@
 import 'package:app/core/constants/enums.dart';
 import 'package:app/core/router/app_router.dart';
 import 'package:app/main/presentation/doctor/controllers/edit_slot_controller/edit_slot.controller.dart';
-import 'package:app/shared/domain/enums/status/status.enum.dart';
-import 'package:app/shared/domain/models/entities/doctor_slot/doctor_slot.model.dart';
+import 'package:app/main/domain/enums/status/status.enum.dart';
+import 'package:app/main/domain/entities/doctor_slot/doctor_slot.model.dart';
 import 'package:app/shared/presentation/providers/snack_bar_messenger_provider/snack_bar_messenger_provider.dart';
 import 'package:app/shared/presentation/widgets/layout/scaffold.layout.dart';
 import 'package:app/shared/presentation/widgets/ui/buttons/button.ui.dart';

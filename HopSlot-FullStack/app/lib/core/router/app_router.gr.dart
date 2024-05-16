@@ -8,6 +8,10 @@
 // coverage:ignore-file
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
+import 'package:app/main/domain/entities/appointment/appointment.model.dart'
+    as _i16;
+import 'package:app/main/domain/entities/doctor_slot/doctor_slot.model.dart'
+    as _i15;
 import 'package:app/main/presentation/auth/screens/auth.screen.dart' as _i3;
 import 'package:app/main/presentation/doctor/screens/appointment_history.screen.dart'
     as _i1;
@@ -23,10 +27,6 @@ import 'package:app/main/presentation/patient/screens/book_appointment.screen.da
     as _i4;
 import 'package:app/main/presentation/patient/screens/patient_home.screen.dart'
     as _i11;
-import 'package:app/shared/domain/models/entities/appointment/appointment.model.dart'
-    as _i16;
-import 'package:app/shared/domain/models/entities/doctor_slot/doctor_slot.model.dart'
-    as _i15;
 import 'package:app/shared/presentation/screens/profile.screen.dart' as _i12;
 import 'package:app/shared/presentation/widgets/utility/empty_screens/auth_empty.screen.dart'
     as _i2;

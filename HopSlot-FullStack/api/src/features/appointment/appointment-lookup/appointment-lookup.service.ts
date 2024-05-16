@@ -122,7 +122,7 @@ export class AppointmentLookupService {
           doctorId,
           status: 'ACTIVE',
           slotStartTime: {
-            lte: date,
+            gte: date,
           },
           forDay: {
             has: day,

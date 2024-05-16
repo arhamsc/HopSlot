@@ -5,9 +5,9 @@ import 'package:app/core/theme/palette.dart';
 import 'package:app/main/presentation/patient/controllers/book_appointment_controller/book_appointment.controller.dart';
 import 'package:app/main/presentation/patient/forms/book_appointment_form/book_appointment.form.dart';
 import 'package:app/main/presentation/patient/providers/form_providers/forms.providers.dart';
-import 'package:app/shared/domain/models/entities/doctor_slot/doctor_slot.model.dart';
-import 'package:app/shared/domain/models/entities/point_of_interest_value/point_of_interest_value.model.dart';
-import 'package:app/shared/domain/models/helpers/look_up_response/look_up_response.model.dart';
+import 'package:app/main/domain/entities/doctor_slot/doctor_slot.model.dart';
+import 'package:app/main/domain/entities/point_of_interest_value/point_of_interest_value.model.dart';
+import 'package:app/main/domain/helpers/look_up_response/look_up_response.model.dart';
 import 'package:app/shared/presentation/providers/snack_bar_messenger_provider/snack_bar_messenger_provider.dart';
 import 'package:app/shared/presentation/widgets/layout/scaffold.layout.dart';
 import 'package:app/shared/presentation/widgets/ui/buttons/button.ui.dart';
@@ -118,11 +118,13 @@ class BookAppointmentScreen extends ConsumerWidget {
                                               CrossAxisAlignment.start,
                                           children: [
                                             Text(symptom.value?['question']
-                                                    as String)
+                                                        as String? ??
+                                                    "")
                                                 .headline2(),
                                             Gap(16.h),
                                             if ((symptom.value?["dataType"]
-                                                    as String) ==
+                                                        as String? ??
+                                                    "B") ==
                                                 "M")
                                               CDropdownMultiSearchField<String>(
                                                 items: (symptom.value?[
@@ -147,7 +149,8 @@ class BookAppointmentScreen extends ConsumerWidget {
                                                     "Selected $length place(s)",
                                               )
                                             else if ((symptom.value?["dataType"]
-                                                    as String) ==
+                                                        as String? ??
+                                                    "B") ==
                                                 "C")
                                               CDropdownSearchField<
                                                   List<String>>(

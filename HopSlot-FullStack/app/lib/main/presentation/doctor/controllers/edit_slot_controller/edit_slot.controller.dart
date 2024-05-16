@@ -1,6 +1,6 @@
 import 'package:app/main/domain/providers/use_case_providers/use_case.provides.dart';
 import 'package:app/main/presentation/doctor/controllers/edit_slot_controller/state/edit_slot.state.dart';
-import 'package:app/shared/domain/models/entities/doctor_slot/doctor_slot.model.dart';
+import 'package:app/main/domain/entities/doctor_slot/doctor_slot.model.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part 'edit_slot.controller.g.dart';

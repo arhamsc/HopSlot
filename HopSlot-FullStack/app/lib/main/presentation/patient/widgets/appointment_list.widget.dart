@@ -1,6 +1,6 @@
 import 'package:app/core/theme/palette.dart';
-import 'package:app/shared/domain/enums/appointment_status/appointment_status.enum.dart';
-import 'package:app/shared/domain/models/entities/appointment/appointment.model.dart';
+import 'package:app/main/domain/enums/appointment_status/appointment_status.enum.dart';
+import 'package:app/main/domain/entities/appointment/appointment.model.dart';
 import 'package:app/shared/presentation/widgets/2_col_box.widget.dart';
 import 'package:app/shared/presentation/widgets/ui/typography/body.typo.dart';
 import 'package:app/utils/date_formatter.util.dart';

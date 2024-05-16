@@ -28,8 +28,10 @@ class PatientHomeScreen extends ConsumerWidget {
               message: "Please wait..",
               type: SnackbarType.loading,
             );
-      } else {
-        ref.read(snackBarMessengerProvider.notifier).hideSnackBar();
+      } else if (!next.isLoading) {
+        if (next.error == null) {
+          ref.read(snackBarMessengerProvider.notifier).hideSnackBar();
+        }
         next.showSnackbarOnAppError(context, ref);
       }
 
@@ -60,6 +62,7 @@ class PatientHomeScreen extends ConsumerWidget {
                               type: SnackbarType.error,
                             );
                       }
+                      await controller.dismiss();
                       _controller(ref).cancelAppointment(
                         next.value!.selectedAppointment!.id,
                       );

@@ -1,6 +1,6 @@
-import * as z from 'nestjs-zod/z';
-import { createZodDto } from 'nestjs-zod/dto';
-import { CompleteAppointment, RelatedAppointmentModel } from './index';
+import * as z from "nestjs-zod/z"
+import { createZodDto } from "nestjs-zod/dto"
+import { CompleteAppointment, RelatedAppointmentModel } from "./index"
 
 export const SymptomModel = z.object({
   id: z.string().uuid(),
@@ -11,12 +11,13 @@ export const SymptomModel = z.object({
   createdAt: z.date().optional(),
   updatedAt: z.date().optional(),
   appointmentId: z.string().nullish(),
-});
+})
 
-export class SymptomDto extends createZodDto(SymptomModel) {}
+export class SymptomDto extends createZodDto(SymptomModel) {
+}
 
 export interface CompleteSymptom extends z.infer<typeof SymptomModel> {
-  Appointment?: CompleteAppointment | null;
+  Appointment?: CompleteAppointment | null
 }
 
 /**
@@ -24,8 +25,6 @@ export interface CompleteSymptom extends z.infer<typeof SymptomModel> {
  *
  * NOTE: Lazy required in case of potential circular dependencies within schema
  */
-export const RelatedSymptomModel: z.ZodSchema<CompleteSymptom> = z.lazy(() =>
-  SymptomModel.extend({
-    Appointment: RelatedAppointmentModel.nullish(),
-  }),
-);
+export const RelatedSymptomModel: z.ZodSchema<CompleteSymptom> = z.lazy(() => SymptomModel.extend({
+  Appointment: RelatedAppointmentModel.nullish(),
+}))

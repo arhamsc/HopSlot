@@ -1,5 +1,5 @@
 import 'package:app/main/data/repositories/appointments.repo.dart';
-import 'package:app/shared/domain/models/entities/appointment_detail/appointment_detail.model.dart';
+import 'package:app/main/domain/entities/appointment_detail/appointment_detail.model.dart';
 import 'package:app/utils/exceptions/app_exception.dart';
 import 'package:fpdart/fpdart.dart';
 

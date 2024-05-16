@@ -1,4 +1,4 @@
-import 'package:app/shared/domain/models/entities/appointment_detail/appointment_detail.model.dart';
+import 'package:app/main/domain/entities/appointment_detail/appointment_detail.model.dart';
 import 'package:app/shared/presentation/widgets/ui/typography/body.typo.dart';
 import 'package:app/shared/presentation/widgets/ui/typography/headline.typo.dart';
 import 'package:app/utils/date_formatter.util.dart';

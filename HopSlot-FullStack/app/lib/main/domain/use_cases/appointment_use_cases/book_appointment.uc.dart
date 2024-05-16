@@ -1,6 +1,6 @@
 import 'package:app/main/data/repositories/appointments.repo.dart';
 import 'package:app/main/presentation/patient/forms/book_appointment_form/book_appointment.form.dart';
-import 'package:app/shared/domain/models/entities/appointment/appointment.model.dart';
+import 'package:app/main/domain/entities/appointment/appointment.model.dart';
 import 'package:app/utils/exceptions/app_exception.dart';
 import 'package:fpdart/fpdart.dart';
 

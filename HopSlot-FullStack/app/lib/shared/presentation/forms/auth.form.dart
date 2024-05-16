@@ -1,4 +1,3 @@
-import 'package:app/main.dart';
 import 'package:app/utils/validators/unique_username_email_validator.util.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:reactive_forms_annotations/reactive_forms_annotations.dart';

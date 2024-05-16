@@ -138,6 +138,7 @@ services:
     image: zerefarham/hopslot-api
     volumes:
       - ../api:/app
+      - api_node_modules:/app/node_modules
     ports:
       - 3000:3000
     env_file:
@@ -149,6 +150,8 @@ services:
       - kafka
     networks:
       - hopslot-network
+    secrets:
+      - fb-app-creds
 
   hopslot-django-api:
     build:
@@ -172,3 +175,8 @@ networks:
 
 volumes:
   kafa-data-1:
+  api_node_modules:
+
+secrets:
+  fb-app-creds:
+    file: ../api/hopslot-fb-key.json

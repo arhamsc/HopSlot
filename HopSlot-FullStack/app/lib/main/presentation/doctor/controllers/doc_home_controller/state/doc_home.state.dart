@@ -1,5 +1,5 @@
 import 'package:app/main/domain/models/doctor/doc_stats_model/doc_stats.model.dart';
-import 'package:app/shared/domain/models/entities/appointment/appointment.model.dart';
+import 'package:app/main/domain/entities/appointment/appointment.model.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'doc_home.state.g.dart';
