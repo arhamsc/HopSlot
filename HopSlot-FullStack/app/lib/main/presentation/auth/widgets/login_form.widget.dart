@@ -1,6 +1,7 @@
 import 'package:app/core/api/app_api.dart';
 import 'package:app/core/router/app_router.dart';
 import 'package:app/core/router/app_router.gr.dart';
+import 'package:app/main/domain/providers/user_provider/user.provider.dart';
 import 'package:app/main/presentation/auth/controllers/auth.controller.dart';
 import 'package:app/shared/presentation/forms/auth.form.dart';
 import 'package:app/shared/presentation/providers/forms_provider/forms.providers.dart';
@@ -39,6 +40,7 @@ class LoginFormWidget extends ConsumerWidget {
                 onPressed: controllerState.isLoading
                     ? null
                     : () {
+                        // print(ref.read(userNotifierProvider));
                         form.submit(onValid: (value) {
                           ref
                               .read(authControllerProvider.notifier)

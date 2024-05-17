@@ -36,7 +36,6 @@ class IssuePrescriptionScreen extends ConsumerWidget {
     final palette = Theme.of(context).extension<Palette>();
     final state = ref.watch(issuePrescriptionControllerProvider);
     ref.listen(issuePrescriptionControllerProvider, (previous, next) {
-      ref.read(talkerProvider).talker.info(next);
       if (next.isLoading) {
         ref.read(snackBarMessengerProvider.notifier).showSnackBar(
               message: "Issuing prescription.",

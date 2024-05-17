@@ -1,4 +1,5 @@
 import 'package:app/core/constants/enums.dart';
+import 'package:app/core/logger/talker.dart';
 import 'package:app/core/router/app_router.dart';
 import 'package:app/core/router/app_router.gr.dart';
 import 'package:app/main/domain/entities/user/user.model.dart';
@@ -19,35 +20,37 @@ class RouteRefreshHandler {
 
   void _listenToUserChanges() {
     _ref.listen(userNotifierProvider, (previous, next) {
-      // Skip token changes
-      if (previous?.tokens != next.tokens) return;
-
       if (next == User.empty()) {
         _navigateToAuth();
         return;
       }
-
-      if (next.role == 'PATIENT') {
-        _autoRoute.replaceAll([const PatientHomeRoute()]);
-      } else if (next.role == 'DOCTOR') {
-        _autoRoute.replaceAll([const DocHomeRoute()]);
-      } else {
-        _ref.read(snackBarMessengerProvider.notifier).showSnackBar(
-              message: "We are working on new roles, stay tuned!!",
-              type: SnackbarType.info,
-            );
-        _navigateToAuth();
-      }
     });
   }
 
+  void _roleBasedNavigation(User user) {
+    if (user.role == 'PATIENT') {
+      _autoRoute.pushAndPopUntil(const PatientHomeRoute(),
+          predicate: (_) => false);
+    } else if (user.role == 'DOCTOR') {
+      _autoRoute.pushAndPopUntil(const DocHomeRoute(), predicate: (_) => false);
+    } else {
+      _navigateToAuth();
+    }
+  }
+
   void _navigateToAuth() {
-    _autoRoute.replaceAll([AuthRoute()]);
+    _autoRoute.pushAndPopUntil(AuthRoute(), predicate: (_) => false);
   }
 
   void handleNavigation(NavigationResolver resolver, StackRouter router) {
     final user = _ref.read(userNotifierProvider);
-    if (user != User.empty() || resolver.route.name == AuthRoute.name) {
+    if (user != User.empty() && resolver.route.name == AuthRoute.name) {
+      // We are authenticated
+      if (resolver.route.name == AuthRoute.name) {
+        // Only when we are coming from auth route we will do role based navigation
+        _roleBasedNavigation(user);
+      }
+    } else if (user != User.empty() || resolver.route.name == AuthRoute.name) {
       resolver.next(true);
     } else {
       _navigateToAuth();

@@ -16,11 +16,6 @@ class UserNotifier extends _$UserNotifier {
       if (user == User.empty()) {
         return User.empty();
       }
-      bool isExpired = JwtDecoder.isExpired(user?.tokens.at ?? "");
-      if (isExpired) {
-        box.delete('loggedInUser');
-        return User.empty();
-      }
       return user ?? User.empty();
     }
     return User.empty();

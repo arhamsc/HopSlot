@@ -147,6 +147,7 @@ class SnackBars {
       barrierBlur: 4,
       barrierColor: palette?.secondary?.withOpacity(0.3),
       barrierDismissible: false,
+      duration: null,
     );
   }
 }
