@@ -13,6 +13,9 @@ class UserNotifier extends _$UserNotifier {
   User build() {
     if (box.containsKey('loggedInUser')) {
       final user = box.get('loggedInUser');
+      if (user == User.empty()) {
+        return User.empty();
+      }
       bool isExpired = JwtDecoder.isExpired(user?.tokens.at ?? "");
       if (isExpired) {
         box.delete('loggedInUser');
@@ -24,6 +27,11 @@ class UserNotifier extends _$UserNotifier {
   }
 
   void update(User user) {
+    if (user == User.empty()) {
+      box.delete('loggedInUser');
+      state = User.empty();
+      return;
+    }
     bool isExpired = JwtDecoder.isExpired(user.tokens.at);
     if (isExpired) {
       box.delete('loggedInUser');

@@ -65,6 +65,21 @@ final updateTokenUCProvider = AutoDisposeProvider<UpdateTokenUC>.internal(
 );
 
 typedef UpdateTokenUCRef = AutoDisposeProviderRef<UpdateTokenUC>;
+String _$refreshTokenUCHash() => r'692e73f52fe3155dbeaf2c87b72a48de144e8167';
+
+/// See also [refreshTokenUC].
+@ProviderFor(refreshTokenUC)
+final refreshTokenUCProvider = AutoDisposeProvider<RefreshTokenUC>.internal(
+  refreshTokenUC,
+  name: r'refreshTokenUCProvider',
+  debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
+      ? null
+      : _$refreshTokenUCHash,
+  dependencies: null,
+  allTransitiveDependencies: null,
+);
+
+typedef RefreshTokenUCRef = AutoDisposeProviderRef<RefreshTokenUC>;
 String _$checkUserNameEmailUCHash() =>
     r'9d614dd136edabea3044b1c766afa61f031d9738';
 

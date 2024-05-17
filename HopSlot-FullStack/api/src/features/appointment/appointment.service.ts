@@ -10,7 +10,6 @@ import {
   last,
   map,
   mergeMap,
-  of,
   skipWhile,
   switchMap,
   tap,
@@ -18,7 +17,6 @@ import {
 import { APIResponse } from 'src/core/types/api-response.type';
 import { AppointmentEssentials } from 'src/core/types/model_essentials.types';
 import { ConfigService } from '@nestjs/config';
-import { DjangoPredictorService } from './django-predictor/django-predictor.service';
 import { AppointmentRedisService } from './appointment-redis/appointment-redis.service';
 import { ScheduleAppointmentService } from './schedule-appointment/schedule-appointment.service';
 import { FindAllMyAppointmentsParams } from './params';
@@ -30,188 +28,232 @@ import { NotificationCodes } from 'src/enums/notification-codes.enum';
 @Injectable()
 export class AppointmentService {
   logger = new Logger(AppointmentService.name);
+
   constructor(
     private appRedis: AppointmentRedisService,
     private readonly pgPrisma: PostgresPrismaService,
     private readonly config: ConfigService,
-    private readonly djangoService: DjangoPredictorService,
     private readonly scheduleAppointmentService: ScheduleAppointmentService,
     private readonly notiService: NotificationService,
   ) {}
-
-  sample() {
-    return this.djangoService.sample();
-  }
 
   create(
     createAppointmentDto: CreateAppointmentDto,
     userId: string,
   ): Observable<APIResponse<AppointmentEssentials>> {
-    return from(
-      this.appRedis.getAppointmentRequestsStats({
-        doctorId: createAppointmentDto.doctorId,
-        hospitalId: createAppointmentDto.hospitalId,
-        slotId: createAppointmentDto.appointmentSlotId,
+    const appointmentDate = DateTime.fromISO(createAppointmentDto.date);
+    // Checking already existing appointments
+    const appointmentExists = from(
+      this.pgPrisma.doctorSlot.findUniqueOrThrow({
+        where: {
+          id: createAppointmentDto.appointmentSlotId,
+        },
       }),
     ).pipe(
-      tap((stats) => {
-        if (stats.length >= this.config.get('BATCH_SIZE')) {
-          if (stats.status === 'pending') {
-            this.scheduleAppointmentService
-              .schedulerAppointment(
-                createAppointmentDto.hospitalId,
-                createAppointmentDto.doctorId,
-                createAppointmentDto.appointmentSlotId,
-              )
-              .subscribe();
-          }
+      switchMap((slot) => {
+        const startTime = DateTime.fromJSDate(slot.slotStartTime).set({
+          day: appointmentDate.day,
+          month: appointmentDate.month,
+          year: appointmentDate.year,
+        });
+
+        const endTime = DateTime.fromJSDate(slot.slotEndTime).set({
+          day: appointmentDate.day,
+          month: appointmentDate.month,
+          year: appointmentDate.year,
+        });
+
+        return from(
+          this.pgPrisma.appointment.findFirst({
+            where: {
+              appointmentSlotId: createAppointmentDto.appointmentSlotId,
+              appointmentStart: {
+                gte: startTime.toJSDate(),
+                lt: endTime.toJSDate(),
+              },
+            },
+          }),
+        );
+      }),
+      map((appointment) => {
+        if (appointment) {
           throw new NotAcceptableException(
-            'No more appointments available for this slot.',
+            'Appointment already exists for this slot.',
           );
         }
-        return;
+        return null;
       }),
-      switchMap(() => {
-        return from(
-          this.pgPrisma.doctorSlot.findFirstOrThrow({
-            where: {
-              id: createAppointmentDto.appointmentSlotId,
-            },
+    );
+
+    return appointmentExists.pipe(
+      switchMap(() =>
+        from(
+          this.appRedis.getAppointmentRequestsStats({
+            doctorId: createAppointmentDto.doctorId,
+            hospitalId: createAppointmentDto.hospitalId,
+            slotId: createAppointmentDto.appointmentSlotId,
           }),
-        );
-      }),
-      switchMap((slot) => {
-        const slotStartTime = DateTime.fromJSDate(slot.slotStartTime);
-        let initialTime = DateTime.fromISO(createAppointmentDto.date);
-        initialTime = initialTime.set({
-          hour: slotStartTime.hour,
-          minute: slotStartTime.minute,
-          second: 0,
-          millisecond: 0,
-        });
-        return from(
-          this.pgPrisma.appointment.create({
-            data: {
-              appointmentSlot: {
-                connect: {
+        ).pipe(
+          tap((stats) => {
+            if (stats.length >= this.config.get('BATCH_SIZE')) {
+              if (stats.status === 'pending') {
+                this.scheduleAppointmentService
+                  .schedulerAppointment(
+                    createAppointmentDto.hospitalId,
+                    createAppointmentDto.doctorId,
+                    createAppointmentDto.appointmentSlotId,
+                  )
+                  .subscribe();
+              }
+              throw new NotAcceptableException(
+                'No more appointments available for this slot.',
+              );
+            }
+            return;
+          }),
+          switchMap(() => {
+            return from(
+              this.pgPrisma.doctorSlot.findFirstOrThrow({
+                where: {
                   id: createAppointmentDto.appointmentSlotId,
                 },
-              },
-              doctor: {
-                connect: {
-                  userId: createAppointmentDto.doctorId,
-                },
-              },
-              hospital: {
-                connect: {
-                  id: createAppointmentDto.hospitalId,
-                },
-              },
-              patient: {
-                connect: {
-                  id: userId,
-                },
-              },
-              symptoms: {
-                createMany: {
-                  data: createAppointmentDto.symptoms,
-                },
-              },
-              status: 'PENDING',
-              appointmentStart: initialTime.toJSDate(),
-            },
-            select: {
-              id: true,
-              status: true,
-              additionalDelay: true,
-              doctorId: true,
-              hospitalId: true,
-              patientId: true,
-              appointmentSlotId: true,
-              symptoms: true,
-              appointmentStartDelay: true,
-              appointmentStart: true,
-              severity: true,
-            },
+              }),
+            );
           }),
-        );
-      }),
-      tap((appointment) =>
-        this.appRedis.storeAppointmentRequest({
-          appointmentId: appointment.id,
-          doctorId: appointment.doctorId,
-          hospitalId: appointment.hospitalId,
-          slotId: createAppointmentDto.appointmentSlotId,
-        }),
+          switchMap((slot) => {
+            const slotStartTime = DateTime.fromJSDate(slot.slotStartTime);
+            let initialTime = DateTime.fromISO(createAppointmentDto.date);
+            initialTime = initialTime.set({
+              hour: slotStartTime.hour,
+              minute: slotStartTime.minute,
+              second: 0,
+              millisecond: 0,
+            });
+            return from(
+              this.pgPrisma.appointment.create({
+                data: {
+                  appointmentSlot: {
+                    connect: {
+                      id: createAppointmentDto.appointmentSlotId,
+                    },
+                  },
+                  doctor: {
+                    connect: {
+                      userId: createAppointmentDto.doctorId,
+                    },
+                  },
+                  hospital: {
+                    connect: {
+                      id: createAppointmentDto.hospitalId,
+                    },
+                  },
+                  patient: {
+                    connect: {
+                      id: userId,
+                    },
+                  },
+                  symptoms: {
+                    createMany: {
+                      data: createAppointmentDto.symptoms,
+                    },
+                  },
+                  status: 'PENDING',
+                  appointmentStart: initialTime.toJSDate(),
+                },
+                select: {
+                  id: true,
+                  status: true,
+                  additionalDelay: true,
+                  doctorId: true,
+                  hospitalId: true,
+                  patientId: true,
+                  appointmentSlotId: true,
+                  symptoms: true,
+                  appointmentStartDelay: true,
+                  appointmentStart: true,
+                  severity: true,
+                },
+              }),
+            );
+          }),
+          tap((appointment) =>
+            this.appRedis.storeAppointmentRequest({
+              appointmentId: appointment.id,
+              doctorId: appointment.doctorId,
+              hospitalId: appointment.hospitalId,
+              slotId: createAppointmentDto.appointmentSlotId,
+            }),
+          ),
+          tap((appointment) => {
+            return from(
+              this.pgPrisma.user.findUnique({
+                where: {
+                  id: appointment.patientId,
+                },
+              }),
+            )
+              .pipe(
+                tap((user) => {
+                  if (!user || !user.fcmToken) {
+                    return;
+                  }
+
+                  return this.notiService
+                    .sendNotification(user.fcmToken, {
+                      title: 'New appointment request',
+                      body: 'Your appointment request has been registered. Please wait for confirmation.',
+                      data: {
+                        code: NotificationCodes.NEW_APPOINTMENT,
+                        fromId: appointment.patientId,
+                        fromRole: Role.PATIENT,
+                        message:
+                          'Your appointment request has been registered. Please wait for confirmation.',
+                        appointmentId: appointment.id,
+                      },
+                    })
+                    .subscribe();
+                }),
+              )
+              .subscribe();
+          }),
+          tap((appointment) => {
+            return from(
+              this.pgPrisma.user.findUnique({
+                where: {
+                  id: appointment.doctorId,
+                },
+              }),
+            )
+              .pipe(
+                tap((user) => {
+                  if (!user || !user.fcmToken) {
+                    return;
+                  }
+
+                  return this.notiService
+                    .sendNotification(user.fcmToken, {
+                      title: 'New appointment request',
+                      body: 'There is a new appointment request. It will be scheduled soon.',
+                      data: {
+                        code: NotificationCodes.NEW_APPOINTMENT,
+                        fromId: appointment.patientId,
+                        fromRole: Role.PATIENT,
+                        message:
+                          'There is a new appointment request. It will be scheduled soon.',
+                        appointmentId: appointment.id,
+                      },
+                    })
+                    .subscribe();
+                }),
+              )
+              .subscribe();
+          }),
+          map((appointment) => ({
+            data: appointment,
+            message: 'Appointment created successfully.',
+          })),
+        ),
       ),
-      tap((appointment) => {
-        return from(
-          this.pgPrisma.user.findUnique({
-            where: {
-              id: appointment.patientId,
-            },
-          }),
-        )
-          .pipe(
-            tap((user) => {
-              if (!user || !user.fcmToken) {
-                return;
-              }
-
-              return this.notiService
-                .sendNotification(user.fcmToken, {
-                  title: 'New appointment request',
-                  body: 'Your appointment request has been registered. Please wait for confirmation.',
-                  data: {
-                    code: NotificationCodes.NEW_APPOINTMENT,
-                    fromId: appointment.patientId,
-                    fromRole: Role.PATIENT,
-                    message:
-                      'Your appointment request has been registered. Please wait for confirmation.',
-                    appointmentId: appointment.id,
-                  },
-                })
-                .subscribe();
-            }),
-          )
-          .subscribe();
-      }),
-      tap((appointment) => {
-        return from(
-          this.pgPrisma.user.findUnique({
-            where: {
-              id: appointment.doctorId,
-            },
-          }),
-        )
-          .pipe(
-            tap((user) => {
-              if (!user || !user.fcmToken) {
-                return;
-              }
-
-              return this.notiService
-                .sendNotification(user.fcmToken, {
-                  title: 'New appointment request',
-                  body: 'There is a new appointment request. It will be scheduled soon.',
-                  data: {
-                    code: NotificationCodes.NEW_APPOINTMENT,
-                    fromId: appointment.patientId,
-                    fromRole: Role.PATIENT,
-                    message:
-                      'There is a new appointment request. It will be scheduled soon.',
-                    appointmentId: appointment.id,
-                  },
-                })
-                .subscribe();
-            }),
-          )
-          .subscribe();
-      }),
-      map((appointment) => ({
-        data: appointment,
-        message: 'Appointment created successfully.',
-      })),
     );
   }
 
@@ -379,17 +421,6 @@ export class AppointmentService {
     id: string,
     patientId: string,
   ): Observable<APIResponse<Appointment>> {
-    //1. Find appointment
-
-    //2. Find all appointments for the same slot which are after this
-
-    //3. Shift their timings -15 min
-
-    //4. Cancel this appointment
-
-    //5. Send notification to patient
-
-    //6. If in redis then remove from there and update its status if "filled"
     return from(
       this.pgPrisma.appointment.findFirstOrThrow({
         where: { id, status: { notIn: ['COMPLETED', 'CANCELLED'] }, patientId },
@@ -489,7 +520,7 @@ export class AppointmentService {
               return appointments;
             }
           }),
-          // skipWhile((appointments) => appointments.length === 0),
+          skipWhile((appointments) => appointments.length === 0),
           // Split all the appointments into individual appointments due to the return type of findMany as a promise
           mergeMap((appointments) => appointments ?? []),
           filter((appointment) => appointment.appointmentStart !== null),

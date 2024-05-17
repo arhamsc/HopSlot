@@ -1,5 +1,7 @@
 import 'package:app/core/logger/talker.dart';
 import 'package:app/main/domain/providers/user_provider/user.provider.dart';
+import 'package:app/utils/interceptors/dio_token_expired.interceptor.dart';
+import 'package:app/utils/providers/interceptor_providers/interceptor.providers.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
@@ -25,6 +27,9 @@ class API {
 
     nestApi.options.headers['Authorization'] =
         'Bearer ${ref.watch(userNotifierProvider).tokens.at}';
+
+    nestApi.interceptors
+        .add(ref.read(tokenExpiredInterceptorProvider(nestApi)));
   }
 
   String? _nestBearerToken;

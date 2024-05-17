@@ -1,6 +1,7 @@
 import 'package:app/core/logger/talker.dart';
 import 'package:app/main/domain/entities/user/user.model.dart';
 import 'package:app/main/domain/providers/user_provider/user.provider.dart';
+import 'package:app/main/presentation/handlers/providers/handler.providers.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
@@ -17,13 +18,7 @@ AppRouter appRouter(AppRouterRef ref) {
 class AppRouter extends $AppRouter implements AutoRouteGuard {
   AppRouterRef ref;
 
-  AppRouter(this.ref) {
-    ref.listen(userNotifierProvider, (previous, next) {
-      if (next == User.empty()) {
-        reevaluateGuards();
-      }
-    });
-  }
+  AppRouter(this.ref);
 
   @override
   List<AutoRoute> get routes => [
@@ -81,22 +76,6 @@ class AppRouter extends $AppRouter implements AutoRouteGuard {
 
   @override
   void onNavigation(NavigationResolver resolver, StackRouter router) {
-    final user = ref.read(userNotifierProvider);
-    if (user != User.empty() || resolver.route.name == AuthRoute.name) {
-      if (resolver.route.name == AuthRoute.name) {
-        if (user.role == 'PATIENT') {
-          resolver.redirect(const PatientHomeRoute());
-        } else if (user.role == 'DOCTOR') {
-          resolver.redirect(const DocHomeRoute());
-        } else {
-          resolver.next(true);
-        }
-      } else {
-        resolver.next(true);
-      }
-    } else {
-      ref.read(talkerProvider).talker.info("Reached to redirect");
-      resolver.redirect(AuthRoute());
-    }
+    ref.read(routeRefreshHandlerProvider).handleNavigation(resolver, router);
   }
 }

@@ -1,5 +1,6 @@
 import 'package:app/main/domain/entities/user/user.model.dart';
 import 'package:app/main/domain/helpers/api_response/api_response.model.dart';
+import 'package:app/main/domain/helpers/tokens/tokens.model.dart';
 import 'package:app/utils/exceptions/app_exception.dart';
 import 'package:app/utils/exceptions/auth_exception.dart';
 import 'package:app/utils/exceptions/exception_codes/auth_exception_codes.dart';
@@ -138,6 +139,26 @@ class AuthRepo {
       final res = ApiResponse.fromJson(request.data, (json) => json as bool);
 
       return res;
+    });
+  }
+
+  TaskEither<AppException, Tokens> refreshToken(String refreshToken) {
+    return taskTryCatchWrapperRepo(() async {
+      final request = await _dio.post(
+        '/auth/refresh',
+        options: Options(
+          headers: {
+            'Authorization': 'Bearer $refreshToken',
+          },
+        ),
+      );
+
+      final user = User.fromJson({
+        ...request.data['data']['user'],
+        'tokens': request.data['data']['tokens'],
+      });
+
+      return user.tokens;
     });
   }
 }

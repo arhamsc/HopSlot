@@ -83,6 +83,9 @@ export class ReSchedulerService implements OnModuleInit {
       switchMap((appointments) => {
         return from(appointments).pipe(
           switchMap((app) => {
+            const newDate = DateTime.fromJSDate(app.appointmentStart!).set({
+              minute: app.appointmentStart!.getMinutes() + 15,
+            });
             return from(
               this.pgPrisma.appointment.update({
                 where: {
@@ -92,6 +95,7 @@ export class ReSchedulerService implements OnModuleInit {
                   additionalDelay: {
                     increment: 15, // TODO: Change to slot duration later.
                   },
+                  appointmentStart: newDate.toJSDate(),
                 },
                 include: {
                   doctor: {

@@ -1,9 +1,12 @@
+import 'package:app/core/api/app_api.dart';
 import 'package:app/core/constants/enums.dart';
+import 'package:app/main/domain/providers/user_provider/user.provider.dart';
 import 'package:app/main/presentation/patient/controllers/patient_home_controller/patient_home.controller.dart';
 import 'package:app/main/presentation/patient/widgets/appointment_list.widget.dart';
 import 'package:app/shared/presentation/providers/snack_bar_messenger_provider/snack_bar_messenger_provider.dart';
 import 'package:app/shared/presentation/widgets/functional/appointment_detail_dialog.widget.dart';
 import 'package:app/shared/presentation/widgets/layout/scaffold.layout.dart';
+import 'package:app/shared/presentation/widgets/ui/buttons/button.ui.dart';
 import 'package:app/shared/presentation/widgets/ui/typography/body.typo.dart';
 import 'package:app/shared/presentation/widgets/ui/typography/headline.typo.dart';
 import 'package:app/utils/show_snack_bar_on_error.ext.dart';

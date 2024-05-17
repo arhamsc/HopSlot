@@ -7,6 +7,7 @@ import 'package:app/main/domain/use_cases/appointment_use_cases/get_appointment_
 import 'package:app/main/domain/use_cases/auth_ucs/check_username_email.uc.dart';
 import 'package:app/main/domain/use_cases/auth_ucs/login.uc.dart';
 import 'package:app/main/domain/use_cases/auth_ucs/logout.uc.dart';
+import 'package:app/main/domain/use_cases/auth_ucs/refresh_token.uc.dart';
 import 'package:app/main/domain/use_cases/auth_ucs/sign_up.uc.dart';
 import 'package:app/main/domain/use_cases/auth_ucs/update_token.uc.dart';
 import 'package:app/main/domain/use_cases/doc_use_cases/doc_dashboard.uc.dart';
@@ -46,6 +47,11 @@ LogoutUC logoutUC(LogoutUCRef ref) {
 @riverpod
 UpdateTokenUC updateTokenUC(UpdateTokenUCRef ref) {
   return UpdateTokenUC(ref.watch(authRepoProvider));
+}
+
+@riverpod
+RefreshTokenUC refreshTokenUC(RefreshTokenUCRef ref) {
+  return RefreshTokenUC(ref.watch(authRepoProvider));
 }
 
 @riverpod

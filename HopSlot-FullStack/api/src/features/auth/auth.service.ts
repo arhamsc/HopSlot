@@ -268,6 +268,19 @@ export class AuthService {
         where: {
           id,
         },
+        select: {
+          firstName: true,
+          lastName: true,
+          email: true,
+          id: true,
+          password: true,
+          username: true,
+          role: true,
+          fcmToken: true,
+          Doctor: true,
+          Patient: true,
+          refreshTokenHash: true,
+        },
       }),
     ).pipe(
       switchMap((user) => {
@@ -300,6 +313,11 @@ export class AuthService {
                       email: user.email,
                       username: user.username,
                       role: user.role,
+                      firstName: user.firstName,
+                      lastName: user.lastName,
+                      fcmToken: user.fcmToken,
+                      Doctor: user.Doctor,
+                      Patient: user.Patient,
                     },
                     tokens,
                   },
