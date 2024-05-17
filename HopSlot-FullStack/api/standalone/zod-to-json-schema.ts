@@ -1,4 +1,5 @@
-import { DoctorSlotModel, HospitalModel } from 'src/core/schemas';
+/** @public */
+import { HospitalModel } from 'src/core/schemas';
 import zodToJsonSchema from 'zod-to-json-schema';
 import copy from 'clipboardy';
 

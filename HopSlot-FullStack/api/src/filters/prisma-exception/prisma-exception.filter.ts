@@ -10,7 +10,7 @@ import { BaseExceptionFilter } from '@nestjs/core';
 import { Prisma as PGPrisma } from '@prisma/postgres/client';
 import { Prisma as MDPrisma } from '@prisma/mongo/client';
 
-export type ErrorCodesStatusMapping = {
+type ErrorCodesStatusMapping = {
   [key: string]: number;
 };
 
