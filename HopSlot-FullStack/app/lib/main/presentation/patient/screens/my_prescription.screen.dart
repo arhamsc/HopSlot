@@ -6,6 +6,8 @@ import 'package:app/shared/presentation/widgets/layout/scaffold.layout.dart';
 import 'package:app/shared/presentation/widgets/ui/typography/body.typo.dart';
 import 'package:app/shared/presentation/widgets/ui/typography/headline.typo.dart';
 import 'package:app/utils/date_formatter.util.dart';
+import 'package:app/utils/show_snack_bar_on_error.ext.dart';
+import 'package:app/utils/show_snack_bar_on_loading.ext.dart';
 import 'package:auto_route/annotations.dart';
 import 'package:flash/flash_helper.dart';
 import 'package:flutter/material.dart';
@@ -27,8 +29,13 @@ class MyPrescriptionScreen extends ConsumerWidget {
         appointmentDetail: appointmentDetail,
       ),
     );
-    // state.showSnackbarOnAppError(context, ref);
-    // state.showSnackbarOnLoading(context, ref);
+    ref.listen(
+        myPrescriptionControllerProvider(
+          appointmentDetail: appointmentDetail,
+        ), (_, next) {
+      next.showSnackbarOnAppError(context, ref);
+      next.showSnackbarOnLoading(context, ref);
+    });
 
     final selectedPrescriptionSate = ref.watch(myPrescriptionControllerProvider(
       appointmentDetail: appointmentDetail,
