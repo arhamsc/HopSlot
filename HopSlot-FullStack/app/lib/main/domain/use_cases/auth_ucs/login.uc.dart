@@ -4,7 +4,6 @@ import 'package:app/main/domain/use_cases/doc_use_cases/get_doc_details.uc.dart'
 import 'package:app/main/domain/entities/user/user.model.dart';
 import 'package:app/main/domain/providers/user_provider/user.provider.dart';
 import 'package:app/utils/exceptions/auth_exception.dart';
-import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:fpdart/fpdart.dart';
 
 class LoginUC {

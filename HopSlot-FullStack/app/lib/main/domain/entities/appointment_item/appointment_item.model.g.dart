@@ -22,6 +22,8 @@ _$AppointmentItemImpl _$$AppointmentItemImplFromJson(
               (v) => EssentialUser.fromJson(v as Map<String, dynamic>)),
           appointmentStart: $checkedConvert(
               'appointmentStart', (v) => DateTime.parse(v as String)),
+          status: $checkedConvert(
+              'status', (v) => $enumDecode(_$EAppointmentStatusEnumMap, v)),
         );
         return val;
       },
@@ -34,4 +36,12 @@ Map<String, dynamic> _$$AppointmentItemImplToJson(
       'patient': instance.patient.toJson(),
       'doctor': instance.doctor.toJson(),
       'appointmentStart': instance.appointmentStart.toIso8601String(),
+      'status': _$EAppointmentStatusEnumMap[instance.status]!,
     };
+
+const _$EAppointmentStatusEnumMap = {
+  EAppointmentStatus.pending: 'PENDING',
+  EAppointmentStatus.confirmed: 'CONFIRMED',
+  EAppointmentStatus.cancelled: 'CANCELLED',
+  EAppointmentStatus.completed: 'COMPLETED',
+};

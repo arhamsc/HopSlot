@@ -1,4 +1,3 @@
-import 'package:app/core/logger/talker.dart';
 import 'package:app/main/domain/abstracts/provider_listener.abstract.dart';
 import 'package:app/main/domain/entities/user/user.model.dart';
 import 'package:app/main/domain/providers/use_case_providers/use_case.provides.dart';

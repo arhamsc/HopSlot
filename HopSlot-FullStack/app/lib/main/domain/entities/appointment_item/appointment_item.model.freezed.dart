@@ -24,6 +24,7 @@ mixin _$AppointmentItem {
   EssentialUser get patient => throw _privateConstructorUsedError;
   EssentialUser get doctor => throw _privateConstructorUsedError;
   DateTime get appointmentStart => throw _privateConstructorUsedError;
+  EAppointmentStatus get status => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -41,7 +42,8 @@ abstract class $AppointmentItemCopyWith<$Res> {
       {String id,
       EssentialUser patient,
       EssentialUser doctor,
-      DateTime appointmentStart});
+      DateTime appointmentStart,
+      EAppointmentStatus status});
 
   $EssentialUserCopyWith<$Res> get patient;
   $EssentialUserCopyWith<$Res> get doctor;
@@ -64,6 +66,7 @@ class _$AppointmentItemCopyWithImpl<$Res, $Val extends AppointmentItem>
     Object? patient = null,
     Object? doctor = null,
     Object? appointmentStart = null,
+    Object? status = null,
   }) {
     return _then(_value.copyWith(
       id: null == id
@@ -82,6 +85,10 @@ class _$AppointmentItemCopyWithImpl<$Res, $Val extends AppointmentItem>
           ? _value.appointmentStart
           : appointmentStart // ignore: cast_nullable_to_non_nullable
               as DateTime,
+      status: null == status
+          ? _value.status
+          : status // ignore: cast_nullable_to_non_nullable
+              as EAppointmentStatus,
     ) as $Val);
   }
 
@@ -114,7 +121,8 @@ abstract class _$$AppointmentItemImplCopyWith<$Res>
       {String id,
       EssentialUser patient,
       EssentialUser doctor,
-      DateTime appointmentStart});
+      DateTime appointmentStart,
+      EAppointmentStatus status});
 
   @override
   $EssentialUserCopyWith<$Res> get patient;
@@ -137,6 +145,7 @@ class __$$AppointmentItemImplCopyWithImpl<$Res>
     Object? patient = null,
     Object? doctor = null,
     Object? appointmentStart = null,
+    Object? status = null,
   }) {
     return _then(_$AppointmentItemImpl(
       id: null == id
@@ -155,6 +164,10 @@ class __$$AppointmentItemImplCopyWithImpl<$Res>
           ? _value.appointmentStart
           : appointmentStart // ignore: cast_nullable_to_non_nullable
               as DateTime,
+      status: null == status
+          ? _value.status
+          : status // ignore: cast_nullable_to_non_nullable
+              as EAppointmentStatus,
     ));
   }
 }
@@ -166,7 +179,8 @@ class _$AppointmentItemImpl implements _AppointmentItem {
       {required this.id,
       required this.patient,
       required this.doctor,
-      required this.appointmentStart});
+      required this.appointmentStart,
+      required this.status});
 
   factory _$AppointmentItemImpl.fromJson(Map<String, dynamic> json) =>
       _$$AppointmentItemImplFromJson(json);
@@ -179,10 +193,12 @@ class _$AppointmentItemImpl implements _AppointmentItem {
   final EssentialUser doctor;
   @override
   final DateTime appointmentStart;
+  @override
+  final EAppointmentStatus status;
 
   @override
   String toString() {
-    return 'AppointmentItem(id: $id, patient: $patient, doctor: $doctor, appointmentStart: $appointmentStart)';
+    return 'AppointmentItem(id: $id, patient: $patient, doctor: $doctor, appointmentStart: $appointmentStart, status: $status)';
   }
 
   @override
@@ -194,13 +210,14 @@ class _$AppointmentItemImpl implements _AppointmentItem {
             (identical(other.patient, patient) || other.patient == patient) &&
             (identical(other.doctor, doctor) || other.doctor == doctor) &&
             (identical(other.appointmentStart, appointmentStart) ||
-                other.appointmentStart == appointmentStart));
+                other.appointmentStart == appointmentStart) &&
+            (identical(other.status, status) || other.status == status));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode =>
-      Object.hash(runtimeType, id, patient, doctor, appointmentStart);
+      Object.hash(runtimeType, id, patient, doctor, appointmentStart, status);
 
   @JsonKey(ignore: true)
   @override
@@ -222,7 +239,8 @@ abstract class _AppointmentItem implements AppointmentItem {
       {required final String id,
       required final EssentialUser patient,
       required final EssentialUser doctor,
-      required final DateTime appointmentStart}) = _$AppointmentItemImpl;
+      required final DateTime appointmentStart,
+      required final EAppointmentStatus status}) = _$AppointmentItemImpl;
 
   factory _AppointmentItem.fromJson(Map<String, dynamic> json) =
       _$AppointmentItemImpl.fromJson;
@@ -235,6 +253,8 @@ abstract class _AppointmentItem implements AppointmentItem {
   EssentialUser get doctor;
   @override
   DateTime get appointmentStart;
+  @override
+  EAppointmentStatus get status;
   @override
   @JsonKey(ignore: true)
   _$$AppointmentItemImplCopyWith<_$AppointmentItemImpl> get copyWith =>

@@ -21,7 +21,6 @@ class DocHomeScreen extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final palette = Theme.of(context).extension<Palette>();
     final state = ref.watch(docHomeControllerProvider);
     return CScaffold(
       showAppBar: true,

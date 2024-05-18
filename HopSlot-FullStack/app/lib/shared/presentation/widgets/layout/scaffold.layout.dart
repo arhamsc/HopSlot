@@ -1,3 +1,4 @@
+import 'package:app/core/theme/palette.dart';
 import 'package:app/main/domain/providers/user_provider/user.provider.dart';
 import 'package:app/shared/presentation/widgets/layout/doctor_drawer.layout.dart';
 import 'package:app/shared/presentation/widgets/layout/listeners/snack_bar.listener.dart';
@@ -31,9 +32,11 @@ class CScaffold extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final user = ref.watch(userNotifierProvider);
+    final palette = Theme.of(context).extension<Palette>();
 
     return Scaffold(
       extendBodyBehindAppBar: extendBodyBehindAppBar,
+      backgroundColor: palette?.primary,
       appBar: showAppBar
           ? AppBar(
               backgroundColor: Colors.transparent,

@@ -15,6 +15,7 @@
         },
  */
 
+import 'package:app/main/domain/enums/appointment_status/appointment_status.enum.dart';
 import 'package:app/main/domain/helpers/essential_user/essential_user.model.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
@@ -29,6 +30,7 @@ class AppointmentItem with _$AppointmentItem {
     required EssentialUser patient,
     required EssentialUser doctor,
     required DateTime appointmentStart,
+    required EAppointmentStatus status,
   }) = _AppointmentItem;
 
   factory AppointmentItem.fromJson(Map<String, dynamic> json) =>

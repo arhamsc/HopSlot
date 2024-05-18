@@ -1,6 +1,5 @@
 import 'package:app/core/logger/talker.dart';
 import 'package:app/main/domain/providers/user_provider/user.provider.dart';
-import 'package:app/utils/interceptors/dio_token_expired.interceptor.dart';
 import 'package:app/utils/providers/interceptor_providers/interceptor.providers.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';

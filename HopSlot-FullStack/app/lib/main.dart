@@ -1,8 +1,3 @@
-//-----------------------------------------
-// Do not delete pragma file import
-import "package:app/core/pragma_func.dart";
-//-----------------------------------------
-
 import 'package:app/config/app_config.dart';
 import 'package:app/core/logger/talker.dart';
 import 'package:app/core/router/app_router.dart';

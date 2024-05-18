@@ -1,5 +1,4 @@
 import 'package:app/core/constants/enums.dart';
-import 'package:app/core/logger/talker.dart';
 import 'package:app/core/router/app_router.dart';
 import 'package:app/core/router/app_router.gr.dart';
 import 'package:app/core/theme/palette.dart';

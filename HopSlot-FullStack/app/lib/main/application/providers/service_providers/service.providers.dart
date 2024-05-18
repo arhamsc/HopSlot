@@ -4,7 +4,6 @@ import 'package:app/main/domain/providers/use_case_providers/use_case.provides.d
 import 'package:app/main/application/services/notification.service.dart';
 import 'package:app/main/application/services/location.service.dart';
 import 'package:app/main/domain/providers/user_provider/user.provider.dart';
-import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 

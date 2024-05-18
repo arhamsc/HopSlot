@@ -6,6 +6,8 @@ import 'package:app/shared/presentation/widgets/ui/typography/body.typo.dart';
 import 'package:app/shared/presentation/widgets/ui/typography/headline.typo.dart';
 import 'package:app/utils/date_formatter.util.dart';
 import 'package:app/utils/exceptions/app_exception.dart';
+import 'package:app/utils/show_snack_bar_on_error.ext.dart';
+import 'package:app/utils/show_snack_bar_on_loading.ext.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -20,27 +22,35 @@ class AppointmentHistoryScreen extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final state = ref.watch(appointmentHistoryControllerProvider);
-    ref.listen(appointmentHistoryControllerProvider, (previous, next) {
-      if (next.hasValue &&
-          next.value?.appointmentDetail != null &&
-          previous?.value?.appointmentDetail != next.value?.appointmentDetail) {
-        final value = next.value!.appointmentDetail!;
-        context.showFlash(
-          barrierColor: Colors.black54,
-          barrierDismissible: true,
-          builder: (context, controller) => FadeTransition(
-            opacity: controller.controller,
-            child: AppointmentDetailAlertDialog(
-              value: value,
-              controller: controller,
-              onDismiss: () {
-                _controller(ref).resetSelectedAppointmentDetail();
-              },
-            ),
-          ),
-        );
-      }
+
+    ref.listen(appointmentHistoryControllerProvider, (_, next) {
+      next.showSnackbarOnAppError(context, ref);
+      next.showSnackbarOnLoading(context, ref);
     });
+
+    final selectedSate = ref.watch(appointmentHistoryControllerProvider
+        .selectAsync((value) => value.appointmentDetail));
+
+    selectedSate.then((val) {
+      if (val == null || state.isLoading) {
+        return;
+      }
+      context.showFlash(
+        barrierColor: Colors.black54,
+        barrierDismissible: true,
+        builder: (context, controller) => FadeTransition(
+          opacity: controller.controller,
+          child: AppointmentDetailAlertDialog(
+            value: val,
+            controller: controller,
+            onDismiss: () {
+              _controller(ref).resetSelectedAppointmentDetail();
+            },
+          ),
+        ),
+      );
+    });
+
     return CScaffold(
       showAppBar: true,
       body: RefreshIndicator(

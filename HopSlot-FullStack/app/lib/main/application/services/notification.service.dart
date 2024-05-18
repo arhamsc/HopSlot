@@ -73,9 +73,9 @@ class FBMessagingService {
       final notification = Notification(
         body: message.notification?.body ?? '',
         title: message.notification?.title ?? '',
-        id: message.messageId.hashCode ?? 0,
+        id: message.messageId.hashCode,
         data: message.data.isNotEmpty
-            ? NotificationData.fromJson(message.data ?? {})
+            ? NotificationData.fromJson(message.data)
             : null,
       );
       await _fln.cancelAll();

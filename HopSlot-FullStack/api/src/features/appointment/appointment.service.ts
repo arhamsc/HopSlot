@@ -316,22 +316,19 @@ export class AppointmentService {
     );
   }
 
-  findAll(userId: string): Observable<APIResponse<Partial<Appointment>[]>> {
+  findAll(
+    userId: string,
+    role: Role,
+  ): Observable<APIResponse<Partial<Appointment>[]>> {
     // const res = await this.scheduler('2', '3', '4');
     return from(
       this.pgPrisma.appointment.findMany({
         where: {
-          OR: [
-            {
-              patientId: userId,
-            },
-            {
-              doctorId: userId,
-            },
-          ],
+          [role === Role.DOCTOR ? 'doctorId' : 'patientId']: userId,
         },
         select: {
           id: true,
+          status: true,
           patient: {
             select: {
               id: true,
@@ -351,6 +348,9 @@ export class AppointmentService {
             },
           },
           appointmentStart: true,
+        },
+        orderBy: {
+          appointmentStart: 'desc',
         },
       }),
     ).pipe(

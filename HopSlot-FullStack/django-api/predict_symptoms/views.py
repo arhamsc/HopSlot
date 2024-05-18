@@ -15,7 +15,6 @@ class PredictSymptomsAPIView(APIView):
         predictions = []
         for appointment in request.data:
             evidence = self.dataTransformation.transformAPIRequest(appointment)
-            print(evidence)
             pathology = self.model.predict(self.encoder.transform([evidence]))
             severity = self.dataTransformation.mapPathologyToSeverity(pathology)
             predictions.append({

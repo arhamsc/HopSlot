@@ -58,8 +58,11 @@ export class AppointmentController {
     possession: 'own',
   })
   @Get('/all')
-  findAllAppointments(@GetCurrentUser('id') userId: string) {
-    return this.appointmentService.findAll(userId);
+  findAllAppointments(
+    @GetCurrentUser('id') userId: string,
+    @GetCurrentUser('role') role: Role,
+  ) {
+    return this.appointmentService.findAll(userId, role);
   }
 
   @Get(':id')

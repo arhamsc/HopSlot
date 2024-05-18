@@ -2,7 +2,7 @@ import 'package:app/core/theme/palette.dart';
 import 'package:app/shared/presentation/widgets/ui/typography/body.typo.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:reactive_forms/reactive_forms.dart';
+import 'package:reactive_forms_annotations/reactive_forms_annotations.dart';
 
 class CCheckBox extends StatelessWidget {
   const CCheckBox({

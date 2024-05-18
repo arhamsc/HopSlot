@@ -7,6 +7,7 @@ import 'package:app/shared/presentation/widgets/ui/buttons/button.ui.dart';
 import 'package:app/shared/presentation/widgets/ui/typography/body.typo.dart';
 import 'package:app/shared/presentation/widgets/ui/typography/headline.typo.dart';
 import 'package:app/shared/presentation/widgets/ui/typography/title.typo.dart';
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
@@ -65,7 +66,20 @@ class PatientDrawer extends ConsumerWidget {
             ),
             title: const Text('Book appointment').body1(isMedium: true),
             onTap: () {
+              Navigator.of(context).pop();
               ref.read(appRouterProvider).push(const BookAppointmentRoute());
+            },
+          ),
+          ListTile(
+            leading: Icon(
+              Icons.history,
+              size: 32.sp,
+              color: palette?.secondary,
+            ),
+            title: const Text('All appointments').body1(isMedium: true),
+            onTap: () {
+              Navigator.of(context).pop();
+              ref.read(appRouterProvider).push(const AllAppointmentsRoute());
             },
           ),
           ListTile(
@@ -76,6 +90,7 @@ class PatientDrawer extends ConsumerWidget {
             ),
             title: const Text('Profile').body1(isMedium: true),
             onTap: () {
+              Navigator.of(context).pop();
               ref.read(appRouterProvider).push(const ProfileRoute());
             },
           ),

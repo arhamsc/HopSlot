@@ -9,7 +9,7 @@ part of 'book_appointment.controller.dart';
 // **************************************************************************
 
 String _$bookAppointmentControllerHash() =>
-    r'e9683d77cb3b654ae2cac821feda74e11b6215fb';
+    r'e7241da4dfef9b12dd35d5db3782e0d0851d64d7';
 
 /// See also [BookAppointmentController].
 @ProviderFor(BookAppointmentController)

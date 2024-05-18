@@ -19,8 +19,11 @@ class GetPrescriptionUC {
     );
   }
 
-  Future<Either<AppException, List<Prescription>>> callMy() async {
-    final result = await _prescriptionRepository.getMyPrescriptions().run();
+  Future<Either<AppException, List<Prescription>>> callMy(
+      {String? appointmentId}) async {
+    final result = await _prescriptionRepository
+        .getMyPrescriptions(appointmentId: appointmentId)
+        .run();
 
     return result.fold(
       (l) => left(l),

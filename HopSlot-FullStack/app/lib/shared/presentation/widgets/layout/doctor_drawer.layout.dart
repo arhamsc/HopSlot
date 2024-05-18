@@ -65,6 +65,7 @@ class DoctorDrawer extends ConsumerWidget {
             ),
             title: const Text('Appointment History').body1(isMedium: true),
             onTap: () {
+              Navigator.of(context).pop();
               ref.read(appRouterProvider).push(const AppointmentHistoryRoute());
             },
           ),
@@ -76,6 +77,7 @@ class DoctorDrawer extends ConsumerWidget {
             ),
             title: const Text('My Slots').body1(isMedium: true),
             onTap: () {
+              Navigator.of(context).pop();
               ref.read(appRouterProvider).push(const MyDocSlotsRoute());
             },
           ),
@@ -87,6 +89,7 @@ class DoctorDrawer extends ConsumerWidget {
             ),
             title: const Text('Profile').body1(isMedium: true),
             onTap: () {
+              Navigator.of(context).pop();
               ref.read(appRouterProvider).push(const ProfileRoute());
             },
           ),

@@ -22,7 +22,6 @@ class RefreshTokenHandler {
     final response = await _refreshTokenUC.call(refreshToken);
 
     return response.fold((l) {
-      print("EXCEPTION: $l");
       // Triggers re-evaluating guards in the auto route
       _userNotifier.update(User.empty());
       return left(l);
@@ -30,7 +29,6 @@ class RefreshTokenHandler {
       _userNotifier.update(_user.copyWith(
         tokens: r,
       ));
-      print("New Tokens: $r, New User: $_user}");
       return right(r);
     });
   }

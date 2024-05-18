@@ -59,7 +59,7 @@ class AppointmentList extends StatelessWidget {
                   ),
                 );
               },
-              itemCount: appointments.length ?? 0,
+              itemCount: appointments.length,
             )
           : Center(
               child: Text(emptyMessage ?? 'No appointments').body1(

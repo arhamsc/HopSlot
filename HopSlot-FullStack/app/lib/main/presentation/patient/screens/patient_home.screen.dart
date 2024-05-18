@@ -1,15 +1,15 @@
-import 'package:app/core/api/app_api.dart';
 import 'package:app/core/constants/enums.dart';
-import 'package:app/main/domain/providers/user_provider/user.provider.dart';
+import 'package:app/core/router/app_router.dart';
+import 'package:app/core/router/app_router.gr.dart';
+import 'package:app/main/domain/enums/appointment_status/appointment_status.enum.dart';
 import 'package:app/main/presentation/patient/controllers/patient_home_controller/patient_home.controller.dart';
 import 'package:app/main/presentation/patient/widgets/appointment_list.widget.dart';
-import 'package:app/shared/presentation/providers/snack_bar_messenger_provider/snack_bar_messenger_provider.dart';
 import 'package:app/shared/presentation/widgets/functional/appointment_detail_dialog.widget.dart';
 import 'package:app/shared/presentation/widgets/layout/scaffold.layout.dart';
-import 'package:app/shared/presentation/widgets/ui/buttons/button.ui.dart';
 import 'package:app/shared/presentation/widgets/ui/typography/body.typo.dart';
 import 'package:app/shared/presentation/widgets/ui/typography/headline.typo.dart';
 import 'package:app/utils/show_snack_bar_on_error.ext.dart';
+import 'package:app/utils/show_snack_bar_on_loading.ext.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:flash/flash_helper.dart';
 import 'package:flutter/material.dart';
@@ -25,62 +25,57 @@ class PatientHomeScreen extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final state = ref.watch(patientHomeControllerProvider);
 
-    ref.listen(patientHomeControllerProvider, (previous, next) {
-      if (next.isLoading) {
-        ref.read(snackBarMessengerProvider.notifier).showSnackBar(
-              message: "Please wait..",
-              type: SnackbarType.loading,
-            );
-      } else if (!next.isLoading) {
-        if (next.error == null) {
-          ref.read(snackBarMessengerProvider.notifier).hideSnackBar();
-        }
-        next.showSnackbarOnAppError(context, ref);
-      }
+    ref.listen(patientHomeControllerProvider, (_, next) {
+      next.showSnackbarOnAppError(context, ref);
+      next.showSnackbarOnLoading(context, ref);
+    });
 
-      if (next.hasValue &&
-          next.value?.selectedAppointment != null &&
-          previous?.value?.selectedAppointment !=
-              next.value?.selectedAppointment) {
-        final value = next.value!.selectedAppointment!;
-        context.showFlash(
-          barrierColor: Colors.black54,
-          barrierDismissible: true,
-          builder: (context, controller) => FadeTransition(
-            opacity: controller.controller,
-            child: AppointmentDetailAlertDialog(
-              value: value,
-              controller: controller,
-              actions: [
-                if (next.value?.activeType == "upcoming")
-                  TextButton(
-                    onPressed: () async {
-                      if (next.value == null ||
-                          next.value?.selectedAppointment == null) {
-                        return ref
-                            .read(snackBarMessengerProvider.notifier)
-                            .showSnackBar(
-                              message:
-                                  "Cannot cancel appointment, please refresh and try again",
-                              type: SnackbarType.error,
-                            );
-                      }
-                      await controller.dismiss();
-                      _controller(ref).cancelAppointment(
-                        next.value!.selectedAppointment!.id,
-                      );
-                    },
-                    child: const Text('Cancel')
-                        .body2(color: Colors.red, isMedium: true),
-                  ),
-              ],
-              onDismiss: () {
-                _controller(ref).resetSelectedAppointmentDetail();
-              },
-            ),
+    final selectedSate = ref.watch(patientHomeControllerProvider
+        .selectAsync((value) => value.selectedAppointment));
+
+    selectedSate.then((value) {
+      if (value == null || state.isLoading) return;
+
+      context.showFlash(
+        barrierColor: Colors.black54,
+        barrierDismissible: true,
+        builder: (context, controller) => FadeTransition(
+          opacity: controller.controller,
+          child: AppointmentDetailAlertDialog(
+            value: value,
+            controller: controller,
+            actions: [
+              if (state.value?.activeType == "upcoming")
+                TextButton(
+                  onPressed: () async {
+                    await controller.dismiss();
+                    _controller(ref).cancelAppointment(
+                      value.id,
+                    );
+                  },
+                  child: const Text('Cancel')
+                      .body2(color: Colors.red, isMedium: true),
+                ),
+              if (value.status == EAppointmentStatus.completed)
+                TextButton(
+                  onPressed: () async {
+                    await controller.dismiss();
+                    _controller(ref).resetSelectedAppointmentDetail();
+                    ref.read(appRouterProvider).push(
+                          MyPrescriptionRoute(
+                            appointmentDetail: value,
+                          ),
+                        );
+                  },
+                  child: const Text('Prescription').body2(isMedium: true),
+                ),
+            ],
+            onDismiss: () {
+              _controller(ref).resetSelectedAppointmentDetail();
+            },
           ),
-        );
-      }
+        ),
+      );
     });
 
     return CScaffold(

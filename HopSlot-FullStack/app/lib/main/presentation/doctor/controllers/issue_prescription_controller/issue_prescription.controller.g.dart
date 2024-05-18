@@ -9,7 +9,7 @@ part of 'issue_prescription.controller.dart';
 // **************************************************************************
 
 String _$issuePrescriptionControllerHash() =>
-    r'e120bd777c495275152b42af2a9431fcf61017bd';
+    r'5055e40eae2b27c1101960afe1b744236be223b2';
 
 /// See also [IssuePrescriptionController].
 @ProviderFor(IssuePrescriptionController)

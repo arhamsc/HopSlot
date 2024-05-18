@@ -13,15 +13,15 @@ class BookAppointmentController extends _$BookAppointmentController {
   @override
   FutureOr<BookAppointmentState> build() async {
     final hospitals =
-        await ref.read(appointmentLookUpUCProvider).callHospitals();
+    await ref.read(appointmentLookUpUCProvider).callHospitals();
     final symptoms =
-        await ref.read(appointmentLookUpUCProvider).callSymptoms("");
+    await ref.read(appointmentLookUpUCProvider).callSymptoms("");
     return BookAppointmentState(
       hospitalItems: hospitals.getOrElse(
-        (l) => [],
+            (l) => [],
       ),
       symptomItems: symptoms.getOrElse(
-        (l) => [],
+            (l) => [],
       ),
       selectedDoctorId: '',
       selectedHospitalId: '',
@@ -32,43 +32,46 @@ class BookAppointmentController extends _$BookAppointmentController {
 
   Future<void> fetchHospitals() async {
     final hospitals =
-        await ref.read(appointmentLookUpUCProvider).callHospitals();
+    await ref.read(appointmentLookUpUCProvider).callHospitals();
     final oldState = state.requireValue;
     state = hospitals.fold(
-      (l) => AsyncValue.error(l, StackTrace.current),
-      (r) => AsyncValue.data(
-        oldState.copyWith(
-          hospitalItems: r,
-        ),
-      ),
+          (l) => AsyncValue.error(l, StackTrace.current),
+          (r) =>
+          AsyncValue.data(
+            oldState.copyWith(
+              hospitalItems: r,
+            ),
+          ),
     );
   }
 
   Future<void> fetchDoctors(String hospitalId) async {
     final doctors =
-        await ref.read(appointmentLookUpUCProvider).callDoctors(hospitalId);
+    await ref.read(appointmentLookUpUCProvider).callDoctors(hospitalId);
     final oldState = state.requireValue;
     state = doctors.fold(
-      (l) => AsyncValue.error(l, StackTrace.current),
-      (r) => AsyncValue.data(
-        oldState.copyWith(
-          doctorItems: r,
-        ),
-      ),
+          (l) => AsyncValue.error(l, StackTrace.current),
+          (r) =>
+          AsyncValue.data(
+            oldState.copyWith(
+              doctorItems: r,
+            ),
+          ),
     );
   }
 
   Future<void> fetchSymptoms(String query) async {
     final symptoms =
-        await ref.read(appointmentLookUpUCProvider).callSymptoms(query);
+    await ref.read(appointmentLookUpUCProvider).callSymptoms(query);
     final oldState = state.requireValue;
     state = symptoms.fold(
-      (l) => AsyncValue.error(l, StackTrace.current),
-      (r) => AsyncValue.data(
-        oldState.copyWith(
-          symptomItems: r,
-        ),
-      ),
+          (l) => AsyncValue.error(l, StackTrace.current),
+          (r) =>
+          AsyncValue.data(
+            oldState.copyWith(
+              symptomItems: r,
+            ),
+          ),
     );
   }
 
@@ -95,70 +98,71 @@ class BookAppointmentController extends _$BookAppointmentController {
         .callDoctorsSlots(date: date, doctorId: doctorId);
     final oldState = state.requireValue;
     state = slots.fold(
-      (l) => AsyncValue.error(l, StackTrace.current),
-      (r) => AsyncValue.data(
-        oldState.copyWith(
-          availableSlots: r,
-        ),
-      ),
+          (l) => AsyncValue.error(l, StackTrace.current),
+          (r) =>
+          AsyncValue.data(
+            oldState.copyWith(
+              availableSlots: r,
+            ),
+          ),
     );
 
     return slots.getOrElse((l) => []);
   }
 
-  List<SymptomEvidence> onAddSymptom(
-      List<LookUpResponse> list, LookUpResponse item) {
+  List<SymptomEvidence> onAddSymptom(List<LookUpResponse> list,
+      LookUpResponse item) {
     final symptoms = state.requireValue.symptomItems
-            .where(
-              (element) => list.contains(
-                LookUpResponse(
-                  id: element.id,
-                  name: element.question,
-                ),
-              ),
-            )
-            .toList() ??
-        [];
+        .where(
+          (element) =>
+          list.contains(
+            LookUpResponse(
+              id: element.id,
+              name: element.question,
+            ),
+          ),
+    )
+        .toList();
     final dependentSymptoms = state.requireValue.symptomItems
-            .where(
-              (element) =>
-                  element.codeQuestion ==
-                  state.requireValue.symptomItems
-                      .firstWhere(
-                        (e) => e.id == item.id,
-                      )
-                      .name,
-            )
-            .toList() ??
-        [];
+        .where(
+          (element) =>
+      element.codeQuestion ==
+          state.requireValue.symptomItems
+              .firstWhere(
+                (e) => e.id == item.id,
+          )
+              .name,
+    )
+        .toList();
     final updatedList = List<SymptomEvidence>.from(symptoms);
     updatedList.addAll(dependentSymptoms);
     return updatedList.toSet().toList();
   }
 
-  List<SymptomEvidence> onRemoveSymptom(
-      List<LookUpResponse> list, LookUpResponse item) {
+  List<SymptomEvidence> onRemoveSymptom(List<LookUpResponse> list,
+      LookUpResponse item) {
     final updatedList = list.map(
-      (e) => state.requireValue.symptomItems
-          .firstWhere((element) => element.id == e.id),
+          (e) =>
+          state.requireValue.symptomItems
+              .firstWhere((element) => element.id == e.id),
     );
     final val = updatedList
         .whereType<SymptomEvidence>()
         .where(
           (element) =>
-              element.codeQuestion !=
-              state.requireValue.symptomItems
-                  .firstWhere(
-                    (e) => e.id == item.id,
-                  )
-                  .name,
-        )
+      element.codeQuestion !=
+          state.requireValue.symptomItems
+              .firstWhere(
+                (e) => e.id == item.id,
+          )
+              .name,
+    )
         .toList();
     return val;
   }
 
-  Future<void> bookAppointment(
-      BookAppointmentForm form, Function() onSuccess) async {
+  Future<void> bookAppointment(BookAppointmentForm form,
+      Function() onSuccess) async {
     final result = await ref.read(bookAppointmentUCProvider).call(form);
     result.fold((l) {
       state = AsyncError(l, StackTrace.current);

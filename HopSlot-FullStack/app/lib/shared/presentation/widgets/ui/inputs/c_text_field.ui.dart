@@ -1,7 +1,7 @@
 import 'package:app/shared/presentation/widgets/utility/styles/input_stypes.dart';
 import 'package:app/shared/presentation/widgets/utility/styles/variants.dart';
 import 'package:flutter/material.dart';
-import 'package:reactive_forms/reactive_forms.dart';
+import 'package:reactive_forms_annotations/reactive_forms_annotations.dart';
 
 class CTextField extends StatelessWidget {
   const CTextField({

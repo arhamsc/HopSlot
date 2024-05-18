@@ -7,6 +7,7 @@ import { APIResponse } from 'src/core/types/api-response.type';
 import { AppointmentStatus, Prescription, Role } from 'db/postgres';
 import { File } from '@nest-lab/fastify-multer';
 import { CloudinaryService } from 'src/dynamic-modules/cloudinary/cloudinary.service';
+import { PrescriptionEssentials } from 'src/core/types/model_essentials.types';
 
 // TODO: Report Management
 
@@ -98,11 +99,33 @@ export class PrescriptionService {
 
   findPrescriptionsByAppointmentId(
     appointmentId: string,
-  ): Observable<APIResponse<Prescription[]>> {
+  ): Observable<APIResponse<PrescriptionEssentials[]>> {
     return from(
       this.pgPrisma.prescription.findMany({
         where: {
           appointmentId,
+        },
+        select: {
+          id: true,
+          body: true,
+          appointmentId: true,
+          issueDate: true,
+          docSign: true,
+          doctorId: true,
+          otherNotes: true,
+          patientId: true,
+          report: {
+            select: {
+              reportPublicId: true,
+              reportSecureUrl: true,
+              signedBy: true,
+              id: true,
+              issueDate: true,
+              doctorId: true,
+              patientId: true,
+              prescriptionId: true,
+            },
+          },
         },
       }),
     ).pipe(
@@ -116,11 +139,33 @@ export class PrescriptionService {
   findAllMyPrescriptions(
     userId: string,
     role: Role,
-  ): Observable<APIResponse<Prescription[]>> {
+  ): Observable<APIResponse<PrescriptionEssentials[]>> {
     return from(
       this.pgPrisma.prescription.findMany({
         where: {
           [role === Role.DOCTOR ? 'doctorId' : 'patientId']: userId,
+        },
+        select: {
+          id: true,
+          body: true,
+          appointmentId: true,
+          issueDate: true,
+          docSign: true,
+          doctorId: true,
+          otherNotes: true,
+          patientId: true,
+          report: {
+            select: {
+              reportPublicId: true,
+              reportSecureUrl: true,
+              signedBy: true,
+              id: true,
+              issueDate: true,
+              doctorId: true,
+              patientId: true,
+              prescriptionId: true,
+            },
+          },
         },
       }),
     ).pipe(
@@ -131,10 +176,32 @@ export class PrescriptionService {
     );
   }
 
-  findOne(id: string): Observable<APIResponse<Prescription>> {
+  findOne(id: string): Observable<APIResponse<PrescriptionEssentials>> {
     return from(
       this.pgPrisma.prescription.findUniqueOrThrow({
         where: { id },
+        select: {
+          id: true,
+          body: true,
+          appointmentId: true,
+          issueDate: true,
+          docSign: true,
+          doctorId: true,
+          otherNotes: true,
+          patientId: true,
+          report: {
+            select: {
+              reportPublicId: true,
+              reportSecureUrl: true,
+              signedBy: true,
+              id: true,
+              issueDate: true,
+              doctorId: true,
+              patientId: true,
+              prescriptionId: true,
+            },
+          },
+        },
       }),
     ).pipe(
       map((prescription) => ({

@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 class AppTheme {
   static final lightTheme = ThemeData(
     colorScheme: ColorScheme.light(
-      background: Palette.lightTheme.primary ?? Colors.white,
+      surface: Palette.lightTheme.primary ?? Colors.red,
       primary: Palette.lightTheme.tertiary ??
           Colors.white, // Primary like like accent here
       secondary: Palette.lightTheme.secondary ?? Colors.white,

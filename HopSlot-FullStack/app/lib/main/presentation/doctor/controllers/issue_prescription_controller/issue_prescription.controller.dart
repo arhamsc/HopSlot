@@ -1,4 +1,3 @@
-
 import 'package:app/main/domain/forms/prescription_form/prescription.form.dart';
 import 'package:app/main/domain/providers/use_case_providers/use_case.provides.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
@@ -21,7 +20,7 @@ class IssuePrescriptionController extends _$IssuePrescriptionController {
       (l) => AsyncError(l, StackTrace.current),
       (r) {
         callback();
-        return AsyncValue.data(r);
+        return AsyncData(r);
       },
     );
     return;

@@ -53,10 +53,18 @@ class PrescriptionRepo {
     });
   }
 
-  TaskEither<AppException, ApiResponse<List<Prescription>>>
-      getMyPrescriptions() {
+  TaskEither<AppException, ApiResponse<List<Prescription>>> getMyPrescriptions({
+    String? appointmentId,
+  }) {
     return taskTryCatchWrapperRepo(() async {
-      final response = await _dio.get('/prescription');
+      final query = appointmentId != null
+          ? {'type': 'appointment', 'appointmentId': appointmentId}
+          : {'type': 'my'};
+
+      final response = await _dio.get(
+        '/prescription',
+        queryParameters: query,
+      );
 
       return ApiResponse.fromJson(
         response.data,

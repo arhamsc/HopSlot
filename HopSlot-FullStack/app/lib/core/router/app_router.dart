@@ -1,6 +1,3 @@
-import 'package:app/core/logger/talker.dart';
-import 'package:app/main/domain/entities/user/user.model.dart';
-import 'package:app/main/domain/providers/user_provider/user.provider.dart';
 import 'package:app/main/presentation/handlers/providers/handler.providers.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
@@ -68,6 +65,14 @@ class AppRouter extends $AppRouter implements AutoRouteGuard {
             AutoRoute(
               page: BookAppointmentRoute.page,
               path: "book-appointment",
+            ),
+            AutoRoute(
+              page: MyPrescriptionRoute.page,
+              path: "my-prescriptions",
+            ),
+            AutoRoute(
+              page: AllAppointmentsRoute.page,
+              path: "all-appointments",
             ),
           ],
         ),

@@ -1,5 +1,13 @@
 import { User, Hospital } from '@prisma/postgres/client';
-import { Appointment, Doctor, DoctorSlot, Patient, Role } from 'db/postgres';
+import {
+  Appointment,
+  Doctor,
+  DoctorSlot,
+  Patient,
+  Role,
+  Prescription,
+  Report,
+} from 'db/postgres';
 
 export interface UserEssentials
   extends Pick<
@@ -23,6 +31,12 @@ export interface AppointmentEssentials
 
 export interface DoctorSlotEssentials
   extends Omit<DoctorSlot, 'createdAt' | 'updatedAt'> {}
+
+export interface PrescriptionEssentials
+  extends Omit<Prescription, 'createdAt' | 'updatedAt'> {}
+
+export interface ReportEssentials
+  extends Omit<Report, 'createdAt' | 'updatedAt'> {}
 
 export interface AppointmentDjangoEssentials {
   appointmentId: string;

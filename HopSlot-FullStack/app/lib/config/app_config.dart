@@ -63,14 +63,6 @@ class AppConfig {
         distanceFilter: 100,
       );
     }
-
-    StreamSubscription<Position> positionStream =
-        Geolocator.getPositionStream(locationSettings: locationSettings)
-            .listen((Position? position) {
-      print(position == null
-          ? 'Unknown'
-          : '${position.latitude.toString()}, ${position.longitude.toString()}');
-    });
   }
 
   Future<void> configureFirebase() async {
