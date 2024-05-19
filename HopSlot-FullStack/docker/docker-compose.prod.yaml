@@ -1,0 +1,244 @@
+name: hopslot-docker-compose-prod
+services:
+  ### DATABASES ###
+  redis:
+    container_name: redis-scheduler-queue-prod
+    image: redis:latest
+    profiles:
+      - dbs
+    ports:
+      - 6380:6379
+    volumes:
+      - ./bind-mounts-prod/redis-bind-mount:/data
+    networks:
+      - hopslot-network
+  pg-db:
+    image: postgres:16
+    container_name: hopslot-pg-db--prod
+    profiles:
+      - dbs
+    ports:
+      - 5433:5432
+    env_file:
+      - ./env/pg.local.env
+    volumes:
+      - ./bind-mounts-prod/postgres:/var/lib/postgresql/data
+    networks:
+      - hopslot-network
+  ## MONGO CLUSTER ##
+  mongo-helper:
+    image: mongo:latest
+    container_name: hopslot-mongo-helper--prod
+    command: "mongosh hopslot-mongo-db --host mongo-db-primary:27017 --file /init-files/mongo-init-2.js"
+    profiles:
+      - dbs
+      - mongo
+    healthcheck:
+      test: "mongosh hopslot-mongo-db --host mongo-db-primary:27017 --file /init-files/mongo-init-2.js | grep 'OK!"
+      interval: 10s
+      timeout: 1ms
+      retries: 5
+      start_period: 20s
+    depends_on:
+      mongo-db-primary:
+        condition: service_healthy
+      mongo-db-secondary-1:
+        condition: service_started
+      mongo-db-secondary-2:
+        condition: service_started
+    networks:
+      - hopslot-network
+    volumes:
+      - ./init-files:/init-files:ro
+  mongo-db-primary:
+    image: mongo:latest
+    container_name: hopslot-mongo-db-primary--prod
+    command: ["--replSet", "rs0", "--bind_ip_all", "--port", "27017"]
+    profiles:
+      - dbs
+      - mongo
+    healthcheck:
+      test: echo "try { rs.status() } catch (err) { rs.initiate({_id:'rs0',members:[{_id:0,host:'mongo-db-primary:27017',priority:1},{_id:1,host:'mongo-db-secondary-1:27018',priority:0.5},{_id:2,host:'mongo-db-secondary-2:27019',priority:0.5}]}) }" | mongosh --port 27017 --quiet | sleep 30 | echo "rs.status()" | mongosh --port 27017 --quiet
+      interval: 10s
+      retries: 3
+      start_period: 30s
+      timeout: 2m
+    ports:
+      - 27027:27017
+    env_file:
+      - ./env/mongo.local.env
+    restart: always
+    volumes:
+      - ./bind-mounts-prod/mongo/mongo-primary-1/data:/data/db
+      - ./bind-mounts-prod/mongo/mongo-primary-1/config:/data/configdb
+      - ./init-files:/init-files:ro
+    networks:
+      - hopslot-network
+  mongo-db-secondary-1:
+    image: mongo:latest
+    container_name: hopslot-mongo-db-secondary-1--prod
+    command: ["--replSet", "rs0", "--bind_ip_all", "--port", "27018"]
+    profiles:
+      - dbs
+      - mongo
+    ports:
+      - 27028:27018
+    volumes:
+      - "./bind-mounts-prod/mongo/mongo-secondary-1/data:/data/db"
+      - "./bind-mounts-prod/mongo/mongo-secondary-1/config:/data/configdb"
+    networks:
+      - hopslot-network
+  mongo-db-secondary-2:
+    image: mongo:latest
+    container_name: hopslot-mongo-db-secondary-2--prod
+    command: ["--replSet", "rs0", "--bind_ip_all", "--port", "27019"]
+    profiles:
+      - dbs
+      - mongo
+    ports:
+      - 27029:27019
+    volumes:
+      - "./bind-mounts-prod/mongo/mongo-secondary-2/data:/data/db"
+      - "./bind-mounts-prod/mongo/mongo-secondary-2/config:/data/configdb"
+    networks:
+      - hopslot-network
+
+  ### STREAMING ###
+  kafka-controller-1:
+    image: confluentinc/cp-kafka:latest
+    profiles:
+      - k-controllers
+    env_file:
+      - ./env/kafka-controller-1.local.env
+    volumes:
+      - kafka-controller-1-data:/var/lib/kafka/data
+    networks:
+      - hopslot-network
+  kafka-controller-2:
+    image: confluentinc/cp-kafka:latest
+    profiles:
+      - k-controllers
+    env_file:
+      - ./env/kafka-controller-2.local.env
+    volumes:
+      - kafka-controller-2-data:/var/lib/kafka/data
+    networks:
+      - hopslot-network
+  kafka-controller-3:
+    image: confluentinc/cp-kafka:latest
+    profiles:
+      - k-controllers
+    env_file:
+      - ./env/kafka-controller-3.local.env
+    volumes:
+      - kafka-controller-3-data:/var/lib/kafka/data
+    networks:
+      - hopslot-network
+  kafka-broker-1:
+    image: confluentinc/cp-kafka:latest
+    profiles:
+      - k-brokers
+    ports:
+      - 9093:9092
+    env_file:
+      - ./env/kafka-broker-1.local.env
+    volumes:
+      - kafka-data-1:/var/lib/kafka/data
+    networks:
+      - hopslot-network
+  kafka-broker-2:
+    image: confluentinc/cp-kafka:latest
+    profiles:
+      - k-brokers
+    depends_on:
+      - kafka-broker-1
+    ports:
+      - 9094:9092
+    env_file:
+      - ./env/kafka-broker-2.local.env
+    volumes:
+      - kafka-data-2:/var/lib/kafka/data
+    networks:
+      - hopslot-network
+  kafka-broker-3:
+    image: confluentinc/cp-kafka:latest
+    profiles:
+      - k-brokers
+    depends_on:
+      - kafka-broker-2
+    ports:
+      - 9095:9092
+    env_file:
+      - ./env/kafka-broker-3.local.env
+    volumes:
+      - kafka-data-3:/var/lib/kafka/data
+    networks:
+      - hopslot-network
+  kafka-ui:
+    container_name: kafka-ui--prod
+    image: provectuslabs/kafka-ui:latest
+    ports:
+      - 8081:8080
+    profiles:
+      - k-ui
+    environment:
+      DYNAMIC_CONFIG_ENABLED: "true"
+      KAFKA_CLUSTERS_0_NAME: "HP-Prod"
+      KAFKA_CLUSTERS_0_BOOTSTRAPSERVERS: kafka-broker-1:9092
+    volumes:
+      - ./bind-mounts-prod/kui/config.yaml:/etc/kafkaui/dynamic_config.yaml
+    networks:
+      - hopslot-network
+
+  ### APPS ###
+  hopslot-api:
+    build:
+      context: ../api
+      dockerfile: ./dockerfiles/api.prod.dockerfile
+    container_name: hopslot-api--prod
+    profiles:
+      - apis
+    image: zerefarham/hopslot-api:prod
+    ports:
+      - 3004:3000
+    environment:
+      - DOCKER_DEFAULT_PLATFORM=linux/amd64
+    env_file:
+      - ../api/.env
+    networks:
+      - hopslot-network
+    secrets:
+      - fb-app-creds
+  
+  hopslot-django-api:
+    build:
+      context: ../django-api
+      dockerfile: ./dockerfiles/django.dockerfile
+    container_name: hopslot-django-api--prod
+    image: zerefarham/hopslot-django-api:prod
+    profiles:
+      - apis
+    ports:
+      - 3005:3001
+    env_file:
+      - ../django-api/.env
+    depends_on:
+      - hopslot-api
+    networks:
+      - hopslot-network
+
+networks:
+  hopslot-network:
+
+volumes:
+  kafka-data-1:
+  kafka-data-2:
+  kafka-data-3:
+  api_node_modules:
+  kafka-controller-1-data:
+  kafka-controller-2-data:
+  kafka-controller-3-data:
+
+secrets:
+  fb-app-creds:
+    file: ../api/hopslot-fb-key.json

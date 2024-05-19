@@ -1,13 +1,24 @@
 {
   "folders": [
     {
+      "name": "api",
       "path": "api"
     },
     {
+      "name": "app",
       "path": "app"
     },
     {
+      "name": "django-api",
+      "path": "django-api"
+    },
+    {
+      "name": "docker",
       "path": "docker"
+    },
+    {
+      "name": "Readmes",
+      "path": "../Readmes"
     }
   ],
   "settings": {

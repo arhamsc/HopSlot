@@ -135,6 +135,7 @@ services:
       context: ../api
       dockerfile: ./dockerfiles/api.dockerfile
     container_name: hopslot-api
+    restart: on-failure
     image: zerefarham/hopslot-api
     volumes:
       - ../api:/app

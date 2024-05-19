@@ -20,7 +20,7 @@ export class ReSchedulerService implements OnModuleInit {
   onModuleInit() {
     this.kConsumer.consume(
       {
-        topics: ['reschedule-appointments'],
+        topics: ['rescheduleAppointment'],
       },
       {
         eachMessage: async ({ message }) => {
@@ -36,7 +36,7 @@ export class ReSchedulerService implements OnModuleInit {
 
   rescheduleAppointments(userId: string): APIResponse {
     this.kProducer.produce({
-      topic: 'reschedule-appointments',
+      topic: 'rescheduleAppointment',
       messages: [
         {
           value: JSON.stringify({

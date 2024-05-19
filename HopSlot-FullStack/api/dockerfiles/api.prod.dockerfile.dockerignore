@@ -25,3 +25,10 @@ logs
 
 .env
 .env.local
+.env.prod
+
+hopslot-fb-key.json
+
+.gitignore
+
+api.sh

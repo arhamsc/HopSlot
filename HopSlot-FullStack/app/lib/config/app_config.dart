@@ -15,7 +15,11 @@ import 'package:geolocator/geolocator.dart';
 
 class AppConfig {
   Future<void> loadEnvs() async {
-    await dotenv.load(fileName: ".env");
+    if (kDebugMode == true) {
+      await dotenv.load(fileName: ".env");
+    } else {
+      await dotenv.load(fileName: ".env.prod");
+    }
   }
 
   Future<void> configureHive() async {
