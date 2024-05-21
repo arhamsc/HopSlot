@@ -75,14 +75,19 @@ export class DocInfoService {
       minute: 59,
       second: 59,
     });
+    if (DateTime.now().hour >= 21) {
+      // Add one day to endDate
+      endDate = endDate.plus({ days: 1 });
+    }
+
     // TODO: Universalize the date time values in UTC
     return from(
       this.pgPrisma.appointment.findMany({
         where: {
           doctorId,
           appointmentStart: {
-            gte: startDate.toISO({ includeOffset: false }) + 'Z',
-            lt: endDate.toISO({ includeOffset: false }) + 'Z',
+            gte: startDate.toJSDate(),
+            lt: endDate.toJSDate(),
           },
           status: { not: 'COMPLETED' },
         },

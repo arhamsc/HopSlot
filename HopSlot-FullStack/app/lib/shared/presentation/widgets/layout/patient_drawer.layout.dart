@@ -7,7 +7,6 @@ import 'package:app/shared/presentation/widgets/ui/buttons/button.ui.dart';
 import 'package:app/shared/presentation/widgets/ui/typography/body.typo.dart';
 import 'package:app/shared/presentation/widgets/ui/typography/headline.typo.dart';
 import 'package:app/shared/presentation/widgets/ui/typography/title.typo.dart';
-import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';

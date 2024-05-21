@@ -1,75 +1,69 @@
+import 'package:app/core/logger/talker.dart';
 import 'package:app/core/pragma_func.dart';
-import 'package:app/main/data/repositories/fcm/fcm.repo.dart';
-import 'package:app/main/data/repositories/fcm/flutter_local_noti.repo.dart';
+import 'package:app/main/data/providers/repo_providers/repo.providers.dart';
 import 'package:app/main/domain/entities/notification/notification.model.dart';
 import 'package:app/main/domain/entities/notification_data/notification_data.model.dart';
-import 'package:app/main/domain/use_cases/auth_ucs/update_token.uc.dart';
+import 'package:app/main/domain/providers/use_case_providers/use_case.provides.dart';
+import 'package:app/main/domain/providers/user_provider/user.provider.dart';
 import 'package:app/main/domain/entities/user/user.model.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
-import 'package:talker_flutter/talker_flutter.dart';
+import 'package:riverpod_annotation/riverpod_annotation.dart';
 
-class FBMessagingService {
-  final FCMRepo _fcm;
-  final FlutterLocalNotificationRepo _fln;
-  final UpdateTokenUC _updateTokenUC;
-  final Talker _talker;
-  final User _user;
+part 'notification.service.g.dart';
 
-  FBMessagingService({
-    required FCMRepo fcm,
-    required FlutterLocalNotificationRepo fln,
-    required UpdateTokenUC updateTokenUC,
-    required Talker talker,
-    required User user,
-  })  : _fcm = fcm,
-        _fln = fln,
-        _updateTokenUC = updateTokenUC,
-        _talker = talker,
-        _user = user {
-    // _setupOnTokenChanged();
-    initializePlugins().then((_) async {
-      await _setupListeners();
-    });
+@Riverpod(keepAlive: true)
+class FBMessagingService extends _$FBMessagingService {
+  final fln = FlutterLocalNotificationsPlugin();
+
+  @override
+  Future<void> build() async {
+    await initializePlugins();
+    await _setupListeners();
   }
 
   void onSelectNotificationIoS(
       int id, String? title, String? body, String? payload) {
-    _talker.debug("onSelectNotificationIoS: $id, $title, $body, $payload");
+    ref
+        .read(talkerProvider)
+        .talker
+        .debug("onSelectNotificationIoS: $id, $title, $body, $payload");
   }
 
   void onSelectNotificationFLN(NotificationResponse notification) {
-    _talker.debug(
+    ref.read(talkerProvider).talker.debug(
         "onSelectNotificationIoSFLN: ${notification.payload}, ${notification.input}");
   }
 
   Future<void> initializePlugins() async {
-    await _fcm.requestPermission().run();
-    await _fln.createPlatformChannelAndroid();
-    await _fln.initPlugin(
-      onSelectNotificationIoS: onSelectNotificationIoS,
-      onLocalNotificationForeground: onSelectNotificationFLN,
-      onLocalNotificationBackground: onDidReceiveBGNotiFLN,
-    );
+    await ref.read(fcmRepoProvider).requestPermission().run();
+    await ref
+        .read(flutterLocalNotificationRepoProvider(fln))
+        .createPlatformChannelAndroid();
+    await ref.read(flutterLocalNotificationRepoProvider(fln)).initPlugin(
+          onSelectNotificationIoS: onSelectNotificationIoS,
+          onLocalNotificationForeground: onSelectNotificationFLN,
+          onLocalNotificationBackground: onDidReceiveBGNotiFLN,
+        );
   }
 
   Future<String?> getToken() async {
-    return await _fcm.getToken();
+    return await ref.read(fcmRepoProvider).getToken();
   }
 
   _setupListeners() async {
-    _fcm.setupOnTokenChanged((token) async {
-      _talker.debug("Token refreshed: $token");
-      if (_user == User.empty()) {
+    ref.read(fcmRepoProvider).setupOnTokenChanged((token) async {
+      ref.read(talkerProvider).talker.debug("Token refreshed: $token");
+      if (ref.read(userNotifierProvider) == User.empty()) {
         return;
       }
-      await _updateTokenUC.call(token);
+      await ref.read(updateTokenUCProvider).call(token);
     });
 
-    _fcm.setupGetOnInit((message) async {
+    ref.read(fcmRepoProvider).setupGetOnInit((message) async {
       if (message == null) {
         return;
       }
-      _talker.debug("On Init Message: $message");
+      ref.read(talkerProvider).talker.debug("On Init Message: $message");
       final notification = Notification(
         body: message.notification?.body ?? '',
         title: message.notification?.title ?? '',
@@ -78,23 +72,30 @@ class FBMessagingService {
             ? NotificationData.fromJson(message.data)
             : null,
       );
-      await _fln.cancelAll();
-      _fln.showNotification(notification: notification);
+      await ref.read(flutterLocalNotificationRepoProvider(fln)).cancelAll();
+      ref
+          .read(flutterLocalNotificationRepoProvider(fln))
+          .showNotification(notification: notification);
     });
 
-    _fcm.setupOnMessageOpened((message) {
-      _talker.debug("On Message Opened: $message");
+    ref.read(fcmRepoProvider).setupOnMessageOpened((message) {
+      ref.read(talkerProvider).talker.debug("On Message Opened: $message");
       final notification = Notification(
         body: message?.notification?.body ?? '',
         title: message?.notification?.title ?? '',
         id: message?.messageId.hashCode ?? 0,
         data: NotificationData.fromJson(message?.data ?? {}),
       );
-      _fln.showNotification(notification: notification);
+      ref
+          .read(flutterLocalNotificationRepoProvider(fln))
+          .showNotification(notification: notification);
     });
 
-    _fcm.setupOnMessageReceived((message) {
-      _talker.debug("On Message Received: $message, data: ${message?.data}");
+    ref.read(fcmRepoProvider).setupOnMessageReceived((message) {
+      ref
+          .read(talkerProvider)
+          .talker
+          .debug("On Message Received: $message, data: ${message?.data}");
       final notification = Notification(
         body: message?.notification?.body ?? '',
         title: message?.notification?.title ?? '',
@@ -103,9 +104,11 @@ class FBMessagingService {
             ? NotificationData.fromJson(message?.data ?? {})
             : null,
       );
-      _fln.showNotification(notification: notification);
+      ref
+          .read(flutterLocalNotificationRepoProvider(fln))
+          .showNotification(notification: notification);
     });
 
-    _fcm.setupOnMessageBackground(onFCMBackground);
+    ref.read(fcmRepoProvider).setupOnMessageBackground(onFCMBackground);
   }
 }

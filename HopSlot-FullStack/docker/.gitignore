@@ -2,6 +2,7 @@ redis-bind-mount
 ignored/
 bind-mounts/
 bind-mounts-prod/
+bind-mounts-dev/
 env/
 init-files/
 secrets

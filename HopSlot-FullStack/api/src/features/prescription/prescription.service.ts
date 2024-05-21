@@ -27,6 +27,8 @@ export class PrescriptionService {
         where: {
           id: createPrescriptionDto.appointmentId,
           patientId: createPrescriptionDto.patientId,
+          doctorId: createPrescriptionDto.doctorId,
+          status: { notIn: ['CANCELLED', 'COMPLETED'] },
         },
       }),
     ).pipe(

@@ -1,7 +1,6 @@
 import 'package:app/core/constants/enums.dart';
 import 'package:app/core/router/app_router.dart';
 import 'package:app/core/router/app_router.gr.dart';
-import 'package:app/core/theme/palette.dart';
 import 'package:app/main/presentation/doctor/controllers/doc_home_controller/doc_home.controller.dart';
 import 'package:app/main/presentation/doctor/widgets/stat_card.widget.dart';
 import 'package:app/shared/presentation/providers/snack_bar_messenger_provider/snack_bar_messenger_provider.dart';

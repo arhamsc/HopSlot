@@ -25,8 +25,9 @@ class ProfileScreen extends ConsumerWidget {
 
     ref.listen(profileControllerProvider, (previous, next) {
       if (next.isLoading) {
-        ref.read(snackBarMessengerProvider.notifier).showSnackBar(
-            message: "Updating location.", type: SnackbarType.loading);
+        ref
+            .read(snackBarMessengerProvider.notifier)
+            .showSnackBar(message: "Loading...", type: SnackbarType.loading);
         return;
       }
       next.showSnackbarOnAppError(context, ref);

@@ -2,16 +2,18 @@ import 'package:app/config/app_config.dart';
 import 'package:app/core/logger/talker.dart';
 import 'package:app/core/router/app_router.dart';
 import 'package:app/core/theme/app_theme.dart';
-import 'package:app/main/application/providers/service_providers/service.providers.dart';
+import 'package:app/main/application/services/location.service.dart';
+import 'package:app/main/application/services/notification.service.dart';
 import 'package:app/main/presentation/handlers/providers/handler.providers.dart';
-import 'package:app/main/presentation/listeners/providers/listeners.provider.dart';
+import 'package:app/main/presentation/listeners/fcm_token.listener.dart';
+import 'package:app/main/presentation/listeners/fetch_user_data.listener.dart';
 import 'package:app/utils/observers/auto_route_observer.dart';
-import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:flutter_keyboard_visibility/flutter_keyboard_visibility.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:permission_handler/permission_handler.dart';
 import 'package:reactive_forms_annotations/reactive_forms_annotations.dart';
 
 //IMPORTANT: This container should'nt be access anywhere inside the app apart from validators which is dart only use_case.
@@ -30,11 +32,7 @@ Future<void> main() async {
   container.observers.add(talker.talkerRiverpodObserver);
 
   container.read(appRouterProvider);
-  container.read(locationServiceProvider);
-  container.read(fbMessagingServiceProvider);
   container.read(routeRefreshHandlerProvider);
-  container.read(fetchUserDataListenerProvider);
-  container.read(fcmTokenListenerProvider);
 
   runApp(
     UncontrolledProviderScope(
@@ -51,10 +49,31 @@ class MyApp extends HookConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     useEffect(() {
-      FirebaseMessaging.instance.requestPermission();
+      Future.delayed(Duration.zero, () async {
+        const notificationPermission = Permission.notification;
+        if (!(await notificationPermission.status.isGranted)) {
+          await notificationPermission.request();
+        }
 
+        const locationPermission = Permission.location;
+
+        if (!(await locationPermission.status.isGranted)) {
+          await locationPermission.request();
+        }
+
+        const backgroundLocationPermission = Permission.locationAlways;
+        if (!(await backgroundLocationPermission.status.isGranted)) {
+          await backgroundLocationPermission.request();
+        }
+
+        ref.read(locationServiceProvider);
+        ref.read(fBMessagingServiceProvider);
+        ref.read(fCMTokenListenerProvider);
+        ref.read(fetchUserDataListenerProvider);
+      });
       return () {};
-    });
+    }, []);
+
     final appRouter = ref.watch(appRouterProvider);
     final talker = ref.watch(talkerProvider);
 

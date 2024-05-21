@@ -204,7 +204,7 @@ services:
     environment:
       - DOCKER_DEFAULT_PLATFORM=linux/amd64
     env_file:
-      - ../api/.env
+      - ./secrets/prod/nest-api.env
     networks:
       - hopslot-network
     secrets:
@@ -221,7 +221,7 @@ services:
     ports:
       - 3005:3001
     env_file:
-      - ../django-api/.env
+      - ./secrets/prod/django-api.env
     depends_on:
       - hopslot-api
     networks:

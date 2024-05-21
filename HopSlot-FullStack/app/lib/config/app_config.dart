@@ -6,7 +6,6 @@ import 'package:app/main/domain/entities/patient/patient.model.dart';
 import 'package:app/main/domain/entities/user/user.model.dart';
 import 'package:app/main/domain/helpers/tokens/tokens.model.dart';
 import 'package:app/utils/get_position.dart';
-import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
@@ -73,7 +72,5 @@ class AppConfig {
     await Firebase.initializeApp(
       options: DefaultFirebaseOptions.currentPlatform,
     );
-
-    FirebaseAnalytics analytics = FirebaseAnalytics.instance;
   }
 }

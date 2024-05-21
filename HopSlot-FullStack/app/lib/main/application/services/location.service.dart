@@ -1,58 +1,59 @@
 import 'dart:async';
 
-import 'package:app/main/domain/use_cases/doc_use_cases/i_am_late.uc.dart';
+import 'package:app/main/domain/providers/use_case_providers/use_case.provides.dart';
 import 'package:app/main/domain/entities/user/user.model.dart';
 import 'package:app/main/domain/providers/doctor_provider/doctor.provider.dart';
 import 'package:app/main/domain/providers/user_provider/user.provider.dart';
 import 'package:flutter/foundation.dart';
 import 'package:geolocator/geolocator.dart';
-import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:riverpod_annotation/riverpod_annotation.dart';
 
-class LocationService {
-  final IAmLateUC _iAmLateUC;
-  final Ref ref;
+part 'location.service.g.dart';
 
+@Riverpod(keepAlive: true)
+class LocationService extends _$LocationService {
   late final LocationSettings locationSettings;
 
-  LocationService(this._iAmLateUC, this.ref) {
-    requestPermission().then((val) async {
-      if (defaultTargetPlatform == TargetPlatform.android) {
-        locationSettings = AndroidSettings(
-            accuracy: LocationAccuracy.high,
-            distanceFilter: 100,
-            forceLocationManager: true,
-            intervalDuration: const Duration(seconds: 10),
-            //(Optional) Set foreground notification config to keep the app alive
-            //when going to the background
-            foregroundNotificationConfig: const ForegroundNotificationConfig(
-              notificationText:
-                  "Hopslot app will continue to receive your location even when you aren't using it",
-              notificationTitle: "Running in Background",
-              enableWakeLock: true,
-            ));
-      } else if (defaultTargetPlatform == TargetPlatform.iOS ||
-          defaultTargetPlatform == TargetPlatform.macOS) {
-        locationSettings = AppleSettings(
-          accuracy: LocationAccuracy.high,
-          activityType: ActivityType.fitness,
-          distanceFilter: 100,
-          pauseLocationUpdatesAutomatically: true,
-          // Only set to true if our app will be started up in the background.
-          showBackgroundLocationIndicator: false,
-        );
-      } else {
-        locationSettings = const LocationSettings(
-          accuracy: LocationAccuracy.high,
-          distanceFilter: 100,
-        );
-      }
+  @override
+  Future<void> build() async {
+    await requestPermission();
 
-      _init();
-      return val;
-    });
+    if (defaultTargetPlatform == TargetPlatform.android) {
+      locationSettings = AndroidSettings(
+          accuracy: LocationAccuracy.high,
+          distanceFilter: 100,
+          forceLocationManager: true,
+          intervalDuration: const Duration(seconds: 10),
+          //(Optional) Set foreground notification config to keep the app alive
+          //when going to the background
+          foregroundNotificationConfig: const ForegroundNotificationConfig(
+            notificationText:
+                "Hopslot app will continue to receive your location even when you aren't using it",
+            notificationTitle: "Running in Background",
+            enableWakeLock: true,
+          ));
+    } else if (defaultTargetPlatform == TargetPlatform.iOS ||
+        defaultTargetPlatform == TargetPlatform.macOS) {
+      locationSettings = AppleSettings(
+        accuracy: LocationAccuracy.high,
+        activityType: ActivityType.fitness,
+        distanceFilter: 100,
+        pauseLocationUpdatesAutomatically: true,
+        // Only set to true if our app will be started up in the background.
+        showBackgroundLocationIndicator: false,
+      );
+    } else {
+      locationSettings = const LocationSettings(
+        accuracy: LocationAccuracy.high,
+        distanceFilter: 100,
+      );
+    }
+
+    _init();
   }
 
   StreamSubscription<Position> _init() {
+    final iAmLateUC = ref.read(iAmLateUCProvider);
     StreamSubscription<Position> positionStream =
         Geolocator.getPositionStream(locationSettings: locationSettings)
             .listen((Position? position) async {
@@ -60,7 +61,7 @@ class LocationService {
       if (user == User.empty()) {
         return;
       }
-      final closest = await _iAmLateUC.callClosestAppointment();
+      final closest = await iAmLateUC.callClosestAppointment();
       if (closest.isLeft()) {
         return;
       } else {
@@ -81,7 +82,7 @@ class LocationService {
                         .inMinutes ??
                     0) <
                 0) {
-          await _iAmLateUC.call();
+          await iAmLateUC.call();
         }
       }
     });

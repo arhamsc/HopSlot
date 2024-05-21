@@ -4,10 +4,12 @@ services:
   redis:
     container_name: redis-scheduler-queue
     image: redis:latest
+    profiles:
+      - dbs
     ports:
       - 6379:6379
     volumes:
-      - ./bind-mounts/redis-bind-mount:/data
+      - ./bind-mounts-dev/redis-bind-mount:/data
     networks:
       - hopslot-network
   pg-db:
@@ -15,10 +17,12 @@ services:
     container_name: hopslot-pg-db
     ports:
       - 5432:5432
+    profiles:
+      - dbs
     env_file:
       - ./env/pg.local.env
     volumes:
-      - ./bind-mounts/postgres:/var/lib/postgresql/data
+      - ./bind-mounts-dev/postgres:/var/lib/postgresql/data
     networks:
       - hopslot-network
   ## MONGO CLUSTER ##
@@ -26,6 +30,9 @@ services:
     image: mongo:latest
     container_name: hopslot-mongo-helper
     command: "mongosh hopslot-mongo-db --host mongo-db-primary:27017 --file /init-files/mongo-init-2.js"
+    profiles:
+      - dbs
+      - mongo
     healthcheck:
       test: "mongosh hopslot-mongo-db --host mongo-db-primary:27017 --file /init-files/mongo-init-2.js | grep 'OK!"
       interval: 10s
@@ -53,63 +60,119 @@ services:
       retries: 3
       start_period: 30s
       timeout: 2m
+    profiles:
+      - dbs
+      - mongo
     ports:
       - 27017:27017
     env_file:
       - ./env/mongo.local.env
     restart: always
     volumes:
-      - ./bind-mounts/mongo/mongo-primary-1/data:/data/db
-      - ./bind-mounts/mongo/mongo-primary-1/config:/data/configdb
+      - ./bind-mounts-dev/mongo/mongo-primary-1/data:/data/db
+      - ./bind-mounts-dev/mongo/mongo-primary-1/config:/data/configdb
       - ./init-files:/init-files:ro
     networks:
       - hopslot-network
   mongo-db-secondary-1:
     image: mongo:latest
     container_name: hopslot-mongo-db-secondary-1
+    profiles:
+      - dbs
+      - mongo
     command: ["--replSet", "rs0", "--bind_ip_all", "--port", "27018"]
     ports:
       - 27018:27018
     volumes:
-      - "./bind-mounts/mongo/mongo-secondary-1/data:/data/db"
-      - "./bind-mounts/mongo/mongo-secondary-1/config:/data/configdb"
+      - "./bind-mounts-dev/mongo/mongo-secondary-1/data:/data/db"
+      - "./bind-mounts-dev/mongo/mongo-secondary-1/config:/data/configdb"
     networks:
       - hopslot-network
   mongo-db-secondary-2:
     image: mongo:latest
     container_name: hopslot-mongo-db-secondary-2
     command: ["--replSet", "rs0", "--bind_ip_all", "--port", "27019"]
+    profiles:
+      - dbs
+      - mongo
     ports:
       - 27019:27019
     volumes:
-      - "./bind-mounts/mongo/mongo-secondary-2/data:/data/db"
-      - "./bind-mounts/mongo/mongo-secondary-2/config:/data/configdb"
+      - "./bind-mounts-dev/mongo/mongo-secondary-2/data:/data/db"
+      - "./bind-mounts-dev/mongo/mongo-secondary-2/config:/data/configdb"
     networks:
       - hopslot-network
 
   ### STREAMING ###
-  zookeeper:
-    image: confluentinc/cp-zookeeper:latest
+  ### STREAMING ###
+  kafka-controller-1:
+    image: confluentinc/cp-kafka:latest
+    profiles:
+      - k-controllers
     env_file:
-      - ./env/zookeeper.local.env
-    ports:
-      - 22181:2181
+      - ./env/kafka-controller-1.local.env
     volumes:
-      - ./bind-mounts/zoo/data:/var/lib/zookeeper/data
-      - ./bind-mounts/zoo/log:/var/lib/zookeeper/log
+      - kafka-controller-1-data-dev:/var/lib/kafka/data
     networks:
       - hopslot-network
-  kafka:
+  kafka-controller-2:
     image: confluentinc/cp-kafka:latest
-    depends_on:
-      - zookeeper
+    profiles:
+      - k-controllers
+    env_file:
+      - ./env/kafka-controller-2.local.env
+    volumes:
+      - kafka-controller-2-data-dev:/var/lib/kafka/data
+    networks:
+      - hopslot-network
+  kafka-controller-3:
+    image: confluentinc/cp-kafka:latest
+    profiles:
+      - k-controllers
+    env_file:
+      - ./env/kafka-controller-3.local.env
+    volumes:
+      - kafka-controller-3-data-dev:/var/lib/kafka/data
+    networks:
+      - hopslot-network
+  kafka-broker-1:
+    image: confluentinc/cp-kafka:latest
+    profiles:
+      - k-brokers
     ports:
       - 9092:9092
-      - 29092:29092
     env_file:
-      - ./env/kafka.local.env
+      - ./env/kafka-broker-1.local.env
     volumes:
-      - kafa-data-1:/var/lib/kafka/data
+      - kafka-data-1-dev:/var/lib/kafka/data
+    networks:
+      - hopslot-network
+  kafka-broker-2:
+    image: confluentinc/cp-kafka:latest
+    profiles:
+      - k-brokers
+    depends_on:
+      - kafka-broker-1
+    ports:
+      - 9093:9092
+    env_file:
+      - ./env/kafka-broker-2.local.env
+    volumes:
+      - kafka-data-2-dev:/var/lib/kafka/data
+    networks:
+      - hopslot-network
+  kafka-broker-3:
+    image: confluentinc/cp-kafka:latest
+    profiles:
+      - k-brokers
+    depends_on:
+      - kafka-broker-2
+    ports:
+      - 9094:9092
+    env_file:
+      - ./env/kafka-broker-3.local.env
+    volumes:
+      - kafka-data-3-dev:/var/lib/kafka/data
     networks:
       - hopslot-network
   kafka-ui:
@@ -117,15 +180,12 @@ services:
     image: provectuslabs/kafka-ui:latest
     ports:
       - 8080:8080
-    depends_on:
-      - kafka
-      - zookeeper
     environment:
       DYNAMIC_CONFIG_ENABLED: "true"
       KAFKA_CLUSTERS_0_NAME: "HP-Test"
-      KAFKA_CLUSTERS_0_BOOTSTRAPSERVERS: kafka:9092
+      KAFKA_CLUSTERS_0_BOOTSTRAPSERVERS: kafka-broker-1:9092
     volumes:
-      - ./bind-mounts/kui/config.yaml:/etc/kafkaui/dynamic_config.yaml
+      - ./bind-mounts-dev/kui/config.yaml:/etc/kafkaui/dynamic_config.yaml
     networks:
       - hopslot-network
 
@@ -144,11 +204,6 @@ services:
       - 3000:3000
     env_file:
       - ../api/.env
-    depends_on:
-      - pg-db
-      - mongo-db-primary
-      - redis
-      - kafka
     networks:
       - hopslot-network
     secrets:
@@ -175,8 +230,13 @@ networks:
   hopslot-network:
 
 volumes:
-  kafa-data-1:
+  kafka-data-1-dev:
+  kafka-data-2-dev:
+  kafka-data-3-dev:
   api_node_modules:
+  kafka-controller-1-data-dev:
+  kafka-controller-2-data-dev:
+  kafka-controller-3-data-dev:
 
 secrets:
   fb-app-creds:

@@ -4,7 +4,7 @@ import {
   OnModuleDestroy,
   Logger,
 } from '@nestjs/common';
-import { PrismaClient as PostgresPrismaClient } from '@prisma/postgres/client';
+import { PrismaClient as PostgresPrismaClient } from '@prisma-postgres/client';
 
 @Injectable()
 export class PostgresPrismaService
@@ -19,7 +19,7 @@ export class PostgresPrismaService
       try {
         await this.$connect();
 
-        this.logger.log('Successfully connected to postgres database');
+        this.logger.log('Successfully connected to postgres database.');
 
         break;
       } catch (err) {

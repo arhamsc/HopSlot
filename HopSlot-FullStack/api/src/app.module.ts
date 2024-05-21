@@ -4,7 +4,7 @@ import { AuthModule } from './features/auth/auth.module';
 import { argonOptions } from './config/argon.config';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { JwtModule } from '@nestjs/jwt';
-import { APP_GUARD, APP_PIPE, RouterModule } from '@nestjs/core';
+import { APP_FILTER, APP_GUARD, APP_PIPE, RouterModule } from '@nestjs/core';
 import { AdminModule } from './features/users/admin/admin.module';
 import { PostgresPrismaService } from './global/database/postgres-prisma.service';
 import { MongoPrismaService } from './global/database/mongo-prisma.service';
@@ -33,6 +33,7 @@ import { ReportsModule } from './features/reports/reports.module';
 import { PatientModule } from './features/users/consumers/patient/patient.module';
 import { FirebaseModule } from 'nestjs-firebase';
 import { NotificationModule } from './global/notification/notification.module';
+import { PrismaClientExceptionFilter } from './filters';
 
 @Module({
   imports: [
@@ -93,6 +94,7 @@ import { NotificationModule } from './global/notification/notification.module';
     MongoPrismaService,
     RTJwtStrategy,
     ATJwtStrategy,
+
     {
       provide: APP_GUARD,
       useClass: AtGuard,
@@ -104,6 +106,10 @@ import { NotificationModule } from './global/notification/notification.module';
     {
       provide: APP_PIPE,
       useValue: new MyZodValidation(),
+    },
+    {
+      provide: APP_FILTER,
+      useClass: PrismaClientExceptionFilter,
     },
   ],
 })

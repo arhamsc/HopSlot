@@ -1,1 +1,1 @@
-export * from '@prisma/mongo/client';
+export * from '@prisma-mongo/client';

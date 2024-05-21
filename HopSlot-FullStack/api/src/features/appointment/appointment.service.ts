@@ -67,6 +67,7 @@ export class AppointmentService {
           this.pgPrisma.appointment.findFirst({
             where: {
               appointmentSlotId: createAppointmentDto.appointmentSlotId,
+              patientId: userId,
               appointmentStart: {
                 gte: startTime.toJSDate(),
                 lt: endTime.toJSDate(),
@@ -268,19 +269,14 @@ export class AppointmentService {
       this.pgPrisma.appointment.findMany({
         where: {
           [forEntity === Role.DOCTOR ? 'doctorId' : 'patientId']: userId,
-          OR: [
-            {
-              appointmentStart: type
-                ? type === 'upcoming'
-                  ? { gt: new Date() }
-                  : { lt: new Date() }
-                : undefined,
-            },
-            {
-              appointmentStart:
-                type === 'upcoming' ? { equals: null } : undefined,
-            },
-          ],
+
+          appointmentStart:
+            type !== undefined
+              ? type === 'upcoming'
+                ? { gt: new Date() }
+                : { lt: new Date() }
+              : undefined,
+
           status: type === 'upcoming' ? { not: 'COMPLETED' } : undefined,
         },
         select: {

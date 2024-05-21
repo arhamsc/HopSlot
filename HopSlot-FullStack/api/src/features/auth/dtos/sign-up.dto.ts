@@ -1,5 +1,5 @@
 import { DoctorModel, PatientModel, UserModel } from 'src/core/schemas';
-import { Role } from '@prisma/postgres/client';
+import { Role } from '@prisma-postgres/client';
 import { createZodDto } from 'nestjs-zod/dto';
 import { ZodValidationException } from 'nestjs-zod';
 

@@ -1,4 +1,4 @@
-import { User, Hospital } from '@prisma/postgres/client';
+import { User, Hospital } from '@prisma-postgres/client';
 import {
   Appointment,
   Doctor,

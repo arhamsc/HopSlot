@@ -2,65 +2,42 @@ import {
   ArgumentsHost,
   Catch,
   HttpException,
-  HttpServer,
   HttpStatus,
   Logger,
 } from '@nestjs/common';
 import { BaseExceptionFilter } from '@nestjs/core';
-import { Prisma as PGPrisma } from '@prisma/postgres/client';
-import { Prisma as MDPrisma } from '@prisma/mongo/client';
+import { Prisma as PGPrisma } from '@prisma-postgres/client';
 
 type ErrorCodesStatusMapping = {
   [key: string]: number;
 };
 
-@Catch(
-  PGPrisma.PrismaClientValidationError,
-  PGPrisma.PrismaClientKnownRequestError,
-  PGPrisma.PrismaClientUnknownRequestError,
-  MDPrisma.PrismaClientValidationError,
-  MDPrisma.PrismaClientKnownRequestError,
-  MDPrisma.PrismaClientUnknownRequestError,
-)
+@Catch()
 export class PrismaClientExceptionFilter extends BaseExceptionFilter {
   logger = new Logger(PrismaClientExceptionFilter.name);
+
   private errorCodesStatusMapping: ErrorCodesStatusMapping = {
     P2000: HttpStatus.BAD_REQUEST,
     P2002: HttpStatus.CONFLICT,
     P2025: HttpStatus.NOT_FOUND,
   };
-  constructor(
-    applicationRef?: HttpServer,
-    errorCodesStatusMapping?: ErrorCodesStatusMapping,
-  ) {
-    super(applicationRef);
 
-    if (errorCodesStatusMapping) {
-      this.errorCodesStatusMapping = Object.assign(
-        this.errorCodesStatusMapping,
-        errorCodesStatusMapping,
-      );
-    }
-  }
   catch(exception: any, host: ArgumentsHost) {
-    this.logger.warn({ exception });
+    console.log({ exception, name: exception.name });
     if (
-      exception instanceof PGPrisma.PrismaClientKnownRequestError ||
-      exception instanceof MDPrisma.PrismaClientKnownRequestError
+      exception.name === PGPrisma.PrismaClientKnownRequestError.name ||
+      exception.name === 'NotFoundError'
     ) {
       return this.catchClientKnownRequestError(exception, host);
-    } else if (
-      exception instanceof PGPrisma.PrismaClientValidationError ||
-      exception instanceof MDPrisma.PrismaClientValidationError
-    ) {
+    } else if (exception.name === PGPrisma.PrismaClientValidationError.name) {
       return this.catchClientValidationError(exception, host);
+    } else {
+      super.catch(exception, host);
     }
   }
 
   private catchClientKnownRequestError(
-    exception:
-      | PGPrisma.PrismaClientKnownRequestError
-      | MDPrisma.PrismaClientKnownRequestError,
+    exception: PGPrisma.PrismaClientKnownRequestError,
     host: ArgumentsHost,
   ) {
     const statusCode = this.errorCodesStatusMapping[exception.code];
@@ -88,9 +65,7 @@ export class PrismaClientExceptionFilter extends BaseExceptionFilter {
   }
 
   private catchClientValidationError(
-    exception:
-      | PGPrisma.PrismaClientValidationError
-      | MDPrisma.PrismaClientValidationError,
+    exception: PGPrisma.PrismaClientValidationError,
     host: ArgumentsHost,
   ) {
     const statusCode = HttpStatus.BAD_REQUEST;

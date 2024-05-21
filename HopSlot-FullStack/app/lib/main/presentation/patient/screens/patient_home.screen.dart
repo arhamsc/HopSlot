@@ -1,4 +1,3 @@
-import 'package:app/core/constants/enums.dart';
 import 'package:app/core/router/app_router.dart';
 import 'package:app/core/router/app_router.gr.dart';
 import 'package:app/main/domain/enums/appointment_status/appointment_status.enum.dart';

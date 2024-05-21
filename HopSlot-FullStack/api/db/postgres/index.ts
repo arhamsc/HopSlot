@@ -1,1 +1,1 @@
-export * from '@prisma/postgres/client';
+export * from '@prisma-postgres/client';
