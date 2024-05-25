@@ -2,5 +2,23 @@ services:
   pg-db:
     volumes:
       - pgdata:/var/lib/postgresql/data:Z
+  mongo-db-primary:
+    volumes:
+      - mongo-primary-1-data:/data/db:Z
+      - mongo-primary-1-config:/data/configdb:Z
+  mongo-db-secondary-1:
+    volumes:
+      - mongo-secondary-1-data:/data/db:Z
+      - mongo-secondary-1-config:/data/configdb:Z
+  mongo-db-secondary-2:
+    volumes:
+      - mongo-secondary-2-data:/data/db:Z
+      - mongo-secondary-2-config:/data/configdb:Z
 volumes:
   pgdata:
+  mongo-primary-1-data:
+  mongo-primary-1-config:
+  mongo-secondary-1-data:
+  mongo-secondary-1-config:
+  mongo-secondary-2-data:
+  mongo-secondary-2-config:
