@@ -122,6 +122,8 @@ It has 3 main docker files:
 
     This is the file that needs to be in EC2 or where you deploy, as it will pull the required images and start the service.
 
+Note: 2 and 3 are practically the same, but 3 is for deployment and 2 is for testing production as it builds and then creates containers. (2 will build and then we push and 3 will pull from the server)
+
 Folders:
 
 1. **bind-mounts**:
@@ -147,3 +149,5 @@ Folders:
 6. **harbour.sh**:
 
     This script can be used to simply docker compose commands like to follow you can add -l, and to attach windows file you can add -w.
+
+Note: In deployment, only `docker-compose.deployment.yaml` and `secrets` folder should be copied to EC2 or deployment server.

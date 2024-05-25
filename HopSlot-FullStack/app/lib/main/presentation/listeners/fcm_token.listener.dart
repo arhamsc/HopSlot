@@ -13,7 +13,6 @@ class FCMTokenListener extends _$FCMTokenListener {
     listenToProvider();
   }
 
-  @override
   void listenToProvider() {
     ref.listen(userNotifierProvider, (previous, next) async {
       if (next == User.empty()) {

@@ -20,7 +20,7 @@ services:
     ports:
       - 5433:5432
     env_file:
-      - ./env/pg.local.env
+      - ./env/pg.env
     volumes:
       - ./bind-mounts-prod/postgres:/var/lib/postgresql/data
     networks:
@@ -66,7 +66,7 @@ services:
     ports:
       - 27027:27017
     env_file:
-      - ./env/mongo.local.env
+      - ./env/mongo.env
     restart: always
     volumes:
       - ./bind-mounts-prod/mongo/mongo-primary-1/data:/data/db
@@ -109,7 +109,7 @@ services:
     profiles:
       - k-controllers
     env_file:
-      - ./env/kafka-controller-1.local.env
+      - ./env/kafka-controller-1.env
     volumes:
       - kafka-controller-1-data:/var/lib/kafka/data
     networks:
@@ -119,7 +119,7 @@ services:
     profiles:
       - k-controllers
     env_file:
-      - ./env/kafka-controller-2.local.env
+      - ./env/kafka-controller-2.env
     volumes:
       - kafka-controller-2-data:/var/lib/kafka/data
     networks:
@@ -129,7 +129,7 @@ services:
     profiles:
       - k-controllers
     env_file:
-      - ./env/kafka-controller-3.local.env
+      - ./env/kafka-controller-3.env
     volumes:
       - kafka-controller-3-data:/var/lib/kafka/data
     networks:
@@ -141,7 +141,7 @@ services:
     ports:
       - 9093:9092
     env_file:
-      - ./env/kafka-broker-1.local.env
+      - ./env/kafka-broker-1.env
     volumes:
       - kafka-data-1:/var/lib/kafka/data
     networks:
@@ -155,7 +155,7 @@ services:
     ports:
       - 9094:9092
     env_file:
-      - ./env/kafka-broker-2.local.env
+      - ./env/kafka-broker-2.env
     volumes:
       - kafka-data-2:/var/lib/kafka/data
     networks:
@@ -169,7 +169,7 @@ services:
     ports:
       - 9095:9092
     env_file:
-      - ./env/kafka-broker-3.local.env
+      - ./env/kafka-broker-3.env
     volumes:
       - kafka-data-3:/var/lib/kafka/data
     networks:
