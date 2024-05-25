@@ -2,10 +2,5 @@ services:
   pg-db:
     volumes:
       - pgdata:/var/lib/postgresql/data:Z
-
-  mongo-db:
-    volumes:
-      - mdbdata:/data/db
 volumes:
   pgdata:
-  mdbdata:

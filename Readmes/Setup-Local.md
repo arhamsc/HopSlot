@@ -120,7 +120,7 @@ Steps to run:
 
 Pre-requisites:
 
-1. Create a folder `bind-mounts` if in dev mode or `bind-mounts-prod` if in prod mode, and create a folder `kui` in it and then create **FILE** called `config.yaml`, this is important for kafka UI startup as if you leave it to docker to create files, it will create folders only so kui will fail.
+1. Create a folder `bind-mounts-dev` if in dev mode or `bind-mounts-prod` if in prod mode, and create a folder `kui` in it and then create **FILE** called `config.yaml`, this is important for kafka UI startup as if you leave it to docker to create files, it will create folders only so kui will fail.
 
 2. Create a folder `env` and copy the .env files env-example files in it and setup the env variables.
 
